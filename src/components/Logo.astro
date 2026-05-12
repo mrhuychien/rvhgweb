@@ -1,0 +1,56 @@
+---
+interface Props {
+  class?: string;
+  /** When true, renders just the seal mark without wordmark. */
+  markOnly?: boolean;
+}
+const { class: className = '', markOnly = false } = Astro.props;
+---
+
+<span class={`rvhg-logo ${className}`} aria-hidden={markOnly ? 'true' : undefined}>
+  <svg viewBox="0 0 64 64" width="40" height="40" class="rvhg-logo__mark" role="img" aria-label="Rồng Vàng Hoàng Gia">
+    <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="2" />
+    <circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3" />
+    <text x="32" y="34" text-anchor="middle" dominant-baseline="central" font-family="Fraunces, Georgia, serif" font-weight="700" font-size="20" fill="currentColor">RV</text>
+  </svg>
+  {!markOnly && (
+    <span class="rvhg-logo__text">
+      <strong>Rồng Vàng Hoàng Gia</strong>
+      <small>Đặc sản nức tiếng Hải Dương</small>
+    </span>
+  )}
+</span>
+
+<style>
+  .rvhg-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--color-rvhg-gold-dark);
+  }
+  .rvhg-logo__mark {
+    flex: none;
+  }
+  .rvhg-logo__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .rvhg-logo__text strong {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--color-ink);
+    letter-spacing: 0.01em;
+  }
+  .rvhg-logo__text small {
+    font-size: 0.7rem;
+    color: var(--color-mute);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 480px) {
+    .rvhg-logo__text small {
+      display: none;
+    }
+  }
+</style>

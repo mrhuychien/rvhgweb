@@ -1,0 +1,148 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import LegacyImg from '../components/LegacyImg.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { articleSchema } from '../data/jsonld';
+
+interface Props {
+  post: CollectionEntry<'posts'>;
+}
+const { post } = Astro.props;
+const { title, description, publishDate, updated, author, cover, tags, relatedProducts } = post.data;
+const url = `/${post.id}/`;
+
+const dateStr = new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(publishDate);
+
+let related: CollectionEntry<'products'>[] = [];
+if (relatedProducts.length) {
+  const all = await getCollection('products');
+  related = relatedProducts
+    .map((slug) => all.find((p) => p.id === slug))
+    .filter((p): p is CollectionEntry<'products'> => Boolean(p));
+}
+
+const jsonLd = articleSchema({
+  headline: title,
+  description,
+  image: cover,
+  datePublished: publishDate.toISOString(),
+  dateModified: (updated ?? publishDate).toISOString(),
+  author,
+  url,
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={cover}
+  type="article"
+  publishedTime={publishDate.toISOString()}
+  modifiedTime={(updated ?? publishDate).toISOString()}
+  jsonLd={jsonLd}
+>
+  <article class="rvhg-post">
+    <header class="rvhg-post__head rvhg-container">
+      <Breadcrumbs items={[{ name: 'Tin tức', url: '/tin-tuc/' }, { name: title, url }]} />
+      <h1>{title}</h1>
+      <p class="rvhg-post__meta">
+        <time datetime={publishDate.toISOString()}>{dateStr}</time>
+        <span aria-hidden="true">·</span>
+        <span>{author}</span>
+      </p>
+      {tags.length > 0 && (
+        <ul class="rvhg-post__tags">{tags.map((t) => <li>{t}</li>)}</ul>
+      )}
+    </header>
+
+    {cover && (
+      <div class="rvhg-container rvhg-post__cover">
+        <LegacyImg src={cover} alt={title} width={1200} height={675} loading="eager" fetchpriority="high" />
+      </div>
+    )}
+
+    <div class="rvhg-container rvhg-post__body">
+      <div class="rvhg-prose">
+        <slot />
+      </div>
+    </div>
+
+    {related.length > 0 && (
+      <section class="rvhg-container rvhg-post__related">
+        <h2>Sản phẩm liên quan</h2>
+        <div class="rvhg-post__related-grid">
+          {related.map((p) => <ProductCard product={p} />)}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>
+
+<style>
+  .rvhg-post__head {
+    padding-block: 2.5rem 1rem;
+    max-width: 56rem;
+  }
+  .rvhg-post__head h1 {
+    margin-top: 0.75rem;
+    font-size: var(--text-title);
+  }
+  .rvhg-post__meta {
+    margin-top: 0.6rem;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-mute);
+  }
+  .rvhg-post__tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.85rem;
+  }
+  .rvhg-post__tags li {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: var(--color-rvhg-cream);
+    color: var(--color-rvhg-gold-dark);
+  }
+  .rvhg-post__cover {
+    margin-top: 1.5rem;
+  }
+  .rvhg-post__cover :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+  }
+  .rvhg-post__body {
+    padding-block: 2rem 1rem;
+  }
+  .rvhg-post__related {
+    padding-block: 2rem 4rem;
+  }
+  .rvhg-post__related h2 {
+    font-size: var(--text-subtitle);
+    margin-bottom: 1.25rem;
+  }
+  .rvhg-post__related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .rvhg-post__related-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .rvhg-post__related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import LegacyImg from '../../../components/LegacyImg.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+
+export async function getStaticPaths() {
+  const categories = await getCollection('productCategories');
+  return categories.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const url = `/danh-muc-san-pham/${entry.id}/`;
+const { Content } = await render(entry);
+
+const products = (await getCollection('products'))
+  .filter((p) => p.data.category === entry.id)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title={d.title} description={d.description} canonical={url} image={d.heroImage}>
+  <section class="rvhg-cat-hero">
+    <div class="rvhg-container">
+      <Breadcrumbs items={[{ name: 'Sản phẩm', url: '/san-pham/' }, { name: d.title, url }]} />
+      <h1>{d.title}</h1>
+      <p class="rvhg-cat-hero__lede">{d.description}</p>
+    </div>
+    {d.heroImage && (
+      <div class="rvhg-container rvhg-cat-hero__img">
+        <LegacyImg src={d.heroImage} alt={d.title} width={1200} height={675} loading="eager" fetchpriority="high" />
+      </div>
+    )}
+  </section>
+
+  <section class="rvhg-container rvhg-cat-intro">
+    <div class="rvhg-prose"><Content /></div>
+  </section>
+
+  <section class="rvhg-container rvhg-cat-grid-wrap">
+    <h2>Sản phẩm trong danh mục</h2>
+    {products.length > 0 ? (
+      <div class="rvhg-prodgrid">
+        {products.map((p, i) => <ProductCard product={p} loading={i < 3 ? 'eager' : 'lazy'} />)}
+      </div>
+    ) : (
+      <p>Đang cập nhật sản phẩm cho danh mục này.</p>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .rvhg-cat-hero {
+    padding-top: 2.5rem;
+    background: linear-gradient(180deg, var(--color-rvhg-cream), var(--color-paper));
+  }
+  .rvhg-cat-hero h1 { margin-top: 0.75rem; font-size: var(--text-title); }
+  .rvhg-cat-hero__lede { margin-top: 0.6rem; max-width: 60ch; color: var(--color-mute); font-size: 1.05rem; }
+  .rvhg-cat-hero__img { margin-top: 1.75rem; }
+  .rvhg-cat-hero__img :global(img) { width: 100%; height: auto; border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+  .rvhg-cat-intro { padding-block: 2rem 0.5rem; }
+  .rvhg-cat-grid-wrap { padding-block: 1.5rem 4rem; }
+  .rvhg-cat-grid-wrap h2 { font-size: var(--text-subtitle); margin-bottom: 1.5rem; }
+  .rvhg-prodgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 900px) { .rvhg-prodgrid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .rvhg-prodgrid { grid-template-columns: 1fr; } }
+</style>

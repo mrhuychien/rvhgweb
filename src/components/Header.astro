@@ -1,0 +1,187 @@
+---
+import { NAV } from '../data/site';
+import Logo from './Logo.astro';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(href);
+---
+
+<header class="rvhg-header" data-rvhg-header>
+  <div class="rvhg-container rvhg-header__inner">
+    <a href="/" class="rvhg-header__brand" aria-label="Trang chủ Rồng Vàng Hoàng Gia">
+      <Logo />
+    </a>
+
+    <nav class="rvhg-header__nav" aria-label="Điều hướng chính">
+      <ul>
+        {NAV.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <button
+      type="button"
+      class="rvhg-header__toggle"
+      aria-expanded="false"
+      aria-controls="rvhg-mobile-nav"
+      data-rvhg-menu-toggle
+    >
+      <span class="sr-only">Mở/đóng menu</span>
+      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <nav id="rvhg-mobile-nav" class="rvhg-mobile-nav" aria-label="Điều hướng (di động)" hidden>
+    <ul>
+      {NAV.map((item) => (
+        <li>
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+        </li>
+      ))}
+      <li class="rvhg-mobile-nav__cta"><a href="tel:0934362658">Gọi 0934&nbsp;362&nbsp;658</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .rvhg-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--color-paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--color-line);
+    transition: box-shadow 0.2s ease;
+  }
+  .rvhg-header[data-scrolled] {
+    box-shadow: var(--shadow-soft);
+  }
+  .rvhg-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4.25rem;
+  }
+  .rvhg-header__brand {
+    text-decoration: none;
+  }
+  .rvhg-header__nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+  .rvhg-header__nav a {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .rvhg-header__nav a:hover {
+    background: var(--color-rvhg-cream);
+    color: var(--color-rvhg-gold-dark);
+  }
+  .rvhg-header__nav a[aria-current='page'] {
+    color: var(--color-rvhg-gold-dark);
+    background: var(--color-rvhg-cream);
+  }
+  .rvhg-header__toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+  .rvhg-mobile-nav {
+    border-top: 1px solid var(--color-line);
+    background: var(--color-paper);
+  }
+  .rvhg-mobile-nav ul {
+    list-style: none;
+    padding: 0.5rem 1rem 1rem;
+  }
+  .rvhg-mobile-nav a {
+    display: block;
+    padding: 0.75rem 0.5rem;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rvhg-mobile-nav a[aria-current='page'] {
+    color: var(--color-rvhg-gold-dark);
+  }
+  .rvhg-mobile-nav__cta a {
+    margin-top: 0.75rem;
+    text-align: center;
+    background: var(--color-rvhg-gold);
+    color: #fff;
+    border-radius: 0.5rem;
+    border-bottom: 0;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  @media (max-width: 900px) {
+    .rvhg-header__nav {
+      display: none;
+    }
+    .rvhg-header__toggle {
+      display: inline-flex;
+    }
+  }
+</style>
+
+<script>
+  function initHeader() {
+    const header = document.querySelector('[data-rvhg-header]');
+    const toggle = document.querySelector('[data-rvhg-menu-toggle]');
+    const nav = document.getElementById('rvhg-mobile-nav');
+    if (!header || !toggle || !nav) return;
+
+    const close = () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.hidden = true;
+    };
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      nav.hidden = open;
+    });
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+
+    const onScroll = () => {
+      if (window.scrollY > 4) header.setAttribute('data-scrolled', '');
+      else header.removeAttribute('data-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+  initHeader();
+  document.addEventListener('astro:after-swap', initHeader);
+</script>

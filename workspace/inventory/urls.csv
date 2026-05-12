@@ -1,0 +1,33 @@
+old_url,new_route,content_type,title,status,notes
+https://www.rongvanghoanggia.com/,/,home,Trang chủ — Rồng Vàng Hoàng Gia,built,src/pages/index.astro
+https://www.rongvanghoanggia.com/gioi-thieu/,/gioi-thieu/,page,Giới thiệu Rồng Vàng Hoàng Gia,built,src/content/pages/gioi-thieu.md + src/pages/gioi-thieu/index.astro
+https://www.rongvanghoanggia.com/cau-chuyen-san-pham-rong-vang-hoang-gia-2/,/cau-chuyen-san-pham-rong-vang-hoang-gia-2/,page,Câu chuyện thương hiệu Rồng Vàng Hoàng Gia,built,src/content/pages/cau-chuyen-thuong-hieu.md (via [slug] route)
+https://www.rongvanghoanggia.com/tin-tuc/,/tin-tuc/,post,Tin tức & câu chuyện,built,src/pages/tin-tuc/index.astro (list)
+https://www.rongvanghoanggia.com/cong-bo/,/cong-bo/,page,Công bố & chính sách,built,src/pages/cong-bo/index.astro
+https://www.rongvanghoanggia.com/san-pham/,/san-pham/,page,Sản phẩm Rồng Vàng Hoàng Gia,built,src/pages/san-pham/index.astro
+https://www.rongvanghoanggia.com/diem-ban-rong-vang-hoang-gia/,/diem-ban-rong-vang-hoang-gia/,page,Điểm bán Rồng Vàng Hoàng Gia,built,src/content/pages/diem-ban.md + src/pages/diem-ban-rong-vang-hoang-gia/index.astro
+https://www.rongvanghoanggia.com/lien-he/,/lien-he/,page,Liên hệ Rồng Vàng Hoàng Gia,built,src/content/pages/lien-he.md + src/pages/lien-he/index.astro
+https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-thuong-hang/,/danh-muc-san-pham/banh-dau-xanh-thuong-hang/,product_category,Bánh đậu xanh thượng hạng,built,src/content/product-categories/banh-dau-xanh-thuong-hang.md
+https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-tet/,/danh-muc-san-pham/banh-dau-xanh-tet/,product_category,Bánh đậu xanh Tết — quà biếu,built,src/content/product-categories/banh-dau-xanh-tet.md
+https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-truyen-thong/,/danh-muc-san-pham/banh-dau-xanh-truyen-thong/,product_category,Bánh đậu xanh truyền thống,built,src/content/product-categories/banh-dau-xanh-truyen-thong.md
+https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/,/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/,product_category,Bánh đậu xanh hương vị trái cây,built,src/content/product-categories/banh-dau-xanh-trai-cay-truyen-thong.md
+https://www.rongvanghoanggia.com/danh-muc-san-pham/bot-dau/,/danh-muc-san-pham/bot-dau/,product_category,Bột đậu xanh & Chè đậu đen,built,src/content/product-categories/bot-dau.md
+https://www.rongvanghoanggia.com/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/,/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/,product,Hộp quà bánh đậu xanh OCOP 5 sao Quốc gia,built,src/content/products/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia.md
+https://www.rongvanghoanggia.com/san-pham/hop-qua-thuong-hang-tre-cao-cap/,/san-pham/hop-qua-thuong-hang-tre-cao-cap/,product,Hộp quà thượng hạng tre cao cấp,built,src/content/products/hop-qua-thuong-hang-tre-cao-cap.md
+https://www.rongvanghoanggia.com/san-pham/banh-dau-xanh-banh-chung-vang/,/san-pham/banh-dau-xanh-banh-chung-vang/,product,Bánh đậu xanh Bánh Chưng Vàng,built,src/content/products/banh-dau-xanh-banh-chung-vang.md
+https://www.rongvanghoanggia.com/san-pham/banh-dau-xanh-thuong-hang-300g/,/san-pham/banh-dau-xanh-thuong-hang-300g/,product,Bánh đậu xanh thượng hạng 300g,built,src/content/products/banh-dau-xanh-thuong-hang-300g.md
+https://www.rongvanghoanggia.com/san-pham/banh-dau-tra-xanh/,/san-pham/banh-dau-tra-xanh/,product,Bánh đậu trà xanh,built,src/content/products/banh-dau-tra-xanh.md
+https://www.rongvanghoanggia.com/san-pham/banh-dau-sau-rieng/,/san-pham/banh-dau-sau-rieng/,product,Bánh đậu sầu riêng,built,src/content/products/banh-dau-sau-rieng.md
+https://www.rongvanghoanggia.com/san-pham/banh-dau-xanh-truyen-thong/,/san-pham/banh-dau-xanh-truyen-thong/,product,Bánh đậu xanh truyền thống,built,src/content/products/banh-dau-xanh-truyen-thong.md
+https://www.rongvanghoanggia.com/san-pham/bot-dau-xanh-dinh-duong/,/san-pham/bot-dau-xanh-dinh-duong/,product,Bột đậu xanh dinh dưỡng,built,src/content/products/bot-dau-xanh-dinh-duong.md
+https://www.rongvanghoanggia.com/san-pham/che-dau-den-cot-dua/,/san-pham/che-dau-den-cot-dua/,product,Chè đậu đen cốt dừa,built,src/content/products/che-dau-den-cot-dua.md
+https://www.rongvanghoanggia.com/banh-dau-tra-xanh-banh-dau-sau-rieng-rong-vang-hoang-gia-dat-ocop-5-sao-quoc-gia/,/banh-dau-tra-xanh-banh-dau-sau-rieng-rong-vang-hoang-gia-dat-ocop-5-sao-quoc-gia/,post,Bánh đậu trà xanh & sầu riêng RVHG đạt OCOP 5 sao Quốc gia,built,src/content/posts/...
+https://www.rongvanghoanggia.com/banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu/,/banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu/,post,Bánh đậu trà xanh — một khúc biến tấu của hương sắc và trầm tư,built,src/content/posts/...
+https://www.rongvanghoanggia.com/banh-dau-tra-xanh-cau-chuyen-san-pham/,/banh-dau-tra-xanh-cau-chuyen-san-pham/,post,Bánh đậu trà xanh — câu chuyện sản phẩm,built,src/content/posts/...
+https://www.rongvanghoanggia.com/cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh/,/cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh/,post,Câu chuyện sản phẩm bánh đậu trà xanh bằng hình ảnh,built,src/content/posts/...
+https://www.rongvanghoanggia.com/cau-chuyen-san-pham-banh-dau-sau-rieng-bang-hinh-anh/,/cau-chuyen-san-pham-banh-dau-sau-rieng-bang-hinh-anh/,post,Câu chuyện sản phẩm bánh đậu sầu riêng bằng hình ảnh,built,src/content/posts/...
+https://www.rongvanghoanggia.com/chinh-sach-va-quy-dinh-chung/,/chinh-sach-va-quy-dinh-chung/,policy,Chính sách và quy định chung,built,src/content/policies/...
+https://www.rongvanghoanggia.com/chinh-sach-bao-hanh-doi-tra/,/chinh-sach-bao-hanh-doi-tra/,policy,Chính sách bảo hành — đổi trả,built,src/content/policies/...
+https://www.rongvanghoanggia.com/chinh-sach-van-chuyen/,/chinh-sach-van-chuyen/,policy,Chính sách vận chuyển,built,src/content/policies/...
+https://www.rongvanghoanggia.com/chinh-sach-bao-mat/,/chinh-sach-bao-mat/,policy,Chính sách bảo mật,built,src/content/policies/...
+https://www.rongvanghoanggia.com/ban-tu-cong-bo-rong-vang-hoang-gia/,/ban-tu-cong-bo-rong-vang-hoang-gia/,policy,Bản tự công bố sản phẩm — Rồng Vàng Hoàng Gia,built,src/content/policies/...

@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ProductCard from '../../components/ProductCard.astro';
+
+const categories = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
+const products = (await getCollection('products')).sort((a, b) => a.data.order - b.data.order);
+const byCat = categories.map((cat) => ({
+  cat,
+  items: products.filter((p) => p.data.category === cat.id),
+}));
+---
+
+<BaseLayout
+  title="Sản phẩm Rồng Vàng Hoàng Gia"
+  description="Toàn bộ sản phẩm bánh đậu xanh và bột đậu xanh Rồng Vàng Hoàng Gia: thượng hạng, Tết, truyền thống, hương vị trái cây, bột đậu & chè đậu đen."
+  canonical="/san-pham/"
+>
+  <section class="rvhg-container rvhg-pl">
+    <Breadcrumbs items={[{ name: 'Sản phẩm', url: '/san-pham/' }]} />
+    <h1>Sản phẩm</h1>
+    <p class="rvhg-pl__lede">Bánh đậu xanh OCOP 5 sao Quốc gia, bột đậu xanh dinh dưỡng và chè đậu đen — tất cả từ Công ty Cổ phần Hoàng Giang, sản xuất theo tiêu chuẩn ISO 22000:2018.</p>
+
+    <nav class="rvhg-pl__cats" aria-label="Lọc theo danh mục">
+      {categories.map((c) => <a href={`/danh-muc-san-pham/${c.id}/`}>{c.data.title}</a>)}
+    </nav>
+
+    {byCat.map(({ cat, items }) => (
+      <section class="rvhg-pl__group" id={cat.id}>
+        <header class="rvhg-pl__group-head">
+          <h2><a href={`/danh-muc-san-pham/${cat.id}/`}>{cat.data.title}</a></h2>
+          <a href={`/danh-muc-san-pham/${cat.id}/`}>Xem danh mục →</a>
+        </header>
+        <div class="rvhg-prodgrid">
+          {items.map((p) => <ProductCard product={p} />)}
+        </div>
+      </section>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .rvhg-pl { padding-block: 2.5rem 4rem; }
+  .rvhg-pl h1 { margin-top: 0.75rem; font-size: var(--text-title); }
+  .rvhg-pl__lede { margin-top: 0.75rem; max-width: 60ch; color: var(--color-mute); font-size: 1.05rem; }
+  .rvhg-pl__cats {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .rvhg-pl__cats a {
+    padding: 0.4rem 0.85rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+    text-decoration: none;
+    background: var(--color-paper);
+  }
+  .rvhg-pl__cats a:hover { border-color: var(--color-rvhg-gold); color: var(--color-rvhg-gold-dark); }
+  .rvhg-pl__group { margin-top: 3rem; scroll-margin-top: 6rem; }
+  .rvhg-pl__group-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rvhg-pl__group-head h2 { font-size: var(--text-subtitle); }
+  .rvhg-pl__group-head h2 a { text-decoration: none; color: var(--color-ink); }
+  .rvhg-pl__group-head > a { font-size: 0.85rem; font-weight: 600; color: var(--color-rvhg-gold-dark); text-decoration: none; white-space: nowrap; }
+  .rvhg-prodgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 900px) { .rvhg-prodgrid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .rvhg-prodgrid { grid-template-columns: 1fr; } }
+</style>

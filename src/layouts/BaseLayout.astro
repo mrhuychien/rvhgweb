@@ -1,0 +1,103 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import { SITE } from '../data/site';
+import SEO from '../components/SEO.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { organizationSchema, websiteSchema } from '../data/jsonld';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  /** Extra JSON-LD blocks to inject (Product, Article, FAQ…). */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonical,
+  image,
+  type = 'website',
+  noindex = false,
+  publishedTime,
+  modifiedTime,
+  jsonLd,
+} = Astro.props;
+
+// Analytics placeholders — empty at v1.
+const GA_ID = import.meta.env.PUBLIC_GA_ID ?? '';
+const FB_PIXEL = import.meta.env.PUBLIC_FB_PIXEL ?? '';
+---
+
+<!doctype html>
+<html lang={SITE.lang} dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#8B2E2E" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link rel="preconnect" href={SITE.url} />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/be-vietnam-pro-400-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/be-vietnam-pro-400-vietnamese.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/be-vietnam-pro-600-vietnamese.woff2" crossorigin />
+
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonical}
+      image={image}
+      type={type}
+      noindex={noindex}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+    />
+
+    <JsonLd schema={[organizationSchema(), websiteSchema()]} />
+    {jsonLd && <JsonLd schema={jsonLd} />}
+
+    {GA_ID && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+        <script is:inline define:vars={{ GA_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+        </script>
+      </>
+    )}
+    {FB_PIXEL && (
+      <script is:inline define:vars={{ FB_PIXEL }}>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', FB_PIXEL);
+        fbq('track', 'PageView');
+      </script>
+    )}
+
+    <ClientRouter />
+  </head>
+  <body>
+    <a href="#main" class="rvhg-skip-link">Bỏ qua đến nội dung chính</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

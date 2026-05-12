@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# AI crawlers — full knowledge base
+# llms.txt: https://www.rongvanghoanggia.com/llms.txt
+# llms-full.txt: https://www.rongvanghoanggia.com/llms-full.txt
+
+Sitemap: https://www.rongvanghoanggia.com/sitemap-index.xml

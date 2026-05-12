@@ -1,0 +1,54 @@
+---
+import JsonLd from './JsonLd.astro';
+import { breadcrumbSchema } from '../data/jsonld';
+
+interface Props {
+  /** Ordered crumbs, excluding the implicit "Trang chủ" which is prepended. */
+  items: { name: string; url: string }[];
+}
+const { items } = Astro.props;
+const all = [{ name: 'Trang chủ', url: '/' }, ...items];
+---
+
+<nav class="rvhg-breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {all.map((c, i) => (
+      <li>
+        {i < all.length - 1 ? <a href={c.url}>{c.name}</a> : <span aria-current="page">{c.name}</span>}
+        {i < all.length - 1 && <span class="rvhg-breadcrumbs__sep" aria-hidden="true">/</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+<JsonLd schema={breadcrumbSchema(all)} />
+
+<style>
+  .rvhg-breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    list-style: none;
+    font-size: 0.8rem;
+    color: var(--color-mute);
+  }
+  .rvhg-breadcrumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .rvhg-breadcrumbs a {
+    color: var(--color-mute);
+    text-decoration: none;
+  }
+  .rvhg-breadcrumbs a:hover {
+    color: var(--color-rvhg-gold-dark);
+    text-decoration: underline;
+  }
+  .rvhg-breadcrumbs [aria-current='page'] {
+    color: var(--color-ink-soft);
+  }
+  .rvhg-breadcrumbs__sep {
+    opacity: 0.5;
+  }
+</style>

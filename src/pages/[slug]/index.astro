@@ -1,0 +1,62 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+import PolicyLayout from '../../layouts/PolicyLayout.astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', (p) => !p.data.draft);
+  const policies = await getCollection('policies');
+  const pages = (await getCollection('pages')).filter((p) => !p.data.standalone);
+
+  return [
+    ...posts.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'post' as const, entry } })),
+    ...policies.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'policy' as const, entry } })),
+    ...pages.map((entry) => ({
+      params: { slug: entry.data.route.replace(/^\/+|\/+$/g, '') },
+      props: { kind: 'page' as const, entry },
+    })),
+  ];
+}
+
+type Props =
+  | { kind: 'post'; entry: CollectionEntry<'posts'> }
+  | { kind: 'policy'; entry: CollectionEntry<'policies'> }
+  | { kind: 'page'; entry: CollectionEntry<'pages'> };
+
+const { kind, entry } = Astro.props as Props;
+const { Content } = await render(entry);
+const slug = Astro.params.slug;
+---
+
+{kind === 'post' && (
+  <PostLayout post={entry as CollectionEntry<'posts'>}>
+    <Content />
+  </PostLayout>
+)}
+
+{kind === 'policy' && (
+  <PolicyLayout
+    title={(entry as CollectionEntry<'policies'>).data.title}
+    description={(entry as CollectionEntry<'policies'>).data.description ?? (entry as CollectionEntry<'policies'>).data.title}
+    canonical={`/${slug}/`}
+    effectiveDate={(entry as CollectionEntry<'policies'>).data.effectiveDate}
+    breadcrumbs={[{ name: (entry as CollectionEntry<'policies'>).data.title, url: `/${slug}/` }]}
+  >
+    <Content />
+  </PolicyLayout>
+)}
+
+{kind === 'page' && (
+  <PageLayout
+    title={(entry as CollectionEntry<'pages'>).data.title}
+    description={(entry as CollectionEntry<'pages'>).data.description}
+    canonical={(entry as CollectionEntry<'pages'>).data.route}
+    image={(entry as CollectionEntry<'pages'>).data.ogImage}
+    heroImage={(entry as CollectionEntry<'pages'>).data.heroImage}
+    breadcrumbs={[{ name: (entry as CollectionEntry<'pages'>).data.title, url: (entry as CollectionEntry<'pages'>).data.route }]}
+  >
+    <Content />
+  </PageLayout>
+)}

@@ -1,0 +1,20 @@
+---
+import { getEntry, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const entry = await getEntry('pages', 'lien-he');
+if (!entry) throw new Error('Missing content: pages/lien-he');
+const { Content } = await render(entry);
+const d = entry.data;
+---
+
+<PageLayout
+  title={d.title}
+  description={d.description}
+  canonical={d.route}
+  heading="Liên hệ"
+  lede="Tư vấn sản phẩm, đặt quà biếu, hợp tác phân phối — chúng tôi luôn sẵn sàng."
+  breadcrumbs={[{ name: 'Liên hệ', url: d.route }]}
+>
+  <Content />
+</PageLayout>

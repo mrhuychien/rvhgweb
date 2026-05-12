@@ -1,0 +1,22 @@
+---
+import { getEntry, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const entry = await getEntry('pages', 'gioi-thieu');
+if (!entry) throw new Error('Missing content: pages/gioi-thieu');
+const { Content } = await render(entry);
+const d = entry.data;
+---
+
+<PageLayout
+  title={d.title}
+  description={d.description}
+  canonical={d.route}
+  image={d.ogImage}
+  heroImage={d.heroImage}
+  heading="Giới thiệu Rồng Vàng Hoàng Gia"
+  lede="28 năm gìn giữ tinh hoa bánh đậu xanh Hải Dương — OCOP 5 sao Quốc gia 2024, ISO 22000:2018."
+  breadcrumbs={[{ name: 'Giới thiệu', url: d.route }]}
+>
+  <Content />
+</PageLayout>

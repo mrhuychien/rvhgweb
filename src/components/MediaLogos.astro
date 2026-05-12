@@ -1,0 +1,53 @@
+---
+import { MEDIA_MENTIONS } from '../data/site';
+interface Props {
+  title?: string;
+}
+const { title = 'Báo chí đưa tin về Rồng Vàng Hoàng Gia' } = Astro.props;
+---
+
+<section class="rvhg-media" aria-label={title}>
+  <h2 class="rvhg-media__title">{title}</h2>
+  <ul class="rvhg-media__list">
+    {MEDIA_MENTIONS.map((m) => (
+      <li>
+        <a href={m.url} target="_blank" rel="noopener noreferrer">{m.name}</a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .rvhg-media {
+    text-align: center;
+  }
+  .rvhg-media__title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-mute);
+    margin-bottom: 1.25rem;
+  }
+  .rvhg-media__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 0.75rem;
+  }
+  .rvhg-media__list a {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--color-line);
+    border-radius: 999px;
+    font-size: 0.8rem;
+    color: var(--color-ink-soft);
+    text-decoration: none;
+    background: var(--color-paper);
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .rvhg-media__list a:hover {
+    border-color: var(--color-rvhg-gold);
+    color: var(--color-rvhg-gold-dark);
+  }
+</style>

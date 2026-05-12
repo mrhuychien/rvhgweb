@@ -1,0 +1,342 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegacyImg from '../components/LegacyImg.astro';
+import ProductCard from '../components/ProductCard.astro';
+import CategoryGrid from '../components/CategoryGrid.astro';
+import MediaLogos from '../components/MediaLogos.astro';
+import DistributionLogos from '../components/DistributionLogos.astro';
+import { faqSchema } from '../data/jsonld';
+import { SITE, ANCHORS } from '../data/site';
+
+const featured = (await getCollection('products'))
+  .filter((p) => p.data.isFeatured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6);
+
+const faq = [
+  {
+    q: 'Bánh đậu xanh Rồng Vàng Hoàng Gia có đạt OCOP 5 sao không?',
+    a: 'Có. Năm 2024, bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt chứng nhận OCOP 5 sao Quốc gia.',
+  },
+  {
+    q: 'Sản phẩm có chứng nhận an toàn thực phẩm nào?',
+    a: 'Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (HA 394/2.23.CIV) do Quacert cấp ngày 08/08/2023.',
+  },
+  {
+    q: 'Rồng Vàng Hoàng Gia là thương hiệu của công ty nào?',
+    a: 'Thương hiệu Rồng Vàng Hoàng Gia do Công ty Cổ phần Hoàng Giang (MST 0800280839, thành lập 1997) tại Hải Dương sản xuất.',
+  },
+  {
+    q: 'Mua bánh đậu xanh Rồng Vàng Hoàng Gia chính hãng ở đâu?',
+    a: 'Tại các hệ thống siêu thị BigC/GO!, WinMart, AEON, Lotte, Co.opmart, MegaMarket, Lan Chi; trên Shopee và TikTok Shop; hoặc tại showroom 209C Tuệ Tĩnh và 9 Bạch Đằng, TP Hải Dương.',
+  },
+  {
+    q: 'Vì sao gọi là "Rồng Vàng Hoàng Gia"?',
+    a: 'Tên gọi bắt nguồn từ truyền thuyết năm 1918: vua Khải Định trong chuyến tuần du miền Bắc kinh lý trấn Hải Dương, dân dâng bánh đậu xanh, nhà vua ban sắc phong "Bánh Ngon" cùng ấn chỉ Rồng Vàng của Hoàng Gia.',
+  },
+];
+---
+
+<BaseLayout
+  title={SITE.name}
+  description={SITE.shortDescription}
+  jsonLd={faqSchema(faq)}
+>
+  <!-- HERO -->
+  <section class="rvhg-hero">
+    <div class="rvhg-container rvhg-hero__inner">
+      <div class="rvhg-hero__text">
+        <p class="rvhg-hero__eyebrow">Tinh hoa Xứ Đông · từ 1997</p>
+        <h1>Rồng Vàng Hoàng Gia</h1>
+        <p class="rvhg-hero__tagline">Đặc sản nức tiếng Hải Dương</p>
+        <p class="rvhg-hero__lede">
+          Bánh đậu xanh và bột đậu xanh truyền thống — sản phẩm bánh đậu xanh <strong>duy nhất đạt OCOP 5 sao Quốc gia 2024</strong>,
+          sản xuất theo tiêu chuẩn ISO 22000:2018.
+        </p>
+        <div class="rvhg-hero__cta">
+          <a class="rvhg-btn rvhg-btn--primary" href="/san-pham/">Khám phá sản phẩm</a>
+          <a class="rvhg-btn rvhg-btn--ghost" href="/cau-chuyen-san-pham-rong-vang-hoang-gia-2/">Câu chuyện thương hiệu</a>
+        </div>
+      </div>
+      <div class="rvhg-hero__media">
+        <LegacyImg src="/images/legacy/hero-home.jpg" alt="Bánh đậu xanh Rồng Vàng Hoàng Gia" width={1600} height={1000} loading="eager" fetchpriority="high" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="rvhg-section rvhg-container">
+    <ul class="rvhg-trust">
+      <li><strong>OCOP 5 sao</strong><span>Bánh đậu xanh đầu tiên & duy nhất, 2024</span></li>
+      <li><strong>ISO 22000:2018</strong><span>Chứng nhận an toàn thực phẩm quốc tế</span></li>
+      <li><strong>28 năm</strong><span>Sản xuất liên tục từ 1997</span></li>
+      <li><strong>5 quốc gia</strong><span>Xuất khẩu: Nhật, Mỹ, Anh, Hàn, Canada</span></li>
+    </ul>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="rvhg-section rvhg-container">
+    <header class="rvhg-sec-head">
+      <h2>Danh mục sản phẩm</h2>
+      <a href="/san-pham/">Xem tất cả →</a>
+    </header>
+    <CategoryGrid />
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="rvhg-section rvhg-container rvhg-featured">
+    <header class="rvhg-sec-head">
+      <h2>Sản phẩm nổi bật</h2>
+      <a href="/san-pham/">Tất cả sản phẩm →</a>
+    </header>
+    <div class="rvhg-prodgrid">
+      {featured.map((p, i) => <ProductCard product={p} loading={i < 3 ? 'eager' : 'lazy'} />)}
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="rvhg-story">
+    <div class="rvhg-container rvhg-story__inner">
+      <div class="rvhg-story__media">
+        <LegacyImg src="/images/legacy/cau-chuyen-khai-dinh-1918.jpg" alt="Truyền thuyết sắc phong Bánh Ngon — Khải Định 1918" width={1600} height={1000} />
+      </div>
+      <div class="rvhg-story__text">
+        <h2>Sắc phong "Bánh Ngon" — từ năm 1918</h2>
+        <p>{ANCHORS.khaiDinh1918}</p>
+        <p>
+          Từ niềm tự hào ấy, thương hiệu Rồng Vàng Hoàng Gia ra đời — gìn giữ <strong>công thức bí truyền</strong> của nghệ nhân,
+          tiếp nối truyền thống làng nghề Xứ Đông suốt gần ba thập kỷ.
+        </p>
+        <a class="rvhg-btn rvhg-btn--ghost" href="/gioi-thieu/">Tìm hiểu về chúng tôi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISTRIBUTION -->
+  <section class="rvhg-section rvhg-container">
+    <DistributionLogos />
+  </section>
+
+  <!-- MEDIA -->
+  <section class="rvhg-section rvhg-container">
+    <MediaLogos />
+  </section>
+
+  <!-- FAQ -->
+  <section class="rvhg-section rvhg-container rvhg-faq">
+    <h2>Câu hỏi thường gặp</h2>
+    <div class="rvhg-faq__list">
+      {faq.map((item) => (
+        <details>
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="rvhg-cta">
+    <div class="rvhg-container">
+      <h2>Đặt quà biếu &amp; mua sỉ</h2>
+      <p>Liên hệ để được tư vấn hộp quà Tết, quà doanh nghiệp, hoặc trở thành đại lý phân phối.</p>
+      <div class="rvhg-cta__buttons">
+        <a class="rvhg-btn rvhg-btn--primary" href="tel:0934362658">Gọi 0934 362 658</a>
+        <a class="rvhg-btn rvhg-btn--ghost" href="/lien-he/">Trang liên hệ</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* shared button styles (also used elsewhere) */
+  .rvhg-btn {
+    display: inline-block;
+    padding: 0.7rem 1.3rem;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .rvhg-btn:active { transform: translateY(1px); }
+  .rvhg-btn--primary { background: var(--color-rvhg-gold); color: #fff; }
+  .rvhg-btn--primary:hover { background: var(--color-rvhg-gold-dark); }
+  .rvhg-btn--ghost { background: transparent; color: var(--color-ink); border-color: var(--color-line); }
+  .rvhg-btn--ghost:hover { border-color: var(--color-rvhg-gold); color: var(--color-rvhg-gold-dark); }
+
+  /* hero */
+  .rvhg-hero {
+    background: linear-gradient(160deg, var(--color-rvhg-cream) 0%, var(--color-paper) 70%);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rvhg-hero__inner {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    padding-block: 3.5rem 4rem;
+  }
+  .rvhg-hero__eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-rvhg-gold-dark);
+    font-weight: 600;
+  }
+  .rvhg-hero h1 {
+    font-size: var(--text-display);
+    margin-top: 0.5rem;
+    color: var(--color-ink);
+  }
+  .rvhg-hero__tagline {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.5vw + 1rem, 1.9rem);
+    color: var(--color-rvhg-red);
+    margin-top: 0.25rem;
+  }
+  .rvhg-hero__lede {
+    margin-top: 1.1rem;
+    max-width: 46ch;
+    color: var(--color-ink-soft);
+    font-size: 1.1rem;
+  }
+  .rvhg-hero__cta {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .rvhg-hero__media :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-lift);
+    background: var(--color-rvhg-cream);
+  }
+
+  /* trust */
+  .rvhg-trust {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .rvhg-trust li {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 1rem;
+    background: var(--color-paper);
+  }
+  .rvhg-trust strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--color-rvhg-gold-dark);
+  }
+  .rvhg-trust span {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--color-mute);
+    line-height: 1.5;
+  }
+
+  .rvhg-sec-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .rvhg-sec-head h2 { font-size: var(--text-title); }
+  .rvhg-sec-head a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-rvhg-gold-dark);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .rvhg-sec-head a:hover { color: var(--color-rvhg-red); }
+
+  .rvhg-featured { background: var(--color-rvhg-cream); border-radius: var(--radius-card); }
+  .rvhg-prodgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* story */
+  .rvhg-story { background: var(--color-ink); color: #e7ddcd; }
+  .rvhg-story__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding-block: 4rem;
+  }
+  .rvhg-story__media :global(img) {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-card);
+  }
+  .rvhg-story__text h2 { color: #fff; font-size: var(--text-title); }
+  .rvhg-story__text p { margin-top: 1rem; color: #c9bfae; }
+  .rvhg-story__text .rvhg-btn--ghost { margin-top: 1.5rem; color: #fff; border-color: rgb(255 255 255 / 0.3); }
+  .rvhg-story__text .rvhg-btn--ghost:hover { border-color: var(--color-rvhg-gold-light); color: var(--color-rvhg-gold-light); }
+
+  /* faq */
+  .rvhg-faq h2 { font-size: var(--text-title); margin-bottom: 1.5rem; }
+  .rvhg-faq__list { display: flex; flex-direction: column; gap: 0.5rem; max-width: 56rem; }
+  .rvhg-faq details {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: 0 1.1rem;
+    background: var(--color-paper);
+  }
+  .rvhg-faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 1rem 0;
+    list-style: none;
+  }
+  .rvhg-faq summary::-webkit-details-marker { display: none; }
+  .rvhg-faq summary::after { content: '+'; float: right; color: var(--color-rvhg-gold-dark); font-weight: 400; }
+  .rvhg-faq details[open] summary::after { content: '–'; }
+  .rvhg-faq details[open] summary { border-bottom: 1px solid var(--color-line); }
+  .rvhg-faq p { padding: 0.85rem 0 1.1rem; color: var(--color-ink-soft); }
+
+  /* cta */
+  .rvhg-cta {
+    background: var(--color-rvhg-red);
+    color: #fff;
+    text-align: center;
+    padding-block: 3.5rem;
+  }
+  .rvhg-cta h2 { color: #fff; font-size: var(--text-title); }
+  .rvhg-cta p { margin-top: 0.75rem; color: rgb(255 255 255 / 0.85); }
+  .rvhg-cta__buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .rvhg-cta .rvhg-btn--primary { background: #fff; color: var(--color-rvhg-red); }
+  .rvhg-cta .rvhg-btn--primary:hover { background: var(--color-rvhg-cream); }
+  .rvhg-cta .rvhg-btn--ghost { color: #fff; border-color: rgb(255 255 255 / 0.5); }
+  .rvhg-cta .rvhg-btn--ghost:hover { border-color: #fff; }
+
+  @media (max-width: 900px) {
+    .rvhg-hero__inner, .rvhg-story__inner { grid-template-columns: 1fr; }
+    .rvhg-hero__media { order: -1; }
+    .rvhg-trust { grid-template-columns: repeat(2, 1fr); }
+    .rvhg-prodgrid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .rvhg-prodgrid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,81 @@
+---
+import LegacyImg from './LegacyImg.astro';
+import { getCollection } from 'astro:content';
+
+const categories = (await getCollection('productCategories')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<div class="rvhg-catgrid">
+  {categories.map((cat, i) => (
+    <a href={`/danh-muc-san-pham/${cat.id}/`} class="rvhg-catgrid__item">
+      <span class="rvhg-catgrid__media">
+        {cat.data.heroImage && (
+          <LegacyImg src={cat.data.heroImage} alt={cat.data.title} width={800} height={450} loading={i < 2 ? 'eager' : 'lazy'} />
+        )}
+      </span>
+      <span class="rvhg-catgrid__body">
+        <strong>{cat.data.title}</strong>
+        <small>{cat.data.description}</small>
+      </span>
+    </a>
+  ))}
+</div>
+
+<style>
+  .rvhg-catgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .rvhg-catgrid__item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    text-decoration: none;
+    background: var(--color-paper);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .rvhg-catgrid__item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lift);
+  }
+  .rvhg-catgrid__media {
+    aspect-ratio: 16 / 9;
+    background: var(--color-rvhg-cream);
+  }
+  .rvhg-catgrid__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .rvhg-catgrid__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1rem 1.1rem 1.2rem;
+  }
+  .rvhg-catgrid__body strong {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--color-ink);
+  }
+  .rvhg-catgrid__body small {
+    font-size: 0.85rem;
+    color: var(--color-ink-soft);
+    line-height: 1.55;
+  }
+  @media (max-width: 900px) {
+    .rvhg-catgrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .rvhg-catgrid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

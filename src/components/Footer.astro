@@ -1,0 +1,137 @@
+---
+import { COMPANY, NAV, MEDIA_MENTIONS, SITE } from '../data/site';
+import Logo from './Logo.astro';
+const year = new Date().getFullYear();
+---
+
+<footer class="rvhg-footer">
+  <div class="rvhg-container rvhg-footer__grid">
+    <div class="rvhg-footer__col">
+      <Logo />
+      <p class="rvhg-footer__about">
+        {COMPANY.legalName}<br />
+        MST: {COMPANY.taxId} · ĐKKD: {COMPANY.businessLicense}<br />
+        Người sáng lập: Ông Đào Văn Tiến cùng hai anh em<br />
+        Chứng nhận: ISO 22000:2018 · OCOP 5 sao Quốc gia 2024
+      </p>
+    </div>
+
+    <div class="rvhg-footer__col">
+      <h2>Liên kết</h2>
+      <ul>
+        {NAV.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        <li><a href="/cau-chuyen-san-pham-rong-vang-hoang-gia-2/">Câu chuyện thương hiệu</a></li>
+        <li><a href="/chinh-sach-bao-mat/">Chính sách bảo mật</a></li>
+      </ul>
+    </div>
+
+    <div class="rvhg-footer__col">
+      <h2>Điểm bán &amp; liên hệ</h2>
+      <ul>
+        <li>Showroom: 209C Tuệ Tĩnh, TP Hải Dương</li>
+        <li>Showroom: 9 Bạch Đằng, TP Hải Dương</li>
+        <li>Nhà máy: Đường An Lưu, CCN Cẩm Thượng, P. Thành Đông, TP Hải Phòng</li>
+        <li>Hotline: <a href="tel:0934362658">0934 362 658</a></li>
+        <li>Email: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></li>
+        <li>Mua online: Shopee · TikTok Shop</li>
+      </ul>
+    </div>
+
+    <div class="rvhg-footer__col">
+      <h2>Báo chí đưa tin</h2>
+      <ul class="rvhg-footer__media">
+        {MEDIA_MENTIONS.map((m) => (
+          <li><a href={m.url} target="_blank" rel="noopener noreferrer">{m.name}</a></li>
+        ))}
+      </ul>
+      <p class="rvhg-footer__social">
+        <a href={COMPANY.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://shopee.vn/" target="_blank" rel="noopener noreferrer">Shopee</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="rvhg-footer__bar">
+    <div class="rvhg-container">
+      © {year} {COMPANY.legalName}. {SITE.tagline}.
+    </div>
+  </div>
+</footer>
+
+<style>
+  .rvhg-footer {
+    margin-top: 4rem;
+    background: var(--color-ink);
+    color: #d8cfc0;
+  }
+  .rvhg-footer__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem 2rem;
+    padding-block: 3.5rem;
+  }
+  .rvhg-footer :global(.rvhg-logo) {
+    color: var(--color-rvhg-gold-light);
+  }
+  .rvhg-footer :global(.rvhg-logo__text strong) {
+    color: #fff;
+  }
+  .rvhg-footer :global(.rvhg-logo__text small) {
+    color: var(--color-rvhg-gold-light);
+  }
+  .rvhg-footer h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-rvhg-gold-light);
+    margin-bottom: 0.85rem;
+  }
+  .rvhg-footer__about {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #b9b0a1;
+  }
+  .rvhg-footer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .rvhg-footer a {
+    color: #d8cfc0;
+    text-decoration: none;
+  }
+  .rvhg-footer a:hover {
+    color: var(--color-rvhg-gold-light);
+    text-decoration: underline;
+  }
+  .rvhg-footer__media {
+    font-size: 0.8rem;
+  }
+  .rvhg-footer__social {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+  }
+  .rvhg-footer__bar {
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+    padding-block: 1.1rem;
+    font-size: 0.8rem;
+    color: #9b9384;
+    text-align: center;
+  }
+  @media (max-width: 900px) {
+    .rvhg-footer__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .rvhg-footer__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
