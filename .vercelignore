@@ -1,0 +1,12 @@
+# Phase-1 migration artifacts — not needed in production build
+workspace/
+docs/
+.git/
+
+# Build output (Vercel regenerates)
+dist/
+.astro/
+
+# Local dev
+node_modules/
+.DS_Store

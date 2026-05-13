@@ -11,7 +11,7 @@ Branch làm việc: `claude/rebuild-rvhg-astro-TvUGA`.
 
 - **Phase 1 (clone + ảnh thật + ingest content): XONG** — wget mirror 122 trang HTML + 568 ảnh; placeholder trong `public/images/legacy/` đã thay bằng ảnh WP thật; ingest thêm 19 post mới từ bản mirror vào `src/content/posts/`. `pnpm build` ra 52 trang. Không còn request nào về `wp-content`.
 - **Phase 2 (Astro rebuild), Phase 3 (SEO + AI), Phase 4 (skill `rvhg-content`): XONG.**
-- **Phase 5 (deploy Vercel + DNS + cutover): CHƯA** — cần owner thao tác trên tài khoản Vercel/DNS; Claude chỉ hỗ trợ chuẩn bị (đã có `vercel.json`).
+- **Phase 5 (deploy Vercel): preview đã LIVE** — `https://rvhgweb.vercel.app` (production target trên Vercel project `rvhgweb` / team `mrhuychiens-projects`, deployment `dpl_4QorN3UZYpMcyF5QuZzkpaahdVZ7`). Env var `PUBLIC_SITE_URL` đã set. **Còn lại**: custom domain `www.rongvanghoanggia.com` + apex redirect + DNS cutover; GA4 + FB Pixel khi có.
 
 ---
 
