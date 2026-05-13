@@ -97,6 +97,7 @@ Branch làm việc: `claude/rebuild-rvhg-astro-TvUGA`.
 - [ ] Thêm `description` + `relatedProducts` thủ công cho các post mới (hiện chỉ có description tự sinh từ paragraph đầu).
 
 ### 4. Linh tinh
+- [x] **Per-page OG image** — `src/lib/og.ts` (sharp + SVG, 1200×630, không cần network) + endpoint `src/pages/og/product/[slug].png.ts` + `src/pages/og/post/[slug].png.ts` sinh PNG tại build. `ProductLayout`/`PostLayout` dùng làm `og:image` thay cho ảnh wp-content (vuông) → preview Facebook/Twitter chuẩn 1.91:1. Build hiện ra 9 product OG + 24 post OG.
 - [ ] GA4 / Facebook Pixel: điền `PUBLIC_GA_ID` / `PUBLIC_FB_PIXEL` khi có (đã có conditional render trong `BaseLayout.astro`).
 - [ ] Cân nhắc per-page OG image (v2).
 - [ ] Cài skill `rvhg-content` vào `~/.claude/skills/`.

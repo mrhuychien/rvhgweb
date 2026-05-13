@@ -24,10 +24,11 @@ if (relatedProducts.length) {
     .filter((p): p is CollectionEntry<'products'> => Boolean(p));
 }
 
+const ogImage = `/og/post/${post.id}.png`;
 const jsonLd = articleSchema({
   headline: title,
   description,
-  image: cover,
+  image: ogImage,
   datePublished: publishDate.toISOString(),
   dateModified: (updated ?? publishDate).toISOString(),
   author,
@@ -38,7 +39,7 @@ const jsonLd = articleSchema({
 <BaseLayout
   title={title}
   description={description}
-  image={cover}
+  image={ogImage}
   type="article"
   publishedTime={publishDate.toISOString()}
   modifiedTime={(updated ?? publishDate).toISOString()}

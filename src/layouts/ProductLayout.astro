@@ -32,9 +32,10 @@ const jsonLd = productSchema({
   isOcop5Star: d.isOcop5Star,
   url,
 });
+const ogImage = `/og/product/${product.id}.png`;
 ---
 
-<BaseLayout title={d.title} description={d.description} image={d.images[0]} jsonLd={jsonLd}>
+<BaseLayout title={d.title} description={d.description} image={ogImage} jsonLd={jsonLd}>
   <article class="rvhg-product">
     <div class="rvhg-container">
       <Breadcrumbs
