@@ -64,6 +64,8 @@ workspace/                   # Phase-1 (clone & inventory) artifacts — see wor
 
 ## Status & known gaps
 
+> Full project plan: **`docs/BLUEPRINT.md`** · current done/todo state: **`docs/STATUS.md`**.
+
 - **Phase 1 (live-site mirror) is partial** — the build environment had no
   network access to `rongvanghoanggia.com`, so images in `public/images/legacy/`
   are placeholders and content was authored from the blueprint's business
