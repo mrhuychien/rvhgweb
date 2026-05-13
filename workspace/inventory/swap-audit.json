@@ -1,0 +1,190 @@
+{
+  "map": {
+    "logo-web-120x120.png": "logo-web-120x120.png",
+    "cropped-logo-web-270x270.png": "cropped-logo-web-270x270.png",
+    "th300-web.jpg": "th300-web.jpg",
+    "tx300-web.jpg": "tx300-web.jpg",
+    "sr300-web.jpg": "sr300-web.jpg",
+    "hop-5-sao-web.jpg": "hop-5-sao-web.jpg",
+    "catalogue24-15-2.png": "catalogue24-15-2.png",
+    "banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg": "banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg",
+    "bx-web.jpg": "bx-web.jpg",
+    "cd-web.jpg": "cd-web.jpg",
+    "banh-chung-vang-web.jpg": "CCV-WEB.jpg",
+    "cau-chuyen-khai-dinh-1918.jpg": "cau-chuyen-san-pham-banh-dau-xanh-rong-vang-hoang-gia.jpg",
+    "cat-thuong-hang.jpg": "HOP-TIEN-VUA-1.png",
+    "cat-tet.jpg": "CCV-WEB.jpg",
+    "cat-truyen-thong.jpg": "HG20-web.jpg",
+    "cat-trai-cay.jpg": "24-s-web.jpg",
+    "cat-bot-dau.jpg": "bx-web.jpg",
+    "hero-home.jpg": "Banh-dau-tra-xanh-Rong-Vang-Hoang-Gia-2-scaled.jpg",
+    "nha-may-rvhg.jpg": "lich-su-cong-ty-rong-vang-hoang-gia.jpg",
+    "post-cau-chuyen-sau-rieng.jpg": "1.png",
+    "post-cau-chuyen-tra-xanh.jpg": "image-1.png",
+    "post-tra-xanh-bien-tau.jpg": "ChatGPT-Image-16_09_06-25-thg-4-2025.png",
+    "post-tra-xanh-ocop.jpg": "Banh-dau-tra-xanh-Rong-Vang-Hoang-Gia-2-scaled.jpg"
+  },
+  "audit": [
+    {
+      "placeholder": "logo-web-120x120.png",
+      "wp": "logo-web-120x120.png",
+      "bytes": 19184,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "cropped-logo-web-270x270.png",
+      "wp": "cropped-logo-web-270x270.png",
+      "bytes": 70486,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "th300-web.jpg",
+      "wp": "th300-web.jpg",
+      "bytes": 142446,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "tx300-web.jpg",
+      "wp": "tx300-web.jpg",
+      "bytes": 132210,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "sr300-web.jpg",
+      "wp": "sr300-web.jpg",
+      "bytes": 139024,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "hop-5-sao-web.jpg",
+      "wp": "hop-5-sao-web.jpg",
+      "bytes": 112375,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "catalogue24-15-2.png",
+      "wp": "catalogue24-15-2.png",
+      "bytes": 131594,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg",
+      "wp": "banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg",
+      "bytes": 172647,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "bx-web.jpg",
+      "wp": "bx-web.jpg",
+      "bytes": 662326,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "cd-web.jpg",
+      "wp": "cd-web.jpg",
+      "bytes": 658911,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "banh-chung-vang-web.jpg",
+      "wp": "CCV-WEB.jpg",
+      "bytes": 257046,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "cau-chuyen-khai-dinh-1918.jpg",
+      "wp": "cau-chuyen-san-pham-banh-dau-xanh-rong-vang-hoang-gia.jpg",
+      "bytes": 464895,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "cat-thuong-hang.jpg",
+      "wp": "HOP-TIEN-VUA-1.png",
+      "bytes": 121554,
+      "extMismatch": true,
+      "status": "ok"
+    },
+    {
+      "placeholder": "cat-tet.jpg",
+      "wp": "CCV-WEB.jpg",
+      "bytes": 257046,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "cat-truyen-thong.jpg",
+      "wp": "HG20-web.jpg",
+      "bytes": 28004,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "cat-trai-cay.jpg",
+      "wp": "24-s-web.jpg",
+      "bytes": 20518,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "cat-bot-dau.jpg",
+      "wp": "bx-web.jpg",
+      "bytes": 662326,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "hero-home.jpg",
+      "wp": "Banh-dau-tra-xanh-Rong-Vang-Hoang-Gia-2-scaled.jpg",
+      "bytes": 578477,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "nha-may-rvhg.jpg",
+      "wp": "lich-su-cong-ty-rong-vang-hoang-gia.jpg",
+      "bytes": 754811,
+      "extMismatch": false,
+      "status": "ok"
+    },
+    {
+      "placeholder": "post-cau-chuyen-sau-rieng.jpg",
+      "wp": "1.png",
+      "bytes": 3115671,
+      "extMismatch": true,
+      "status": "ok"
+    },
+    {
+      "placeholder": "post-cau-chuyen-tra-xanh.jpg",
+      "wp": "image-1.png",
+      "bytes": 1780019,
+      "extMismatch": true,
+      "status": "ok"
+    },
+    {
+      "placeholder": "post-tra-xanh-bien-tau.jpg",
+      "wp": "ChatGPT-Image-16_09_06-25-thg-4-2025.png",
+      "bytes": 2979373,
+      "extMismatch": true,
+      "status": "ok"
+    },
+    {
+      "placeholder": "post-tra-xanh-ocop.jpg",
+      "wp": "Banh-dau-tra-xanh-Rong-Vang-Hoang-Gia-2-scaled.jpg",
+      "bytes": 578477,
+      "extMismatch": false,
+      "status": "ok"
+    }
+  ]
+}

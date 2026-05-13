@@ -21,3 +21,5 @@ pnpm-debug.log*
 .vercel
 # Phase 1 raw clone scratch (large, regenerated)
 workspace/clone/
+workspace/images/
+workspace/scripts/node_modules/

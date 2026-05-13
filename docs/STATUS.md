@@ -1,16 +1,16 @@
 # STATUS — RVHG website rebuild
 
-Cập nhật: sau session rebuild đầu tiên (Claude Code on the web).
+Cập nhật: sau session Phase-1 chạy ở local.
 Branch làm việc: `claude/rebuild-rvhg-astro-TvUGA`.
 
 ---
 
-## TL;DR cho session local kế tiếp
+## TL;DR cho session kế tiếp
 
 Đọc theo thứ tự: `README.md` → `docs/BLUEPRINT.md` → file này → `workspace/README.md` → `public/images/legacy/README.md`.
 
-- **Phase 2 (Astro rebuild), Phase 3 (SEO + AI), Phase 4 (skill `rvhg-content`): XONG** — `pnpm build` chạy OK, 33 trang, dev server phục vụ home/product/post/llms-full/404 đúng.
-- **Phase 1 (mirror site gốc + tải ảnh thật): CHƯA** — môi trường web bị chặn network tới `rongvanghoanggia.com`. **Đây là việc đầu tiên cần làm ở local.**
+- **Phase 1 (clone + ảnh thật + ingest content): XONG** — wget mirror 122 trang HTML + 568 ảnh; placeholder trong `public/images/legacy/` đã thay bằng ảnh WP thật; ingest thêm 19 post mới từ bản mirror vào `src/content/posts/`. `pnpm build` ra 52 trang. Không còn request nào về `wp-content`.
+- **Phase 2 (Astro rebuild), Phase 3 (SEO + AI), Phase 4 (skill `rvhg-content`): XONG.**
 - **Phase 5 (deploy Vercel + DNS + cutover): CHƯA** — cần owner thao tác trên tài khoản Vercel/DNS; Claude chỉ hỗ trợ chuẩn bị (đã có `vercel.json`).
 
 ---
@@ -58,42 +58,43 @@ Branch làm việc: `claude/rebuild-rvhg-astro-TvUGA`.
 ### Phase 4 — skill
 - `skills/rvhg-content/`: `SKILL.md` (frontmatter dùng em-dash), `BRAND_VOICE.md`, `references/{product-catalog,brand-story,seo-checklist}.md`, `references/templates/{blog-post,product-description,press-release,tet-campaign}.md`. Cài bằng `cp -r skills/rvhg-content ~/.claude/skills/rvhg-content`.
 
-### Phase 1 — artifacts (một phần)
-- `workspace/inventory/urls.csv` (33 URL từ Appendix A: old→new + content_type + status).
-- `workspace/README.md` (ghi rõ trạng thái + lệnh wget cần chạy ở local).
+### Phase 1 — artifacts (XONG ở session local 13/05/2026)
+- `workspace/clone/` — mirror đầy đủ rongvanghoanggia.com (122 HTML, 125 MB).
+- `workspace/images/legacy/` — 568 ảnh từ WP (mirror + parse bổ sung).
+- `workspace/content-raw/` — 121 markdown extract qua turndown + cheerio.
+- `workspace/inventory/urls.csv` — 110 row (47 built + 63 discovered).
+- `workspace/inventory/images.csv` — 569 row.
+- `workspace/inventory/legacy-refs.json`, `image-usage.json`, `image-download.json`, `swap-audit.json`, `post-ingest.json` — audit trail.
+- `workspace/scripts/` — `extract-image-urls.mjs`, `download-images.mjs`, `extract-content.mjs`, `legacy-refs.mjs`, `swap-placeholders.mjs`, `ingest-posts.mjs`, `copy-referenced-images.mjs`, `cleanup-ingested-posts.mjs`, `build-inventory.mjs`. Mỗi script self-contained, có thể chạy lại nếu cần re-mirror.
+- `public/images/legacy/` — 23 placeholder gốc đã thay bằng ảnh WP thật (rename file gốc theo tên placeholder, không sửa reference); thêm 23 ảnh WP-named cho các post mới ingest. Tổng 47 file.
+- `src/content/posts/` — 19 post mới ingest từ bản mirror, gắn frontmatter chuẩn schema (title + description + publishDate 2024-10-01 fallback + oldUrl + author + tags []), đã rà soát WP cruft.
 
 ### Kiểm thử đã làm
-- `astro build` → 33 trang, không lỗi.
-- Dev server → home / product / flat post / `/llms-full.txt` trả 200; path không tồn tại trả 404.
-- Không còn request nào về `wp-content` (chỉ có chuỗi `wp-content` trong file README — cố ý).
+- `pnpm build` → 52 trang (was 33), không lỗi Zod.
+- Spot-check 5 trang (home, /gioi-thieu/, /san-pham/banh-dau-tra-xanh/, /danh-muc-san-pham/banh-dau-xanh-thuong-hang/, post `banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu`): tất cả `<img src>` đều dùng `/images/legacy/...`, không còn request về `wp-content` (`grep -rn wp-content dist/` chỉ trả về `dist/images/legacy/README.md`, cố ý).
+- Mọi reference `/images/legacy/*.{jpg,png,jpeg}` trong `dist/` đã có file tương ứng (47/47 hit).
 
 ---
 
 ## ❌ Chưa làm — TODO (ưu tiên từ trên xuống)
 
-### 1. Phase 1 — mirror site gốc & tải ảnh thật  ← LÀM Ở LOCAL TRƯỚC TIÊN
-Môi trường web không truy cập được `rongvanghoanggia.com` (`403 host_not_allowed`). Ở local làm:
-- [ ] `wget --mirror …` site gốc → `workspace/clone/` (lệnh đầy đủ trong `workspace/README.md` / blueprint T1.1).
-- [ ] `wget --recursive` toàn bộ ảnh từ `wp-content/uploads/` (blueprint T1.4 nhánh A).
-- [ ] Parse `<img src>` / `<source srcset>` / CSS `background-image` từ HTML đã mirror (cheerio), diff & tải bổ sung (nhánh B). Đặc biệt kiểm các file ở blueprint T1.5 (logo, favicon, ảnh sản phẩm, logo siêu thị, logo báo chí).
-- [ ] **Thay placeholder trong `public/images/legacy/` bằng ảnh thật — GIỮ NGUYÊN tên file** (content + `src/data/site.ts` ASSETS đang tham chiếu theo tên đó; xem `public/images/legacy/README.md` để biết danh sách tên file đang dùng).
-- [ ] Tạo `workspace/inventory/images.csv`.
-- [ ] (Optional, theo blueprint) chuyển ảnh thật sang `src/assets/images/legacy/` và đổi `LegacyImg.astro` sang Astro `<Image />` (ESM import) để có AVIF/WebP + responsive srcset tự động.
-- [ ] Extract HTML→Markdown từ bản mirror (turndown + cheerio) → `workspace/content-raw/` → **đối chiếu & bổ sung** vào `src/content/**` (nội dung hiện tại viết từ blueprint, có thể thiếu/khác bản WP).
-- [ ] Bổ sung URL còn thiếu (blueprint dự kiến 30–60 URL; hiện có 33). Cập nhật `workspace/inventory/urls.csv`.
-- [ ] `pnpm build` lại + spot-check 5 trang + xác nhận không request `wp-content`.
-
-### 2. Phase 5 — deploy Vercel + domain (cần owner)
+### 1. Phase 5 — deploy Vercel + domain (cần owner)
 - [ ] Import repo lên Vercel, set Node 22, env vars (`PUBLIC_SITE_URL`, `PUBLIC_GA_ID=`, `PUBLIC_FB_PIXEL=`).
 - [ ] Add domain `www.rongvanghoanggia.com` + redirect apex → www; cấu hình DNS.
 - [ ] Cutover plan (backup WP, đổi DNS, smoke test 10 URL, submit sitemap GSC + Bing).
 - [ ] Acceptance gate Phase 5.
 
-### 3. Kiểm thử/đánh giá còn lại (cần URL deploy hoặc Chrome)
+### 2. Kiểm thử/đánh giá còn lại (cần URL deploy hoặc Chrome)
 - [ ] Lighthouse mobile/desktop homepage + 3 trang đại diện (mục tiêu 100/100/100/100).
 - [ ] Validate JSON-LD trên schema.org validator (0 error).
 - [ ] Test OG preview qua Facebook Sharing Debugger / opengraph.xyz.
 - [ ] Responsive check thủ công 375 / 768 / 1280.
+
+### 3. Polish ảnh + content (optional)
+- [ ] Một số ảnh post mới ingest có content là PNG nặng (1.7–3 MB) lưu dưới ext `.jpg`. Cân nhắc dùng `sharp` re-encode JPEG trước khi cutover, hoặc chuyển sang `src/assets/images/legacy/` + Astro `<Image />` để có AVIF/WebP + responsive srcset.
+- [ ] PublishDate của 19 post mới đều fallback `2024-10-01` (WP không expose `article:published_time` meta). Nếu owner có ngày thật → cập nhật từng file `src/content/posts/*.md`.
+- [ ] Đối chiếu lại nội dung 5 post viết-từ-blueprint với bản WP gốc trong `workspace/content-raw/post/` nếu muốn dùng đúng tone của tác giả gốc.
+- [ ] Thêm `description` + `relatedProducts` thủ công cho các post mới (hiện chỉ có description tự sinh từ paragraph đầu).
 
 ### 4. Linh tinh
 - [ ] GA4 / Facebook Pixel: điền `PUBLIC_GA_ID` / `PUBLIC_FB_PIXEL` khi có (đã có conditional render trong `BaseLayout.astro`).

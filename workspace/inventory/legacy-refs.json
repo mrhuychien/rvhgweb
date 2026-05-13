@@ -1,0 +1,145 @@
+{
+  "filenames": [
+    "banh-chung-vang-web.jpg",
+    "banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg",
+    "bx-web.jpg",
+    "cat-bot-dau.jpg",
+    "cat-tet.jpg",
+    "cat-thuong-hang.jpg",
+    "cat-trai-cay.jpg",
+    "cat-truyen-thong.jpg",
+    "catalogue24-15-2.png",
+    "cau-chuyen-khai-dinh-1918.jpg",
+    "cd-web.jpg",
+    "cropped-logo-web-270x270.png",
+    "hero-home.jpg",
+    "hop-5-sao-web.jpg",
+    "logo-web-120x120.png",
+    "nha-may-rvhg.jpg",
+    "post-cau-chuyen-sau-rieng.jpg",
+    "post-cau-chuyen-tra-xanh.jpg",
+    "post-tra-xanh-bien-tau.jpg",
+    "post-tra-xanh-ocop.jpg",
+    "sr300-web.jpg",
+    "th300-web.jpg",
+    "tx300-web.jpg"
+  ],
+  "refs": [
+    {
+      "file": "src/content/products/banh-dau-xanh-banh-chung-vang.md",
+      "filename": "banh-chung-vang-web.jpg"
+    },
+    {
+      "file": "src/content/products/hop-qua-thuong-hang-tre-cao-cap.md",
+      "filename": "banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg"
+    },
+    {
+      "file": "src/content/products/bot-dau-xanh-dinh-duong.md",
+      "filename": "bx-web.jpg"
+    },
+    {
+      "file": "src/content/product-categories/bot-dau.md",
+      "filename": "cat-bot-dau.jpg"
+    },
+    {
+      "file": "src/content/product-categories/banh-dau-xanh-tet.md",
+      "filename": "cat-tet.jpg"
+    },
+    {
+      "file": "src/content/product-categories/banh-dau-xanh-thuong-hang.md",
+      "filename": "cat-thuong-hang.jpg"
+    },
+    {
+      "file": "src/content/product-categories/banh-dau-xanh-trai-cay-truyen-thong.md",
+      "filename": "cat-trai-cay.jpg"
+    },
+    {
+      "file": "src/content/product-categories/banh-dau-xanh-truyen-thong.md",
+      "filename": "cat-truyen-thong.jpg"
+    },
+    {
+      "file": "src/content/products/banh-dau-xanh-truyen-thong.md",
+      "filename": "catalogue24-15-2.png"
+    },
+    {
+      "file": "src/content/pages/cau-chuyen-thuong-hieu.md",
+      "filename": "cau-chuyen-khai-dinh-1918.jpg"
+    },
+    {
+      "file": "src/content/pages/cau-chuyen-thuong-hieu.md",
+      "filename": "cau-chuyen-khai-dinh-1918.jpg"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "filename": "cau-chuyen-khai-dinh-1918.jpg"
+    },
+    {
+      "file": "src/content/products/che-dau-den-cot-dua.md",
+      "filename": "cd-web.jpg"
+    },
+    {
+      "file": "src/data/site.ts",
+      "filename": "cropped-logo-web-270x270.png"
+    },
+    {
+      "file": "src/pages/index.astro",
+      "filename": "hero-home.jpg"
+    },
+    {
+      "file": "src/content/products/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia.md",
+      "filename": "hop-5-sao-web.jpg"
+    },
+    {
+      "file": "src/data/site.ts",
+      "filename": "logo-web-120x120.png"
+    },
+    {
+      "file": "src/content/pages/gioi-thieu.md",
+      "filename": "nha-may-rvhg.jpg"
+    },
+    {
+      "file": "src/content/pages/gioi-thieu.md",
+      "filename": "nha-may-rvhg.jpg"
+    },
+    {
+      "file": "src/content/posts/cau-chuyen-san-pham-banh-dau-sau-rieng-bang-hinh-anh.md",
+      "filename": "post-cau-chuyen-sau-rieng.jpg"
+    },
+    {
+      "file": "src/content/posts/cau-chuyen-san-pham-banh-dau-sau-rieng-bang-hinh-anh.md",
+      "filename": "post-cau-chuyen-sau-rieng.jpg"
+    },
+    {
+      "file": "src/content/posts/cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh.md",
+      "filename": "post-cau-chuyen-tra-xanh.jpg"
+    },
+    {
+      "file": "src/content/posts/cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh.md",
+      "filename": "post-cau-chuyen-tra-xanh.jpg"
+    },
+    {
+      "file": "src/content/posts/banh-dau-tra-xanh-cau-chuyen-san-pham.md",
+      "filename": "post-tra-xanh-bien-tau.jpg"
+    },
+    {
+      "file": "src/content/posts/banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu.md",
+      "filename": "post-tra-xanh-bien-tau.jpg"
+    },
+    {
+      "file": "src/content/posts/banh-dau-tra-xanh-banh-dau-sau-rieng-rong-vang-hoang-gia-dat-ocop-5-sao-quoc-gia.md",
+      "filename": "post-tra-xanh-ocop.jpg"
+    },
+    {
+      "file": "src/content/products/banh-dau-sau-rieng.md",
+      "filename": "sr300-web.jpg"
+    },
+    {
+      "file": "src/content/products/banh-dau-xanh-thuong-hang-300g.md",
+      "filename": "th300-web.jpg"
+    },
+    {
+      "file": "src/content/products/banh-dau-tra-xanh.md",
+      "filename": "tx300-web.jpg"
+    }
+  ]
+}
