@@ -1,59 +1,151 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const policies = (await getCollection('policies')).sort((a, b) => a.data.title.localeCompare(b.data.title, 'vi'));
 ---
 
 <BaseLayout
-  title="Công bố & chính sách"
+  title="Công bố & chính sách — Rồng Vàng Hoàng Gia"
   description="Bản tự công bố sản phẩm, chứng nhận và các chính sách của Công ty Cổ phần Hoàng Giang — thương hiệu Rồng Vàng Hoàng Gia."
   canonical="/cong-bo/"
   noindex={true}
 >
-  <section class="rvhg-container rvhg-pub">
-    <Breadcrumbs items={[{ name: 'Công bố', url: '/cong-bo/' }]} />
-    <h1>Công bố &amp; chính sách</h1>
-    <p class="rvhg-pub__lede">Minh bạch thông tin pháp lý, chứng nhận và chính sách dành cho khách hàng, đối tác.</p>
+  <section class="rvhg-pub-hero">
+    <div class="rvhg-container">
+      <p class="rvhg-eyebrow">Công bố &amp; chính sách</p>
+      <h1>Minh bạch.</h1>
+      <p class="rvhg-pub-hero__lede">Bản tự công bố sản phẩm, chứng nhận pháp lý và các chính sách dành cho khách hàng, đối tác.</p>
+    </div>
+  </section>
 
-    <h2>Chứng nhận</h2>
-    <ul class="rvhg-pub__certs">
-      <li><strong>OCOP 5 sao Quốc gia 2024</strong> — bánh đậu xanh đầu tiên và duy nhất đạt hạng sao cao nhất.</li>
-      <li><strong>ISO 22000:2018</strong> — HA 394/2.23.CIV, Quacert cấp ngày 08/08/2023.</li>
-    </ul>
+  <section class="rvhg-section rvhg-band-soft">
+    <div class="rvhg-container">
+      <p class="rvhg-eyebrow">Chứng nhận chính</p>
+      <div class="rvhg-pub-cert-grid">
+        <article>
+          <h2>OCOP 5 sao Quốc gia 2024</h2>
+          <p>Bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt phân hạng 5 sao Quốc gia trong Chương trình "Mỗi xã một sản phẩm".</p>
+        </article>
+        <article>
+          <h2>ISO 22000:2018</h2>
+          <p>Chứng chỉ quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế — số HA 394/2.23.CIV, Quacert cấp ngày 08/08/2023, đã được duy trì liên tục.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    <h2>Tự công bố &amp; chính sách</h2>
-    <ul class="rvhg-pub__links">
-      {policies.map((p) => (
-        <li>
-          <a href={`/${p.id}/`}>{p.data.title}</a>
-          {p.data.description && <span>{p.data.description}</span>}
-        </li>
-      ))}
-    </ul>
-
-    <p class="rvhg-pub__note">Cần bản sao hồ sơ tự công bố, phiếu kiểm nghiệm hoặc giấy chứng nhận, vui lòng liên hệ <a href="mailto:info@rongvanghoanggia.com">info@rongvanghoanggia.com</a>.</p>
+  <section class="rvhg-section">
+    <div class="rvhg-container">
+      <p class="rvhg-eyebrow">Tự công bố &amp; chính sách</p>
+      <h2 class="rvhg-pub-list-head">Tài liệu công khai.</h2>
+      <ul class="rvhg-pub-list">
+        {policies.map((p) => (
+          <li>
+            <a href={`/${p.id}/`}>
+              <span class="rvhg-pub-list__title">{p.data.title}</span>
+              {p.data.description && <span class="rvhg-pub-list__desc">{p.data.description}</span>}
+              <span class="rvhg-pub-list__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="rvhg-pub-list__note">
+        Cần bản sao hồ sơ tự công bố, phiếu kiểm nghiệm hoặc giấy chứng nhận, vui lòng liên hệ
+        <a href="mailto:info@rongvanghoanggia.com">info@rongvanghoanggia.com</a>.
+      </p>
+    </div>
   </section>
 </BaseLayout>
 
 <style>
-  .rvhg-pub { padding-block: 2.5rem 4rem; }
-  .rvhg-pub h1 { margin-top: 0.75rem; font-size: var(--text-title); }
-  .rvhg-pub h2 { margin-top: 2.5rem; font-size: var(--text-subtitle); }
-  .rvhg-pub__lede { margin-top: 0.6rem; max-width: 60ch; color: var(--color-mute); font-size: 1.05rem; }
-  .rvhg-pub__certs { margin-top: 1rem; padding-left: 1.2rem; list-style: disc; }
-  .rvhg-pub__certs li { margin-top: 0.5rem; }
-  .rvhg-pub__links { margin-top: 1rem; list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-  .rvhg-pub__links li {
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-card);
-    padding: 0.9rem 1.1rem;
-    background: var(--color-paper);
+  .rvhg-pub-hero {
+    text-align: center;
+    padding-block: 5rem 4rem;
   }
-  .rvhg-pub__links a { font-weight: 600; color: var(--color-rvhg-gold-dark); text-decoration: none; }
-  .rvhg-pub__links a:hover { color: var(--color-rvhg-red); }
-  .rvhg-pub__links span { display: block; margin-top: 0.25rem; font-size: 0.85rem; color: var(--color-mute); }
-  .rvhg-pub__note { margin-top: 2rem; font-size: 0.9rem; color: var(--color-mute); }
-  .rvhg-pub__note a { color: var(--color-rvhg-gold-dark); }
+  @media (min-width: 768px) { .rvhg-pub-hero { padding-block: 7rem 4rem; } }
+  .rvhg-pub-hero h1 {
+    margin-top: 0.6rem;
+    font-size: var(--text-headline);
+  }
+  .rvhg-pub-hero__lede {
+    margin: 1.25rem auto 0;
+    color: var(--color-mute);
+    font-size: clamp(1rem, 0.5vw + 0.95rem, 1.2rem);
+    max-width: 38rem;
+  }
+
+  .rvhg-pub-cert-grid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .rvhg-pub-cert-grid article {
+    border-top: 1px solid var(--color-line);
+    padding-top: 1.25rem;
+  }
+  .rvhg-pub-cert-grid h2 {
+    font-size: 1.5rem;
+    letter-spacing: -0.014em;
+  }
+  .rvhg-pub-cert-grid p {
+    margin-top: 0.85rem;
+    color: var(--color-mute);
+  }
+  @media (max-width: 768px) {
+    .rvhg-pub-cert-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+
+  .rvhg-pub-list-head {
+    font-size: var(--text-display);
+    margin-block: 0.85rem 2rem;
+  }
+  .rvhg-pub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .rvhg-pub-list li {
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rvhg-pub-list a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 1rem;
+    padding: 1.25rem 0.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: padding 0.18s ease;
+  }
+  .rvhg-pub-list a:hover { padding-inline-start: 1rem; }
+  .rvhg-pub-list__title {
+    font-weight: 500;
+    color: var(--color-ink);
+    font-size: 1.05rem;
+  }
+  .rvhg-pub-list__desc {
+    grid-column: 1;
+    margin-top: 0.35rem;
+    font-size: 0.9rem;
+    color: var(--color-mute);
+  }
+  .rvhg-pub-list__arrow {
+    grid-row: 1 / -1;
+    align-self: center;
+    color: var(--color-mute);
+    font-size: 1.25rem;
+  }
+  .rvhg-pub-list__note {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--color-mute);
+  }
+  .rvhg-pub-list__note a {
+    color: var(--color-link);
+    text-decoration: none;
+    margin-left: 0.25rem;
+  }
+  .rvhg-pub-list__note a:hover { text-decoration: underline; }
 </style>

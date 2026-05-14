@@ -4,25 +4,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="Không tìm thấy trang (404)" description="Trang bạn tìm không tồn tại hoặc đã được di chuyển." noindex={true}>
   <section class="rvhg-container rvhg-404">
-    <p class="rvhg-404__code">404</p>
-    <h1>Không tìm thấy trang</h1>
-    <p>Trang bạn tìm có thể đã được di chuyển hoặc không còn tồn tại. Mời bạn quay lại trang chủ hoặc khám phá sản phẩm.</p>
+    <p class="rvhg-eyebrow">404</p>
+    <h1>Không tìm thấy trang.</h1>
+    <p>Trang có thể đã được di chuyển. Quay lại trang chủ hoặc khám phá sản phẩm.</p>
     <div class="rvhg-404__cta">
-      <a class="rvhg-btn rvhg-btn--primary" href="/">Về trang chủ</a>
+      <a class="rvhg-btn" href="/">Về trang chủ</a>
       <a class="rvhg-btn rvhg-btn--ghost" href="/san-pham/">Xem sản phẩm</a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .rvhg-404 { padding-block: 5rem 6rem; text-align: center; }
-  .rvhg-404__code { font-family: var(--font-display); font-size: 4rem; color: var(--color-rvhg-gold); }
-  .rvhg-404 h1 { font-size: var(--text-title); margin-top: 0.5rem; }
-  .rvhg-404 p { margin-top: 0.75rem; color: var(--color-mute); max-width: 44ch; margin-inline: auto; }
-  .rvhg-404__cta { margin-top: 1.75rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
-  .rvhg-btn { display: inline-block; padding: 0.7rem 1.3rem; border-radius: 0.6rem; font-weight: 600; font-size: 0.95rem; text-decoration: none; border: 1px solid transparent; }
-  .rvhg-btn--primary { background: var(--color-rvhg-gold); color: #fff; }
-  .rvhg-btn--primary:hover { background: var(--color-rvhg-gold-dark); }
-  .rvhg-btn--ghost { background: transparent; color: var(--color-ink); border-color: var(--color-line); }
-  .rvhg-btn--ghost:hover { border-color: var(--color-rvhg-gold); color: var(--color-rvhg-gold-dark); }
+  .rvhg-404 {
+    padding-block: 7rem 8rem;
+    text-align: center;
+  }
+  .rvhg-404 h1 {
+    margin-top: 0.6rem;
+    font-size: var(--text-headline);
+  }
+  .rvhg-404 p {
+    margin: 1.25rem auto 0;
+    color: var(--color-mute);
+    max-width: 38rem;
+    font-size: clamp(1rem, 0.5vw + 0.95rem, 1.2rem);
+  }
+  .rvhg-404__cta {
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 </style>

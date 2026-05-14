@@ -1,113 +1,96 @@
 # STATUS — RVHG website rebuild
 
-Cập nhật: sau session Phase-1 chạy ở local.
+Cập nhật: sau session Apple-redesign + product-line consolidation (14/05/2026).
 Branch làm việc: `claude/rebuild-rvhg-astro-TvUGA`.
 
 ---
 
 ## TL;DR cho session kế tiếp
 
-Đọc theo thứ tự: `README.md` → `docs/BLUEPRINT.md` → file này → `workspace/README.md` → `public/images/legacy/README.md`.
+Đọc theo thứ tự: `README.md` → `docs/BLUEPRINT.md` → file này → `workspace/README.md`.
 
-- **Phase 1 (clone + ảnh thật + ingest content): XONG** — wget mirror 122 trang HTML + 568 ảnh; placeholder trong `public/images/legacy/` đã thay bằng ảnh WP thật; ingest thêm 19 post mới từ bản mirror vào `src/content/posts/`. `pnpm build` ra 52 trang. Không còn request nào về `wp-content`.
-- **Phase 2 (Astro rebuild), Phase 3 (SEO + AI), Phase 4 (skill `rvhg-content`): XONG.**
-- **Phase 5 (deploy Vercel): preview đã LIVE** — `https://rvhgweb.vercel.app` (production target trên Vercel project `rvhgweb` / team `mrhuychiens-projects`, deployment `dpl_4QorN3UZYpMcyF5QuZzkpaahdVZ7`). Env var `PUBLIC_SITE_URL` đã set. **Còn lại**: custom domain `www.rongvanghoanggia.com` + apex redirect + DNS cutover; GA4 + FB Pixel khi có.
+- **Phase 1–4 (clone, content ingest, Astro rebuild, SEO+AI, skill `rvhg-content`): XONG** ở các session trước.
+- **Apple-style restructure (round mới, 14/05/2026): XONG** — chi tiết bên dưới.
+- **Phase 5 (deploy Vercel): preview vẫn LIVE** — `https://rvhgweb.vercel.app`. Còn lại: custom domain `www.rongvanghoanggia.com` + apex redirect + DNS cutover; GA4 + FB Pixel khi có.
 
 ---
 
-## ✅ Đã làm
+## ✅ Apple-redesign + consolidation (round 14/05/2026)
 
-### Cấu trúc & cấu hình
-- `package.json` (pnpm, Node ≥22, deps: astro 5, @astrojs/sitemap, @astrojs/mdx, tailwindcss 4, @tailwindcss/vite, sharp), `pnpm-lock.yaml`.
-- `astro.config.mjs`: `site`, `trailingSlash: 'always'`, `build.format: 'directory'`, integrations sitemap (filter loại trừ `/chinh-sach-`, `/ban-tu-cong-bo-`, `/cong-bo/`) + mdx, tailwind vite plugin, sharp image service.
-- `vercel.json`: `trailingSlash: true`, cache headers cho ảnh/`_astro`, security headers.
-- `tsconfig.json` (extends astro strict, alias `@/*`), `.nvmrc`/`.node-version` = 22, `.gitignore`, `.npmrc` (`verify-deps-before-run=false` — workaround cho pnpm-via-corepack ở môi trường build, vô hại trên CI).
+### Cấu trúc mới (BREAKING)
+- **Bỏ trang chi tiết từng sản phẩm** — toàn bộ 9 file `src/content/products/*.md` vẫn còn ở repo (data archival, không có route nào render từ đó), nhưng `/san-pham/<slug>/` không còn build ra HTML.
+- **5 trang "dòng sản phẩm"** `/danh-muc-san-pham/<slug>/` thay thế: mỗi trang chứa hero + brand intro + cert grid (3 cards) + self-declaration list + product grid (name + image only) + CTA mua.
+- **301 redirects trong `vercel.json`** — toàn bộ slug PDP cũ → trang dòng cha; thêm catch-all `/san-pham/:slug/` → `/san-pham/` cho mọi slug ngoài danh sách.
+- **`/og/product/:slug.png` redirect → `/og-default.png`** (vì endpoint sinh OG product đã xoá).
 
-### Content layer
-- `src/content.config.ts` — collections + Zod: `pages`, `products`, `productCategories`, `posts`, `policies` (dùng `glob()` loader = Content Layer API).
-- `src/data/site.ts` — single source of truth: SITE, COMPANY, ASSETS, NAV, MEDIA_MENTIONS, ANCHORS.
-- `src/data/jsonld.ts` — builders: organizationSchema, websiteSchema, breadcrumbSchema, productSchema, articleSchema, faqSchema.
+### Apple-style reskin
+- Token mới (`src/styles/global.css`): white `#fff` + soft `#fbfbfd` + tint `#f5f5f7` + dark band `#000`; ink `#1d1d1f`, mute `#6e6e73`; line `#d2d2d7`. Brand gold/red retained làm small accent (logo, certain dots), không còn fill nền.
+- Type: `Be Vietnam Pro` cho cả body + display (drop Fraunces khỏi h1-h4, vẫn load làm fallback cho Logo seal); fluid scale: `--text-headline` `clamp(2.75, 5vw+1, 5.5rem)` cho h1 hero, `--text-display` `clamp(2.25, 3.5vw+1, 4rem)` cho h2 section.
+- Tracking âm `-0.022em` cho h1-h4, `text-wrap: balance`.
+- Header: sticky thin (3rem), backdrop blur 20px saturate 180%, nav text 0.78rem opacity 0.86, logo wordmark thay full-name SVG.
+- Buttons: pill `border-radius: 999px`, primary `--color-ink` (đen Apple), ghost outline, link blue `#0066cc`.
 
-### Nội dung (viết từ blueprint, **chưa đối chiếu bản WP gốc**)
-- `src/content/pages/`: `gioi-thieu.md`, `lien-he.md`, `diem-ban.md`, `cau-chuyen-thuong-hieu.md` (route `/cau-chuyen-san-pham-rong-vang-hoang-gia-2/`).
-- `src/content/product-categories/`: 5 file (thuong-hang, tet, truyen-thong, trai-cay-truyen-thong, bot-dau).
-- `src/content/products/`: 9 file (hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia, hop-qua-thuong-hang-tre-cao-cap, banh-dau-xanh-banh-chung-vang, banh-dau-xanh-thuong-hang-300g, banh-dau-tra-xanh, banh-dau-sau-rieng, banh-dau-xanh-truyen-thong, bot-dau-xanh-dinh-duong, che-dau-den-cot-dua).
-- `src/content/posts/`: 5 file (4 URL câu chuyện + 1 tin OCOP), khớp slug trong Appendix A.
-- `src/content/policies/`: 5 file (chinh-sach-va-quy-dinh-chung, chinh-sach-bao-hanh-doi-tra, chinh-sach-van-chuyen, chinh-sach-bao-mat, ban-tu-cong-bo-rong-vang-hoang-gia).
+### Files mới
+- `src/components/ProductTile.astro` — name + image, image fallback "nameplate" (gradient + initials) khi không có ảnh.
+- `src/layouts/ProductLineLayout.astro` — layout chính cho 5 trang dòng sản phẩm.
 
-### Layouts & components
-- Layouts: `BaseLayout` (shell, ClientRouter/View Transitions, SEO, JSON-LD Organization+WebSite, conditional GA4/FB Pixel), `PageLayout`, `ProductLayout`, `PostLayout`, `PolicyLayout`.
-- Components: `Header` (sticky, mobile drawer, JS thuần), `Footer`, `SEO`, `ProductCard`, `CategoryGrid`, `MediaLogos`, `DistributionLogos`, `Breadcrumbs` (+BreadcrumbList JSON-LD), `Logo` (SVG inline fallback), `LegacyImg`, `JsonLd`.
+### Files xoá
+- `src/pages/san-pham/[slug]/` — directory.
+- `src/pages/og/product/` — directory.
+- `src/layouts/ProductLayout.astro`.
+- `src/components/ProductCard.astro`.
+- `src/components/CategoryGrid.astro`.
 
-### Routes (giữ URL cũ 1:1)
-- `/` (`src/pages/index.astro`): hero + tagline, trust bar, CategoryGrid, featured products, story section, DistributionLogos, MediaLogos, FAQ (`<details>` + FAQPage JSON-LD), CTA.
-- `/gioi-thieu/`, `/lien-he/`, `/diem-ban-rong-vang-hoang-gia/` — dedicated `.astro`, render từ collection `pages`.
-- `/san-pham/` (index theo danh mục) + `/san-pham/[slug]/` (`ProductLayout`, getStaticPaths từ products).
-- `/danh-muc-san-pham/[slug]/` (getStaticPaths từ productCategories).
-- `/tin-tuc/` (list posts) + `/[slug]/` (catch-all: posts dạng phẳng + policies + page câu-chuyện, chọn layout theo `kind`).
-- `/cong-bo/` (hub chứng nhận + chính sách, `noindex`).
-- `/404`.
+### Files rewrite
+- `src/styles/global.css` (tokens + utilities).
+- `src/components/Header.astro`, `Logo.astro`, `Footer.astro`, `Breadcrumbs.astro`.
+- `src/layouts/BaseLayout.astro` (giữ nguyên), `PageLayout.astro`, `PostLayout.astro`, `PolicyLayout.astro`.
+- `src/pages/index.astro` (homepage Apple full-bleed + duo tiles + 5 line showcases + Khải Định 1918 dark band + trust 4-cell grid + FAQ + CTA).
+- `src/pages/san-pham/index.astro` (5-line overview Apple-style).
+- `src/pages/danh-muc-san-pham/[slug]/index.astro` (1-liner gọi `ProductLineLayout`).
+- `src/pages/cong-bo/index.astro`, `tin-tuc/index.astro`, `404.astro`.
+- `src/pages/gioi-thieu/`, `lien-he/`, `diem-ban-rong-vang-hoang-gia/` — eyebrow + heading + lede mới (Apple voice).
+- `src/pages/llms-full.txt.ts` — đổi structure: bỏ section SẢN PHẨM riêng, fold vào DÒNG SẢN PHẨM với cert/decl/products inline.
+- `src/content.config.ts` — schema `productCategories` mới: `eyebrow`, `tagline`, `accent`, `storyImage`, `certifications[]`, `selfDeclarations[]`, `products[]`.
+- `src/content/product-categories/*.md` (5 file) — frontmatter rich (cert grid + decl list + product grid) + body intro ngắn.
+- `vercel.json` — thêm 56 redirect rules (1 cho `/feed/`, 50+ cho từng product slug, 1 catch-all `/san-pham/:slug/`, 1 cho OG product).
 
-### SEO + AI
-- JSON-LD: Organization, WebSite, Product, Article, BreadcrumbList, FAQPage.
-- Per-page meta + OG + Twitter + canonical + robots (policies & `/cong-bo/` để `noindex`).
-- `public/robots.txt`, `public/llms.txt` (đúng spec blueprint), `src/pages/llms-full.txt.ts` (sinh tự động toàn bộ content từ collections), sitemap auto.
-- `public/og-default.png` (1200×630, sharp), favicon.svg + 16/32/apple-touch png.
-- Fonts self-hosted trong `public/fonts/` (Be Vietnam Pro 400/500/600/700 + Fraunces variable, subset Latin+Vietnamese, WOFF2), `@font-face` inline trong `src/styles/global.css`, preload 3 file chính trong `<head>`.
+### Components còn nhưng unused (không xoá để dùng lại nếu cần)
+- `MediaLogos.astro`, `DistributionLogos.astro`, `LegacyImg.astro`.
+- Collection `products` (data archival).
 
-### Phase 4 — skill
-- `skills/rvhg-content/`: `SKILL.md` (frontmatter dùng em-dash), `BRAND_VOICE.md`, `references/{product-catalog,brand-story,seo-checklist}.md`, `references/templates/{blog-post,product-description,press-release,tet-campaign}.md`. Cài bằng `cp -r skills/rvhg-content ~/.claude/skills/rvhg-content`.
-
-### Phase 1 — artifacts (XONG ở session local 13/05/2026)
-- `workspace/clone/` — mirror đầy đủ rongvanghoanggia.com (122 HTML, 125 MB).
-- `workspace/images/legacy/` — 568 ảnh từ WP (mirror + parse bổ sung).
-- `workspace/content-raw/` — 121 markdown extract qua turndown + cheerio.
-- `workspace/inventory/urls.csv` — 110 row (47 built + 63 discovered).
-- `workspace/inventory/images.csv` — 569 row.
-- `workspace/inventory/legacy-refs.json`, `image-usage.json`, `image-download.json`, `swap-audit.json`, `post-ingest.json` — audit trail.
-- `workspace/scripts/` — `extract-image-urls.mjs`, `download-images.mjs`, `extract-content.mjs`, `legacy-refs.mjs`, `swap-placeholders.mjs`, `ingest-posts.mjs`, `copy-referenced-images.mjs`, `cleanup-ingested-posts.mjs`, `build-inventory.mjs`. Mỗi script self-contained, có thể chạy lại nếu cần re-mirror.
-- `public/images/legacy/` — 23 placeholder gốc đã thay bằng ảnh WP thật (rename file gốc theo tên placeholder, không sửa reference); thêm 23 ảnh WP-named cho các post mới ingest. Tổng 47 file.
-- `src/content/posts/` — 19 post mới ingest từ bản mirror, gắn frontmatter chuẩn schema (title + description + publishDate 2024-10-01 fallback + oldUrl + author + tags []), đã rà soát WP cruft.
-
-### Kiểm thử đã làm
-- `pnpm build` → 52 trang (was 33), không lỗi Zod.
-- Spot-check 5 trang (home, /gioi-thieu/, /san-pham/banh-dau-tra-xanh/, /danh-muc-san-pham/banh-dau-xanh-thuong-hang/, post `banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu`): tất cả `<img src>` đều dùng `/images/legacy/...`, không còn request về `wp-content` (`grep -rn wp-content dist/` chỉ trả về `dist/images/legacy/README.md`, cố ý).
-- Mọi reference `/images/legacy/*.{jpg,png,jpeg}` trong `dist/` đã có file tương ứng (47/47 hit).
+### Image gap đã document
+- Repo chỉ có 47 ảnh trong `public/images/legacy/`. Trong tổng ~58 SKU đưa lên trang dòng sản phẩm, ~25 có ảnh, còn lại render bằng `ProductTile` nameplate (gradient + initials).
+- Để fill nốt: chạy lại workspace mirror script từ môi trường có network access tới `rongvanghoanggia.com`, hoặc copy ảnh ngày từ wp-content live.
 
 ---
 
 ## ❌ Chưa làm — TODO (ưu tiên từ trên xuống)
 
 ### 1. Phase 5 — deploy Vercel + domain (cần owner)
-- [ ] Import repo lên Vercel, set Node 22, env vars (`PUBLIC_SITE_URL`, `PUBLIC_GA_ID=`, `PUBLIC_FB_PIXEL=`).
 - [ ] Add domain `www.rongvanghoanggia.com` + redirect apex → www; cấu hình DNS.
 - [ ] Cutover plan (backup WP, đổi DNS, smoke test 10 URL, submit sitemap GSC + Bing).
-- [ ] Acceptance gate Phase 5.
 
-### 2. Kiểm thử/đánh giá còn lại (cần URL deploy hoặc Chrome)
-- [ ] Lighthouse mobile/desktop homepage + 3 trang đại diện (mục tiêu 100/100/100/100).
-- [ ] Validate JSON-LD trên schema.org validator (0 error).
-- [ ] Test OG preview qua Facebook Sharing Debugger / opengraph.xyz.
-- [ ] Responsive check thủ công 375 / 768 / 1280.
+### 2. Migrate hồ sơ tự công bố PDF
+- [ ] Hiện 11 PDF (`/wp-content/uploads/2024/01/01.-Banh-dau-xanh-1.pdf` v.v.) vẫn nằm trên WP cũ. Cần download về `public/cong-bo/*.pdf` hoặc migrate sang storage độc lập trước cutover, rồi cập nhật `selfDeclarations[].href` trong 5 file `src/content/product-categories/*.md` — hiện tất cả trỏ về hub `/ban-tu-cong-bo-rong-vang-hoang-gia/`.
 
-### 3. Polish ảnh + content (optional)
-- [ ] Một số ảnh post mới ingest có content là PNG nặng (1.7–3 MB) lưu dưới ext `.jpg`. Cân nhắc dùng `sharp` re-encode JPEG trước khi cutover, hoặc chuyển sang `src/assets/images/legacy/` + Astro `<Image />` để có AVIF/WebP + responsive srcset.
-- [ ] PublishDate của 19 post mới đều fallback `2024-10-01` (WP không expose `article:published_time` meta). Nếu owner có ngày thật → cập nhật từng file `src/content/posts/*.md`.
-- [ ] Đối chiếu lại nội dung 5 post viết-từ-blueprint với bản WP gốc trong `workspace/content-raw/post/` nếu muốn dùng đúng tone của tác giả gốc.
-- [ ] Thêm `description` + `relatedProducts` thủ công cho các post mới (hiện chỉ có description tự sinh từ paragraph đầu).
+### 3. Image polish
+- [ ] Re-mirror các ảnh `-300x300.{jpg,png}` còn thiếu của ~33 SKU để tile có ảnh thật, không chỉ nameplate. Danh sách image filename trong `workspace/content-raw/product_category/*.md`.
 
-### 4. Linh tinh
-- [x] **Per-page OG image** — `src/lib/og.ts` (sharp + SVG, 1200×630, không cần network) + endpoint `src/pages/og/product/[slug].png.ts` + `src/pages/og/post/[slug].png.ts` sinh PNG tại build. `ProductLayout`/`PostLayout` dùng làm `og:image` thay cho ảnh wp-content (vuông) → preview Facebook/Twitter chuẩn 1.91:1. Build hiện ra 9 product OG + 24 post OG.
-- [ ] GA4 / Facebook Pixel: điền `PUBLIC_GA_ID` / `PUBLIC_FB_PIXEL` khi có (đã có conditional render trong `BaseLayout.astro`).
-- [ ] Cân nhắc per-page OG image (v2).
+### 4. Kiểm thử
+- [ ] Lighthouse mobile/desktop homepage + 1 trang dòng SP đại diện sau khi build deploy lên Vercel preview.
+- [ ] Validate JSON-LD trên schema.org validator (Organization + WebSite + Article + BreadcrumbList + FAQPage).
+- [ ] Spot-check 9 URL PDP cũ → 301 to category page (Vercel redirect).
+- [ ] Visual diff vs Apple.com — đặc biệt: nav blur, hero typography, alternating section, FAQ accordion.
+
+### 5. Linh tinh
+- [ ] GA4 / Facebook Pixel: điền `PUBLIC_GA_ID` / `PUBLIC_FB_PIXEL` khi có.
 - [ ] Cài skill `rvhg-content` vào `~/.claude/skills/`.
-- [ ] (Tùy) mở Pull Request cho branch `claude/rebuild-rvhg-astro-TvUGA`.
+- [ ] (Tùy) mở Pull Request cho branch.
 
 ---
 
-## Khác blueprint một chút (cho hợp Astro 5)
-- `src/content.config.ts` + `glob()` loader thay `src/content/config.ts` + `type: 'content'`.
-- `category` enum dùng tên đầy đủ (`banh-dau-xanh-thuong-hang`, `banh-dau-xanh-tet`, `banh-dau-xanh-truyen-thong`, `banh-dau-xanh-trai-cay-truyen-thong`, `bot-dau`) thay tên ngắn — khớp slug danh mục, đỡ phải map.
-- Routing: 1 catch-all `src/pages/[slug]/index.astro` gộp posts (phẳng) + policies + page câu-chuyện, chọn layout theo discriminant `kind` — thay vì 2 file `chinh-sach-[slug]` và `[slug]` riêng (Astro không cho 2 dynamic route cùng cấp).
-- Fonts: tải trực tiếp từ Google Fonts CDN một lần (vì `gwfh.mranftl.com` cũng bị deny-list), rồi self-host. Kết quả tương đương yêu cầu blueprint.
-- `oldUrl` trong Zod schema để `z.string()` (không `.url()`) cho linh hoạt.
+## Khác blueprint một chút
+- Schema `productCategories` mở rộng (cert + decl + products embedded) — vẫn tương thích Astro 5 Content Layer.
+- Routing: bỏ `/san-pham/[slug]/`, giữ `/danh-muc-san-pham/[slug]/` làm trang chính, `[slug]` catch-all vẫn handle posts + policies + standalone pages.
+- Brand voice giữ nguyên các anchor: Khải Định 1918 / OCOP 5 sao / ISO 22000:2018 / "Đặc sản nức tiếng Hải Dương".

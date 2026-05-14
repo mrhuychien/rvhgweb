@@ -1,79 +1,121 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import ProductCard from '../../components/ProductCard.astro';
+import LegacyImg from '../../components/LegacyImg.astro';
 
-const categories = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
-const products = (await getCollection('products')).sort((a, b) => a.data.order - b.data.order);
-const byCat = categories.map((cat) => ({
-  cat,
-  items: products.filter((p) => p.data.category === cat.id),
-}));
+const lines = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout
-  title="Sản phẩm Rồng Vàng Hoàng Gia"
-  description="Toàn bộ sản phẩm bánh đậu xanh và bột đậu xanh Rồng Vàng Hoàng Gia: thượng hạng, Tết, truyền thống, hương vị trái cây, bột đậu & chè đậu đen."
+  title="Sản phẩm — Rồng Vàng Hoàng Gia"
+  description="Năm dòng sản phẩm Rồng Vàng Hoàng Gia: thượng hạng OCOP 5 sao, quà Tết, truyền thống, hương vị trái cây và bột đậu — sản xuất theo chuẩn ISO 22000:2018."
   canonical="/san-pham/"
 >
-  <section class="rvhg-container rvhg-pl">
-    <Breadcrumbs items={[{ name: 'Sản phẩm', url: '/san-pham/' }]} />
-    <h1>Sản phẩm</h1>
-    <p class="rvhg-pl__lede">Bánh đậu xanh OCOP 5 sao Quốc gia, bột đậu xanh dinh dưỡng và chè đậu đen — tất cả từ Công ty Cổ phần Hoàng Giang, sản xuất theo tiêu chuẩn ISO 22000:2018.</p>
-
-    <nav class="rvhg-pl__cats" aria-label="Lọc theo danh mục">
-      {categories.map((c) => <a href={`/danh-muc-san-pham/${c.id}/`}>{c.data.title}</a>)}
-    </nav>
-
-    {byCat.map(({ cat, items }) => (
-      <section class="rvhg-pl__group" id={cat.id}>
-        <header class="rvhg-pl__group-head">
-          <h2><a href={`/danh-muc-san-pham/${cat.id}/`}>{cat.data.title}</a></h2>
-          <a href={`/danh-muc-san-pham/${cat.id}/`}>Xem danh mục →</a>
-        </header>
-        <div class="rvhg-prodgrid">
-          {items.map((p) => <ProductCard product={p} />)}
-        </div>
-      </section>
-    ))}
+  <!-- Hero -->
+  <section class="rvhg-pl-hero">
+    <div class="rvhg-container">
+      <p class="rvhg-eyebrow">Năm dòng sản phẩm</p>
+      <h1>Sản phẩm.</h1>
+      <p class="rvhg-pl-hero__lede">
+        Bánh đậu xanh OCOP 5 sao Quốc gia. Bột đậu xanh dinh dưỡng. Chè đậu đen cốt dừa.<br/>
+        Mỗi dòng có chuẩn riêng — chung một quy trình ISO 22000:2018.
+      </p>
+    </div>
   </section>
+
+  <!-- Lines list — full-bleed alternating -->
+  {lines.map((line, i) => (
+    <section class={`rvhg-pl-line ${i % 2 === 1 ? 'rvhg-band-tint rvhg-pl-line--alt' : ''}`}>
+      <a href={`/danh-muc-san-pham/${line.id}/`} class="rvhg-pl-line__inner rvhg-container">
+        <div class="rvhg-pl-line__copy">
+          <p class="rvhg-eyebrow">{line.data.eyebrow ?? `Dòng ${i + 1}`}</p>
+          <h2>{line.data.title}</h2>
+          <p class="rvhg-pl-line__tagline">{line.data.tagline}</p>
+          <p class="rvhg-pl-line__lede">{line.data.description}</p>
+          <span class="rvhg-pl-line__cta">
+            {line.data.products.length} sản phẩm  ›
+          </span>
+        </div>
+        {line.data.heroImage && (
+          <div class="rvhg-pl-line__media">
+            <LegacyImg src={line.data.heroImage} alt={line.data.title} width={1200} height={900} loading={i < 2 ? 'eager' : 'lazy'} />
+          </div>
+        )}
+      </a>
+    </section>
+  ))}
 </BaseLayout>
 
 <style>
-  .rvhg-pl { padding-block: 2.5rem 4rem; }
-  .rvhg-pl h1 { margin-top: 0.75rem; font-size: var(--text-title); }
-  .rvhg-pl__lede { margin-top: 0.75rem; max-width: 60ch; color: var(--color-mute); font-size: 1.05rem; }
-  .rvhg-pl__cats {
-    margin-top: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+  .rvhg-pl-hero {
+    text-align: center;
+    padding-block: 5rem 4rem;
   }
-  .rvhg-pl__cats a {
-    padding: 0.4rem 0.85rem;
-    border: 1px solid var(--color-line);
-    border-radius: 999px;
-    font-size: 0.85rem;
-    color: var(--color-ink-soft);
+  @media (min-width: 768px) { .rvhg-pl-hero { padding-block: 7rem 5rem; } }
+  .rvhg-pl-hero h1 {
+    margin-top: 0.6rem;
+    font-size: var(--text-headline);
+  }
+  .rvhg-pl-hero__lede {
+    margin: 1.5rem auto 0;
+    color: var(--color-mute);
+    font-size: clamp(1rem, 0.5vw + 0.95rem, 1.2rem);
+    max-width: 38rem;
+  }
+
+  .rvhg-pl-line { padding-block: 5rem; }
+  @media (min-width: 768px) { .rvhg-pl-line { padding-block: 7rem; } }
+  .rvhg-pl-line__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
+    align-items: center;
     text-decoration: none;
-    background: var(--color-paper);
+    color: inherit;
   }
-  .rvhg-pl__cats a:hover { border-color: var(--color-rvhg-gold); color: var(--color-rvhg-gold-dark); }
-  .rvhg-pl__group { margin-top: 3rem; scroll-margin-top: 6rem; }
-  .rvhg-pl__group-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-line);
+  .rvhg-pl-line--alt .rvhg-pl-line__inner {
+    grid-template-columns: 1.1fr 1fr;
+    direction: rtl;
   }
-  .rvhg-pl__group-head h2 { font-size: var(--text-subtitle); }
-  .rvhg-pl__group-head h2 a { text-decoration: none; color: var(--color-ink); }
-  .rvhg-pl__group-head > a { font-size: 0.85rem; font-weight: 600; color: var(--color-rvhg-gold-dark); text-decoration: none; white-space: nowrap; }
-  .rvhg-prodgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-  @media (max-width: 900px) { .rvhg-prodgrid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { .rvhg-prodgrid { grid-template-columns: 1fr; } }
+  .rvhg-pl-line--alt .rvhg-pl-line__inner > * { direction: ltr; }
+  .rvhg-pl-line__copy h2 {
+    font-size: var(--text-display);
+    margin-top: 0.85rem;
+    transition: color 0.18s ease;
+  }
+  .rvhg-pl-line:hover .rvhg-pl-line__copy h2 { color: var(--color-link); }
+  .rvhg-pl-line__tagline {
+    margin-top: 0.85rem;
+    font-size: clamp(1.15rem, 1vw + 0.85rem, 1.5rem);
+    color: var(--color-ink);
+    font-weight: 500;
+    max-width: 26ch;
+  }
+  .rvhg-pl-line__lede {
+    margin-top: 1rem;
+    color: var(--color-mute);
+    max-width: 38ch;
+  }
+  .rvhg-pl-line__cta {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--color-link);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .rvhg-pl-line__media :global(img) {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    transition: transform 0.4s ease;
+  }
+  .rvhg-pl-line:hover .rvhg-pl-line__media :global(img) {
+    transform: scale(1.02);
+  }
+  @media (max-width: 768px) {
+    .rvhg-pl-line__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .rvhg-pl-line:nth-of-type(even) .rvhg-pl-line__inner { grid-template-columns: 1fr; direction: ltr; }
+    .rvhg-pl-line__media { order: -1; }
+  }
 </style>

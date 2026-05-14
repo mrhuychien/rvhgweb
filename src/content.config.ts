@@ -1,24 +1,67 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-/** Static content pages: gioi-thieu, lien-he, diem-ban, cau-chuyen-thuong-hieu… */
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    /** Original WordPress URL (kept 1:1 for SEO). */
     oldUrl: z.string(),
-    /** Astro route this page is served at, e.g. "/gioi-thieu/". */
     route: z.string(),
     ogImage: z.string().optional(),
     heroImage: z.string().optional(),
     updated: z.coerce.date().optional(),
-    /** When true the file owns its own dedicated .astro route (not rendered by a generic collection page). */
     standalone: z.boolean().default(false),
   }),
 });
 
+const productItem = z.object({
+  name: z.string(),
+  image: z.string().optional(),
+  weight: z.string().optional(),
+  isOcop5Star: z.boolean().default(false),
+});
+
+const certification = z.object({
+  title: z.string(),
+  body: z.string(),
+});
+
+const declarationLink = z.object({
+  label: z.string(),
+  href: z.string(),
+});
+
+/** A "product line" page — replaces the old per-SKU detail pages.
+ *  One file per line; the body is brand-voice prose; frontmatter carries
+ *  the structured cert/compliance/product-grid data the layout renders. */
+const productCategories = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/product-categories' }),
+  schema: z.object({
+    title: z.string(),
+    /** Short eyebrow phrase shown above the line title, Apple-style. */
+    eyebrow: z.string().optional(),
+    /** Hero subline — one breathing sentence under the title. */
+    tagline: z.string(),
+    /** Card description fallback for grids on home / overview. */
+    description: z.string(),
+    order: z.number().default(0),
+    heroImage: z.string().optional(),
+    /** Optional secondary image used in the brand-intro band. */
+    storyImage: z.string().optional(),
+    /** Per-line accent color (hex). Used sparingly — Apple keeps colour to media. */
+    accent: z.string().optional(),
+    /** Compliance certifications (ISO, OCOP, ATTP, …) shown as a card row. */
+    certifications: z.array(certification).default([]),
+    /** Self-declarations published by the company. Each links to a PDF or hub page. */
+    selfDeclarations: z.array(declarationLink).default([]),
+    /** Product tiles (name + image only, no link out). */
+    products: z.array(productItem).default([]),
+    oldUrl: z.string(),
+  }),
+});
+
+/** Legacy `products` collection retained for archival data; no routes render from it. */
 const products = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/products' }),
   schema: z.object({
@@ -44,17 +87,6 @@ const products = defineCollection({
   }),
 });
 
-const productCategories = defineCollection({
-  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/product-categories' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    order: z.number().default(0),
-    heroImage: z.string().optional(),
-    oldUrl: z.string(),
-  }),
-});
-
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
   schema: z.object({
@@ -66,7 +98,6 @@ const posts = defineCollection({
     cover: z.string().optional(),
     tags: z.array(z.string()).default([]),
     oldUrl: z.string(),
-    /** Slugs of related products to surface at the foot of the post. */
     relatedProducts: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),

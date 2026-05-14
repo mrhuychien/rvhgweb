@@ -1,9 +1,65 @@
 ---
 title: 'Bánh đậu xanh thượng hạng'
-description: 'Dòng bánh đậu xanh thượng hạng Rồng Vàng Hoàng Gia — nguyên liệu chọn lọc, hộp tre cao cấp, đạt OCOP 5 sao Quốc gia 2024.'
+eyebrow: 'OCOP 5 sao Quốc gia'
+tagline: 'Đỉnh cao của bánh đậu xanh truyền thống Hải Dương.'
+description: 'Dòng thượng hạng — đậu xanh tuyển chọn, kết cấu mềm mịn, hộp tre cao cấp. Sản phẩm bánh đậu xanh duy nhất đạt OCOP 5 sao Quốc gia 2024.'
 order: 1
-heroImage: '/images/legacy/cat-thuong-hang.jpg'
+heroImage: '/images/legacy/hop-5-sao-web.jpg'
+storyImage: '/images/legacy/banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg'
+accent: '#C8A04D'
 oldUrl: 'https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-thuong-hang/'
+certifications:
+  - title: 'OCOP 5 sao Quốc gia 2024'
+    body: 'Sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt phân hạng OCOP 5 sao — chứng nhận cao nhất của Chương trình "Mỗi xã một sản phẩm".'
+  - title: 'ISO 22000:2018'
+    body: 'Hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế — chứng chỉ HA 394/2.23.CIV do Quacert cấp ngày 08/08/2023.'
+  - title: 'Xuất khẩu 5 quốc gia'
+    body: 'Hiện diện trên kệ Nhật Bản, Hoa Kỳ, Anh, Hàn Quốc và Canada — đáp ứng tiêu chuẩn an toàn thực phẩm khắt khe nhất.'
+selfDeclarations:
+  - label: 'Bản tự công bố 01 — Bánh đậu xanh'
+    href: '/ban-tu-cong-bo-rong-vang-hoang-gia/'
+  - label: 'Bản tự công bố 02 — Bánh đậu trà xanh'
+    href: '/ban-tu-cong-bo-rong-vang-hoang-gia/'
+  - label: 'Bản tự công bố 03 — Bánh đậu sầu riêng'
+    href: '/ban-tu-cong-bo-rong-vang-hoang-gia/'
+products:
+  - name: 'Hộp quà OCOP 5 sao Quốc gia'
+    image: '/images/legacy/hop-5-sao-web.jpg'
+    isOcop5Star: true
+  - name: 'Hộp quà tre cao cấp'
+    image: '/images/legacy/banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg'
+  - name: 'Bánh đậu thượng hạng Tiến vua'
+  - name: 'Bánh đậu xanh thượng hạng 300g'
+    image: '/images/legacy/th300-web.jpg'
+    weight: '300g'
+  - name: 'Bánh đậu xanh thượng hạng 170g'
+    weight: '170g'
+  - name: 'Bánh đậu Mix vị thượng hạng 510g'
+    image: '/images/legacy/catalogue24-15-2.png'
+    weight: '510g'
+  - name: 'Bánh đậu Mix vị thượng hạng 900g'
+    weight: '900g'
+  - name: 'Bánh đậu trà xanh 300g'
+    image: '/images/legacy/tx300-web.jpg'
+    weight: '300g'
+  - name: 'Bánh đậu trà xanh 170g'
+    weight: '170g'
+  - name: 'Bánh đậu trà xanh 510g'
+    weight: '510g'
+  - name: 'Bánh đậu trà xanh 900g'
+    image: '/images/legacy/catalogue24-15-4-300x300.png'
+    weight: '900g'
+  - name: 'Bánh đậu sầu riêng 300g'
+    image: '/images/legacy/sr300-web.jpg'
+    weight: '300g'
+  - name: 'Bánh đậu sầu riêng 170g'
+    weight: '170g'
+  - name: 'Bánh đậu sầu riêng 510g'
+    weight: '510g'
+  - name: 'Bánh đậu sầu riêng 900g'
+    weight: '900g'
 ---
 
-Dòng **thượng hạng** là tinh tuý của Rồng Vàng Hoàng Gia: đậu xanh tuyển chọn kỹ nhất, độ ngọt thanh, kết cấu mềm mịn, đóng trong hộp tre và hộp quà sang trọng — lựa chọn xứng tầm để biếu tặng, và là dòng sản phẩm gắn với chứng nhận **OCOP 5 sao Quốc gia 2024**.
+Dòng thượng hạng là tinh tuý của Rồng Vàng Hoàng Gia — đậu xanh được tuyển chọn kỹ nhất, độ ngọt thanh, kết cấu mềm mịn, kết hợp ba hương vị truyền thống và hai hương vị bản lĩnh: nguyên bản, trà xanh và sầu riêng.
+
+Đây là dòng sản phẩm gắn với chứng nhận **OCOP 5 sao Quốc gia 2024** — bánh đậu xanh đầu tiên và duy nhất cả nước đạt phân hạng cao nhất, được đóng gói trong hộp tre cao cấp xứng tầm để biếu tặng đối tác, gia đình trong những dịp trọng đại.

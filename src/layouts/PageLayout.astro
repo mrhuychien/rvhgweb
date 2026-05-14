@@ -1,6 +1,5 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
 import LegacyImg from '../components/LegacyImg.astro';
 
 interface Props {
@@ -9,8 +8,8 @@ interface Props {
   canonical?: string;
   image?: string;
   heroImage?: string;
-  /** Visible H1; defaults to title. */
   heading?: string;
+  eyebrow?: string;
   lede?: string;
   breadcrumbs?: { name: string; url: string }[];
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
@@ -22,8 +21,8 @@ const {
   image,
   heroImage,
   heading,
+  eyebrow,
   lede,
-  breadcrumbs = [],
   jsonLd,
 } = Astro.props;
 ---
@@ -32,13 +31,13 @@ const {
   <article class="rvhg-page">
     <header class="rvhg-page__hero">
       <div class="rvhg-container">
-        {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
+        {eyebrow && <p class="rvhg-eyebrow">{eyebrow}</p>}
         <h1>{heading ?? title}</h1>
         {lede && <p class="rvhg-page__lede">{lede}</p>}
       </div>
       {heroImage && (
-        <div class="rvhg-container rvhg-page__heroimg">
-          <LegacyImg src={heroImage} alt={heading ?? title} width={1600} height={900} loading="eager" fetchpriority="high" />
+        <div class="rvhg-page__heroimg">
+          <LegacyImg src={heroImage} alt={heading ?? title} width={2400} height={1350} loading="eager" fetchpriority="high" />
         </div>
       )}
     </header>
@@ -52,29 +51,35 @@ const {
 
 <style>
   .rvhg-page__hero {
-    padding-top: 2.5rem;
-    background: linear-gradient(180deg, var(--color-rvhg-cream), var(--color-paper));
+    text-align: center;
+    padding-top: 4.5rem;
+  }
+  @media (min-width: 768px) {
+    .rvhg-page__hero { padding-top: 6.5rem; }
   }
   .rvhg-page__hero h1 {
-    margin-top: 0.75rem;
-    font-size: var(--text-title);
+    margin-top: 0.6rem;
+    font-size: var(--text-headline);
   }
   .rvhg-page__lede {
-    margin-top: 0.75rem;
-    max-width: 60ch;
+    margin: 1.25rem auto 0;
+    max-width: 36rem;
     color: var(--color-mute);
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 0.5vw + 0.95rem, 1.2rem);
   }
   .rvhg-page__heroimg {
-    margin-top: 2rem;
+    margin-top: 3rem;
+    width: 100%;
   }
   .rvhg-page__heroimg :global(img) {
     width: 100%;
-    height: auto;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-soft);
+    height: clamp(18rem, 50vw, 32rem);
+    object-fit: cover;
+    display: block;
   }
   .rvhg-page__body {
-    padding-block: 2.5rem 4rem;
+    padding-block: 4rem 6rem;
+    display: grid;
+    place-items: center;
   }
 </style>

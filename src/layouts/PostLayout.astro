@@ -1,28 +1,17 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
 import LegacyImg from '../components/LegacyImg.astro';
-import ProductCard from '../components/ProductCard.astro';
 import { articleSchema } from '../data/jsonld';
 
 interface Props {
   post: CollectionEntry<'posts'>;
 }
 const { post } = Astro.props;
-const { title, description, publishDate, updated, author, cover, tags, relatedProducts } = post.data;
+const { title, description, publishDate, updated, author, cover, tags } = post.data;
 const url = `/${post.id}/`;
 
 const dateStr = new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(publishDate);
-
-let related: CollectionEntry<'products'>[] = [];
-if (relatedProducts.length) {
-  const all = await getCollection('products');
-  related = relatedProducts
-    .map((slug) => all.find((p) => p.id === slug))
-    .filter((p): p is CollectionEntry<'products'> => Boolean(p));
-}
 
 const ogImage = `/og/post/${post.id}.png`;
 const jsonLd = articleSchema({
@@ -46,22 +35,22 @@ const jsonLd = articleSchema({
   jsonLd={jsonLd}
 >
   <article class="rvhg-post">
-    <header class="rvhg-post__head rvhg-container">
-      <Breadcrumbs items={[{ name: 'Tin tức', url: '/tin-tuc/' }, { name: title, url }]} />
-      <h1>{title}</h1>
-      <p class="rvhg-post__meta">
-        <time datetime={publishDate.toISOString()}>{dateStr}</time>
-        <span aria-hidden="true">·</span>
-        <span>{author}</span>
-      </p>
-      {tags.length > 0 && (
-        <ul class="rvhg-post__tags">{tags.map((t) => <li>{t}</li>)}</ul>
-      )}
+    <header class="rvhg-post__head">
+      <div class="rvhg-container rvhg-container--narrow">
+        <p class="rvhg-eyebrow">Tin tức · {dateStr}</p>
+        <h1>{title}</h1>
+        <p class="rvhg-post__byline">
+          <span>{author}</span>
+        </p>
+        {tags.length > 0 && (
+          <ul class="rvhg-post__tags">{tags.map((t) => <li>{t}</li>)}</ul>
+        )}
+      </div>
     </header>
 
     {cover && (
-      <div class="rvhg-container rvhg-post__cover">
-        <LegacyImg src={cover} alt={title} width={1200} height={675} loading="eager" fetchpriority="high" />
+      <div class="rvhg-post__cover">
+        <LegacyImg src={cover} alt={title} width={2400} height={1350} loading="eager" fetchpriority="high" />
       </div>
     )}
 
@@ -70,80 +59,53 @@ const jsonLd = articleSchema({
         <slot />
       </div>
     </div>
-
-    {related.length > 0 && (
-      <section class="rvhg-container rvhg-post__related">
-        <h2>Sản phẩm liên quan</h2>
-        <div class="rvhg-post__related-grid">
-          {related.map((p) => <ProductCard product={p} />)}
-        </div>
-      </section>
-    )}
   </article>
 </BaseLayout>
 
 <style>
   .rvhg-post__head {
-    padding-block: 2.5rem 1rem;
-    max-width: 56rem;
+    text-align: center;
+    padding-top: 4.5rem;
   }
+  @media (min-width: 768px) { .rvhg-post__head { padding-top: 6.5rem; } }
   .rvhg-post__head h1 {
-    margin-top: 0.75rem;
-    font-size: var(--text-title);
-  }
-  .rvhg-post__meta {
     margin-top: 0.6rem;
-    display: flex;
-    gap: 0.5rem;
-    font-size: 0.875rem;
+    font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  }
+  .rvhg-post__byline {
+    margin-top: 1rem;
     color: var(--color-mute);
+    font-size: 0.95rem;
   }
   .rvhg-post__tags {
     list-style: none;
+    margin: 1.25rem auto 0;
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-top: 0.85rem;
+    justify-content: center;
+    padding: 0;
   }
   .rvhg-post__tags li {
     font-size: 0.75rem;
-    padding: 0.2rem 0.55rem;
-    border-radius: 999px;
-    background: var(--color-rvhg-cream);
-    color: var(--color-rvhg-gold-dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-paper-tint);
+    color: var(--color-mute);
   }
   .rvhg-post__cover {
-    margin-top: 1.5rem;
+    margin-top: 3rem;
+    width: 100%;
   }
   .rvhg-post__cover :global(img) {
     width: 100%;
-    height: auto;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-soft);
+    height: clamp(18rem, 50vw, 32rem);
+    object-fit: cover;
+    display: block;
   }
   .rvhg-post__body {
-    padding-block: 2rem 1rem;
-  }
-  .rvhg-post__related {
-    padding-block: 2rem 4rem;
-  }
-  .rvhg-post__related h2 {
-    font-size: var(--text-subtitle);
-    margin-bottom: 1.25rem;
-  }
-  .rvhg-post__related-grid {
+    padding-block: 4rem 6rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  @media (max-width: 900px) {
-    .rvhg-post__related-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (max-width: 560px) {
-    .rvhg-post__related-grid {
-      grid-template-columns: 1fr;
-    }
+    place-items: center;
   }
 </style>

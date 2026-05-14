@@ -11,13 +11,14 @@ function section(title: string) {
 }
 
 export const GET: APIRoute = async () => {
-  const [pages, productCategories, products, posts, policies] = await Promise.all([
+  const [pages, productCategories, posts, policies] = await Promise.all([
     getCollection('pages'),
     getCollection('productCategories'),
-    getCollection('products'),
     getCollection('posts', (p) => !p.data.draft),
     getCollection('policies'),
   ]);
+
+  const lines = [...productCategories].sort((a, b) => a.data.order - b.data.order);
 
   let out = '';
   out += `# ${COMPANY.brand} — ${SITE.tagline}\n`;
@@ -25,11 +26,9 @@ export const GET: APIRoute = async () => {
   out += `# Nguồn: ${BASE}  ·  Sinh tự động — toàn bộ nội dung website dưới dạng markdown.\n\n`;
   out += `> ${SITE.shortDescription}\n`;
 
-  // Table of contents
   out += `\n## Mục lục\n`;
   out += `- Trang nội dung: ${pages.map((p) => p.data.title).join('; ')}\n`;
-  out += `- Danh mục sản phẩm: ${productCategories.map((c) => c.data.title).join('; ')}\n`;
-  out += `- Sản phẩm: ${products.map((p) => p.data.title).join('; ')}\n`;
+  out += `- Dòng sản phẩm: ${lines.map((c) => c.data.title).join('; ')}\n`;
   out += `- Tin tức / câu chuyện: ${posts.map((p) => p.data.title).join('; ')}\n`;
   out += `- Công bố & chính sách: ${policies.map((p) => p.data.title).join('; ')}\n`;
 
@@ -38,18 +37,31 @@ export const GET: APIRoute = async () => {
     out += `\n## ${p.data.title}\nURL: ${BASE}${p.data.route}\n${p.data.description}\n\n${p.body ?? ''}\n`;
   }
 
-  out += section('DANH MỤC SẢN PHẨM');
-  for (const c of productCategories) {
-    out += `\n## ${c.data.title}\nURL: ${BASE}/danh-muc-san-pham/${c.id}/\n${c.data.description}\n\n${c.body ?? ''}\n`;
-  }
-
-  out += section('SẢN PHẨM');
-  for (const p of products) {
-    const d = p.data;
-    out += `\n## ${d.title}\nURL: ${BASE}/san-pham/${p.id}/\n`;
-    out += `Danh mục: ${d.category}${d.weight ? ` · Khối lượng: ${d.weight}` : ''}${d.packaging ? ` · Quy cách: ${d.packaging}` : ''}${d.sku ? ` · Mã: ${d.sku}` : ''}\n`;
-    if (d.isOcop5Star) out += `Chứng nhận: OCOP 5 sao Quốc gia 2024\n`;
-    out += `${d.description}\n\n${p.body ?? ''}\n`;
+  out += section('DÒNG SẢN PHẨM');
+  for (const c of lines) {
+    out += `\n## ${c.data.title}\n`;
+    out += `URL: ${BASE}/danh-muc-san-pham/${c.id}/\n`;
+    if (c.data.tagline) out += `Tagline: ${c.data.tagline}\n`;
+    out += `${c.data.description}\n`;
+    out += `\n${c.body ?? ''}\n`;
+    if (c.data.certifications.length > 0) {
+      out += `\n### Tiêu chuẩn chất lượng\n`;
+      for (const cert of c.data.certifications) {
+        out += `- **${cert.title}** — ${cert.body}\n`;
+      }
+    }
+    if (c.data.selfDeclarations.length > 0) {
+      out += `\n### Hồ sơ tự công bố\n`;
+      for (const decl of c.data.selfDeclarations) {
+        out += `- ${decl.label}\n`;
+      }
+    }
+    if (c.data.products.length > 0) {
+      out += `\n### Sản phẩm trong dòng (${c.data.products.length})\n`;
+      for (const p of c.data.products) {
+        out += `- ${p.name}${p.weight ? ` · ${p.weight}` : ''}${p.isOcop5Star ? ' · OCOP 5★' : ''}\n`;
+      }
+    }
   }
 
   out += section('TIN TỨC & CÂU CHUYỆN SẢN PHẨM');

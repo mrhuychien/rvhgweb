@@ -1,9 +1,57 @@
 ---
-title: 'Bánh đậu xanh Tết — quà biếu'
-description: 'Hộp quà bánh đậu xanh Tết Rồng Vàng Hoàng Gia: thiết kế sang trọng, đậm không khí Xuân, ý nghĩa cho mọi món quà biếu.'
+title: 'Bánh đậu xanh Tết'
+eyebrow: 'Quà biếu Tết'
+tagline: 'Lộc vàng, phúc đầy — gửi trao trong từng hộp quà.'
+description: 'Bộ sưu tập quà Tết Rồng Vàng Hoàng Gia — chĩnh vàng, thỏi vàng, đồng tiền, hồ lô, giỏ quà cao cấp. Lộc vàng đầu năm cho mọi gia đình.'
 order: 2
 heroImage: '/images/legacy/cat-tet.jpg'
+storyImage: '/images/legacy/long-phung-lien-hoa-300x300.jpg'
+accent: '#8B2E2E'
 oldUrl: 'https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-tet/'
+certifications:
+  - title: 'OCOP 5 sao Quốc gia 2024'
+    body: 'Lõi sản phẩm bánh đậu xanh trong các hộp quà Tết là sản phẩm OCOP 5 sao — biểu tượng đỉnh cao của đặc sản Việt.'
+  - title: 'ISO 22000:2018'
+    body: 'Mỗi hộp quà Tết đều được sản xuất trong cùng dây chuyền an toàn thực phẩm quốc tế ISO 22000:2018.'
+  - title: 'Hồ sơ tự công bố đầy đủ'
+    body: 'Tất cả 8 hương vị bánh đậu xanh trong dòng quà Tết đều có bản tự công bố sản phẩm gửi cơ quan quản lý nhà nước.'
+selfDeclarations:
+  - label: 'Bản tự công bố — Bánh đậu xanh (8 hương vị)'
+    href: '/ban-tu-cong-bo-rong-vang-hoang-gia/'
+  - label: 'Bản tự công bố — Bánh đậu trà xanh & sầu riêng'
+    href: '/ban-tu-cong-bo-rong-vang-hoang-gia/'
+products:
+  - name: 'Hộp quà OCOP 5 sao Quốc gia'
+    image: '/images/legacy/hop-5-sao-web.jpg'
+    isOcop5Star: true
+  - name: 'Hộp quà tre cao cấp'
+    image: '/images/legacy/banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg'
+  - name: 'Giỏ quà Long phụng liên hoa'
+    image: '/images/legacy/long-phung-lien-hoa-300x300.jpg'
+  - name: 'Giỏ quà Ngũ phúc lâm môn'
+    image: '/images/legacy/ngu-phuc-lam-mon-300x300.jpg'
+  - name: 'Giỏ quà Tài lộc phú quý'
+    image: '/images/legacy/tai-loc-phu-quy-300x300.jpg'
+  - name: 'Bánh đậu xanh Bánh chưng vàng'
+    image: '/images/legacy/banh-chung-vang-web.jpg'
+  - name: 'Bánh đậu xanh Bánh chưng Tết'
+  - name: 'Bánh đậu xanh Cá chép vàng'
+  - name: 'Bánh đậu xanh Chĩnh đào trường thọ'
+  - name: 'Bánh đậu xanh Chĩnh lộc vàng'
+  - name: 'Bánh đậu xanh Chĩnh vàng Phúc lộc'
+  - name: 'Bánh đậu xanh Chĩnh vàng Thần tài'
+  - name: 'Bánh đậu xanh Đồng tiền lớn'
+  - name: 'Bánh đậu xanh Đồng tiền nhỏ'
+  - name: 'Bánh đậu xanh Hồ lô hút lộc'
+  - name: 'Bánh đậu xanh Hoa đào Tết'
+  - name: 'Bánh đậu xanh Hoa sen Phật bà'
+  - name: 'Bánh đậu xanh Long phụng sum vầy'
+  - name: 'Bánh đậu xanh Thần tài phát lộc'
+  - name: 'Bánh đậu xanh Tháp sen'
+  - name: 'Bánh đậu xanh Thỏi vàng tài lộc'
+  - name: 'Bánh đậu thượng hạng Tiến vua'
 ---
 
-Dòng **quà Tết** với thiết kế lấy cảm hứng từ Xuân cổ truyền — Bánh Chưng Vàng, hộp quà OCOP 5 sao, hộp tre cao cấp — vừa là món ăn tinh tế, vừa là lời chúc gửi gắm trong dịp năm mới.
+Bộ sưu tập **Tết Rồng Vàng Hoàng Gia** lấy cảm hứng từ những biểu tượng phú quý của Á Đông: chĩnh vàng, thỏi vàng, đồng tiền, hồ lô, hoa sen, cá chép — mỗi hộp quà là một lời chúc lộc vàng đầu năm.
+
+Bên trong vẫn là bánh đậu xanh **OCOP 5 sao Quốc gia**, sản xuất theo công thức bí truyền của nghệ nhân Hải Dương, được đóng gói trong các thiết kế thủ công xứng tầm để biếu tặng dịp Tết Nguyên đán, lễ hội và các sự kiện truyền thống.
