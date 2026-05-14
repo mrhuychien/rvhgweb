@@ -1,24 +1,15 @@
 ---
-title: 'Chính sách bảo hành — đổi trả'
-description: 'Chính sách đổi trả sản phẩm bánh đậu xanh, bột đậu xanh Rồng Vàng Hoàng Gia của Công ty Cổ phần Hoàng Giang.'
+title: 'Chính sách bảo hành, đổi trả'
+description: 'Quy định bảo hành và đổi trả sản phẩm của Rồng Vàng Hoàng Gia.'
 effectiveDate: 2024-01-01
 oldUrl: 'https://www.rongvanghoanggia.com/chinh-sach-bao-hanh-doi-tra/'
 ---
 
-## 1. Nguyên tắc chung
+## Chính sách bảo hành, đổi trả
 
-Là sản phẩm thực phẩm, bánh đậu xanh và bột đậu xanh Rồng Vàng Hoàng Gia được đổi trả trong các trường hợp lỗi từ nhà sản xuất hoặc do vận chuyển, không áp dụng đổi trả vì lý do chủ quan (đã sử dụng, không còn nhu cầu).
+- Rồng Vàng Hoàng Gia **không áp dụng chính sách đổi trả** đối với sản phẩm thực phẩm đã giao thành công.
+- Quý khách lưu ý khi nhận hàng — nếu sản phẩm bẹp, méo, suy chuyển bao bì, vui lòng **không nhận hàng và trả lại cho bưu tá** ngay tại thời điểm giao.
 
-## 2. Trường hợp được đổi/trả
+## Liên hệ hỗ trợ
 
-- Sản phẩm bị móp, rách bao bì, ẩm mốc do lỗi sản xuất hoặc vận chuyển.
-- Giao sai sản phẩm, sai số lượng so với đơn đặt.
-- Sản phẩm hết hạn sử dụng tại thời điểm nhận hàng.
-
-## 3. Thời hạn
-
-Trong vòng **48 giờ** kể từ khi nhận hàng, vui lòng liên hệ và cung cấp hình ảnh sản phẩm, hoá đơn/biên nhận.
-
-## 4. Cách thức
-
-Liên hệ hotline **0934362658** hoặc email **info@rongvanghoanggia.com**. Với hàng mua qua sàn thương mại điện tử, áp dụng đồng thời chính sách của sàn (Shopee, TikTok Shop).
+Mọi chi tiết, vui lòng liên hệ hotline **0934 362 658** hoặc nhắn tin qua m.me/rongvanghoanggiapage.

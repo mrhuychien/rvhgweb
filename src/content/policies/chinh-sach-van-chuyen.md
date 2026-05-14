@@ -1,28 +1,43 @@
 ---
-title: 'Chính sách vận chuyển'
-description: 'Chính sách vận chuyển, giao nhận sản phẩm Rồng Vàng Hoàng Gia của Công ty Cổ phần Hoàng Giang.'
+title: 'Chính sách vận chuyển — thanh toán'
+description: 'Phí vận chuyển, thời gian giao hàng và hình thức thanh toán khi mua sản phẩm Rồng Vàng Hoàng Gia.'
 effectiveDate: 2024-01-01
 oldUrl: 'https://www.rongvanghoanggia.com/chinh-sach-van-chuyen/'
 ---
 
-## 1. Khu vực giao hàng
+## I. Chính sách giao nhận
 
-Giao hàng toàn quốc qua các đơn vị vận chuyển đối tác. Với đơn hàng số lượng lớn hoặc quà biếu doanh nghiệp, công ty hỗ trợ sắp xếp giao tận nơi tại khu vực Hải Dương, Hải Phòng và Hà Nội.
+### 1. Phí vận chuyển
 
-## 2. Thời gian giao hàng
+- **Miễn phí vận chuyển** với đơn hàng từ **2 triệu đồng** trở lên.
+- Đơn hàng dưới 2 triệu: phí vận chuyển **30.000 đ/đơn**, áp dụng toàn quốc.
 
-- Nội tỉnh Hải Dương / Hải Phòng: 1–2 ngày làm việc.
-- Các tỉnh thành khác: 2–5 ngày làm việc tuỳ khu vực.
-- Mùa cao điểm (Tết): thời gian có thể kéo dài hơn — vui lòng đặt hàng sớm.
+### 2. Thời gian giao hàng
 
-## 3. Phí vận chuyển
+- Khu vực miền Bắc: **1–3 ngày**.
+- Toàn quốc: **4–7 ngày**.
 
-Phí vận chuyển tính theo bảng giá của đơn vị vận chuyển, dựa trên khối lượng và khu vực. Đơn hàng mua qua sàn thương mại điện tử áp dụng chính sách phí của sàn.
+## II. Chính sách thanh toán
 
-## 4. Đóng gói
+Khách hàng có thể chọn các hình thức thanh toán sau khi mua sắm trực tuyến tại rongvanghoanggia.com:
 
-Sản phẩm được đóng gói cẩn thận, chèn lót chống va đập. Quà biếu được đóng gói riêng đảm bảo thẩm mỹ.
+### 1. Thanh toán khi nhận hàng (COD)
 
-## 5. Liên hệ
+Nhân viên vận chuyển thu tiền mặt khi giao hàng cho khách.
 
-Hotline **0934362658** · email **info@rongvanghoanggia.com**.
+### 2. Chuyển khoản ngân hàng
+
+- Chủ tài khoản: **Đào Bích Hằng**
+- Số tài khoản: **0341007014720**
+- Ngân hàng: **Vietcombank — Chi nhánh Hải Dương**
+
+Mọi thắc mắc về thanh toán, vui lòng liên hệ:
+
+- Hotline chăm sóc khách hàng: **0934 362 658**
+- Website: rongvanghoanggia.com
+- Email: **info@rongvanghoanggia.com**
+
+## III. Chính sách hoàn tiền
+
+- Khách hàng huỷ đơn hàng sẽ được hoàn tiền cho các giao dịch không thành công.
+- Quý khách vui lòng kiểm tra kỹ khi nhận hàng — Rồng Vàng Hoàng Gia không chịu trách nhiệm hoàn tiền/huỷ đơn với các đơn hàng quý khách đã nhận hàng.

@@ -1,31 +1,30 @@
 ---
-title: 'Liên hệ Rồng Vàng Hoàng Gia'
-description: 'Thông tin liên hệ Công ty Cổ phần Hoàng Giang — hotline 0934362658, email info@rongvanghoanggia.com, showroom 209C Tuệ Tĩnh và 9 Bạch Đằng, TP Hải Dương.'
+title: 'Liên hệ — Rồng Vàng Hoàng Gia'
+description: 'Liên hệ Công ty Cổ phần Hoàng Giang — hotline 0934362658, email info@rongvanghoanggia.com, showroom 209C Tuệ Tĩnh và 9 Bạch Đằng, TP Hải Dương.'
 oldUrl: 'https://www.rongvanghoanggia.com/lien-he/'
 route: '/lien-he/'
 standalone: true
 ---
 
-## Liên hệ với chúng tôi
+## Liên hệ trực tiếp
 
-Quý khách cần tư vấn sản phẩm, đặt quà biếu Tết, hợp tác phân phối hay đặt hàng số lượng lớn — vui lòng liên hệ:
-
-- **Hotline / Zalo:** 0934362658
 - **Email:** info@rongvanghoanggia.com
-- **Fanpage:** facebook.com/rongvanghoanggiapage
+- **Hotline:** 0934 362 658
+- **Địa chỉ nhà máy:** Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, TP Hải Phòng
+- **Fanpage:** [facebook.com/rongvanghoanggiapage](https://www.facebook.com/rongvanghoanggiapage)
 
 ## Showroom
 
 - **209C Tuệ Tĩnh**, TP Hải Dương
 - **9 Bạch Đằng**, TP Hải Dương
 
-## Nhà máy sản xuất
-
-Công ty Cổ phần Hoàng Giang — Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, TP Hải Phòng.
-
 ## Mua hàng online
 
-Quý khách có thể mua bánh đậu xanh và bột đậu xanh Rồng Vàng Hoàng Gia chính hãng trên **Shopee** và **TikTok Shop** — tìm "Rồng Vàng Hoàng Gia".
+Quý khách có thể mua sản phẩm chính hãng Rồng Vàng Hoàng Gia trên **Shopee** và **TikTok Shop** — tìm "Rồng Vàng Hoàng Gia".
+
+## Hợp tác phân phối
+
+Doanh nghiệp, cửa hàng đặc sản, đơn vị làm quà tặng có nhu cầu hợp tác phân phối — vui lòng liên hệ hotline **0934 362 658** hoặc email **info@rongvanghoanggia.com** để nhận bảng giá và chính sách đại lý.
 
 ## Thông tin doanh nghiệp
 

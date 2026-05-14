@@ -6,20 +6,44 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
 ---
 
 <BaseLayout
-  title="Công bố & chính sách — Rồng Vàng Hoàng Gia"
-  description="Bản tự công bố sản phẩm, chứng nhận và các chính sách của Công ty Cổ phần Hoàng Giang — thương hiệu Rồng Vàng Hoàng Gia."
+  title="Công bố — Rồng Vàng Hoàng Gia"
+  description="Hồ sơ tự công bố sản phẩm, chứng nhận và phiếu kiểm nghiệm định kỳ của Công ty Cổ phần Hoàng Giang — thương hiệu Rồng Vàng Hoàng Gia."
   canonical="/cong-bo/"
   noindex={true}
 >
   <section class="rvhg-pub-hero">
     <div class="rvhg-container">
-      <p class="rvhg-eyebrow">Công bố &amp; chính sách</p>
+      <p class="rvhg-eyebrow">Công bố</p>
       <h1>Minh bạch.</h1>
-      <p class="rvhg-pub-hero__lede">Bản tự công bố sản phẩm, chứng nhận pháp lý và các chính sách dành cho khách hàng, đối tác.</p>
+      <p class="rvhg-pub-hero__lede">Hồ sơ tự công bố các sản phẩm đang lưu hành, chứng nhận pháp lý và phiếu kiểm nghiệm định kỳ.</p>
     </div>
   </section>
 
+  <!-- Three pillars (mirror cong-bo page sections) -->
   <section class="rvhg-section rvhg-band-soft">
+    <div class="rvhg-container">
+      <div class="rvhg-pub-pillars">
+        <article>
+          <h2>Hồ sơ tự công bố</h2>
+          <p>Hồ sơ tự công bố các sản phẩm đang lưu hành của Rồng Vàng Hoàng Gia theo quy định của pháp luật — Nghị định 15/2018/NĐ-CP.</p>
+          <a class="rvhg-btn--link" href="/ban-tu-cong-bo-rong-vang-hoang-gia/">Xem ngay  ›</a>
+        </article>
+        <article>
+          <h2>Phiếu kiểm nghiệm định kỳ</h2>
+          <p>Kết quả kiểm nghiệm định kỳ các sản phẩm của Rồng Vàng Hoàng Gia tại các đơn vị kiểm nghiệm được chỉ định.</p>
+          <a class="rvhg-btn--link" href="mailto:info@rongvanghoanggia.com">Yêu cầu bản sao  ›</a>
+        </article>
+        <article>
+          <h2>Thư viện hình ảnh, video</h2>
+          <p>Kho lưu trữ thư viện hình ảnh, video về Rồng Vàng Hoàng Gia phục vụ báo chí, đối tác và đại lý.</p>
+          <a class="rvhg-btn--link" href={'https://www.facebook.com/rongvanghoanggiapage'} target="_blank" rel="noopener noreferrer">Truy cập Fanpage  ›</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="rvhg-section">
     <div class="rvhg-container">
       <p class="rvhg-eyebrow">Chứng nhận chính</p>
       <div class="rvhg-pub-cert-grid">
@@ -35,7 +59,8 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
     </div>
   </section>
 
-  <section class="rvhg-section">
+  <!-- Policy list -->
+  <section class="rvhg-section rvhg-band-soft">
     <div class="rvhg-container">
       <p class="rvhg-eyebrow">Tự công bố &amp; chính sách</p>
       <h2 class="rvhg-pub-list-head">Tài liệu công khai.</h2>
@@ -75,6 +100,29 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
     max-width: 38rem;
   }
 
+  .rvhg-pub-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  .rvhg-pub-pillars article {
+    border-top: 1px solid var(--color-line);
+    padding-top: 1.5rem;
+  }
+  .rvhg-pub-pillars h2 {
+    font-size: 1.4rem;
+    letter-spacing: -0.012em;
+  }
+  .rvhg-pub-pillars p {
+    margin-top: 0.85rem;
+    color: var(--color-mute);
+    font-size: 0.975rem;
+  }
+  .rvhg-pub-pillars a { display: inline-block; margin-top: 1rem; }
+  @media (max-width: 768px) {
+    .rvhg-pub-pillars { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+
   .rvhg-pub-cert-grid {
     margin-top: 1.5rem;
     display: grid;
@@ -107,9 +155,7 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
     margin: 0;
     border-top: 1px solid var(--color-line);
   }
-  .rvhg-pub-list li {
-    border-bottom: 1px solid var(--color-line);
-  }
+  .rvhg-pub-list li { border-bottom: 1px solid var(--color-line); }
   .rvhg-pub-list a {
     display: grid;
     grid-template-columns: 1fr auto;
