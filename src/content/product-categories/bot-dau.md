@@ -16,12 +16,12 @@ certifications:
   - title: 'Đậu nguyên hạt'
     body: 'Đậu xanh và đậu đen được lựa từ vùng nguyên liệu Hải Dương, rang chín ở nhiệt độ kiểm soát rồi xay nhuyễn — không pha trộn bột gạo độn.'
 selfDeclarations:
-  - label: 'Bản tự công bố 09 — Bột đậu xanh dinh dưỡng (2021)'
-    href: '/ban-tu-cong-bo-rong-vang-hoang-gia/'
-  - label: 'Bản tự công bố 10 — Chè đậu đen cốt dừa (2021)'
-    href: '/ban-tu-cong-bo-rong-vang-hoang-gia/'
-  - label: 'Bản tự công bố — Bột đậu xanh nguyên chất'
-    href: '/ban-tu-cong-bo-rong-vang-hoang-gia/'
+  - label: 'Bản tự công bố 09 — Bột đậu xanh dinh dưỡng (PDF)'
+    href: '/cong-bo/09-bot-dau-xanh-dinh-duong.pdf'
+  - label: 'Bản tự công bố 10 — Chè đậu đen cốt dừa (PDF)'
+    href: '/cong-bo/10-che-dau-den-cot-dua.pdf'
+  - label: 'Bản tự công bố — Bột đậu xanh nguyên chất (PDF)'
+    href: '/cong-bo/11-bot-dau-xanh-nguyen-chat.pdf'
 products:
   - name: 'Bột đậu xanh dinh dưỡng'
     image: '/images/legacy/bx-web.jpg'

@@ -1,6 +1,6 @@
 ---
 title: 'Bản tự công bố sản phẩm — Rồng Vàng Hoàng Gia'
-description: 'Hồ sơ tự công bố các sản phẩm bánh đậu xanh, bột đậu xanh, chè đậu đen của Công ty Cổ phần Hoàng Giang theo Nghị định 15/2018/NĐ-CP.'
+description: 'Hồ sơ tự công bố các sản phẩm bánh đậu xanh, bột đậu xanh, chè đậu đen của Công ty Cổ phần Hoàng Giang theo Nghị định 15/2018/NĐ-CP. Bản PDF công khai cho từng SKU.'
 effectiveDate: 2023-07-01
 oldUrl: 'https://www.rongvanghoanggia.com/ban-tu-cong-bo-rong-vang-hoang-gia/'
 ---
@@ -13,25 +13,23 @@ Theo quy định tại **Nghị định 15/2018/NĐ-CP** về an toàn thực ph
 
 ## Bản tự công bố các sản phẩm đang lưu hành
 
-| # | Sản phẩm | Năm |
-|---|----------|-----|
-| 01 | Bánh đậu xanh Rồng Vàng Hoàng Gia | 2023 |
-| 02 | Bánh đậu trà xanh Rồng Vàng Hoàng Gia | 2023 |
-| 03 | Bánh đậu sầu riêng Rồng Vàng Hoàng Gia | 2023 |
-| 04 | Bánh đậu xanh hương vị trái cây Rồng Vàng Hoàng Gia | 2023 |
-| 05 | Bánh đậu xanh hương vị sen Rồng Vàng Hoàng Gia | 2023 |
-| 06 | Bánh đậu xanh hương vị dừa Rồng Vàng Hoàng Gia | 2023 |
-| 07 | Bánh đậu xanh hương vị khoai môn Rồng Vàng Hoàng Gia | 2023 |
-| 08 | Bánh đậu xanh hương vị cốm Rồng Vàng Hoàng Gia | 2023 |
-| 09 | Bột đậu xanh dinh dưỡng Rồng Vàng Hoàng Gia | 2021 |
-| 10 | Chè đậu đen cốt dừa Rồng Vàng Hoàng Gia | 2021 |
-| — | Bột đậu xanh nguyên chất Rồng Vàng Hoàng Gia | 2019 |
+- [Bản tự công bố 01 — Bánh đậu xanh Rồng Vàng Hoàng Gia (PDF)](/cong-bo/01-banh-dau-xanh.pdf) · 2023
+- [Bản tự công bố 02 — Bánh đậu trà xanh Rồng Vàng Hoàng Gia (PDF)](/cong-bo/02-banh-dau-tra-xanh.pdf) · 2023
+- [Bản tự công bố 03 — Bánh đậu sầu riêng Rồng Vàng Hoàng Gia (PDF)](/cong-bo/03-banh-dau-sau-rieng.pdf) · 2023
+- [Bản tự công bố 04 — Bánh đậu xanh hương vị trái cây (PDF)](/cong-bo/04-banh-dau-xanh-huong-vi-trai-cay.pdf) · 2023
+- [Bản tự công bố 05 — Bánh đậu xanh hương vị sen (PDF)](/cong-bo/05-banh-dau-xanh-huong-vi-sen.pdf) · 2023
+- [Bản tự công bố 06 — Bánh đậu xanh hương vị dừa (PDF)](/cong-bo/06-banh-dau-xanh-huong-vi-dua.pdf) · 2023
+- [Bản tự công bố 07 — Bánh đậu xanh hương vị khoai môn (PDF)](/cong-bo/07-banh-dau-xanh-huong-vi-khoai-mon.pdf) · 2023
+- [Bản tự công bố 08 — Bánh đậu xanh hương vị cốm (PDF)](/cong-bo/08-banh-dau-xanh-huong-vi-com.pdf) · 2023
+- [Bản tự công bố 09 — Bột đậu xanh dinh dưỡng (PDF)](/cong-bo/09-bot-dau-xanh-dinh-duong.pdf) · 2021
+- [Bản tự công bố 10 — Chè đậu đen cốt dừa (PDF)](/cong-bo/10-che-dau-den-cot-dua.pdf) · 2021
+- [Bản tự công bố — Bột đậu xanh nguyên chất (PDF)](/cong-bo/11-bot-dau-xanh-nguyen-chat.pdf) · 2019
 
 Các bản tự công bố sản phẩm đầy đủ (bao gồm phiếu kết quả kiểm nghiệm trong thời hạn quy định) được lưu tại doanh nghiệp và đã nộp tại **Chi cục An toàn vệ sinh thực phẩm Hải Dương**.
 
 ## Văn bản gửi cơ quan quản lý
 
-- Công văn đính chính hồ sơ tự công bố gửi Chi cục Vệ sinh an toàn thực phẩm Hải Dương (10/2024) — về việc đính chính thành phần nguyên liệu.
+- [Công văn đính chính hồ sơ tự công bố — gửi Chi cục Vệ sinh an toàn thực phẩm Hải Dương (PDF)](/cong-bo/cong-van-dinh-chinh-thanh-phan-nguyen-lieu.pdf) · 10/2024 — về việc đính chính thành phần nguyên liệu.
 
 ## Thông tin tổ chức
 
@@ -42,4 +40,4 @@ Các bản tự công bố sản phẩm đầy đủ (bao gồm phiếu kết qu
 
 ## Yêu cầu bản sao
 
-Quý khách, đối tác cần bản sao hồ sơ tự công bố hoặc phiếu kiểm nghiệm vui lòng liên hệ **info@rongvanghoanggia.com** hoặc hotline **0934 362 658**.
+Quý khách, đối tác cần bản sao có dấu hoặc phiếu kiểm nghiệm gốc vui lòng liên hệ **info@rongvanghoanggia.com** hoặc hotline **0934 362 658**.
