@@ -49,6 +49,8 @@ const productCategories = defineCollection({
     heroImage: z.string().optional(),
     /** Image for the homepage "Danh mục sản phẩm" card grid (authentic old-site photo). */
     cardImage: z.string().optional(),
+    /** object-position for the card image when its aspect differs from the tile (e.g. portrait Tết). */
+    cardImagePos: z.string().optional(),
     /** Optional secondary image used in the brand-intro band. */
     storyImage: z.string().optional(),
     /** Per-line accent color (hex). Used sparingly — Apple keeps colour to media. */

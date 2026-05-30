@@ -6,6 +6,7 @@ description: 'Bộ sưu tập quà Tết Rồng Vàng Hoàng Gia — chĩnh vàn
 order: 2
 heroImage: '/images/legacy/cat-tet.jpg'
 cardImage: '/images/legacy/banh-dau-xanh-le-tet-2-1.jpg'
+cardImagePos: 'center 32%'
 storyImage: '/images/legacy/long-phung-lien-hoa-300x300.jpg'
 accent: '#8B2E2E'
 oldUrl: 'https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-tet/'
