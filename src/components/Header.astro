@@ -1,25 +1,42 @@
 ---
 import { NAV } from '../data/site';
-import Logo from './Logo.astro';
 
 const path = Astro.url.pathname;
 const isActive = (href: string) =>
   href === '/' ? path === '/' : path === href || path.startsWith(href);
+
+// Split the nav into two groups that flank the central emblem (old-site layout).
+const mid = Math.ceil(NAV.length / 2);
+const navLeft = NAV.slice(0, mid);
+const navRight = NAV.slice(mid);
 ---
 
 <header class="rvhg-header" data-rvhg-header>
   <div class="rvhg-header__inner">
-    <a href="/" class="rvhg-header__brand" aria-label="Trang chủ Rồng Vàng Hoàng Gia">
-      <Logo />
+    <nav class="rvhg-header__side rvhg-header__side--left" aria-label="Điều hướng (trái)">
+      <ul>
+        {navLeft.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a href="/" class="rvhg-header__emblem" aria-label="Trang chủ — Rồng Vàng Hoàng Gia">
+      <img
+        src="/images/legacy/cropped-logo-web-270x270.png"
+        alt="Rồng Vàng Hoàng Gia — Đặc sản nức tiếng Hải Dương"
+        width="270" height="270"
+        decoding="async"
+      />
     </a>
 
-    <nav class="rvhg-header__nav" aria-label="Điều hướng chính">
+    <nav class="rvhg-header__side rvhg-header__side--right" aria-label="Điều hướng (phải)">
       <ul>
-        {NAV.map((item) => (
+        {navRight.map((item) => (
           <li>
-            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
-              {item.label}
-            </a>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
           </li>
         ))}
       </ul>
@@ -33,9 +50,9 @@ const isActive = (href: string) =>
       aria-label="Mở menu"
       data-rvhg-menu-toggle
     >
-      <svg viewBox="0 0 18 18" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-        <line x1="2" y1="6"  x2="16" y2="6"  />
-        <line x1="2" y1="12" x2="16" y2="12" />
+      <svg viewBox="0 0 20 20" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+        <line x1="2" y1="6" x2="18" y2="6" />
+        <line x1="2" y1="12" x2="18" y2="12" />
       </svg>
     </button>
   </div>
@@ -56,90 +73,136 @@ const isActive = (href: string) =>
     position: sticky;
     top: 0;
     z-index: 50;
-    background: color-mix(in srgb, var(--color-paper-50, #fbf8f1) 78%, transparent);
-    backdrop-filter: saturate(150%) blur(20px);
-    -webkit-backdrop-filter: saturate(150%) blur(20px);
-    border-bottom: 1px solid var(--color-line);
+    color: var(--color-paper-50, #fbf8f1);
+    background:
+      radial-gradient(120% 140% at 50% -10%, #5a1417 0%, #3d1114 45%, #2a0c0e 100%);
+    border-bottom: 1px solid color-mix(in srgb, var(--brass) 45%, transparent);
   }
+  /* brass corner brackets — restrained nod to the lacquer frame */
+  .rvhg-header::before,
+  .rvhg-header::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 26px;
+    height: 26px;
+    border-top: 1px solid color-mix(in srgb, var(--color-brass-400, #c5a878) 70%, transparent);
+    pointer-events: none;
+  }
+  .rvhg-header::before { left: 12px;  border-left: 1px solid color-mix(in srgb, var(--color-brass-400, #c5a878) 70%, transparent); }
+  .rvhg-header::after  { right: 12px; border-right: 1px solid color-mix(in srgb, var(--color-brass-400, #c5a878) 70%, transparent); }
+
   .rvhg-header__inner {
-    max-width: 80rem;
+    max-width: 1180px;
     margin-inline: auto;
-    padding-inline: 1.25rem;
-    display: flex;
+    padding-inline: 1.5rem;
+    min-height: 92px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    height: 3rem;
+    gap: 1.25rem;
+    transition: min-height 0.3s var(--ease-refined, ease);
   }
   @media (min-width: 768px) {
-    .rvhg-header__inner { padding-inline: 2rem; height: 3.25rem; }
+    .rvhg-header__inner { padding-inline: 2.5rem; }
   }
-  .rvhg-header__brand {
-    text-decoration: none;
+  .rvhg-header[data-scrolled] .rvhg-header__inner { min-height: 72px; }
+
+  /* central emblem */
+  .rvhg-header__emblem {
     display: inline-flex;
-    align-items: center;
+    justify-self: center;
+    line-height: 0;
   }
-  .rvhg-header__nav ul {
+  .rvhg-header__emblem img {
+    width: 76px;
+    height: 76px;
+    border-radius: 9999px;
+    transition: width 0.3s var(--ease-refined, ease), height 0.3s var(--ease-refined, ease);
+  }
+  .rvhg-header[data-scrolled] .rvhg-header__emblem img { width: 60px; height: 60px; }
+
+  /* flanking nav groups */
+  .rvhg-header__side ul {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.35rem;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
-  .rvhg-header__nav a {
+  .rvhg-header__side--left ul  { justify-content: flex-end; }
+  .rvhg-header__side--right ul { justify-content: flex-start; }
+  .rvhg-header__side a {
     display: inline-block;
-    padding: 0.4rem 0.85rem;
-    font-size: 0.78rem;
-    font-weight: 400;
-    color: var(--color-ink);
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-paper-50, #fbf8f1);
     text-decoration: none;
-    opacity: 0.86;
-    transition: opacity 0.15s ease;
+    white-space: nowrap;
+    transition: color 0.18s var(--ease-refined, ease);
   }
-  .rvhg-header__nav a:hover { opacity: 1; }
-  .rvhg-header__nav a[aria-current='page'] { opacity: 1; font-weight: 500; }
+  .rvhg-header__side a:hover { color: var(--color-brass-300, #d8c29a); }
+  .rvhg-header__side a[aria-current='page'] {
+    color: var(--color-brass-300, #d8c29a);
+  }
+
+  /* mobile toggle */
   .rvhg-header__toggle {
     display: none;
+    grid-column: 1;
+    justify-self: start;
     align-items: center;
     justify-content: center;
     padding: 0.4rem;
     border: 0;
     background: transparent;
-    color: var(--color-ink);
+    color: var(--color-paper-50, #fbf8f1);
     cursor: pointer;
   }
+
+  /* mobile drawer */
   .rvhg-mobile-nav {
-    border-top: 1px solid var(--color-line-soft);
-    background: color-mix(in srgb, var(--color-paper-50, #fbf8f1) 97%, transparent);
-    backdrop-filter: blur(12px);
+    background: #2a0c0e;
+    border-top: 1px solid color-mix(in srgb, var(--brass) 30%, transparent);
   }
   .rvhg-mobile-nav ul {
     list-style: none;
-    padding: 0.5rem 1.25rem 1.25rem;
     margin: 0;
+    padding: 0.5rem 1.5rem 1.25rem;
   }
   .rvhg-mobile-nav a {
     display: block;
-    padding: 0.85rem 0.25rem;
-    font-size: 1.05rem;
+    padding: 0.9rem 0.25rem;
+    font-size: 0.95rem;
     font-weight: 500;
-    color: var(--color-ink);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-paper-50, #fbf8f1);
     text-decoration: none;
-    border-bottom: 1px solid var(--color-line-soft);
+    border-bottom: 1px solid color-mix(in srgb, var(--brass) 18%, transparent);
   }
-  .rvhg-mobile-nav a[aria-current='page'] { color: var(--color-link); }
+  .rvhg-mobile-nav a[aria-current='page'] { color: var(--color-brass-300, #d8c29a); }
+
   @media (max-width: 900px) {
-    .rvhg-header__nav { display: none; }
+    .rvhg-header__side { display: none; }
+    .rvhg-header__inner { grid-template-columns: 1fr auto 1fr; min-height: 76px; }
     .rvhg-header__toggle { display: inline-flex; }
+    .rvhg-header__emblem { grid-column: 2; }
+    .rvhg-header[data-scrolled] .rvhg-header__inner { min-height: 64px; }
   }
 </style>
 
 <script>
   function initHeader() {
+    const header = document.querySelector('[data-rvhg-header]');
     const toggle = document.querySelector('[data-rvhg-menu-toggle]') as HTMLButtonElement | null;
     const nav = document.getElementById('rvhg-mobile-nav');
-    if (!toggle || !nav) return;
+    if (!header || !toggle || !nav) return;
+
     const close = () => {
       toggle.setAttribute('aria-expanded', 'false');
       nav.hidden = true;
@@ -150,6 +213,13 @@ const isActive = (href: string) =>
       nav.hidden = open;
     });
     nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+
+    const onScroll = () => {
+      if (window.scrollY > 8) header.setAttribute('data-scrolled', '');
+      else header.removeAttribute('data-scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
   }
   initHeader();
   document.addEventListener('astro:after-swap', initHeader);

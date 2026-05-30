@@ -205,7 +205,7 @@
    ============================================================================ */
 :root {
   color-scheme: light;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6.5rem; /* clears the centred-emblem header */
 
   /* brand accents (small surfaces only — see §0 rules) */
   --brass: #b08d57;
