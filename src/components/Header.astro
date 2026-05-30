@@ -56,10 +56,10 @@ const isActive = (href: string) =>
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgb(255 255 255 / 0.72);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--color-line-soft);
+    background: color-mix(in srgb, var(--color-paper-50, #fbf8f1) 78%, transparent);
+    backdrop-filter: saturate(150%) blur(20px);
+    -webkit-backdrop-filter: saturate(150%) blur(20px);
+    border-bottom: 1px solid var(--color-line);
   }
   .rvhg-header__inner {
     max-width: 80rem;
@@ -111,7 +111,7 @@ const isActive = (href: string) =>
   }
   .rvhg-mobile-nav {
     border-top: 1px solid var(--color-line-soft);
-    background: rgb(255 255 255 / 0.96);
+    background: color-mix(in srgb, var(--color-paper-50, #fbf8f1) 97%, transparent);
     backdrop-filter: blur(12px);
   }
   .rvhg-mobile-nav ul {

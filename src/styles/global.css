@@ -1,6 +1,15 @@
 @import 'tailwindcss';
 
-/* ---------------- Self-hosted fonts (subset Latin + Vietnamese, WOFF2) ---------------- */
+/* ============================================================================
+   RVHG Design System — Imperial heritage (quiet luxury)
+   Adapted from "RVHG Design System — Token Spec v1.0" to Astro 5 + Tailwind 4.
+   Stack note: Tailwind 4 has no config file — tokens live in @theme below and
+   become utilities (bg-paper-50, text-ink-900, bg-lacquer-800, …). Fonts are
+   self-hosted (not next/font). Source of truth mirrored in /tokens.json.
+   ============================================================================ */
+
+/* ---------------- Self-hosted fonts (subset Latin + Vietnamese, WOFF2) ------ */
+/* Body / UI — Be Vietnam Pro (designed for Vietnamese diacritics) */
 @font-face {
   font-family: 'Be Vietnam Pro';
   font-style: normal;
@@ -65,78 +74,197 @@
   src: url('/fonts/be-vietnam-pro-700-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/* Display / heading — Playfair Display (high-contrast serif, weight 400–700 variable) */
 @font-face {
-  font-family: 'Fraunces';
+  font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('/fonts/fraunces-vietnamese.woff2') format('woff2');
+  src: url('/fonts/playfair-display-vietnamese.woff2') format('woff2');
   unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
 }
 @font-face {
-  font-family: 'Fraunces';
+  font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('/fonts/fraunces-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('/fonts/playfair-display-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* ============================================================================
+   §1–5  Design tokens  → Tailwind 4 @theme (generates utilities)
+   ============================================================================ */
 @theme {
-  /* ---- Editorial neutral palette (Apple-inspired) ---- */
-  --color-paper: #ffffff;        /* primary canvas */
-  --color-paper-soft: #fbfbfd;   /* hairline contrast band */
-  --color-paper-tint: #f5f5f7;   /* secondary surface */
-  --color-ink: #1d1d1f;          /* near-black */
-  --color-ink-soft: #2c2c2e;
-  --color-mute: #6e6e73;         /* secondary text */
-  --color-mute-soft: #86868b;    /* meta / caption */
-  --color-line: #d2d2d7;         /* hairline borders */
-  --color-line-soft: #e8e8ed;    /* very subtle dividers */
-  --color-night: #000000;        /* dark bands */
-  --color-night-soft: #1d1d1f;
-  --color-night-text: #f5f5f7;   /* on-dark text */
-  --color-night-mute: #a1a1a6;
+  /* ---- Paper (cream / negative space) ---- */
+  --color-paper-50: #fbf8f1;
+  --color-paper-100: #f4eee1;
+  --color-paper-200: #e8decb;
+  --color-paper-300: #d8c9ac;
 
-  /* ---- Brand accents (used sparingly — small surfaces only) ---- */
-  --color-rvhg-gold: #c8a04d;
-  --color-rvhg-gold-light: #e3c884;
-  --color-rvhg-gold-dark: #8b6f2f;
-  --color-rvhg-cream: #faf5ea;
-  --color-rvhg-green: #4a6b3a;
-  --color-rvhg-red: #8b2e2e;
-  --color-link: #0066cc;          /* Apple-style action blue */
+  /* ---- Ink (warm black → taupe) ---- */
+  --color-ink-300: #b3a696;
+  --color-ink-400: #8c7c6b;
+  --color-ink-500: #6f5f50;
+  --color-ink-700: #463a30;
+  --color-ink-800: #2e2620;
+  --color-ink-900: #1c1714;
+
+  /* ---- Lacquer (oxblood — dark surfaces + primary) ---- */
+  --color-lacquer-700: #6e2226;
+  --color-lacquer-800: #571a1d;
+  --color-lacquer-900: #3d1114;
+  --color-lacquer-950: #2a0c0e;
+
+  /* ---- Seal (cinnabar — triện + tem only) ---- */
+  --color-seal-400: #c0473b;
+  --color-seal-500: #a8362b;
+  --color-seal-600: #8f2b22;
+
+  /* ---- Brass (antique gold — hairline + emblem + accent) ---- */
+  --color-brass-300: #d8c29a;
+  --color-brass-400: #c5a878;
+  --color-brass-500: #b08d57;
+  --color-brass-600: #94733f;
+  --color-brass-700: #7a6234;
+
+  /* ---- Bean (mung-bean green — fresh accent) ---- */
+  --color-bean-50: #eff1e4;
+  --color-bean-100: #e3e7d2;
+  --color-bean-300: #a7b27a;
+  --color-bean-500: #7c8a4e;
+  --color-bean-600: #5f6b3a;
+  --color-bean-700: #4c572f;
+
+  /* ---- Functional ---- */
+  --color-danger: #b3261e;
+  --color-success: #4f7a3f;
+
+  /* ---- Semantic (light) ---- */
+  --color-background: #fbf8f1;
+  --color-foreground: #1c1714;
+  --color-card: #ffffff;
+  --color-muted: #f4eee1;
+  --color-muted-foreground: #6f5f50;
+  --color-primary: #571a1d;
+  --color-primary-foreground: #fbf8f1;
+  --color-secondary: #e8decb;
+  --color-secondary-foreground: #2e2620;
+  --color-border: #e4dac6;
+  --color-ring: #b08d57;
 
   /* ---- Type families ---- */
-  --font-display: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-serif: 'Playfair Display', 'Lora', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  /* ---- Editorial type scale ---- */
-  --text-headline: clamp(2.75rem, 5vw + 1rem, 5.5rem);    /* hero h1 */
-  --text-display: clamp(2.25rem, 3.5vw + 1rem, 4rem);     /* section h2 */
-  --text-title: clamp(1.5rem, 1.5vw + 1rem, 2.25rem);     /* sub-section h3 */
-  --text-subtitle: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
-  --text-body: 1.0625rem;
-  --text-caption: 0.875rem;
+  /* ---- Editorial type scale (§3.2) ---- */
   --text-eyebrow: 0.75rem;
+  --text-caption: 0.8125rem;
+  --text-body-sm: 0.875rem;
+  --text-body: 1rem;
+  --text-body-lg: 1.125rem;
+  --text-h4: 1.125rem;
+  --text-h3: 1.375rem;
+  --text-h2: 1.75rem;
+  --text-h1: 2.25rem;
+  --text-display-lg: 2.75rem;
+  --text-display-xl: 3.5rem;
+  --text-display-2xl: 4.5rem;
 
-  /* ---- Radius / shadow ---- */
-  --radius-sm: 0.5rem;
-  --radius-card: 1.25rem;
-  --radius-pill: 999px;
-  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.04), 0 12px 32px -16px rgb(0 0 0 / 0.12);
+  /* ---- Spacing (§4) ---- */
+  --spacing-section-sm: 5rem;
+  --spacing-section: 7.5rem;
+  --spacing-section-lg: 10rem;
+
+  /* ---- Radii (§5) — restrained, ≤ 8px ---- */
+  --radius-sm: 2px;
+  --radius-DEFAULT: 4px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* ---- Shadow (§5) — warm, minimal ---- */
+  --shadow-xs: 0 1px 2px 0 rgb(28 23 20 / 0.04);
+  --shadow-sm: 0 2px 8px -2px rgb(28 23 20 / 0.06);
+  --shadow-md: 0 8px 28px -8px rgb(28 23 20 / 0.1);
+
+  /* ---- Motion (§5) ---- */
+  --ease-refined: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-refined-in: cubic-bezier(0.64, 0, 0.78, 0);
 
   /* ---- Container ---- */
-  --breakpoint-2xl: 1320px;
+  --breakpoint-2xl: 1180px;
 }
 
-/* ---------------- Base ---------------- */
+/* ============================================================================
+   Brand variables + legacy-alias bridge
+   The existing Astro components reference a stable set of CSS custom
+   properties (--color-ink, --color-paper, --color-line, --color-night*,
+   --font-display, --text-display/title, --radius-card, --shadow-soft…).
+   We repoint every one of them onto the imperial palette so the whole
+   site re-themes without touching each component's scoped <style>.
+   ============================================================================ */
 :root {
   color-scheme: light;
   scroll-padding-top: 5rem;
+
+  /* brand accents (small surfaces only — see §0 rules) */
+  --brass: #b08d57;
+  --seal: #a8362b;
+  --bean: #7c8a4e;
+  --gold-line: #b08d57; /* applied at 40–50% opacity */
+
+  /* --- legacy alias bridge → imperial values --- */
+  --color-paper: #fbf8f1;        /* was #fff */
+  --color-paper-soft: #f9f5ec;   /* hairline contrast band */
+  --color-paper-tint: #f4eee1;   /* secondary surface (paper-100) */
+  --color-ink: #1c1714;
+  --color-ink-soft: #2e2620;
+  --color-mute: #6f5f50;
+  --color-mute-soft: #8c7c6b;
+  --color-line: #e4dac6;         /* warm hairline */
+  --color-line-soft: #ece3d3;
+  --color-night: #2a0c0e;        /* lacquer-950 (was #000) */
+  --color-night-soft: #3d1114;   /* lacquer-900 */
+  --color-night-text: #fbf8f1;
+  --color-night-mute: #cbbba0;   /* warm taupe on dark */
+
+  /* primary button = oxblood lacquer (§0 rule 2) */
+  --color-primary: #571a1d;
+  --color-primary-hover: #3d1114;
+  --color-primary-foreground: #fbf8f1;
+
+  /* brand legacy names kept pointing at correct hues */
+  --color-rvhg-gold: #b08d57;
+  --color-rvhg-gold-light: #d8c29a;
+  --color-rvhg-gold-dark: #7a6234;   /* brass-700: passes contrast for small text */
+  --color-rvhg-cream: #f4eee1;
+  --color-rvhg-green: #7c8a4e;
+  --color-rvhg-red: #a8362b;          /* seal */
+
+  /* links: ink text + brass underline on hover (NOT gold text — §3.3) */
+  --color-link: #1c1714;
+  --color-link-underline: #b08d57;
+
+  /* type families (legacy aliases) */
+  --font-display: 'Playfair Display', 'Lora', Georgia, serif;
+  --font-body: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+
+  /* fluid heading sizes used by component <style> blocks */
+  --text-headline: clamp(2.5rem, 6vw, 4.5rem);
+  --text-display: clamp(2.25rem, 3.5vw + 1rem, 4rem);
+  --text-title: clamp(1.5rem, 1.5vw + 1rem, 2.25rem);
+  --text-subtitle: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
+
+  /* radii / shadow legacy aliases */
+  --radius-card: 8px;            /* §0 rule 5: ≤ 8px, no SaaS pills */
+  --radius-pill: 9999px;         /* triện / avatar only */
+  --shadow-soft: 0 2px 8px -2px rgb(28 23 20 / 0.06);
+  --shadow-lift: 0 8px 28px -8px rgb(28 23 20 / 0.1);
 }
 
+/* ============================================================================
+   Base layer
+   ============================================================================ */
 html {
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
@@ -145,31 +273,32 @@ html {
 body {
   font-family: var(--font-body);
   font-size: var(--text-body);
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--color-ink);
   background: var(--color-paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* §3: all headings serif; balance wrap; restrained display weight */
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.022em;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
   color: inherit;
   text-wrap: balance;
 }
 h1 { letter-spacing: -0.025em; }
+p { text-wrap: pretty; }
 
+/* §0 rule 2: seal cinnabar reserved for ::selection + triện */
 ::selection {
-  background: var(--color-ink);
-  color: #fff;
+  background: #a8362b;
+  color: #fbf8f1;
 }
 
-a {
-  color: inherit;
-}
+a { color: inherit; }
 
 img {
   height: auto;
@@ -187,64 +316,93 @@ img {
   padding: 0.75rem 1rem;
   border-radius: 0 0 0.5rem 0;
 }
-.rvhg-skip-link:focus {
-  left: 0;
+.rvhg-skip-link:focus { left: 0; }
+
+/* ============================================================================
+   §7  Signature devices
+   ============================================================================ */
+/* Gold rule — short hairline (56px), under eyebrow / title */
+.gold-rule,
+.rvhg-rule {
+  width: 56px;
+  height: 1px;
+  margin-block: 1.25rem 0;
+  background: var(--gold-line);
+  opacity: 0.55;
+  border: 0;
+}
+.rvhg-rule--center { margin-inline: auto; }
+.rvhg-band-night { --gold-line: #d8c29a; } /* brass-300 on dark */
+
+/* Eyebrow — UPPERCASE tracked label above section titles */
+.rvhg-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-eyebrow);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-brass-600, #94733f);
 }
 
-/* ---------------- Layout primitives ---------------- */
+.hero-display {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+/* ============================================================================
+   Layout primitives
+   ============================================================================ */
 .rvhg-container {
   width: 100%;
-  max-width: 80rem;
+  max-width: 1180px;
   margin-inline: auto;
-  padding-inline: 1.25rem;
+  padding-inline: 1.5rem;
 }
 @media (min-width: 768px) {
-  .rvhg-container { padding-inline: 2rem; }
+  .rvhg-container { padding-inline: 2.5rem; }
 }
-.rvhg-container--narrow {
-  max-width: 56rem;
-}
-.rvhg-container--reading {
-  max-width: 44rem;
-}
+.rvhg-container--narrow { max-width: 56rem; }
+.rvhg-container--reading { max-width: 68ch; }
 
-.rvhg-section {
-  padding-block: 5rem;
-}
+.rvhg-section { padding-block: 5rem; }
 @media (min-width: 768px) {
-  .rvhg-section { padding-block: 7rem; }
+  .rvhg-section { padding-block: 7.5rem; } /* §4: py-section = 120px */
 }
-.rvhg-section--tight {
-  padding-block: 3rem;
-}
+.rvhg-section--tight { padding-block: 3rem; }
 @media (min-width: 768px) {
-  .rvhg-section--tight { padding-block: 4rem; }
+  .rvhg-section--tight { padding-block: 5rem; }
 }
 
 .rvhg-band-soft  { background: var(--color-paper-soft); }
 .rvhg-band-tint  { background: var(--color-paper-tint); }
+.rvhg-band-fresh { background: var(--color-bean-100); }
 .rvhg-band-night { background: var(--color-night); color: var(--color-night-text); }
-.rvhg-band-night :is(h1,h2,h3,h4) { color: #fff; }
+.rvhg-band-night :is(h1, h2, h3, h4) { color: #fff; }
 .rvhg-band-night a { color: var(--color-night-text); }
 
-/* ---------------- Buttons ---------------- */
+/* ============================================================================
+   Buttons — §0 rule 5 (radii ≤ 8px, no pills) + rule 2 (oxblood primary)
+   ============================================================================ */
 .rvhg-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  padding: 0.65rem 1.4rem;
-  border-radius: var(--radius-pill);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md, 4px);
+  font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 500;
   text-decoration: none;
   border: 1px solid transparent;
-  background: var(--color-ink);
-  color: #fff;
-  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+  transition: background 0.25s var(--ease-refined), color 0.25s var(--ease-refined), border-color 0.25s var(--ease-refined);
   white-space: nowrap;
 }
-.rvhg-btn:hover { background: #404045; }
+.rvhg-btn:hover { background: var(--color-primary-hover); }
 .rvhg-btn--ghost {
   background: transparent;
   color: var(--color-ink);
@@ -256,34 +414,39 @@ img {
 }
 .rvhg-btn--link {
   background: transparent;
-  color: var(--color-link);
+  color: var(--color-ink);
   padding: 0.25rem 0;
   border-radius: 0;
   font-weight: 500;
+  text-underline-offset: 4px;
 }
 .rvhg-btn--link:hover {
-  text-decoration: underline;
   background: transparent;
+  text-decoration: underline;
+  text-decoration-color: var(--color-link-underline);
 }
-.rvhg-band-night .rvhg-btn          { background: #fff; color: var(--color-ink); }
-.rvhg-band-night .rvhg-btn:hover    { background: var(--color-paper-tint); }
-.rvhg-band-night .rvhg-btn--ghost   { background: transparent; color: #fff; border-color: #fff; }
-.rvhg-band-night .rvhg-btn--ghost:hover { background: #fff; color: var(--color-ink); }
-.rvhg-band-night .rvhg-btn--link    { color: #6cb4ff; }
-
-/* ---------------- Eyebrow ---------------- */
-.rvhg-eyebrow {
-  display: inline-block;
-  font-size: var(--text-eyebrow);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--color-mute);
+/* seal button — heritage stamp action, used rarely */
+.rvhg-btn--seal {
+  background: transparent;
+  color: var(--color-seal-500);
+  border-color: color-mix(in srgb, var(--color-seal-500) 40%, transparent);
 }
+.rvhg-btn--seal:hover {
+  background: color-mix(in srgb, var(--color-seal-500) 6%, transparent);
+}
+/* On dark oxblood bands: CTA becomes a cream button */
+.rvhg-band-night .rvhg-btn          { background: #fbf8f1; color: var(--color-night); }
+.rvhg-band-night .rvhg-btn:hover    { background: var(--color-paper-200); }
+.rvhg-band-night .rvhg-btn--ghost   { background: transparent; color: #fff; border-color: var(--color-brass-400); }
+.rvhg-band-night .rvhg-btn--ghost:hover { background: #fbf8f1; color: var(--color-night); border-color: #fbf8f1; }
+.rvhg-band-night .rvhg-btn--link    { color: var(--color-brass-300); }
+.rvhg-band-night .rvhg-btn--link:hover { text-decoration-color: var(--color-brass-300); }
 
-/* ---------------- Prose (article body) ---------------- */
+/* ============================================================================
+   Prose (article body)
+   ============================================================================ */
 .rvhg-prose {
-  max-width: 44rem;
+  max-width: 68ch;
   font-size: var(--text-body);
   line-height: 1.7;
   color: var(--color-ink-soft);
@@ -300,39 +463,43 @@ img {
   margin-bottom: 0.2em;
 }
 .rvhg-prose a {
-  color: var(--color-link);
+  color: var(--color-ink);
   text-underline-offset: 3px;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: var(--color-link-underline);
+  text-decoration-thickness: 1px;
 }
-.rvhg-prose a:hover { text-decoration: underline; }
+.rvhg-prose a:hover { text-decoration-thickness: 2px; }
 .rvhg-prose ul, .rvhg-prose ol { padding-left: 1.4em; }
 .rvhg-prose ul { list-style: disc; }
 .rvhg-prose ol { list-style: decimal; }
 .rvhg-prose li + li { margin-top: 0.4em; }
 .rvhg-prose blockquote {
   margin-inline: 0;
-  border-left: 3px solid var(--color-line);
+  border-left: 2px solid var(--color-brass-500);
   padding: 0.4em 0 0.4em 1.2em;
   color: var(--color-mute);
-  font-family: var(--font-serif);
-  font-size: 1.15em;
+  font-family: var(--font-display);
+  font-size: 1.2em;
   font-style: italic;
+  line-height: 1.5;
 }
-.rvhg-prose img {
-  border-radius: var(--radius-card);
-}
+.rvhg-prose img { border-radius: var(--radius-lg, 8px); }
 .rvhg-prose table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-caption);
 }
 .rvhg-prose th, .rvhg-prose td {
-  border: 1px solid var(--color-line-soft);
+  border: 1px solid var(--color-line);
   padding: 0.55rem 0.75rem;
   text-align: left;
 }
 .rvhg-prose th { background: var(--color-paper-tint); font-weight: 600; }
 
+/* ============================================================================
+   §0 rule 7  Motion — calm; respect reduced-motion
+   ============================================================================ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -41,6 +41,7 @@ const faq = [
       <p class="rvhg-home-hero__lede">
         Bánh đậu xanh duy nhất đạt OCOP 5 sao Quốc gia.<br/>Sản xuất theo tiêu chuẩn ISO 22000:2018, từ 1997.
       </p>
+      <div class="gold-rule rvhg-rule--center"></div>
       <div class="rvhg-home-hero__ctas">
         <a class="rvhg-btn--link" href="/san-pham/">Khám phá sản phẩm  ›</a>
         <a class="rvhg-btn--link" href="/cau-chuyen-san-pham-rong-vang-hoang-gia-2/">Câu chuyện thương hiệu  ›</a>
@@ -83,6 +84,7 @@ const faq = [
       <header class="rvhg-home-reasons__head">
         <p class="rvhg-eyebrow">Bí quyết thành công</p>
         <h2>Chín lý do giữa hàng chục thương hiệu.</h2>
+        <div class="gold-rule rvhg-rule--center"></div>
         <p>Điều gì đã làm nên sự độc đáo và thành công của thương hiệu Rồng Vàng Hoàng Gia.</p>
       </header>
       <ul class="rvhg-home-reasons">
@@ -103,6 +105,7 @@ const faq = [
         <div class="rvhg-line-show__copy">
           <p class="rvhg-eyebrow">{line.data.eyebrow ?? `Dòng ${i + 1}`}</p>
           <h2>{line.data.title}.</h2>
+          <div class="gold-rule"></div>
           <p class="rvhg-line-show__tagline">{line.data.tagline}</p>
           <p class="rvhg-line-show__lede">{line.data.description}</p>
           <p>
@@ -123,6 +126,7 @@ const faq = [
     <div class="rvhg-container">
       <p class="rvhg-eyebrow" style="color: var(--color-night-mute);">Năm 1918</p>
       <h2>Sắc phong "Bánh Ngon" của Hoàng Gia.</h2>
+      <div class="gold-rule rvhg-rule--center"></div>
       <p class="rvhg-home-story__lede">
         {ANCHORS.khaiDinh1918}
       </p>
@@ -161,6 +165,7 @@ const faq = [
       <header class="rvhg-home-media__head">
         <p class="rvhg-eyebrow">Truyền thông đưa tin</p>
         <h2>Báo chí nói về Rồng Vàng Hoàng Gia.</h2>
+        <div class="gold-rule rvhg-rule--center"></div>
       </header>
       <ul class="rvhg-home-media__list">
         {MEDIA_MENTIONS.map((m) => (
@@ -215,14 +220,13 @@ const faq = [
     font-size: var(--text-headline);
   }
   .rvhg-home-hero__sub {
-    margin-top: 0.5rem;
-    font-size: clamp(1.5rem, 2vw + 1rem, 2.75rem);
-    font-weight: 600;
-    letter-spacing: -0.022em;
-    background: linear-gradient(120deg, var(--color-rvhg-gold-dark), var(--color-rvhg-gold), var(--color-rvhg-red));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    margin-top: 0.6rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--color-brass-700, #7a6234);
   }
   .rvhg-home-hero__lede {
     margin-top: 1.5rem;
@@ -526,8 +530,8 @@ const faq = [
   .rvhg-home-media__list a {
     display: inline-block;
     padding: 0.65rem 1.25rem;
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-pill);
+    border: 1px solid color-mix(in srgb, var(--brass) 40%, transparent);
+    border-radius: var(--radius-sm, 2px);
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--color-ink);
