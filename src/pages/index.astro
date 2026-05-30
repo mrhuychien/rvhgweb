@@ -307,51 +307,73 @@ const faq = [
     display: inline-block;
   }
 
-  /* ---------- Line showcase ---------- */
-  .rvhg-line-show {
-    padding-block: 3.5rem;
+  /* ---------- Danh mục sản phẩm — bento card grid ---------- */
+  .rvhg-cats__head {
+    text-align: center;
+    max-width: 40rem;
+    margin: 0 auto 3rem;
   }
-  @media (min-width: 768px) {
-    .rvhg-line-show { padding-block: 8rem; }
-  }
-  .rvhg-line-show__inner {
-    display: grid;
-    grid-template-columns: 1fr 1.1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .rvhg-line-show--alt .rvhg-line-show__inner {
-    grid-template-columns: 1.1fr 1fr;
-    direction: rtl;
-  }
-  .rvhg-line-show--alt .rvhg-line-show__inner > * { direction: ltr; }
-  .rvhg-line-show__copy h2 {
+  .rvhg-cats__head h2 {
     font-size: var(--text-display);
-    margin-top: 0.85rem;
+    margin-top: 0.6rem;
   }
-  .rvhg-line-show__tagline {
-    margin-top: 0.85rem;
-    font-size: clamp(1.15rem, 1vw + 0.85rem, 1.5rem);
-    color: var(--color-ink);
-    font-weight: 500;
-    max-width: 26ch;
+  .rvhg-cats {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.25rem;
   }
-  .rvhg-line-show__lede {
-    margin-top: 1rem;
-    color: var(--color-mute);
-    max-width: 38ch;
-  }
-  .rvhg-line-show__copy a { margin-top: 1.5rem; }
-  .rvhg-line-show__media :global(img) {
-    width: 100%;
+  .rvhg-cat {
+    position: relative;
+    display: block;
+    grid-column: span 2;
     aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg, 8px);
+    overflow: hidden;
+    text-decoration: none;
+    background: var(--color-paper-tint);
+  }
+  .rvhg-cat--lg {
+    grid-column: span 3;
+    aspect-ratio: 16 / 10;
+  }
+  .rvhg-cat :global(img) {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: var(--radius-card);
+    transition: transform 0.5s var(--ease-refined, ease);
+  }
+  .rvhg-cat:hover :global(img) { transform: scale(1.04); }
+  .rvhg-cat__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(42, 12, 14, 0.8) 0%, rgba(42, 12, 14, 0.25) 34%, transparent 62%);
+  }
+  .rvhg-cat__title {
+    position: absolute;
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.25rem;
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(1.1rem, 1vw + 0.7rem, 1.6rem);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    text-shadow: 0 1px 14px rgba(42, 12, 14, 0.55);
   }
   @media (max-width: 768px) {
-    .rvhg-line-show__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .rvhg-line-show:nth-of-type(even) .rvhg-line-show__inner { grid-template-columns: 1fr; direction: ltr; }
-    .rvhg-line-show__media { order: -1; }
+    .rvhg-cats { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
+    .rvhg-cat,
+    .rvhg-cat--lg { grid-column: span 1; aspect-ratio: 4 / 3; }
+    .rvhg-cat--lg:first-child { grid-column: span 2; aspect-ratio: 16 / 10; }
+    .rvhg-cat__title { left: 1rem; right: 1rem; bottom: 1rem; font-size: 1.05rem; }
+  }
+  @media (max-width: 460px) {
+    .rvhg-cats { grid-template-columns: 1fr; }
+    .rvhg-cat,
+    .rvhg-cat--lg,
+    .rvhg-cat--lg:first-child { grid-column: span 1; aspect-ratio: 3 / 2; }
   }
 
   /* ---------- Story ---------- */
