@@ -5,6 +5,7 @@ tagline: 'Công thức bí truyền giữ nguyên gần một thế kỷ.'
 description: 'Dòng truyền thống Rồng Vàng Hoàng Gia — bánh đậu xanh nguyên bản theo công thức nghệ nhân Hải Dương, hộp giấy mộc mạc, giá tiệm cận mọi gia đình.'
 order: 3
 heroImage: '/images/legacy/cat-truyen-thong.jpg'
+cardImage: '/images/legacy/banh-dau-xanh-truyen-thong-1-1.jpg'
 storyImage: '/images/legacy/banh-dau-xanh-hai-duong-huong-vi-dac-san-mang-dam-net-truyen-thong.jpg'
 accent: '#4A6B3A'
 oldUrl: 'https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-truyen-thong/'

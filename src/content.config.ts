@@ -47,6 +47,8 @@ const productCategories = defineCollection({
     description: z.string(),
     order: z.number().default(0),
     heroImage: z.string().optional(),
+    /** Image for the homepage "Danh mục sản phẩm" card grid (authentic old-site photo). */
+    cardImage: z.string().optional(),
     /** Optional secondary image used in the brand-intro band. */
     storyImage: z.string().optional(),
     /** Per-line accent color (hex). Used sparingly — Apple keeps colour to media. */

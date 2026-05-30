@@ -98,28 +98,31 @@ const faq = [
     </div>
   </section>
 
-  <!-- 5 PRODUCT LINES — alternating showcase -->
-  {lines.map((line, i) => (
-    <section class={`rvhg-line-show ${i % 2 === 1 ? 'rvhg-band-tint rvhg-line-show--alt' : ''}`}>
-      <div class="rvhg-container rvhg-line-show__inner">
-        <div class="rvhg-line-show__copy">
-          <p class="rvhg-eyebrow">{line.data.eyebrow ?? `Dòng ${i + 1}`}</p>
-          <h2>{line.data.title}.</h2>
-          <div class="gold-rule"></div>
-          <p class="rvhg-line-show__tagline">{line.data.tagline}</p>
-          <p class="rvhg-line-show__lede">{line.data.description}</p>
-          <p>
-            <a class="rvhg-btn" href={`/danh-muc-san-pham/${line.id}/`}>Xem dòng sản phẩm</a>
-          </p>
-        </div>
-        {line.data.heroImage && (
-          <div class="rvhg-line-show__media">
-            <LegacyImg src={line.data.heroImage} alt={line.data.title} width={1400} height={1050} loading="lazy" />
-          </div>
-        )}
+  <!-- DANH MỤC SẢN PHẨM — bento card grid (old-site layout) -->
+  <section class="rvhg-section rvhg-band-soft">
+    <div class="rvhg-container">
+      <header class="rvhg-cats__head">
+        <p class="rvhg-eyebrow">Danh mục sản phẩm</p>
+        <h2>Năm dòng sản phẩm.</h2>
+        <div class="gold-rule rvhg-rule--center"></div>
+      </header>
+      <div class="rvhg-cats">
+        {lines.map((line, i) => (
+          <a class={`rvhg-cat ${i < 2 ? 'rvhg-cat--lg' : ''}`} href={`/danh-muc-san-pham/${line.id}/`}>
+            <LegacyImg
+              src={line.data.cardImage ?? line.data.heroImage ?? ''}
+              alt={line.data.title}
+              width={1024}
+              height={683}
+              loading={i < 2 ? 'eager' : 'lazy'}
+            />
+            <span class="rvhg-cat__scrim" aria-hidden="true"></span>
+            <h3 class="rvhg-cat__title">{line.data.title}</h3>
+          </a>
+        ))}
       </div>
-    </section>
-  ))}
+    </div>
+  </section>
 
   <!-- STORY — Khải Định 1918 -->
   <section class="rvhg-section rvhg-band-night rvhg-home-story">
