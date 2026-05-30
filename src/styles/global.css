@@ -249,11 +249,11 @@
   --font-display: 'Playfair Display', 'Lora', Georgia, serif;
   --font-body: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
 
-  /* fluid heading sizes used by component <style> blocks */
-  --text-headline: clamp(2.5rem, 6vw, 4.5rem);
-  --text-display: clamp(2.25rem, 3.5vw + 1rem, 4rem);
-  --text-title: clamp(1.5rem, 1.5vw + 1rem, 2.25rem);
-  --text-subtitle: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
+  /* fluid heading sizes used by component <style> blocks (mobile-first lows) */
+  --text-headline: clamp(2.25rem, 5vw + 1rem, 4.5rem);
+  --text-display: clamp(1.75rem, 4vw + 0.5rem, 4rem);
+  --text-title: clamp(1.4rem, 2vw + 0.75rem, 2.25rem);
+  --text-subtitle: clamp(1.1rem, 0.5vw + 1rem, 1.375rem);
 
   /* radii / shadow legacy aliases */
   --radius-card: 8px;            /* §0 rule 5: ≤ 8px, no SaaS pills */
@@ -278,6 +278,7 @@ body {
   background: var(--color-paper);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip; /* mobile safety net — clip (not hidden) keeps sticky header working */
 }
 
 /* §3: all headings serif; balance wrap; restrained display weight */
