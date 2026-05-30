@@ -367,11 +367,11 @@ img {
 .rvhg-container--narrow { max-width: 56rem; }
 .rvhg-container--reading { max-width: 68ch; }
 
-.rvhg-section { padding-block: 5rem; }
+.rvhg-section { padding-block: 3.75rem; }
 @media (min-width: 768px) {
   .rvhg-section { padding-block: 7.5rem; } /* §4: py-section = 120px */
 }
-.rvhg-section--tight { padding-block: 3rem; }
+.rvhg-section--tight { padding-block: 2.75rem; }
 @media (min-width: 768px) {
   .rvhg-section--tight { padding-block: 5rem; }
 }
