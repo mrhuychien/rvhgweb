@@ -9,6 +9,16 @@ const isActive = (href: string) =>
 const mid = Math.ceil(NAV.length / 2);
 const navLeft = NAV.slice(0, mid);
 const navRight = NAV.slice(mid);
+
+// Languages offered by the Google machine-translation switcher.
+const LANGS = [
+  { code: 'vi', label: 'Tiếng Việt' },
+  { code: 'en', label: 'English' },
+  { code: 'ja', label: '日本語' },
+  { code: 'ko', label: '한국어' },
+  { code: 'zh-CN', label: '中文' },
+  { code: 'fr', label: 'Français' },
+];
 ---
 
 <header class="rvhg-header" data-rvhg-header>
@@ -25,10 +35,10 @@ const navRight = NAV.slice(mid);
 
     <a href="/" class="rvhg-header__emblem" aria-label="Trang chủ — Rồng Vàng Hoàng Gia">
       <img
-        src="/images/legacy/cropped-logo-web-270x270.png"
+        src="/images/legacy/logo-seal.png"
         alt="Rồng Vàng Hoàng Gia — Đặc sản nức tiếng Hải Dương"
-        width="270" height="270"
-        decoding="async"
+        width="512" height="512"
+        decoding="async" fetchpriority="high"
       />
     </a>
 
@@ -39,6 +49,15 @@ const navRight = NAV.slice(mid);
             <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
           </li>
         ))}
+        <li class="rvhg-header__lang">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+          </svg>
+          <select class="rvhg-lang-select" data-rvhg-lang aria-label="Ngôn ngữ / Language">
+            {LANGS.map((l) => <option value={l.code}>{l.label}</option>)}
+          </select>
+        </li>
       </ul>
     </nav>
 
@@ -64,6 +83,12 @@ const navRight = NAV.slice(mid);
           <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
         </li>
       ))}
+      <li class="rvhg-mobile-nav__lang">
+        <span>Ngôn ngữ / Language</span>
+        <select class="rvhg-lang-select rvhg-lang-select--mobile" data-rvhg-lang aria-label="Ngôn ngữ / Language">
+          {LANGS.map((l) => <option value={l.code}>{l.label}</option>)}
+        </select>
+      </li>
     </ul>
   </nav>
 </header>
@@ -150,6 +175,32 @@ const navRight = NAV.slice(mid);
     color: var(--color-brass-300, #d8c29a);
   }
 
+  /* language switcher */
+  .rvhg-header__lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0.4rem;
+    padding-left: 0.7rem;
+    border-left: 1px solid color-mix(in srgb, var(--brass) 35%, transparent);
+    color: var(--color-brass-300, #d8c29a);
+  }
+  .rvhg-lang-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    color: var(--color-paper-50, #fbf8f1);
+    font: inherit;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0.3rem 0.2rem;
+  }
+  .rvhg-lang-select:hover { color: var(--color-brass-300, #d8c29a); }
+  .rvhg-lang-select option { color: #1c1714; text-transform: none; }
+
   /* mobile toggle */
   .rvhg-header__toggle {
     display: none;
@@ -186,6 +237,24 @@ const navRight = NAV.slice(mid);
     border-bottom: 1px solid color-mix(in srgb, var(--brass) 18%, transparent);
   }
   .rvhg-mobile-nav a[aria-current='page'] { color: var(--color-brass-300, #d8c29a); }
+  .rvhg-mobile-nav__lang {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0.25rem 0.25rem;
+  }
+  .rvhg-mobile-nav__lang span {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brass-300, #d8c29a);
+  }
+  .rvhg-lang-select--mobile {
+    border: 1px solid color-mix(in srgb, var(--brass) 35%, transparent);
+    border-radius: var(--radius-sm, 2px);
+    padding: 0.5rem 0.6rem;
+  }
 
   @media (max-width: 900px) {
     .rvhg-header__side { display: none; }
@@ -213,6 +282,18 @@ const navRight = NAV.slice(mid);
       nav.hidden = open;
     });
     nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+
+    // language switcher — reflect current language, switch on change
+    const m = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
+    const current = m ? decodeURIComponent(m[1]) : 'vi';
+    document.querySelectorAll('[data-rvhg-lang]').forEach((el) => {
+      const sel = el as HTMLSelectElement;
+      sel.value = current;
+      sel.addEventListener('change', () => {
+        const fn = (window as unknown as { rvhgSetLang?: (l: string) => void }).rvhgSetLang;
+        if (fn) fn(sel.value);
+      });
+    });
 
     const onScroll = () => {
       if (window.scrollY > 8) header.setAttribute('data-scrolled', '');

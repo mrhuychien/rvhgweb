@@ -99,5 +99,37 @@ const FB_PIXEL = import.meta.env.PUBLIC_FB_PIXEL ?? '';
       <slot />
     </main>
     <Footer />
+
+    <!-- Machine translation (Google) — adds EN / JA / KO / ZH / FR like the old site -->
+    <div id="google_translate_element" aria-hidden="true" transition:persist></div>
+    <script is:inline>
+      window.rvhgSetLang = function (lang) {
+        var h = location.hostname;
+        var exp = '; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+        document.cookie = 'googtrans=' + exp;
+        document.cookie = 'googtrans=' + exp + '; domain=.' + h;
+        if (lang && lang !== 'vi') {
+          document.cookie = 'googtrans=/vi/' + lang + '; path=/';
+          document.cookie = 'googtrans=/vi/' + lang + '; path=/; domain=.' + h;
+        }
+        location.reload();
+      };
+      window.googleTranslateElementInit = function () {
+        if (window.google && window.google.translate) {
+          new google.translate.TranslateElement(
+            { pageLanguage: 'vi', includedLanguages: 'en,ja,ko,zh-CN,fr', autoDisplay: false },
+            'google_translate_element',
+          );
+        }
+      };
+      document.addEventListener('astro:after-swap', function () {
+        var el = document.getElementById('google_translate_element');
+        if (el && window.google && window.google.translate) {
+          el.innerHTML = '';
+          window.googleTranslateElementInit();
+        }
+      });
+    </script>
+    <script is:inline defer src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 </html>

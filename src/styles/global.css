@@ -500,6 +500,32 @@ img {
 /* ============================================================================
    §0 rule 7  Motion — calm; respect reduced-motion
    ============================================================================ */
+/* ============================================================================
+   Google Website Translator — hide injected chrome, keep the combo functional
+   ============================================================================ */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.skiptranslate iframe {
+  display: none !important;
+  visibility: hidden !important;
+}
+body { top: 0 !important; }
+#google_translate_element {
+  position: absolute !important;
+  left: -9999px;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-tooltip { display: none !important; }
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
