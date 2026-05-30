@@ -137,6 +137,44 @@ export const REASONS: { title: string; body: string }[] = [
   },
 ];
 
+/** "Sản phẩm cao cấp" — 8 featured products on the home page (mirror order). */
+export const FEATURED: { name: string; image: string; href: string }[] = [
+  { name: 'Bánh đậu xanh thượng hạng', image: '/images/legacy/th300-web.jpg', href: '/danh-muc-san-pham/banh-dau-xanh-thuong-hang/' },
+  { name: 'Bánh đậu trà xanh', image: '/images/legacy/tx300-web.jpg', href: '/danh-muc-san-pham/banh-dau-xanh-thuong-hang/' },
+  { name: 'Bánh đậu sầu riêng', image: '/images/legacy/sr300-web.jpg', href: '/danh-muc-san-pham/banh-dau-xanh-thuong-hang/' },
+  { name: 'Hộp quà OCOP 5 sao', image: '/images/legacy/hop-5-sao-web.jpg', href: '/danh-muc-san-pham/banh-dau-xanh-thuong-hang/' },
+  { name: 'Bánh đậu xanh MIX vị', image: '/images/legacy/catalogue24-15-2.png', href: '/danh-muc-san-pham/banh-dau-xanh-thuong-hang/' },
+  { name: 'Hộp tre cao cấp', image: '/images/legacy/banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg', href: '/danh-muc-san-pham/banh-dau-xanh-tet/' },
+  { name: 'Bột đậu xanh dinh dưỡng', image: '/images/legacy/bx-web.jpg', href: '/danh-muc-san-pham/bot-dau/' },
+  { name: 'Chè đậu đen cốt dừa', image: '/images/legacy/cd-web.jpg', href: '/danh-muc-san-pham/bot-dau/' },
+];
+
+/** "Hệ thống phân phối" — supermarket partner logos (mirror order). */
+export const DISTRIBUTION_LOGOS: { name: string; image: string }[] = [
+  { name: 'GO! / BigC', image: '/images/legacy/1652155214649-sieu-thi-big-c.png' },
+  { name: 'Co.opmart', image: '/images/legacy/tai-xuong-1.png' },
+  { name: 'AEON', image: '/images/legacy/aeon.jpg' },
+  { name: 'WinMart', image: '/images/legacy/WinMart-Logo-PNG-1.png' },
+  { name: 'Lotte Mart', image: '/images/legacy/29-06-20129-47-16AM.jpg' },
+  { name: 'MM Mega Market', image: '/images/legacy/9181825b44d9689e0ccf2d93347a16db.png' },
+  { name: 'Lan Chi Mart', image: '/images/legacy/LANCHI-MART-brand-book-1.png' },
+  { name: 'BRG Mart', image: '/images/legacy/ptaDgh9mP0wOuDOXGLZZDU31ShBsp7b5_1718088935____4fd9dc4561b6639ea4f091cbf995b431-1024x1024.png' },
+];
+
+/** "Trên truyền thông" — press/media logos (mirror order). url optional. */
+export const MEDIA_LOGOS: { name: string; image: string; url?: string }[] = [
+  { name: 'Báo Chính phủ', image: '/images/legacy/bao-chinh-phu-150x150.jpg', url: 'https://baochinhphu.vn/them-4-san-pham-duoc-cong-nhan-ocop-5-sao-102240625172136981.htm' },
+  { name: 'VTV — Đài Truyền hình Việt Nam', image: '/images/legacy/Dai-truyen-hinh-Viet-Nam-VTV-150x150.jpg', url: 'https://www.youtube.com/watch?v=49EjYQaYTl4' },
+  { name: 'Đài PT-TH Hải Dương', image: '/images/legacy/lich-phat-song-thhd-150x150.png', url: 'http://www.haiduongtv.com.vn/media/trang-3.html?view=39246' },
+  { name: 'HTV — Đài Truyền hình TP. Hồ Chí Minh', image: '/images/legacy/Dai-Truyen-hinh-TP-Ho-Chi-Minh-HTV-150x150.png', url: 'https://www.youtube.com/watch?v=SFmEYYRiATw' },
+  { name: 'Báo Nhân Dân', image: '/images/legacy/Logo-NhanDan-150x150.png' },
+  { name: 'Báo Pháp Luật Việt Nam', image: '/images/legacy/Logo_bao_phap_luat_Viet_Nam-150x150.png', url: 'https://baophapluat.vn/banh-dau-xanh-hoang-gia-la-san-pham-dau-tien-cua-hai-duong-duoc-trao-chung-nhan-ocop-5-sao-post528437.html' },
+  { name: 'VOV — Đài Tiếng nói Việt Nam', image: '/images/legacy/vov-tai-xuong-150x150.png' },
+  { name: 'Báo chí đưa tin', image: '/images/legacy/logoshare-150x150.png' },
+  { name: 'Báo Dân Trí', image: '/images/legacy/logo-bao-dien-tu-dan-tri1-150x150.jpg' },
+  { name: 'Kênh truyền thông', image: '/images/legacy/channels4_profile.jpg' },
+];
+
 /** Three brand-story anchors — every long-form content references at least one. */
 export const ANCHORS = {
   khaiDinh1918:

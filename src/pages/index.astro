@@ -2,49 +2,21 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
-import { faqSchema } from '../data/jsonld';
-import { SITE, ANCHORS, REASONS, MEDIA_MENTIONS } from '../data/site';
+import { SITE, REASONS, FEATURED, DISTRIBUTION_LOGOS, MEDIA_LOGOS } from '../data/site';
 
 const lines = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
-
-const faq = [
-  {
-    q: 'Bánh đậu xanh Rồng Vàng Hoàng Gia có đạt OCOP 5 sao không?',
-    a: 'Có. Năm 2024, bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt chứng nhận OCOP 5 sao Quốc gia.',
-  },
-  {
-    q: 'Sản phẩm có chứng nhận an toàn thực phẩm nào?',
-    a: 'Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (HA 394/2.23.CIV) do Quacert cấp ngày 08/08/2023.',
-  },
-  {
-    q: 'Rồng Vàng Hoàng Gia là thương hiệu của công ty nào?',
-    a: 'Thương hiệu Rồng Vàng Hoàng Gia do Công ty Cổ phần Hoàng Giang (MST 0800280839, thành lập 1997) tại Hải Dương sản xuất.',
-  },
-  {
-    q: 'Mua bánh đậu xanh Rồng Vàng Hoàng Gia chính hãng ở đâu?',
-    a: 'Tại các hệ thống siêu thị BigC/GO!, WinMart, AEON, Lotte, Co.opmart, MegaMarket, Lan Chi; trên Shopee và TikTok Shop; hoặc tại showroom 209C Tuệ Tĩnh và 9 Bạch Đằng, TP Hải Dương.',
-  },
-  {
-    q: 'Vì sao gọi là "Rồng Vàng Hoàng Gia"?',
-    a: 'Tên gọi bắt nguồn từ truyền thuyết năm 1918: vua Khải Định trong chuyến tuần du miền Bắc kinh lý trấn Hải Dương, dân dâng bánh đậu xanh, nhà vua ban sắc phong "Bánh Ngon" cùng ấn chỉ Rồng Vàng của Hoàng Gia.',
-  },
-];
 ---
 
-<BaseLayout title={SITE.name} description={SITE.shortDescription} jsonLd={faqSchema(faq)}>
-  <!-- HERO — full-bleed centered -->
+<BaseLayout title={SITE.name} description={SITE.shortDescription}>
+  <!-- 1 · HERO -->
   <section class="rvhg-home-hero">
     <div class="rvhg-container">
-      <p class="rvhg-eyebrow">OCOP 5 sao Quốc gia 2024</p>
-      <h1>Rồng Vàng Hoàng Gia.</h1>
-      <p class="rvhg-home-hero__sub">Đặc sản nức tiếng Hải Dương.</p>
-      <p class="rvhg-home-hero__lede">
-        Bánh đậu xanh duy nhất đạt OCOP 5 sao Quốc gia.<br/>Sản xuất theo tiêu chuẩn ISO 22000:2018, từ 1997.
-      </p>
+      <p class="rvhg-eyebrow">Rồng Vàng Hoàng Gia</p>
+      <h1>Bánh đậu xanh duy nhất đạt OCOP 5 sao Quốc gia.</h1>
+      <p class="rvhg-home-hero__sub">Chất lượng đỉnh cao được khẳng định.</p>
       <div class="gold-rule rvhg-rule--center"></div>
       <div class="rvhg-home-hero__ctas">
-        <a class="rvhg-btn--link" href="/san-pham/">Khám phá sản phẩm  ›</a>
-        <a class="rvhg-btn--link" href="/cau-chuyen-san-pham-rong-vang-hoang-gia-2/">Câu chuyện thương hiệu  ›</a>
+        <a class="rvhg-btn--link" href="/gioi-thieu/">Tìm hiểu thêm  ›</a>
       </div>
     </div>
     <div class="rvhg-home-hero__media">
@@ -52,40 +24,14 @@ const faq = [
     </div>
   </section>
 
-  <!-- TWO HERO TILES — feature OCOP + Premium box -->
-  <section class="rvhg-home-duo">
-    <article class="rvhg-home-duo__tile rvhg-home-duo__tile--dark">
-      <div class="rvhg-home-duo__copy">
-        <p class="rvhg-eyebrow" style="color: var(--color-night-mute);">Hộp quà OCOP 5 sao</p>
-        <h2>Đỉnh cao bánh đậu xanh Việt.</h2>
-        <p>Sản phẩm duy nhất đạt phân hạng cao nhất của Chương trình "Mỗi xã một sản phẩm" — biểu tượng cho đặc sản Hải Dương.</p>
-        <a class="rvhg-btn--link" href="/danh-muc-san-pham/banh-dau-xanh-thuong-hang/">Xem dòng thượng hạng  ›</a>
-      </div>
-      <div class="rvhg-home-duo__media">
-        <LegacyImg src="/images/legacy/hop-5-sao-web.jpg" alt="Hộp quà OCOP 5 sao Quốc gia" width={1200} height={1200} loading="lazy" />
-      </div>
-    </article>
-    <article class="rvhg-home-duo__tile">
-      <div class="rvhg-home-duo__copy">
-        <p class="rvhg-eyebrow">Hộp tre cao cấp</p>
-        <h2>Quà biếu xứng tầm.</h2>
-        <p>Đóng gói thủ công trong hộp tre — gửi trao đối tác, tri ân gia đình trong những dịp trọng đại.</p>
-        <a class="rvhg-btn--link" href="/danh-muc-san-pham/banh-dau-xanh-tet/">Xem quà Tết  ›</a>
-      </div>
-      <div class="rvhg-home-duo__media">
-        <LegacyImg src="/images/legacy/banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg" alt="Hộp quà tre cao cấp Rồng Vàng Hoàng Gia" width={1200} height={1200} loading="lazy" />
-      </div>
-    </article>
-  </section>
-
-  <!-- BÍ QUYẾT THÀNH CÔNG — 9 reasons grid -->
+  <!-- 2 · BÍ QUYẾT THÀNH CÔNG -->
   <section class="rvhg-section rvhg-band-soft">
     <div class="rvhg-container">
       <header class="rvhg-home-reasons__head">
         <p class="rvhg-eyebrow">Bí quyết thành công</p>
-        <h2>Chín lý do giữa hàng chục thương hiệu.</h2>
+        <h2>Rồng Vàng Hoàng Gia.</h2>
         <div class="gold-rule rvhg-rule--center"></div>
-        <p>Điều gì đã làm nên sự độc đáo và thành công của thương hiệu Rồng Vàng Hoàng Gia.</p>
+        <p>Giữa hàng chục thương hiệu bánh đậu xanh trên thị trường, điều gì đã làm nên sự độc đáo và thành công của thương hiệu Rồng Vàng Hoàng Gia.</p>
       </header>
       <ul class="rvhg-home-reasons">
         {REASONS.map((r) => (
@@ -98,7 +44,30 @@ const faq = [
     </div>
   </section>
 
-  <!-- DANH MỤC SẢN PHẨM — bento card grid (old-site layout) -->
+  <!-- 3 · SẢN PHẨM CAO CẤP -->
+  <section class="rvhg-section">
+    <div class="rvhg-container">
+      <header class="rvhg-home-feat__head">
+        <p class="rvhg-eyebrow">Sản phẩm cao cấp</p>
+        <h2>Tinh tuý từ Rồng Vàng Hoàng Gia.</h2>
+        <div class="gold-rule rvhg-rule--center"></div>
+        <p>Hãy khám phá những sản phẩm cao cấp nhất từ Rồng Vàng Hoàng Gia.</p>
+        <a class="rvhg-btn--link" href="/san-pham/">Xem toàn bộ sản phẩm  ›</a>
+      </header>
+      <div class="rvhg-home-feat">
+        {FEATURED.map((p, i) => (
+          <a class="rvhg-feat" href={p.href}>
+            <span class="rvhg-feat__media">
+              <LegacyImg src={p.image} alt={p.name} width={600} height={600} loading={i < 4 ? 'eager' : 'lazy'} />
+            </span>
+            <span class="rvhg-feat__name">{p.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · DANH MỤC SẢN PHẨM -->
   <section class="rvhg-section rvhg-band-soft">
     <div class="rvhg-container">
       <header class="rvhg-cats__head">
@@ -124,92 +93,51 @@ const faq = [
     </div>
   </section>
 
-  <!-- STORY — Khải Định 1918 -->
-  <section class="rvhg-section rvhg-band-night rvhg-home-story">
+  <!-- 5 · HỆ THỐNG PHÂN PHỐI -->
+  <section class="rvhg-section">
     <div class="rvhg-container">
-      <p class="rvhg-eyebrow" style="color: var(--color-night-mute);">Năm 1918</p>
-      <h2>Sắc phong "Bánh Ngon" của Hoàng Gia.</h2>
-      <div class="gold-rule rvhg-rule--center"></div>
-      <p class="rvhg-home-story__lede">
-        {ANCHORS.khaiDinh1918}
-      </p>
-      <p>
-        <a class="rvhg-btn rvhg-btn--ghost" href="/cau-chuyen-san-pham-rong-vang-hoang-gia-2/">Đọc câu chuyện đầy đủ</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- TRUST -->
-  <section class="rvhg-section rvhg-container rvhg-home-trust">
-    <h2>Bốn lý do chọn Rồng Vàng Hoàng Gia.</h2>
-    <ul>
-      <li>
-        <strong>OCOP 5★</strong>
-        <span>Bánh đậu xanh đầu tiên và duy nhất đạt phân hạng quốc gia, 2024.</span>
-      </li>
-      <li>
-        <strong>ISO 22000:2018</strong>
-        <span>Hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế.</span>
-      </li>
-      <li>
-        <strong>28 năm</strong>
-        <span>Sản xuất liên tục từ 1997 — gần ba thập kỷ giữ nghề.</span>
-      </li>
-      <li>
-        <strong>5 quốc gia</strong>
-        <span>Xuất khẩu Nhật Bản, Hoa Kỳ, Anh, Hàn Quốc, Canada.</span>
-      </li>
-    </ul>
-  </section>
-
-  <!-- TRÊN TRUYỀN THÔNG -->
-  <section class="rvhg-section rvhg-home-media">
-    <div class="rvhg-container">
-      <header class="rvhg-home-media__head">
-        <p class="rvhg-eyebrow">Truyền thông đưa tin</p>
-        <h2>Báo chí nói về Rồng Vàng Hoàng Gia.</h2>
+      <header class="rvhg-home-logos__head">
+        <p class="rvhg-eyebrow">Hệ thống phân phối</p>
+        <h2>Có mặt khắp toàn quốc.</h2>
         <div class="gold-rule rvhg-rule--center"></div>
+        <p>Sản phẩm Rồng Vàng Hoàng Gia có mặt trên các chuỗi đại siêu thị, cửa hàng tạp hoá, sân bay, khu du lịch, trạm dừng nghỉ… và các sàn thương mại điện tử Shopee, TikTok Shop.</p>
       </header>
-      <ul class="rvhg-home-media__list">
-        {MEDIA_MENTIONS.map((m) => (
-          <li>
-            <a href={m.url} target="_blank" rel="noopener noreferrer">{m.name}  ›</a>
-          </li>
+      <ul class="rvhg-logos rvhg-logos--dist">
+        {DISTRIBUTION_LOGOS.map((d) => (
+          <li><img src={d.image} alt={d.name} loading="lazy" decoding="async" /></li>
         ))}
       </ul>
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- 6 · TRÊN TRUYỀN THÔNG -->
   <section class="rvhg-section rvhg-band-soft">
-    <div class="rvhg-container rvhg-container--narrow rvhg-home-faq">
-      <h2>Câu hỏi thường gặp.</h2>
-      <div class="rvhg-home-faq__list">
-        {faq.map((item) => (
-          <details>
-            <summary>{item.q}</summary>
-            <p>{item.a}</p>
-          </details>
+    <div class="rvhg-container">
+      <header class="rvhg-home-logos__head">
+        <p class="rvhg-eyebrow">Trên truyền thông</p>
+        <h2>Báo chí nói về chúng tôi.</h2>
+        <div class="gold-rule rvhg-rule--center"></div>
+        <p>Xem thêm thông tin về Rồng Vàng Hoàng Gia trên các cơ quan thông tấn báo chí chính thống.</p>
+      </header>
+      <ul class="rvhg-logos rvhg-logos--media">
+        {MEDIA_LOGOS.map((m) => (
+          <li>
+            {m.url ? (
+              <a href={m.url} target="_blank" rel="noopener noreferrer" aria-label={m.name}>
+                <img src={m.image} alt={m.name} loading="lazy" decoding="async" />
+              </a>
+            ) : (
+              <img src={m.image} alt={m.name} loading="lazy" decoding="async" />
+            )}
+          </li>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="rvhg-section rvhg-section--tight">
-    <div class="rvhg-container rvhg-home-cta">
-      <h2>Đặt quà biếu &amp; mua sỉ.</h2>
-      <p>Tư vấn hộp quà Tết, quà doanh nghiệp, đại lý phân phối.</p>
-      <div class="rvhg-home-cta__buttons">
-        <a class="rvhg-btn" href="tel:0934362658">Gọi 0934 362 658</a>
-        <a class="rvhg-btn rvhg-btn--ghost" href="/lien-he/">Liên hệ</a>
-      </div>
+      </ul>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* ---------- Hero ---------- */
+  /* ---------- 1 · Hero ---------- */
   .rvhg-home-hero {
     text-align: center;
     padding-top: 3rem;
@@ -221,25 +149,20 @@ const faq = [
   .rvhg-home-hero h1 {
     margin-top: 0.6rem;
     font-size: var(--text-headline);
+    max-width: 18ch;
+    margin-inline: auto;
   }
   .rvhg-home-hero__sub {
-    margin-top: 0.6rem;
+    margin-top: 0.8rem;
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+    font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
     font-weight: 500;
     letter-spacing: -0.01em;
     color: var(--color-brass-700, #7a6234);
   }
-  .rvhg-home-hero__lede {
-    margin-top: 1.5rem;
-    color: var(--color-mute);
-    font-size: clamp(1rem, 0.5vw + 0.95rem, 1.2rem);
-    max-width: 36rem;
-    margin-inline: auto;
-  }
   .rvhg-home-hero__ctas {
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
     display: flex;
     gap: 2rem;
     justify-content: center;
@@ -251,72 +174,109 @@ const faq = [
   }
   .rvhg-home-hero__media :global(img) {
     width: 100%;
-    height: clamp(20rem, 55vw, 36rem);
+    height: clamp(18rem, 52vw, 34rem);
     object-fit: cover;
     display: block;
   }
 
-  /* ---------- Duo tiles ---------- */
-  .rvhg-home-duo {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    padding: 1rem;
-    background: var(--color-paper);
-  }
-  @media (max-width: 900px) {
-    .rvhg-home-duo { grid-template-columns: 1fr; padding: 0.5rem; gap: 0.5rem; }
-  }
-  .rvhg-home-duo__tile {
-    position: relative;
-    background: var(--color-paper-tint);
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    padding: 3.5rem 2.5rem 0;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    gap: 2rem;
-    min-height: 32rem;
-  }
-  @media (max-width: 600px) {
-    .rvhg-home-duo__tile { padding: 2.5rem 1.5rem 0; min-height: 26rem; }
-  }
-  .rvhg-home-duo__tile--dark {
-    background: var(--color-night);
-    color: var(--color-night-text);
-  }
-  .rvhg-home-duo__tile--dark h2 { color: #fff; }
-  .rvhg-home-duo__tile--dark p { color: var(--color-night-mute); }
-  .rvhg-home-duo__copy h2 {
-    margin-top: 0.6rem;
-    font-size: clamp(1.7rem, 1.5vw + 1rem, 2.5rem);
-  }
-  .rvhg-home-duo__copy p {
-    margin-top: 0.85rem;
-    color: var(--color-mute);
-    max-width: 32ch;
-  }
-  .rvhg-home-duo__copy a { display: inline-block; margin-top: 1rem; }
-  .rvhg-home-duo__media {
-    align-self: end;
+  /* ---------- shared section heads ---------- */
+  .rvhg-home-reasons__head,
+  .rvhg-home-feat__head,
+  .rvhg-cats__head,
+  .rvhg-home-logos__head {
     text-align: center;
-  }
-  .rvhg-home-duo__media :global(img) {
-    width: min(80%, 22rem);
-    height: auto;
-    display: inline-block;
-  }
-
-  /* ---------- Danh mục sản phẩm — bento card grid ---------- */
-  .rvhg-cats__head {
-    text-align: center;
-    max-width: 40rem;
+    max-width: 42rem;
     margin: 0 auto 3rem;
   }
-  .rvhg-cats__head h2 {
+  .rvhg-home-reasons__head h2,
+  .rvhg-home-feat__head h2,
+  .rvhg-cats__head h2,
+  .rvhg-home-logos__head h2 {
     font-size: var(--text-display);
     margin-top: 0.6rem;
   }
+  .rvhg-home-reasons__head > p,
+  .rvhg-home-feat__head > p,
+  .rvhg-home-logos__head > p {
+    margin-top: 1rem;
+    color: var(--color-mute);
+  }
+  .rvhg-home-feat__head a { display: inline-block; margin-top: 1rem; }
+
+  /* ---------- 2 · Bí quyết thành công ---------- */
+  .rvhg-home-reasons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--color-line-soft);
+  }
+  .rvhg-home-reasons li {
+    padding: 2.25rem 1.5rem;
+    border-bottom: 1px solid var(--color-line-soft);
+    border-right: 1px solid var(--color-line-soft);
+  }
+  .rvhg-home-reasons li:nth-child(3n) { border-right: 0; }
+  .rvhg-home-reasons h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    margin-bottom: 0.6rem;
+  }
+  .rvhg-home-reasons p {
+    color: var(--color-mute);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  @media (max-width: 900px) {
+    .rvhg-home-reasons { grid-template-columns: repeat(2, 1fr); }
+    .rvhg-home-reasons li:nth-child(3n) { border-right: 1px solid var(--color-line-soft); }
+    .rvhg-home-reasons li:nth-child(2n) { border-right: 0; }
+  }
+  @media (max-width: 560px) {
+    .rvhg-home-reasons { grid-template-columns: 1fr; }
+    .rvhg-home-reasons li,
+    .rvhg-home-reasons li:nth-child(2n),
+    .rvhg-home-reasons li:nth-child(3n) { border-right: 0; }
+  }
+
+  /* ---------- 3 · Sản phẩm cao cấp ---------- */
+  .rvhg-home-feat {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem 1.5rem;
+  }
+  .rvhg-feat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .rvhg-feat__media {
+    aspect-ratio: 1 / 1;
+    background: var(--color-paper-tint);
+    border-radius: var(--radius-lg, 8px);
+    overflow: hidden;
+  }
+  .rvhg-feat__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s var(--ease-refined, ease);
+  }
+  .rvhg-feat:hover .rvhg-feat__media :global(img) { transform: scale(1.04); }
+  .rvhg-feat__name {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--color-ink);
+  }
+  @media (max-width: 1024px) { .rvhg-home-feat { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 768px)  { .rvhg-home-feat { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; } }
+
+  /* ---------- 4 · Danh mục sản phẩm — bento ---------- */
   .rvhg-cats {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -332,10 +292,7 @@ const faq = [
     text-decoration: none;
     background: var(--color-paper-tint);
   }
-  .rvhg-cat--lg {
-    grid-column: span 3;
-    aspect-ratio: 16 / 10;
-  }
+  .rvhg-cat--lg { grid-column: span 3; aspect-ratio: 16 / 10; }
   .rvhg-cat :global(img) {
     width: 100%;
     height: 100%;
@@ -364,230 +321,47 @@ const faq = [
   }
   @media (max-width: 768px) {
     .rvhg-cats { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
-    .rvhg-cat,
-    .rvhg-cat--lg { grid-column: span 1; aspect-ratio: 4 / 3; }
+    .rvhg-cat, .rvhg-cat--lg { grid-column: span 1; aspect-ratio: 4 / 3; }
     .rvhg-cat--lg:first-child { grid-column: span 2; aspect-ratio: 16 / 10; }
     .rvhg-cat__title { left: 1rem; right: 1rem; bottom: 1rem; font-size: 1.05rem; }
   }
   @media (max-width: 460px) {
     .rvhg-cats { grid-template-columns: 1fr; }
-    .rvhg-cat,
-    .rvhg-cat--lg,
-    .rvhg-cat--lg:first-child { grid-column: span 1; aspect-ratio: 3 / 2; }
+    .rvhg-cat, .rvhg-cat--lg, .rvhg-cat--lg:first-child { grid-column: span 1; aspect-ratio: 3 / 2; }
   }
 
-  /* ---------- Story ---------- */
-  .rvhg-home-story {
-    text-align: center;
-  }
-  .rvhg-home-story h2 {
-    font-size: var(--text-display);
-    margin-top: 0.85rem;
-    max-width: 24ch;
-    margin-inline: auto;
-  }
-  .rvhg-home-story__lede {
-    margin: 1.25rem auto 2rem;
-    max-width: 52ch;
-    color: var(--color-night-mute);
-    font-size: clamp(1.05rem, 0.5vw + 1rem, 1.2rem);
-  }
-
-  /* ---------- Trust ---------- */
-  .rvhg-home-trust h2 {
-    font-size: var(--text-display);
-    text-align: center;
-    margin-bottom: 3rem;
-    max-width: 22ch;
-    margin-inline: auto;
-  }
-  .rvhg-home-trust ul {
+  /* ---------- 5 & 6 · Logo walls ---------- */
+  .rvhg-logos {
     list-style: none;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--color-line-soft);
-  }
-  .rvhg-home-trust li {
-    padding: 2rem 1.25rem;
-    border-bottom: 1px solid var(--color-line-soft);
-    border-right: 1px solid var(--color-line-soft);
-    text-align: center;
-  }
-  .rvhg-home-trust li:nth-child(4n) { border-right: 0; }
-  .rvhg-home-trust strong {
-    display: block;
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 1vw + 1rem, 2rem);
-    font-weight: 600;
-    color: var(--color-ink);
-    letter-spacing: -0.018em;
-  }
-  .rvhg-home-trust span {
-    display: block;
-    margin-top: 0.6rem;
-    color: var(--color-mute);
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-  @media (max-width: 768px) {
-    .rvhg-home-trust ul { grid-template-columns: repeat(2, 1fr); }
-    .rvhg-home-trust li:nth-child(4n) { border-right: 1px solid var(--color-line-soft); }
-    .rvhg-home-trust li:nth-child(2n) { border-right: 0; }
-  }
-
-  /* ---------- FAQ ---------- */
-  .rvhg-home-faq h2 {
-    font-size: var(--text-display);
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  .rvhg-home-faq__list {
-    border-top: 1px solid var(--color-line);
-  }
-  .rvhg-home-faq details {
-    border-bottom: 1px solid var(--color-line);
-  }
-  .rvhg-home-faq summary {
-    cursor: pointer;
-    list-style: none;
-    padding: 1.25rem 0;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--color-ink);
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    justify-items: center;
+    gap: 2rem 1.5rem;
   }
-  .rvhg-home-faq summary::-webkit-details-marker { display: none; }
-  .rvhg-home-faq summary::after {
-    content: '+';
-    color: var(--color-mute);
-    font-weight: 300;
-    font-size: 1.5rem;
-    line-height: 1;
-    transition: transform 0.2s ease;
+  .rvhg-logos--dist { grid-template-columns: repeat(4, 1fr); }
+  .rvhg-logos--media { grid-template-columns: repeat(5, 1fr); }
+  .rvhg-logos img {
+    max-width: 100%;
+    max-height: 64px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.7;
+    transition: filter 0.25s var(--ease-refined, ease), opacity 0.25s var(--ease-refined, ease);
   }
-  .rvhg-home-faq details[open] summary::after {
-    transform: rotate(45deg);
+  .rvhg-logos li:hover img,
+  .rvhg-logos a:hover img { filter: grayscale(0); opacity: 1; }
+  .rvhg-logos--media img { max-height: 56px; border-radius: 4px; }
+  @media (max-width: 768px) {
+    .rvhg-logos--dist { grid-template-columns: repeat(3, 1fr); }
+    .rvhg-logos--media { grid-template-columns: repeat(4, 1fr); }
+    .rvhg-logos img { max-height: 52px; }
   }
-  .rvhg-home-faq p {
-    padding: 0 0 1.5rem;
-    color: var(--color-mute);
-    line-height: 1.65;
-  }
-
-  /* ---------- Bí quyết thành công (9 reasons) ---------- */
-  .rvhg-home-reasons__head {
-    text-align: center;
-    max-width: 38rem;
-    margin: 0 auto 3rem;
-  }
-  .rvhg-home-reasons__head h2 {
-    font-size: var(--text-display);
-    margin-top: 0.85rem;
-  }
-  .rvhg-home-reasons__head p {
-    margin-top: 1rem;
-    color: var(--color-mute);
-  }
-  .rvhg-home-reasons {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-    border-top: 1px solid var(--color-line-soft);
-  }
-  .rvhg-home-reasons li {
-    padding: 2.25rem 1.5rem;
-    border-bottom: 1px solid var(--color-line-soft);
-    border-right: 1px solid var(--color-line-soft);
-  }
-  .rvhg-home-reasons li:nth-child(3n) { border-right: 0; }
-  .rvhg-home-reasons h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-ink);
-    letter-spacing: -0.012em;
-    margin-bottom: 0.6rem;
-  }
-  .rvhg-home-reasons p {
-    color: var(--color-mute);
-    font-size: 0.95rem;
-    line-height: 1.55;
-  }
-  @media (max-width: 900px) {
-    .rvhg-home-reasons { grid-template-columns: repeat(2, 1fr); }
-    .rvhg-home-reasons li:nth-child(3n) { border-right: 1px solid var(--color-line-soft); }
-    .rvhg-home-reasons li:nth-child(2n) { border-right: 0; }
-  }
-  @media (max-width: 560px) {
-    .rvhg-home-reasons { grid-template-columns: 1fr; }
-    .rvhg-home-reasons li,
-    .rvhg-home-reasons li:nth-child(2n),
-    .rvhg-home-reasons li:nth-child(3n) { border-right: 0; }
-  }
-
-  /* ---------- Trên truyền thông ---------- */
-  .rvhg-home-media__head {
-    text-align: center;
-    max-width: 38rem;
-    margin: 0 auto 2.5rem;
-  }
-  .rvhg-home-media__head h2 {
-    font-size: var(--text-display);
-    margin-top: 0.85rem;
-  }
-  .rvhg-home-media__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-  }
-  .rvhg-home-media__list a {
-    display: inline-block;
-    padding: 0.65rem 1.25rem;
-    border: 1px solid color-mix(in srgb, var(--brass) 40%, transparent);
-    border-radius: var(--radius-sm, 2px);
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--color-ink);
-    text-decoration: none;
-    background: var(--color-paper);
-    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
-  }
-  .rvhg-home-media__list a:hover {
-    border-color: var(--color-ink);
-    background: var(--color-ink);
-    color: #fff;
-  }
-
-  /* ---------- CTA ---------- */
-  .rvhg-home-cta {
-    text-align: center;
-    max-width: 44rem;
-    margin-inline: auto;
-  }
-  .rvhg-home-cta h2 {
-    font-size: var(--text-display);
-  }
-  .rvhg-home-cta p {
-    margin-top: 1rem;
-    color: var(--color-mute);
-  }
-  .rvhg-home-cta__buttons {
-    margin-top: 2rem;
-    display: flex;
-    gap: 0.75rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  @media (max-width: 460px) {
+    .rvhg-logos--dist { grid-template-columns: repeat(2, 1fr); }
+    .rvhg-logos--media { grid-template-columns: repeat(3, 1fr); }
   }
 </style>
