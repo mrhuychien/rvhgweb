@@ -1,7 +1,21 @@
 # STATUS — RVHG website rebuild
 
-Cập nhật: sau session Apple-redesign + product-line consolidation (14/05/2026).
+Cập nhật: sau session Imperial design-system token spec (30/05/2026).
 Branch làm việc: `claude/rebuild-rvhg-astro-TvUGA`.
+
+---
+
+## Design system hiện hành — "Imperial heritage" (30/05/2026)
+
+Owner cung cấp **"RVHG Design System — Token Spec v1.0"** (viết cho Next.js+shadcn) → đã **adapt sang Astro 5 + Tailwind 4**, KHÔNG tạo file Next.js.
+- `tokens.json` (root) = source of truth.
+- `src/styles/global.css`: `@theme` (primitive + semantic + Playfair/BeVietnamPro + scale + spacing + radius ≤8px + shadow ấm + easing) + `:root` bridge re-map mọi legacy var sang palette imperial → cả site đổi theme, không sửa từng component.
+- Palette: cream `#FBF8F1`, ink ấm `#1C1714`, oxblood lacquer (dark band + primary button), brass hairline/emblem, seal cinnabar (chỉ triện/tem/`::selection`), bean accent.
+- Font: **Playfair Display** self-hosted (`public/fonts/playfair-display-*.woff2`) cho h1–h4; **Be Vietnam Pro** cho body. Fraunces đã bỏ reference.
+- Signature: `.rvhg-eyebrow` brass + `.gold-rule` (chèn ở hero/section-head homepage + 4 head ProductLineLayout + footer); triện `SealStamp.astro` đặt 1 lần ở footer (đã đổi dark oxblood).
+- 10 hard rules §0 đã tuân thủ (bỏ gradient vàng hero, de-pill button/tag, primary oxblood, link ink+brass underline, brass/bean không cho body nhỏ).
+- ⚠️ `MediaLogos.astro`/`DistributionLogos.astro` còn `999px` nhưng không import (dead code).
+- ⚠️ Chưa build local (máy không có Node) → cần xem Vercel preview xác nhận.
 
 ---
 
