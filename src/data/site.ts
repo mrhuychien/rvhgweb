@@ -16,6 +16,12 @@ export const COMPANY = {
   brand: 'Rồng Vàng Hoàng Gia',
   taxId: '0800280839',
   businessLicense: '06/06/2003',
+  /** Full registration line incl. latest amendment. */
+  businessLicenseFull:
+    'ĐKKD 0800280839 cấp ngày 06/06/2003. Đăng ký thay đổi lần thứ 7 ngày 06/8/2025 bởi Sở Tài chính Thành phố Hải Phòng.',
+  representative: 'Ông Đào Văn Tiến',
+  isoFull:
+    'Chứng nhận Hệ thống Quản lý An toàn thực phẩm TCVN ISO 22000:2018 / ISO 22000:2018 số HA 394/2.23.CIV cấp ngày 08/08/2023 bởi Tổng cục Tiêu chuẩn Đo lường Chất lượng (Quacert).',
   founded: '1997',
   /** Three brothers founded the company in 1997. */
   chairman: 'Ông Đào Quang Chuyện — Chủ tịch HĐQT (nguyên Thẩm phán Toà án Nhân dân tỉnh Hải Dương)',
@@ -30,7 +36,7 @@ export const COMPANY = {
   workforce: '100–150 công nhân',
   iso: 'ISO 22000:2018 — HA 394/2.23.CIV (cấp 08/08/2023, Quacert)',
   ocop: 'OCOP 5 sao Quốc gia 2024 — bánh đậu xanh đầu tiên và duy nhất',
-  factoryAddress: 'Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, TP Hải Phòng',
+  factoryAddress: 'Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, thành phố Hải Phòng, Việt Nam',
   showrooms: ['209C Tuệ Tĩnh, TP Hải Dương', '9 Bạch Đằng, TP Hải Dương'],
   phone: '0934362658',
   phoneIntl: '+84-934-362-658',

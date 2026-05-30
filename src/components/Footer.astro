@@ -1,14 +1,19 @@
 ---
 import { COMPANY, SITE } from '../data/site';
-import SealStamp from './SealStamp.astro';
 const year = new Date().getFullYear();
 ---
 
 <footer class="rvhg-footer rvhg-band-night">
   <div class="rvhg-container">
-    <!-- §7 triện — the single emblem in this viewport -->
+    <!-- §7 emblem — the single logo in this viewport -->
     <div class="rvhg-footer__seal">
-      <SealStamp tone="var(--color-brass-300, #d8c29a)" />
+      <img
+        class="rvhg-footer__logo"
+        src="/images/legacy/logo-seal.png"
+        alt="Rồng Vàng Hoàng Gia"
+        width="512" height="512"
+        loading="lazy" decoding="async"
+      />
       <p class="rvhg-footer__tagline">{SITE.name}</p>
       <p class="rvhg-footer__sub">{SITE.tagline}</p>
       <div class="gold-rule rvhg-rule--center"></div>
@@ -45,24 +50,28 @@ const year = new Date().getFullYear();
         </ul>
       </div>
       <div class="rvhg-footer__col">
-        <h2>Kết nối</h2>
+        <h2>Liên hệ</h2>
         <ul>
+          <li>Hotline: <a href={`tel:${COMPANY.phone}`}>0934 362 658</a></li>
+          <li>Email: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></li>
           <li><a href={COMPANY.facebook} target="_blank" rel="noopener noreferrer">Facebook</a></li>
           <li><a href="https://shopee.vn/" target="_blank" rel="noopener noreferrer">Shopee</a></li>
           <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok Shop</a></li>
-          <li><a href={`tel:${COMPANY.phone}`}>{COMPANY.phone}</a></li>
-          <li><a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a></li>
         </ul>
       </div>
     </div>
 
     <div class="rvhg-footer__legal-block">
-      <p>{COMPANY.legalName} · MST {COMPANY.taxId} · ĐKKD {COMPANY.businessLicense}</p>
+      <p class="rvhg-footer__company">{COMPANY.legalName}</p>
+      <p>{COMPANY.businessLicenseFull}</p>
+      <p>Người đại diện: {COMPANY.representative}</p>
+      <p>{COMPANY.isoFull}</p>
+      <p>Nhà máy sản xuất: {COMPANY.factoryAddress}</p>
       <p>
-        Nhà máy: {COMPANY.factoryAddress}<br />
-        Showroom: 209C Tuệ Tĩnh và 9 Bạch Đằng, TP Hải Dương
+        Liên hệ: <a href={`tel:${COMPANY.phone}`}>0934 362 658</a>
+        · Email: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+        · <a href={COMPANY.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
       </p>
-      <p>Chứng nhận: ISO 22000:2018 (HA 394/2.23.CIV) · OCOP 5 sao Quốc gia 2024</p>
     </div>
 
     <div class="rvhg-footer__bar">
@@ -93,6 +102,13 @@ const year = new Date().getFullYear();
   }
   .rvhg-footer__seal :global(.rvhg-seal) {
     margin: 0 auto 1.1rem;
+  }
+  .rvhg-footer__logo {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 1.1rem;
+    display: block;
+    border-radius: 9999px;
   }
   .rvhg-footer__tagline {
     font-family: var(--font-display);
@@ -142,9 +158,23 @@ const year = new Date().getFullYear();
 
   .rvhg-footer__legal-block {
     font-size: 0.8rem;
+    line-height: 1.65;
     color: color-mix(in srgb, var(--color-night-mute) 80%, transparent);
+    max-width: 70ch;
   }
-  .rvhg-footer__legal-block p + p { margin-top: 0.5rem; }
+  .rvhg-footer__legal-block p + p { margin-top: 0.45rem; }
+  .rvhg-footer__company {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+  .rvhg-footer__legal-block a {
+    color: var(--color-brass-300, #d8c29a);
+    text-decoration: none;
+  }
+  .rvhg-footer__legal-block a:hover { color: #fff; text-decoration: underline; }
 
   .rvhg-footer__bar {
     border-top: 1px solid color-mix(in srgb, var(--brass) 18%, transparent);
