@@ -21,14 +21,19 @@ Tổng thời gian: ~10 phút.
 
 ## Bước 2 — Deploy Worker lên Cloudflare
 
-Cần có Node trên máy. Mở terminal tại thư mục `tools/cms-auth/`:
+Cần có Node trên máy. Mở terminal **đúng tại thư mục `tools/cms-auth/`** (gõ `dir` phải thấy `worker.js` và `wrangler.toml` — nếu không thấy là đang sai thư mục).
 
 ```bash
+cd tools/cms-auth           # đứng đúng thư mục chứa wrangler.toml
 npx wrangler login          # mở trình duyệt, đăng nhập Cloudflare (miễn phí)
-npx wrangler secret put GITHUB_CLIENT_ID       # dán Client ID
-npx wrangler secret put GITHUB_CLIENT_SECRET   # dán Client Secret
-npx wrangler deploy
+npx wrangler deploy         # PHẢI deploy trước — lệnh này tạo worker
+npx wrangler secret put GITHUB_CLIENT_ID       # rồi mới đặt Client ID
+npx wrangler secret put GITHUB_CLIENT_SECRET   # và Client Secret
+npx wrangler deploy         # deploy lại 1 lần để worker nhận secret
 ```
+
+> ⚠️ Phải chạy `deploy` **trước** `secret put`. Lệnh `secret put` chỉ hoạt động khi worker đã tồn tại — chạy nó đầu tiên sẽ báo lỗi `Required Worker name missing`.
+> Nếu vẫn báo thiếu name: đang đứng sai thư mục (không thấy `wrangler.toml`), hoặc thêm cờ `--name rvhg-cms-auth` vào lệnh.
 
 Sau khi deploy, Cloudflare in ra URL dạng:
 `https://rvhg-cms-auth.<subdomain>.workers.dev`
