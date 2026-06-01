@@ -10,8 +10,10 @@
 backend:
   name: github
   repo: mrhuychien/rvhgweb
-  branch: claude/rebuild-rvhg-astro-TvUGA
-  # base_url: https://<auth-worker>.workers.dev   # ← điền sau khi dựng auth relay
+  branch: main
+  # Cầu nối đăng nhập GitHub (Cloudflare Worker). Sau khi deploy Worker,
+  # thay <ten-worker>.<subdomain> bằng URL thật của Worker:
+  base_url: https://rvhg-cms-auth.workers.dev
 
 # Nơi lưu ảnh tải lên (dùng chung kho ảnh hiện có)
 media_folder: "public/images/legacy"

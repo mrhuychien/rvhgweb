@@ -1,0 +1,10 @@
+# Cấu hình deploy Cloudflare Worker cho cầu nối đăng nhập /admin.
+# Deploy: cài Node + chạy `npx wrangler deploy` trong thư mục này.
+name = "rvhg-cms-auth"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# GITHUB_CLIENT_ID và GITHUB_CLIENT_SECRET KHÔNG đặt ở đây (tránh lộ secret).
+# Đặt qua dashboard Cloudflare hoặc:
+#   npx wrangler secret put GITHUB_CLIENT_ID
+#   npx wrangler secret put GITHUB_CLIENT_SECRET

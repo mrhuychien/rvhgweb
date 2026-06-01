@@ -9,21 +9,17 @@ Trang quản trị cho phép anh **đăng nhập, thêm/sửa bài viết, thay 
 
 ## ⚙️ Thiết lập 1 lần (kỹ thuật — làm một lần duy nhất)
 
-Vì website không có máy chủ riêng, trang quản trị cần một "cầu nối đăng nhập GitHub" (auth). Chỉ cần dựng **một lần**:
+Vì website không có máy chủ riêng, trang quản trị cần một "cầu nối đăng nhập GitHub". Cầu nối này đã được viết sẵn — chỉ cần **deploy một lần**.
 
-### Cách 1 — Dùng dịch vụ có sẵn (nhanh nhất, miễn phí)
-1. Truy cập **https://github.com/settings/developers** → **OAuth Apps** → **New OAuth App**.
-2. Điền:
-   - **Application name:** `RVHG Admin`
-   - **Homepage URL:** `https://www.rongvanghoanggia.com`
-   - **Authorization callback URL:** `https://api.netlify.com/auth/done`
-3. Bấm **Register** → ghi lại **Client ID** và bấm **Generate a new client secret** → ghi lại **Client Secret**.
-4. Vào **https://app.netlify.com** (đăng nhập bằng GitHub, miễn phí) → tạo 1 site bất kỳ → **Site settings → Access control → OAuth → Install provider → GitHub** → dán Client ID + Secret.
-5. Mở file `public/admin/config.yml`, thêm dòng `base_url` trỏ tới site Netlify đó. (Nhắn Claude làm bước này hộ nếu thấy rối.)
+👉 **Làm theo hướng dẫn từng bước trong: [`tools/cms-auth/README.md`](../tools/cms-auth/README.md)**
 
-### Cách 2 — Nhờ Claude dựng "auth relay" trên Cloudflare (gọn, không cần Netlify)
-Nhắn: *"Dựng giúp auth relay cho /admin"* — sẽ được hướng dẫn tạo 1 Cloudflare Worker miễn phí và điền sẵn `base_url`.
+Tóm tắt 3 bước (~10 phút, miễn phí):
+1. Tạo **GitHub OAuth App** → lấy Client ID + Client Secret.
+2. **Deploy Worker** lên Cloudflare (`npx wrangler deploy`) → nhận URL Worker.
+3. Nối URL: dán callback URL vào GitHub, dán `base_url` (URL Worker) vào `public/admin/config.yml`.
 
+> Bước deploy cần máy có cài **Node.js**. Nếu anh không tiện cài, nhắn Claude — sẽ làm hộ phần cấu hình, anh chỉ cần cung cấp quyền Cloudflare/GitHub.
+>
 > Sau khi xong bước này, từ đó về sau anh **chỉ việc đăng nhập và dùng**, không phải đụng kỹ thuật nữa.
 
 ---
