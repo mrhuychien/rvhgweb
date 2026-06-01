@@ -5,7 +5,7 @@ tagline: 'Cốm, dừa, khoai môn, sen — bốn lát hương xếp cạnh đ�
 description: 'Dòng hương vị trái cây Rồng Vàng Hoàng Gia — đậu xanh kết hợp cốm, dừa, khoai môn, sen và trái cây truyền thống. Sản phẩm có bản tự công bố đầy đủ.'
 order: 4
 heroImage: '/images/legacy/cat-trai-cay.jpg'
-cardImage: '/images/legacy/banh-dau-xanh-huong-vi-trai-cay-2-2.jpg'
+cardImage: '/images/legacy/card-trai-cay.jpg'
 storyImage: '/images/legacy/le-sen-web-300x300.jpg'
 accent: '#E3C884'
 oldUrl: 'https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/'

@@ -5,7 +5,7 @@ tagline: 'Đỉnh cao của bánh đậu xanh truyền thống Hải Dương.'
 description: 'Dòng thượng hạng — đậu xanh tuyển chọn, kết cấu mềm mịn, hộp tre cao cấp. Sản phẩm bánh đậu xanh duy nhất đạt OCOP 5 sao Quốc gia 2024.'
 order: 1
 heroImage: '/images/legacy/hop-5-sao-web.jpg'
-cardImage: '/images/legacy/banh-dau-xanh-thuong-hang.jpg'
+cardImage: '/images/legacy/card-thuong-hang.jpg'
 storyImage: '/images/legacy/banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg'
 accent: '#C8A04D'
 oldUrl: 'https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-thuong-hang/'

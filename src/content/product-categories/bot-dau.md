@@ -5,7 +5,7 @@ tagline: 'Đậu nguyên hạt, rang chín, xay nhuyễn — pha là dùng.'
 description: 'Bột đậu xanh dinh dưỡng và chè đậu đen cốt dừa Rồng Vàng Hoàng Gia — sản phẩm uống pha sẵn, nguyên liệu đậu nguyên hạt rang chín, không phụ gia tạo ngọt nhân tạo.'
 order: 5
 heroImage: '/images/legacy/cat-bot-dau.jpg'
-cardImage: '/images/legacy/bot-dau-xanh-2.jpg'
+cardImage: '/images/legacy/card-bot-dau.jpg'
 storyImage: '/images/legacy/bx-web.jpg'
 accent: '#324A28'
 oldUrl: 'https://www.rongvanghoanggia.com/danh-muc-san-pham/bot-dau/'
