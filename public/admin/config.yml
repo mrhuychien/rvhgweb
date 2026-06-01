@@ -1,0 +1,135 @@
+# ============================================================================
+# Bảng quản trị nội dung — Rồng Vàng Hoàng Gia (Sveltia / Decap CMS)
+# ----------------------------------------------------------------------------
+# Đăng nhập bằng GitHub. Mỗi lần Lưu → tự commit vào repo → web cập nhật ~1 phút.
+#
+# CẦN LÀM 1 LẦN trước khi đăng nhập được: thiết lập "auth relay" (xem hướng dẫn
+# trong docs/HUONG-DAN-QUAN-TRI.md) rồi điền URL vào `base_url` bên dưới.
+# ============================================================================
+
+backend:
+  name: github
+  repo: mrhuychien/rvhgweb
+  branch: claude/rebuild-rvhg-astro-TvUGA
+  # base_url: https://<auth-worker>.workers.dev   # ← điền sau khi dựng auth relay
+
+# Nơi lưu ảnh tải lên (dùng chung kho ảnh hiện có)
+media_folder: "public/images/legacy"
+public_folder: "/images/legacy"
+
+# Giao diện tiếng Việt + tự lưu nháp
+locale: vi
+
+collections:
+  # ---- Bài viết / Tin tức ----
+  - name: posts
+    label: "Bài viết / Tin tức"
+    label_singular: "Bài viết"
+    description: "Đăng bài mới, sửa hoặc xoá bài cũ."
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    sortable_fields: [publishDate, title]
+    fields:
+      - { name: title, label: "Tiêu đề", widget: string }
+      - { name: description, label: "Mô tả ngắn (hiển thị Google & mạng xã hội)", widget: text }
+      - { name: publishDate, label: "Ngày đăng", widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { name: cover, label: "Ảnh bìa", widget: image, required: false }
+      - { name: tags, label: "Thẻ (tuỳ chọn)", widget: list, required: false }
+      - { name: author, label: "Tác giả", widget: string, default: "Rồng Vàng Hoàng Gia", required: false }
+      - { name: draft, label: "Lưu nháp (chưa hiện ra web)", widget: boolean, default: false, required: false }
+      - { name: body, label: "Nội dung", widget: markdown }
+      # các trường giữ nguyên để không mất dữ liệu khi lưu
+      - { name: oldUrl, label: "URL cũ", widget: hidden, default: "" }
+      - { name: updated, label: "Cập nhật", widget: hidden, required: false }
+      - { name: relatedProducts, label: "SP liên quan", widget: hidden, required: false }
+
+  # ---- Trang nội dung (Giới thiệu, Liên hệ, Điểm bán, Câu chuyện) ----
+  - name: pages
+    label: "Trang nội dung"
+    label_singular: "Trang"
+    description: "Sửa các trang: Giới thiệu, Liên hệ, Điểm bán, Câu chuyện thương hiệu."
+    folder: "src/content/pages"
+    create: false
+    delete: false
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: "Tiêu đề", widget: string }
+      - { name: description, label: "Mô tả (SEO)", widget: text }
+      - { name: heroImage, label: "Ảnh đầu trang", widget: image, required: false }
+      - { name: body, label: "Nội dung", widget: markdown }
+      - { name: ogImage, label: "Ảnh chia sẻ mạng xã hội", widget: image, required: false }
+      - { name: route, label: "Đường dẫn", widget: hidden }
+      - { name: oldUrl, label: "URL cũ", widget: hidden, required: false }
+      - { name: standalone, label: "standalone", widget: hidden, required: false }
+      - { name: updated, label: "Cập nhật", widget: hidden, required: false }
+
+  # ---- Dòng sản phẩm (5 dòng + ảnh thẻ trang chủ) ----
+  - name: product-categories
+    label: "Dòng sản phẩm"
+    label_singular: "Dòng sản phẩm"
+    description: "Sửa 5 dòng sản phẩm: ảnh, mô tả, danh sách SP, tiêu chuẩn, tự công bố."
+    folder: "src/content/product-categories"
+    create: false
+    delete: false
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: "Tên dòng", widget: string }
+      - { name: cardImage, label: "Ảnh thẻ (hiện ở trang chủ)", widget: image, required: false }
+      - { name: heroImage, label: "Ảnh đầu trang dòng SP", widget: image, required: false }
+      - { name: storyImage, label: "Ảnh phần giới thiệu", widget: image, required: false }
+      - { name: eyebrow, label: "Nhãn nhỏ phía trên tên", widget: string, required: false }
+      - { name: tagline, label: "Câu giới thiệu (1 dòng)", widget: string }
+      - { name: description, label: "Mô tả ngắn", widget: text }
+      - { name: order, label: "Thứ tự hiển thị", widget: number, required: false, value_type: int }
+      - { name: body, label: "Nội dung giới thiệu dòng", widget: markdown }
+      - name: products
+        label: "Sản phẩm trong dòng"
+        label_singular: "Sản phẩm"
+        widget: list
+        required: false
+        summary: "{{fields.name}}"
+        fields:
+          - { name: name, label: "Tên sản phẩm", widget: string }
+          - { name: image, label: "Ảnh", widget: image, required: false }
+          - { name: weight, label: "Khối lượng", widget: string, required: false }
+          - { name: isOcop5Star, label: "OCOP 5 sao", widget: boolean, default: false, required: false }
+      - name: certifications
+        label: "Tiêu chuẩn chất lượng"
+        widget: list
+        required: false
+        summary: "{{fields.title}}"
+        fields:
+          - { name: title, label: "Tên tiêu chuẩn", widget: string }
+          - { name: body, label: "Mô tả", widget: text }
+      - name: selfDeclarations
+        label: "Bản tự công bố"
+        widget: list
+        required: false
+        summary: "{{fields.label}}"
+        fields:
+          - { name: label, label: "Nhãn hiển thị", widget: string }
+          - { name: href, label: "Liên kết (PDF hoặc trang)", widget: string }
+      - { name: accent, label: "Màu nhấn (hex)", widget: string, required: false }
+      - { name: cardImagePos, label: "Vị trí ảnh thẻ", widget: hidden, required: false }
+      - { name: oldUrl, label: "URL cũ", widget: hidden, required: false }
+
+  # ---- Chính sách / Công bố ----
+  - name: policies
+    label: "Chính sách / Công bố"
+    label_singular: "Văn bản"
+    description: "Chính sách bảo mật, vận chuyển, bảo hành, bản tự công bố."
+    folder: "src/content/policies"
+    create: true
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: "Tiêu đề", widget: string }
+      - { name: description, label: "Mô tả", widget: text, required: false }
+      - { name: effectiveDate, label: "Ngày hiệu lực", widget: datetime, required: false, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD" }
+      - { name: body, label: "Nội dung", widget: markdown }
+      - { name: oldUrl, label: "URL cũ", widget: hidden, required: false }
