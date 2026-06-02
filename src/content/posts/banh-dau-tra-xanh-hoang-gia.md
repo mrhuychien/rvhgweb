@@ -1,10 +1,11 @@
 ---
-title: 'Bánh đậu trà xanh Hoàng Gia'
-description: 'Xuất hiện từ đầu thế kỷ 20, ai ai cũng biết đến bánh đậu xanh- thức quà không thể thiếu khi dừng chân tại Hải Dương.'
+title: Bánh đậu trà xanh Hoàng Gia
+description: Xuất hiện từ đầu thế kỷ 20, ai ai cũng biết đến bánh đậu xanh- thức quà không thể thiếu khi dừng chân tại Hải Dương.
 publishDate: 2024-10-01
-author: 'Rồng Vàng Hoàng Gia'
+cover: /images/legacy/banh-dau-xanh-mon-qua-gan-ket-tuoi-tho-bao-the-he-01-1024x683.jpg
 tags: []
-oldUrl: 'https://www.rongvanghoanggia.com/banh-dau-tra-xanh-hoang-gia/'
+author: Rồng Vàng Hoàng Gia
+oldUrl: https://www.rongvanghoanggia.com/banh-dau-tra-xanh-hoang-gia/
 relatedProducts: []
 ---
 
