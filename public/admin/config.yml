@@ -13,7 +13,7 @@ backend:
   branch: main
   # Cầu nối đăng nhập GitHub (Cloudflare Worker). Sau khi deploy Worker,
   # thay <ten-worker>.<subdomain> bằng URL thật của Worker:
-  base_url: https://rvhg-cms-auth.workers.dev
+  base_url: https://rvhg-cms-auth.mrhuychien.workers.dev
 
 # Nơi lưu ảnh tải lên (dùng chung kho ảnh hiện có)
 media_folder: "public/images/legacy"
