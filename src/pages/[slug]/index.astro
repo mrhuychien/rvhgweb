@@ -4,6 +4,7 @@ import { getCollection, render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import PolicyLayout from '../../layouts/PolicyLayout.astro';
 import PageLayout from '../../layouts/PageLayout.astro';
+import { postSlug } from '../../lib/posts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', (p) => !p.data.draft);
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
   const pages = (await getCollection('pages')).filter((p) => !p.data.standalone);
 
   return [
-    ...posts.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'post' as const, entry } })),
+    ...posts.map((entry) => ({ params: { slug: postSlug(entry) }, props: { kind: 'post' as const, entry } })),
     ...policies.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'policy' as const, entry } })),
     ...pages.map((entry) => ({
       params: { slug: entry.data.route.replace(/^\/+|\/+$/g, '') },

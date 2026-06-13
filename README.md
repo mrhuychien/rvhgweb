@@ -62,6 +62,24 @@ workspace/                   # Phase-1 (clone & inventory) artifacts — see wor
 | `/chinh-sach-*/` · `/ban-tu-cong-bo-rong-vang-hoang-gia/` | `src/content/policies/` (via `[slug]`, `noindex`) |
 | `/llms.txt` · `/llms-full.txt` · `/sitemap-index.xml` · `/robots.txt` | static / generated |
 
+### Đặt link tùy chỉnh (custom URL)
+
+- **Bài viết** (`src/content/posts/`): mặc định link = **tên file** (`bdx-carot.md` → `/bdx-carot/`).
+  Muốn đặt link tách rời tên file, thêm `slug:` vào frontmatter:
+
+  ```yaml
+  ---
+  title: Bánh đậu xanh cà rốt
+  description: …
+  publishDate: 2026-06-13
+  oldUrl: /bdx-carot/
+  slug: bdx-carot   # → link thành /bdx-carot/ (ghi đè tên file)
+  ---
+  ```
+
+  `slug` chỉ gồm chữ thường, số và dấu gạch ngang (vd `bdx-carot`); sai định dạng sẽ báo lỗi khi build.
+- **Trang** (`src/content/pages/`): đặt link qua trường bắt buộc `route:` trong frontmatter (vd `route: /gioi-thieu/`).
+
 ## Status & known gaps
 
 > Full project plan: **`docs/BLUEPRINT.md`** · current done/todo state: **`docs/STATUS.md`**.

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LegacyImg from '../../components/LegacyImg.astro';
+import { postPath } from '../../lib/posts';
 
 const posts = (await getCollection('posts', (p) => !p.data.draft)).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
@@ -28,7 +29,7 @@ const [feature, ...rest] = posts;
   {feature && (
     <section class="rvhg-section rvhg-band-soft">
       <div class="rvhg-container">
-        <a href={`/${feature.id}/`} class="rvhg-news-feature">
+        <a href={postPath(feature)} class="rvhg-news-feature">
           {feature.data.cover && (
             <div class="rvhg-news-feature__media">
               <LegacyImg src={feature.data.cover} alt={feature.data.title} width={1600} height={900} loading="eager" fetchpriority="high" />
@@ -51,7 +52,7 @@ const [feature, ...rest] = posts;
         <ul class="rvhg-news-grid">
           {rest.map((post) => (
             <li>
-              <a href={`/${post.id}/`}>
+              <a href={postPath(post)}>
                 <div class="rvhg-news-grid__media">
                   {post.data.cover && <LegacyImg src={post.data.cover} alt={post.data.title} width={800} height={600} />}
                 </div>

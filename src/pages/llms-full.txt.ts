@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { SITE, COMPANY } from '../data/site';
+import { postSlug } from '../lib/posts';
 
 export const prerender = true;
 
@@ -66,7 +67,7 @@ export const GET: APIRoute = async () => {
 
   out += section('TIN TỨC & CÂU CHUYỆN SẢN PHẨM');
   for (const p of [...posts].sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())) {
-    out += `\n## ${p.data.title}\nURL: ${BASE}/${p.id}/\nNgày đăng: ${p.data.publishDate.toISOString().slice(0, 10)} · Tác giả: ${p.data.author}\n${p.data.description}\n\n${p.body ?? ''}\n`;
+    out += `\n## ${p.data.title}\nURL: ${BASE}/${postSlug(p)}/\nNgày đăng: ${p.data.publishDate.toISOString().slice(0, 10)} · Tác giả: ${p.data.author}\n${p.data.description}\n\n${p.body ?? ''}\n`;
   }
 
   out += section('CÔNG BỐ & CHÍNH SÁCH');

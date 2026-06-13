@@ -104,6 +104,15 @@ const posts = defineCollection({
     oldUrl: z.string(),
     relatedProducts: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    /**
+     * Link tùy chỉnh cho bài viết, ghi đè tên file.
+     * Chỉ chữ thường, số và dấu gạch ngang. Ví dụ: `bdx-carot` → /bdx-carot/.
+     * Bỏ trống để dùng tên file làm link (mặc định).
+     */
+    slug: z
+      .string()
+      .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug chỉ gồm chữ thường, số và dấu gạch ngang (vd: bdx-carot)')
+      .optional(),
   }),
 });
 
