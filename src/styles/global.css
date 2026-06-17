@@ -535,3 +535,57 @@ body { top: 0 !important; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================================
+   §8  Motion layer — progressive enhancement (scroll-reveal · tilt · hero dust)
+   §0 rule 7: calm motion. Hidden/animated states apply ONLY when JS is active
+   (.rvhg-js on <html>, set synchronously in <head>) AND motion is allowed — so
+   no-JS and reduced-motion users always see fully-rendered, unhidden content.
+   ============================================================================ */
+@media (prefers-reduced-motion: no-preference) {
+  /* --- scroll reveal --- */
+  .rvhg-js [data-reveal] {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 1.5rem));
+    transition:
+      opacity 0.75s var(--ease-refined),
+      transform 0.75s var(--ease-refined);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .rvhg-js [data-reveal='zoom']  { transform: scale(0.965); }
+  .rvhg-js [data-reveal='left']  { transform: translateX(-1.75rem); }
+  .rvhg-js [data-reveal='right'] { transform: translateX(1.75rem); }
+  .rvhg-js [data-reveal].is-revealed { opacity: 1; transform: none; }
+
+  /* gold hairline "draws in" once its section head reveals */
+  .rvhg-js [data-reveal] .gold-rule--draw {
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.9s var(--ease-refined) 0.25s;
+  }
+  .rvhg-js [data-reveal].is-revealed .gold-rule--draw { transform: scaleX(1); }
+
+  /* hero entrance — staggered rise (excludes h1/showpiece to protect LCP) */
+  .rvhg-js .rvhg-hero3d__lead { animation: rvhg-rise 0.9s var(--ease-refined) both; }
+  .rvhg-js .rvhg-hero3d__sub   { animation: rvhg-rise 0.9s var(--ease-refined) 0.06s both; }
+  .rvhg-js .rvhg-hero3d .gold-rule { animation: rvhg-rise 0.9s var(--ease-refined) 0.14s both; }
+  .rvhg-js .rvhg-hero3d__ctas  { animation: rvhg-rise 0.9s var(--ease-refined) 0.22s both; }
+  .rvhg-js .rvhg-hero3d__stats { animation: rvhg-rise 0.9s var(--ease-refined) 0.5s both; }
+  .rvhg-js .rvhg-hero3d__canvas { animation: rvhg-fade 1.6s var(--ease-refined) 0.2s both; }
+}
+
+@keyframes rvhg-rise {
+  from { opacity: 0; transform: translateY(1.35rem); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes rvhg-fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* Tilt — bespoke pointer-driven 3D (see Motion.astro); desktop pointers only.
+   The transition smooths the return-to-rest; the live tilt is rAF-driven. */
+.rvhg-tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.5s var(--ease-refined);
+}
+
+/* Count-up numerals keep a stable width while animating */
+.rvhg-countup { font-variant-numeric: tabular-nums; }

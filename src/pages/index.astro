@@ -2,40 +2,63 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
+import Motion from '../components/Motion.astro';
 import { SITE, REASONS, FEATURED, DISTRIBUTION_LOGOS, MEDIA_LOGOS } from '../data/site';
 
 const lines = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <BaseLayout title={SITE.name} description={SITE.shortDescription}>
-  <!-- 1 · HERO -->
-  <section class="rvhg-home-hero">
-    <div class="rvhg-container">
-      <p class="rvhg-eyebrow">Rồng Vàng Hoàng Gia</p>
-      <h1>Bánh đậu xanh đạt OCOP 5 sao Quốc gia.</h1>
-      <p class="rvhg-home-hero__sub">Chất lượng đỉnh cao được khẳng định.</p>
+  <!-- 1 · HERO — dark lacquer band + 3D imperial gold dust -->
+  <section class="rvhg-hero3d rvhg-band-night">
+    <canvas class="rvhg-hero3d__canvas" data-hero-dust aria-hidden="true"></canvas>
+    <span class="rvhg-hero3d__glow" aria-hidden="true"></span>
+
+    <div class="rvhg-container rvhg-hero3d__inner">
+      <p class="rvhg-eyebrow rvhg-hero3d__lead">Rồng Vàng Hoàng Gia · Hải Dương từ 1997</p>
+      <h1 class="rvhg-hero3d__title">
+        Bánh đậu xanh đạt <span class="rvhg-hero3d__hl">OCOP 5 sao Quốc gia</span>
+      </h1>
+      <p class="rvhg-hero3d__sub">Chất lượng đỉnh cao được khẳng định.</p>
       <div class="gold-rule rvhg-rule--center"></div>
-      <div class="rvhg-home-hero__ctas">
-        <a class="rvhg-btn--link" href="/gioi-thieu/">Tìm hiểu thêm  ›</a>
+      <div class="rvhg-hero3d__ctas">
+        <a class="rvhg-btn" href="/san-pham/">Khám phá sản phẩm</a>
+        <a class="rvhg-btn--link" href="/gioi-thieu/">Câu chuyện thương hiệu  ›</a>
       </div>
-    </div>
-    <div class="rvhg-home-hero__media">
-      <LegacyImg src="/images/legacy/hero-home.jpg" alt="Bánh đậu xanh Rồng Vàng Hoàng Gia" width={2400} height={1350} loading="eager" fetchpriority="high" />
+
+      <figure class="rvhg-hero3d__showpiece rvhg-tilt" data-tilt>
+        <LegacyImg
+          src="/images/legacy/hero-home.jpg"
+          alt="Bánh đậu xanh Rồng Vàng Hoàng Gia"
+          width={2400}
+          height={1350}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <figcaption class="rvhg-hero3d__seal">OCOP 5★ Quốc gia</figcaption>
+      </figure>
+
+      <ul class="rvhg-hero3d__stats">
+        <li><span class="rvhg-countup" data-countup="28">28</span><small>Năm kinh nghiệm</small></li>
+        <li><span>5★</span><small>OCOP Quốc gia</small></li>
+        <li><span class="rvhg-countup" data-countup="6">6</span><small>Thị trường xuất khẩu</small></li>
+        <li><span>ISO</span><small>22000:2018</small></li>
+      </ul>
     </div>
   </section>
 
   <!-- 2 · BÍ QUYẾT THÀNH CÔNG -->
   <section class="rvhg-section rvhg-band-soft">
     <div class="rvhg-container">
-      <header class="rvhg-home-reasons__head">
+      <header class="rvhg-home-reasons__head" data-reveal>
         <p class="rvhg-eyebrow">Bí quyết thành công</p>
         <h2>Rồng Vàng Hoàng Gia.</h2>
-        <div class="gold-rule rvhg-rule--center"></div>
+        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
         <p>Giữa hàng chục thương hiệu bánh đậu xanh trên thị trường, điều gì đã làm nên sự độc đáo và thành công của thương hiệu Rồng Vàng Hoàng Gia.</p>
       </header>
       <ul class="rvhg-home-reasons">
-        {REASONS.map((r) => (
-          <li>
+        {REASONS.map((r, i) => (
+          <li data-reveal style={`--reveal-delay:${(i % 3) * 90}ms`}>
             <h3>{r.title}</h3>
             <p>{r.body}</p>
           </li>
@@ -47,16 +70,16 @@ const lines = (await getCollection('productCategories')).sort((a, b) => a.data.o
   <!-- 3 · SẢN PHẨM CAO CẤP -->
   <section class="rvhg-section">
     <div class="rvhg-container">
-      <header class="rvhg-home-feat__head">
+      <header class="rvhg-home-feat__head" data-reveal>
         <p class="rvhg-eyebrow">Sản phẩm cao cấp</p>
         <h2>Tinh tuý từ Rồng Vàng Hoàng Gia.</h2>
-        <div class="gold-rule rvhg-rule--center"></div>
+        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
         <p>Hãy khám phá những sản phẩm cao cấp nhất từ Rồng Vàng Hoàng Gia.</p>
         <a class="rvhg-btn--link" href="/san-pham/">Xem toàn bộ sản phẩm  ›</a>
       </header>
       <div class="rvhg-home-feat">
         {FEATURED.map((p, i) => (
-          <a class="rvhg-feat" href={p.href}>
+          <a class="rvhg-feat rvhg-tilt" href={p.href} data-tilt data-reveal style={`--reveal-delay:${(i % 4) * 80}ms`}>
             <span class="rvhg-feat__media">
               <LegacyImg src={p.image} alt={p.name} width={600} height={600} loading={i < 4 ? 'eager' : 'lazy'} />
             </span>
@@ -70,14 +93,20 @@ const lines = (await getCollection('productCategories')).sort((a, b) => a.data.o
   <!-- 4 · DANH MỤC SẢN PHẨM -->
   <section class="rvhg-section rvhg-band-soft">
     <div class="rvhg-container">
-      <header class="rvhg-cats__head">
+      <header class="rvhg-cats__head" data-reveal>
         <p class="rvhg-eyebrow">Danh mục sản phẩm</p>
         <h2>Năm dòng sản phẩm.</h2>
-        <div class="gold-rule rvhg-rule--center"></div>
+        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
       </header>
       <div class="rvhg-cats">
         {lines.map((line, i) => (
-          <a class={`rvhg-cat ${i < 2 ? 'rvhg-cat--lg' : ''}`} href={`/danh-muc-san-pham/${line.id}/`}>
+          <a
+            class={`rvhg-cat rvhg-tilt ${i < 2 ? 'rvhg-cat--lg' : ''}`}
+            href={`/danh-muc-san-pham/${line.id}/`}
+            data-tilt
+            data-reveal={i < 2 ? 'zoom' : true}
+            style={`--reveal-delay:${i * 70}ms`}
+          >
             <LegacyImg
               src={line.data.cardImage ?? line.data.heroImage ?? ''}
               alt={line.data.title}
@@ -97,13 +126,13 @@ const lines = (await getCollection('productCategories')).sort((a, b) => a.data.o
   <!-- 5 · HỆ THỐNG PHÂN PHỐI -->
   <section class="rvhg-section">
     <div class="rvhg-container">
-      <header class="rvhg-home-logos__head">
+      <header class="rvhg-home-logos__head" data-reveal>
         <p class="rvhg-eyebrow">Hệ thống phân phối</p>
         <h2>Có mặt khắp toàn quốc.</h2>
-        <div class="gold-rule rvhg-rule--center"></div>
+        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
         <p>Sản phẩm Rồng Vàng Hoàng Gia có mặt trên các chuỗi đại siêu thị, cửa hàng tạp hoá, sân bay, khu du lịch, trạm dừng nghỉ… và các sàn thương mại điện tử Shopee, TikTok Shop.</p>
       </header>
-      <ul class="rvhg-logos rvhg-logos--dist">
+      <ul class="rvhg-logos rvhg-logos--dist" data-reveal>
         {DISTRIBUTION_LOGOS.map((d) => (
           <li><img src={d.image} alt={d.name} loading="lazy" decoding="async" /></li>
         ))}
@@ -114,13 +143,13 @@ const lines = (await getCollection('productCategories')).sort((a, b) => a.data.o
   <!-- 6 · TRÊN TRUYỀN THÔNG -->
   <section class="rvhg-section rvhg-band-soft">
     <div class="rvhg-container">
-      <header class="rvhg-home-logos__head">
+      <header class="rvhg-home-logos__head" data-reveal>
         <p class="rvhg-eyebrow">Trên truyền thông</p>
         <h2>Báo chí nói về chúng tôi.</h2>
-        <div class="gold-rule rvhg-rule--center"></div>
+        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
         <p>Xem thêm thông tin về Rồng Vàng Hoàng Gia trên các cơ quan thông tấn báo chí chính thống.</p>
       </header>
-      <ul class="rvhg-logos rvhg-logos--media">
+      <ul class="rvhg-logos rvhg-logos--media" data-reveal>
         {MEDIA_LOGOS.map((m) => (
           <li>
             {m.url ? (
@@ -135,49 +164,124 @@ const lines = (await getCollection('productCategories')).sort((a, b) => a.data.o
       </ul>
     </div>
   </section>
+
+  <Motion />
 </BaseLayout>
 
 <style>
-  /* ---------- 1 · Hero ---------- */
-  .rvhg-home-hero {
+  /* ---------- 1 · Hero — dark lacquer + 3D gold dust ---------- */
+  .rvhg-hero3d {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     text-align: center;
-    padding-top: 3rem;
-    padding-bottom: 0;
+    /* flows seamlessly out of the oxblood header */
+    background: radial-gradient(135% 130% at 50% -25%, #5a1417 0%, #3d1114 42%, #2a0c0e 100%);
+    padding-block: clamp(3.25rem, 7vw, 6.5rem) clamp(3rem, 6vw, 5.5rem);
   }
-  @media (min-width: 768px) {
-    .rvhg-home-hero { padding-top: 6.5rem; }
+  .rvhg-hero3d__canvas,
+  .rvhg-hero3d__glow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
   }
-  .rvhg-home-hero h1 {
-    margin-top: 0.6rem;
+  /* warm halo behind the headline — also the full fallback when JS/WebGL is off */
+  .rvhg-hero3d__glow {
+    background: radial-gradient(58% 48% at 50% 24%, rgba(176, 141, 87, 0.32), transparent 70%);
+  }
+  .rvhg-hero3d__inner { position: relative; }
+
+  .rvhg-hero3d__lead { color: var(--color-brass-300, #d8c29a); }
+  .rvhg-hero3d__title {
+    margin: 0.7rem auto 0;
+    max-width: 17ch;
     font-size: var(--text-headline);
-    max-width: 18ch;
-    margin-inline: auto;
+    color: #fbf8f1;
   }
-  .rvhg-home-hero__sub {
-    margin-top: 0.8rem;
+  .rvhg-hero3d__hl { color: var(--color-brass-300, #d8c29a); }
+  .rvhg-hero3d__sub {
+    margin-top: 0.85rem;
     font-family: var(--font-display);
     font-style: italic;
-    font-size: clamp(1.25rem, 1.5vw + 1rem, 2rem);
+    font-size: clamp(1.2rem, 1.5vw + 1rem, 1.95rem);
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: var(--color-brass-700, #7a6234);
+    color: var(--color-brass-300, #d8c29a);
   }
-  .rvhg-home-hero__ctas {
-    margin-top: 1.25rem;
+  .rvhg-hero3d__ctas {
+    margin-top: 1.5rem;
     display: flex;
-    gap: 2rem;
+    gap: 1rem 1.75rem;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
   }
-  .rvhg-home-hero__media {
-    margin-top: 3rem;
-    width: 100%;
+
+  /* product showpiece — framed, lifted, brass hairline */
+  .rvhg-hero3d__showpiece {
+    position: relative;
+    margin: clamp(2.5rem, 5vw, 3.75rem) auto 0;
+    max-width: 60rem;
+    border-radius: var(--radius-lg, 8px);
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--brass) 50%, transparent);
+    box-shadow: 0 32px 80px -34px rgba(0, 0, 0, 0.75);
   }
-  .rvhg-home-hero__media :global(img) {
+  .rvhg-hero3d__showpiece :global(img) {
     width: 100%;
-    height: clamp(18rem, 52vw, 34rem);
+    height: clamp(16rem, 44vw, 30rem);
     object-fit: cover;
     display: block;
+  }
+  .rvhg-hero3d__seal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--color-seal-600, #8f2b22);
+    color: var(--color-paper-50, #fbf8f1);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 0.4rem 0.7rem;
+    border-radius: var(--radius-sm, 2px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  }
+
+  /* trust stats strip */
+  .rvhg-hero3d__stats {
+    list-style: none;
+    max-width: 46rem;
+    margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+    padding: 1.6rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    border-top: 1px solid color-mix(in srgb, var(--brass) 30%, transparent);
+  }
+  .rvhg-hero3d__stats li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .rvhg-hero3d__stats span {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--color-brass-300, #d8c29a);
+  }
+  .rvhg-hero3d__stats small {
+    font-size: 0.72rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--color-night-mute, #cbbba0);
+  }
+  @media (max-width: 640px) {
+    .rvhg-hero3d__stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
   }
 
   /* ---------- shared section heads ---------- */

@@ -1,0 +1,239 @@
+---
+/**
+ * Motion — progressive-enhancement layer for the home page.
+ *
+ * One inline script (no bundler touch, no external runtime deps for the core)
+ * that wires up four calm, on-brand effects, each behind its own guard:
+ *   1. scroll-reveal     — IntersectionObserver fade + rise (+ gold-rule draw-in)
+ *   2. count-up          — animates [data-countup] numerals into view
+ *   3. tilt              — lazy Vanilla-Tilt (gold glare) on [data-tilt], pointer:fine only
+ *   4. hero gold dust    — a bespoke perspective-projected 3D point cloud on <canvas data-hero-dust>
+ *
+ * Everything is a no-op under prefers-reduced-motion / Save-Data / no-JS, and
+ * the reveal pass is bulletproofed so content can never get stuck hidden.
+ * Re-runs on Astro view transitions; the hero engine disposes before each swap.
+ */
+---
+
+<script is:inline>
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+
+    /* ---------- 1 · scroll reveal + 2 · count-up ---------- */
+    function easeOutCubic(p) { return 1 - Math.pow(1 - p, 3); }
+
+    function countUp(el) {
+      if (el.dataset.done) return;
+      el.dataset.done = '1';
+      var target = parseFloat(el.dataset.countup) || 0;
+      if (reduce) { el.textContent = String(target); return; }
+      var dur = 1500, t0 = performance.now();
+      (function tick(now) {
+        var p = Math.min(1, (now - t0) / dur);
+        el.textContent = String(Math.round(target * easeOutCubic(p)));
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    }
+
+    function reveal() {
+      var revealEls = [].slice.call(document.querySelectorAll('[data-reveal]:not(.is-revealed)'));
+      var countEls = [].slice.call(document.querySelectorAll('[data-countup]:not([data-done])'));
+
+      // No-motion / no-IO: show everything immediately, no hiding.
+      if (reduce || !('IntersectionObserver' in window)) {
+        revealEls.forEach(function (e) { e.classList.add('is-revealed'); });
+        countEls.forEach(countUp);
+        return;
+      }
+
+      try {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (!en.isIntersecting) return;
+            var t = en.target;
+            if (t.hasAttribute('data-reveal')) t.classList.add('is-revealed');
+            if (t.hasAttribute('data-countup')) countUp(t);
+            io.unobserve(t);
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        revealEls.forEach(function (e) { io.observe(e); });
+        // static HTML carries the real figure (no-JS/SEO); reset to 0 only on
+        // the animated path so the count-up starts clean.
+        countEls.forEach(function (e) { e.textContent = '0'; io.observe(e); });
+      } catch (_) {
+        revealEls.forEach(function (e) { e.classList.add('is-revealed'); });
+        countEls.forEach(countUp);
+      }
+    }
+
+    // Safety net: reveal anything in view that the observer somehow missed.
+    function revealSafety() {
+      document.querySelectorAll('[data-reveal]:not(.is-revealed)').forEach(function (e) {
+        if (e.getBoundingClientRect().top < window.innerHeight) e.classList.add('is-revealed');
+      });
+    }
+
+    /* ---------- 3 · tilt (bespoke, dependency-free) ---------- */
+    // Subtle pointer-driven 3D tilt + lift. Pointer-capable devices only; no
+    // external lib, so it can never fail at runtime. Calm by design (max ~6°).
+    var MAX = 6;
+    function tilt() {
+      if (reduce || saveData) return;
+      if (!(window.matchMedia && window.matchMedia('(pointer: fine)').matches)) return;
+      var els = [].slice.call(document.querySelectorAll('[data-tilt]:not([data-tilt-ready])'));
+      els.forEach(function (el) {
+        el.setAttribute('data-tilt-ready', '');
+        el.classList.add('rvhg-tilt');
+        var raf = 0, rx = 0, ry = 0, lift = 0;
+        function apply() {
+          raf = 0;
+          el.style.transform =
+            'perspective(900px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(' + lift + 'px)';
+        }
+        function schedule() { if (!raf) raf = requestAnimationFrame(apply); }
+        el.addEventListener('pointermove', function (e) {
+          var r = el.getBoundingClientRect();
+          var px = (e.clientX - r.left) / r.width;
+          var py = (e.clientY - r.top) / r.height;
+          ry = (px - 0.5) * 2 * MAX;
+          rx = -(py - 0.5) * 2 * MAX;
+          lift = -4;
+          schedule();
+        }, { passive: true });
+        el.addEventListener('pointerleave', function () { rx = 0; ry = 0; lift = 0; schedule(); });
+      });
+    }
+
+    /* ---------- 4 · hero "imperial gold dust" (bespoke pseudo-3D) ---------- */
+    function heroDust() {
+      var canvas = document.querySelector('[data-hero-dust]');
+      if (!canvas || canvas.dataset.on || reduce || saveData) return;
+      var ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      canvas.dataset.on = '1';
+
+      var DPR = Math.min(window.devicePixelRatio || 1, 2);
+      var mobile = window.matchMedia('(max-width: 768px)').matches;
+      var COUNT = mobile ? 170 : 460;
+      var FOCAL = 540;
+      var PALETTE = ['#f0e0bf', '#e8cf9e', '#d8c29a', '#c5a878', '#b08d57'];
+
+      // pre-render one soft glow sprite per gold shade (drawImage is far cheaper
+      // than per-particle radial gradients every frame)
+      var sprites = PALETTE.map(function (col) {
+        var s = document.createElement('canvas'); s.width = s.height = 64;
+        var sx = s.getContext('2d');
+        var g = sx.createRadialGradient(32, 32, 0, 32, 32, 32);
+        g.addColorStop(0, 'rgba(255,252,244,0.95)');
+        g.addColorStop(0.30, col);
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        sx.fillStyle = g; sx.beginPath(); sx.arc(32, 32, 32, 0, Math.PI * 2); sx.fill();
+        return s;
+      });
+
+      var P = [];
+      for (var i = 0; i < COUNT; i++) {
+        P.push({
+          x: (Math.random() - 0.5) * 1100,
+          y: (Math.random() - 0.5) * 680,
+          z: (Math.random() - 0.5) * 1100,
+          r: Math.random() * 1.7 + 0.45,
+          s: sprites[(Math.random() * sprites.length) | 0],
+          tw: Math.random() * Math.PI * 2,
+          tws: 0.5 + Math.random() * 0.9
+        });
+      }
+
+      var w = 0, h = 0, cx = 0, cy = 0;
+      function resize() {
+        var rect = canvas.getBoundingClientRect();
+        w = rect.width; h = rect.height; cx = w / 2; cy = h / 2;
+        canvas.width = Math.max(1, Math.round(w * DPR));
+        canvas.height = Math.max(1, Math.round(h * DPR));
+        ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      }
+      resize();
+      var ro = ('ResizeObserver' in window) ? new ResizeObserver(resize) : null;
+      if (ro) ro.observe(canvas); else window.addEventListener('resize', resize);
+
+      var rot = 0, tRX = 0, tRY = 0, cRX = 0, cRY = 0;
+      function onPointer(e) {
+        var t = e.touches ? e.touches[0] : e;
+        tRY = ((t.clientX / window.innerWidth) - 0.5) * 0.5;
+        tRX = ((t.clientY / window.innerHeight) - 0.5) * -0.32;
+      }
+      window.addEventListener('pointermove', onPointer, { passive: true });
+
+      var raf = 0, visible = true, last = performance.now();
+      function loop(now) {
+        raf = requestAnimationFrame(loop);
+        var dt = Math.min(0.05, (now - last) / 1000); last = now;
+        rot += dt * 0.05;
+        cRY += (tRY - cRY) * 0.045;
+        cRX += (tRX - cRX) * 0.045;
+        var ay = rot + cRY, ax = cRX;
+        var cosY = Math.cos(ay), sinY = Math.sin(ay), cosX = Math.cos(ax), sinX = Math.sin(ax);
+
+        ctx.clearRect(0, 0, w, h);
+        ctx.globalCompositeOperation = 'lighter';
+        for (var i = 0; i < P.length; i++) {
+          var p = P[i];
+          var x = p.x * cosY - p.z * sinY;
+          var z = p.x * sinY + p.z * cosY;
+          var y = p.y * cosX - z * sinX;
+          z = p.y * sinX + z * cosX;
+          var depth = FOCAL + z;
+          if (depth <= 1) continue;
+          var scale = FOCAL / depth;
+          var px = cx + x * scale, py = cy + y * scale;
+          if (px < -50 || px > w + 50 || py < -50 || py > h + 50) continue;
+          var tw = 0.62 + 0.38 * Math.sin(p.tw + now * 0.001 * p.tws);
+          var alpha = Math.max(0, Math.min(1, (scale - 0.32) * 1.15)) * tw;
+          if (alpha <= 0.01) continue;
+          var size = p.r * scale * 6.5;
+          ctx.globalAlpha = alpha;
+          ctx.drawImage(p.s, px - size / 2, py - size / 2, size, size);
+        }
+        ctx.globalAlpha = 1;
+        ctx.globalCompositeOperation = 'source-over';
+      }
+      function start() { if (!raf) { last = performance.now(); raf = requestAnimationFrame(loop); } }
+      function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+
+      // only animate while the hero is on-screen and the tab is visible
+      var io = ('IntersectionObserver' in window)
+        ? new IntersectionObserver(function (e) { visible = e[0].isIntersecting; visible ? start() : stop(); }, { threshold: 0 })
+        : null;
+      if (io) io.observe(canvas); else start();
+      function onVis() { document.hidden ? stop() : (visible && start()); }
+      document.addEventListener('visibilitychange', onVis);
+      start();
+
+      canvas.__dispose = function () {
+        stop();
+        if (ro) ro.disconnect(); else window.removeEventListener('resize', resize);
+        if (io) io.disconnect();
+        window.removeEventListener('pointermove', onPointer);
+        document.removeEventListener('visibilitychange', onVis);
+        delete canvas.dataset.on;
+      };
+    }
+
+    /* ---------- boot + Astro view-transition lifecycle ---------- */
+    function boot() { reveal(); tilt(); heroDust(); }
+    function dispose() {
+      var c = document.querySelector('[data-hero-dust]');
+      if (c && c.__dispose) c.__dispose();
+    }
+
+    boot();
+    window.addEventListener('load', function () { setTimeout(revealSafety, 120); });
+
+    if (!window.__rvhgMotionBound) {
+      window.__rvhgMotionBound = true;
+      document.addEventListener('astro:page-load', boot);
+      document.addEventListener('astro:before-swap', dispose);
+    }
+  })();
+</script>
