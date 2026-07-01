@@ -1,0 +1,465 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import LegacyImg from '../components/LegacyImg.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Motion from '../components/Motion.astro';
+import { COMPANY } from '../data/site';
+import { productSchema } from '../data/jsonld';
+import { POWDERS, POWDER_SINGLES, assetUrl, type Powder } from '../data/powders';
+
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+const p: Powder = POWDERS[slug];
+const url = `/${p.slug}/`;
+
+// other flavours to cross-sell (the 3 sibling singles + the no-sugar pair page)
+const others = POWDER_SINGLES.filter((s) => s !== p.slug).map((s) => POWDERS[s]);
+
+const nut = p.nutrition;
+const schema = {
+  ...productSchema({
+    name: p.name,
+    description: p.tagline,
+    images: [assetUrl(p.image)],
+    category: 'Bột đậu xanh',
+    sku: p.sku,
+    url,
+  }),
+  gtin13: p.sku,
+  nutrition: {
+    '@type': 'NutritionInformation',
+    servingSize: '100 g',
+    calories: nut.energy,
+    proteinContent: nut.protein,
+    carbohydrateContent: nut.carb,
+    fatContent: nut.fat,
+    sodiumContent: nut.sodium,
+    sugarContent: nut.sugar,
+  },
+};
+
+const chips = [p.weight, 'Không chất bảo quản', 'ISO 22000:2018', 'Made in Vietnam'];
+---
+
+<BaseLayout title={`${p.name} — Rồng Vàng Hoàng Gia`} description={p.tagline} canonical={url} image={p.image} jsonLd={schema}>
+  <div class="pw" style={`--pa:${p.accent};--pa-ink:${p.accentInk};--pa-soft:${p.accentSoft}`}>
+    <!-- HERO -->
+    <section class="pw-hero">
+      <span class="pw-hero__glow" aria-hidden="true"></span>
+      <div class="rvhg-container">
+        <Breadcrumbs items={[{ name: 'Sản phẩm', url: '/san-pham/' }, { name: p.name, url }]} />
+        <div class="pw-hero__grid">
+          <div class="pw-hero__copy">
+            <p class="rvhg-eyebrow pw-eyebrow">Bột đậu xanh · Rồng Vàng Hoàng Gia</p>
+            <h1 class="pw-hero__title">Bột đậu xanh <span class="pw-accent">{p.flavor}</span></h1>
+            <p class="pw-hero__tagline">{p.tagline}</p>
+            <div class="gold-rule gold-rule--draw"></div>
+            <ul class="pw-chips">
+              {chips.map((c) => <li>{c}</li>)}
+            </ul>
+            <div class="pw-hero__ctas">
+              <a class="rvhg-btn pw-btn" href="https://shopee.vn/" target="_blank" rel="noopener noreferrer">Mua trên Shopee</a>
+              <a class="rvhg-btn--link" href="/diem-ban-rong-vang-hoang-gia/">Tìm điểm bán  ›</a>
+            </div>
+          </div>
+          <div class="pw-hero__media rvhg-tilt" data-tilt>
+            <LegacyImg src={assetUrl(p.image)} alt={p.name} width={900} height={1120} loading="eager" fetchpriority="high" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY -->
+    <section class="rvhg-section rvhg-band-soft">
+      <div class="rvhg-container pw-story" data-reveal>
+        <p class="rvhg-eyebrow pw-eyebrow">Câu chuyện sản phẩm</p>
+        <p class="pw-story__lead">{p.story}</p>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="rvhg-section">
+      <div class="rvhg-container">
+        <header class="pw-head" data-reveal>
+          <p class="rvhg-eyebrow pw-eyebrow">Điểm nổi bật</p>
+          <h2>Vì sao nên chọn {p.name}.</h2>
+          <div class="gold-rule gold-rule--draw"></div>
+        </header>
+        <ul class="pw-highlights">
+          {p.highlights.map((h, i) => (
+            <li class="pw-card" data-reveal style={`--reveal-delay:${(i % 4) * 80}ms`}>
+              <span class="pw-card__no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{h.title}</h3>
+              <p>{h.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- INGREDIENTS + NUTRITION -->
+    <section class="rvhg-section rvhg-band-tint">
+      <div class="rvhg-container pw-facts">
+        <div class="pw-facts__col" data-reveal>
+          <p class="rvhg-eyebrow pw-eyebrow">Thành phần</p>
+          <h2>Nguyên liệu tự nhiên.</h2>
+          <div class="gold-rule gold-rule--draw"></div>
+          <p class="pw-ingredients">{p.ingredients}</p>
+          <p class="pw-decl">
+            <a href={assetUrl(p.declHref)} target="_blank" rel="noopener noreferrer">Xem bản tự công bố sản phẩm (PDF)  ›</a>
+          </p>
+        </div>
+        <div class="pw-facts__col" data-reveal style="--reveal-delay:100ms">
+          <p class="rvhg-eyebrow pw-eyebrow">Giá trị dinh dưỡng</p>
+          <h2>Trung bình trong 100 g.</h2>
+          <div class="gold-rule gold-rule--draw"></div>
+          <table class="pw-nutri">
+            <tbody>
+              <tr><th>Năng lượng</th><td>{nut.energy}</td></tr>
+              <tr><th>Chất đạm</th><td>{nut.protein}</td></tr>
+              <tr><th>Carbohydrat</th><td>{nut.carb}</td></tr>
+              <tr><th>Chất béo</th><td>{nut.fat}</td></tr>
+              <tr><th>Natri</th><td>{nut.sodium}</td></tr>
+              <tr><th>Đường tổng</th><td>{nut.sugar}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO USE -->
+    <section class="rvhg-section">
+      <div class="rvhg-container">
+        <header class="pw-head" data-reveal>
+          <p class="rvhg-eyebrow pw-eyebrow">Cách pha</p>
+          <h2>Thưởng thức trong ba bước.</h2>
+          <div class="gold-rule gold-rule--draw"></div>
+        </header>
+        <ol class="pw-steps">
+          {p.usage.map((s, i) => (
+            <li data-reveal style={`--reveal-delay:${i * 90}ms`}>
+              <span class="pw-steps__no" aria-hidden="true">{i + 1}</span>
+              <p>{s}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- OTHER FLAVOURS -->
+    <section class="rvhg-section rvhg-band-soft">
+      <div class="rvhg-container">
+        <header class="pw-head" data-reveal>
+          <p class="rvhg-eyebrow pw-eyebrow">Trọn dòng bột đậu xanh</p>
+          <h2>Khám phá các vị khác.</h2>
+          <div class="gold-rule gold-rule--draw"></div>
+        </header>
+        <div class="pw-others">
+          {others.map((o, i) => (
+            <a class="pw-other rvhg-tilt" href={`/${o.slug}/`} data-tilt data-reveal style={`--reveal-delay:${i * 70}ms;--pa:${o.accent};--pa-ink:${o.accentInk};--pa-soft:${o.accentSoft}`}>
+              <span class="pw-other__media">
+                <LegacyImg src={assetUrl(o.image)} alt={o.name} width={600} height={600} loading="lazy" />
+              </span>
+              <span class="pw-other__name">{o.name}</span>
+              <span class="pw-other__go" aria-hidden="true">Xem chi tiết  ›</span>
+            </a>
+          ))}
+          <a class="pw-other pw-other--nosugar rvhg-tilt" href="/bdx-rauma-khongduong/" data-tilt data-reveal style={`--reveal-delay:${others.length * 70}ms`}>
+            <span class="pw-other__media pw-other__media--plant">
+              <span class="pw-other__badge">Không thêm đường</span>
+            </span>
+            <span class="pw-other__name">Dòng không thêm đường — Plant based</span>
+            <span class="pw-other__go" aria-hidden="true">Xem chi tiết  ›</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="rvhg-section rvhg-band-night rvhg-section--tight">
+      <div class="rvhg-container pw-cta" data-reveal>
+        <h2>Đặt mua {p.name}.</h2>
+        <p>Phân phối tại BigC, WinMart, AEON, Lotte, Co.opmart, MM Mega Market, Lan Chi — hoặc trên Shopee và TikTok Shop.</p>
+        <div class="pw-cta__buttons">
+          <a class="rvhg-btn" href="https://shopee.vn/" target="_blank" rel="noopener noreferrer">Mua trên Shopee</a>
+          <a class="rvhg-btn rvhg-btn--ghost" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok Shop</a>
+          <a class="rvhg-btn--link" href="/diem-ban-rong-vang-hoang-gia/">Tìm điểm bán  ›</a>
+        </div>
+        <p class="pw-cta__meta">{p.weight} · Mã vạch {p.sku} · {COMPANY.legalName}</p>
+      </div>
+    </section>
+  </div>
+
+  <Motion />
+</BaseLayout>
+
+<style>
+  .pw { --pa: var(--brass); --pa-ink: var(--color-brass-700); --pa-soft: var(--color-paper-tint); }
+
+  /* ---------- HERO ---------- */
+  .pw-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: 1.5rem clamp(2.5rem, 6vw, 5rem);
+    background: linear-gradient(180deg, var(--pa-soft) 0%, var(--color-paper) 92%);
+  }
+  .pw-hero__glow {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(46% 55% at 82% 8%, color-mix(in srgb, var(--pa) 26%, transparent), transparent 70%);
+  }
+  .pw-hero__grid {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+  }
+  .pw-eyebrow { color: var(--pa-ink); }
+  .pw-hero__title {
+    margin-top: 0.7rem;
+    font-size: var(--text-headline);
+    line-height: 1.05;
+  }
+  .pw-accent { color: var(--pa-ink); }
+  .pw-hero__tagline {
+    margin-top: 1rem;
+    font-size: clamp(1.1rem, 1vw + 0.9rem, 1.4rem);
+    line-height: 1.5;
+    color: var(--color-mute);
+    max-width: 40ch;
+  }
+  .pw-hero .gold-rule { --gold-line: var(--pa); opacity: 0.8; }
+  .pw-chips {
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .pw-chips li {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--color-ink-soft);
+    background: color-mix(in srgb, var(--pa) 12%, var(--color-paper));
+    border: 1px solid color-mix(in srgb, var(--pa) 30%, transparent);
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--radius-sm, 2px);
+  }
+  .pw-hero__ctas {
+    margin-top: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+  .pw-btn { background: var(--pa-ink); }
+  .pw-btn:hover { background: color-mix(in srgb, var(--pa-ink) 82%, #000); }
+
+  /* white product card so the packshot reads cleanly on the tint */
+  .pw-hero__media {
+    justify-self: center;
+    width: 100%;
+    max-width: 30rem;
+    background: #fff;
+    border-radius: var(--radius-lg, 8px);
+    border: 1px solid color-mix(in srgb, var(--pa) 22%, var(--color-line));
+    box-shadow: 0 30px 70px -34px color-mix(in srgb, var(--pa-ink) 60%, transparent);
+    padding: clamp(1rem, 2vw, 1.75rem);
+  }
+  .pw-hero__media :global(img) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    display: block;
+  }
+  @media (max-width: 860px) {
+    .pw-hero__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .pw-hero__media { max-width: 22rem; order: -1; }
+  }
+
+  /* ---------- section heads ---------- */
+  .pw-head { max-width: 42rem; margin: 0 auto 2.75rem; text-align: center; }
+  .pw-head h2 { font-size: var(--text-display); margin-top: 0.5rem; }
+  .pw-head .gold-rule { --gold-line: var(--pa); margin-inline: auto; }
+  .pw-eyebrow.rvhg-eyebrow { color: var(--pa-ink); }
+
+  /* ---------- STORY ---------- */
+  .pw-story { max-width: 60rem; text-align: center; }
+  .pw-story .rvhg-eyebrow { color: var(--pa-ink); }
+  .pw-story__lead {
+    margin-top: 1.1rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 1.5vw + 1rem, 1.9rem);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    text-wrap: pretty;
+  }
+
+  /* ---------- HIGHLIGHTS ---------- */
+  .pw-highlights {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .pw-card {
+    background: var(--color-card, #fff);
+    border: 1px solid var(--color-line);
+    border-top: 3px solid var(--pa);
+    border-radius: var(--radius-lg, 8px);
+    padding: 1.6rem 1.4rem;
+  }
+  .pw-card__no {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--pa-ink);
+    opacity: 0.85;
+  }
+  .pw-card h3 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .pw-card p { color: var(--color-mute); font-size: 0.925rem; line-height: 1.55; }
+  @media (max-width: 980px) { .pw-highlights { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .pw-highlights { grid-template-columns: 1fr; } }
+
+  /* ---------- FACTS ---------- */
+  .pw-facts {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+  .pw-facts h2 { font-size: var(--text-title); margin-top: 0.4rem; }
+  .pw-facts .gold-rule { --gold-line: var(--pa); }
+  .pw-ingredients {
+    margin-top: 1.4rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-ink-soft);
+  }
+  .pw-decl { margin-top: 1.5rem; }
+  .pw-decl a {
+    color: var(--pa-ink);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: color-mix(in srgb, var(--pa) 50%, transparent);
+  }
+  .pw-nutri {
+    margin-top: 1.4rem;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.975rem;
+  }
+  .pw-nutri th, .pw-nutri td {
+    padding: 0.7rem 0.25rem;
+    border-bottom: 1px solid var(--color-line);
+    text-align: left;
+  }
+  .pw-nutri th { font-weight: 500; color: var(--color-ink-soft); }
+  .pw-nutri td { text-align: right; font-weight: 600; color: var(--pa-ink); font-variant-numeric: tabular-nums; }
+  .pw-nutri tr:first-child th, .pw-nutri tr:first-child td { border-top: 2px solid var(--pa); }
+  @media (max-width: 768px) { .pw-facts { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  /* ---------- STEPS ---------- */
+  .pw-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    counter-reset: step;
+  }
+  .pw-steps li {
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+  .pw-steps__no {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--pa) 14%, var(--color-paper));
+    border: 1px solid color-mix(in srgb, var(--pa) 40%, transparent);
+    color: var(--pa-ink);
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .pw-steps p { color: var(--color-ink-soft); line-height: 1.6; max-width: 26ch; margin-inline: auto; }
+  @media (max-width: 720px) { .pw-steps { grid-template-columns: 1fr; gap: 1.75rem; } }
+
+  /* ---------- OTHER FLAVOURS ---------- */
+  .pw-others {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .pw-other {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .pw-other__media {
+    aspect-ratio: 1 / 1;
+    background: color-mix(in srgb, var(--pa, #ccc) 10%, #fff);
+    border: 1px solid color-mix(in srgb, var(--pa, #ccc) 20%, var(--color-line));
+    border-radius: var(--radius-lg, 8px);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    padding: 0.75rem;
+  }
+  .pw-other__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
+  .pw-other__media--plant {
+    background: radial-gradient(120% 120% at 50% 0%, #2f5a3c, #16341f);
+  }
+  .pw-other__badge {
+    color: #f0e0bf;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .pw-other__name { font-weight: 600; font-size: 1rem; line-height: 1.3; letter-spacing: -0.01em; }
+  .pw-other__go { font-size: 0.85rem; color: var(--pa-ink); }
+  .pw-other--nosugar .pw-other__go { color: var(--color-bean-600, #5f6b3a); }
+  @media (max-width: 980px) { .pw-others { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px) { .pw-others { grid-template-columns: 1fr; } }
+
+  /* ---------- CTA ---------- */
+  .pw-cta { text-align: center; max-width: 46rem; margin-inline: auto; }
+  .pw-cta h2 { font-size: var(--text-display); }
+  .pw-cta > p { margin-top: 1rem; color: var(--color-night-mute); }
+  .pw-cta__buttons {
+    margin-top: 1.75rem;
+    display: flex;
+    gap: 0.75rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .pw-cta__meta { margin-top: 1.75rem; font-size: 0.8rem; color: color-mix(in srgb, var(--color-night-mute) 80%, transparent); }
+</style>

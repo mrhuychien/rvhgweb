@@ -1,0 +1,380 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LegacyImg from '../../components/LegacyImg.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Motion from '../../components/Motion.astro';
+import { COMPANY } from '../../data/site';
+import { productSchema } from '../../data/jsonld';
+import { POWDERS, POWDER_NOSUGAR, POWDER_SINGLES, assetUrl } from '../../data/powders';
+
+const url = '/bdx-rauma-khongduong/';
+const items = POWDER_NOSUGAR.map((s) => POWDERS[s]);
+const singles = POWDER_SINGLES.map((s) => POWDERS[s]);
+
+const title = 'Bột đậu xanh không thêm đường (Rau má & Sữa dừa) — Rồng Vàng Hoàng Gia';
+const description =
+  'Dòng bột đậu xanh không thêm đường Rồng Vàng Hoàng Gia — rau má và sữa dừa, thuần thực vật (plant-based), đạm cao, loại bỏ hoàn toàn đường. Hũ 500 g.';
+
+const jsonLd = items.map((p) => ({
+  ...productSchema({ name: p.name, description: p.tagline, images: [assetUrl(p.image)], category: 'Bột đậu xanh', sku: p.sku, url }),
+  gtin13: p.sku,
+  nutrition: {
+    '@type': 'NutritionInformation',
+    servingSize: '100 g',
+    calories: p.nutrition.energy,
+    proteinContent: p.nutrition.protein,
+    carbohydrateContent: p.nutrition.carb,
+    fatContent: p.nutrition.fat,
+    sodiumContent: p.nutrition.sodium,
+    sugarContent: p.nutrition.sugar,
+  },
+}));
+---
+
+<BaseLayout title={title} description={description} canonical={url} image={items[0].image} jsonLd={jsonLd}>
+  <div class="ns">
+    <!-- HERO -->
+    <section class="ns-hero">
+      <span class="ns-hero__glow" aria-hidden="true"></span>
+      <div class="rvhg-container">
+        <Breadcrumbs items={[{ name: 'Sản phẩm', url: '/san-pham/' }, { name: 'Không thêm đường', url }]} />
+        <div class="ns-hero__inner">
+          <p class="rvhg-eyebrow ns-eyebrow">Không thêm đường · Plant based</p>
+          <h1 class="ns-hero__title">Bột đậu xanh <span class="ns-gold">Không thêm đường</span></h1>
+          <p class="ns-hero__lead">
+            Dòng sản phẩm tiên phong loại bỏ hoàn toàn đường — giữ trọn vị bùi nguyên bản của đậu xanh
+            và nguồn dinh dưỡng thuần khiết cho lối sống xanh và gu thưởng thức nguyên bản.
+          </p>
+          <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
+
+          <div class="ns-hero__jars">
+            {items.map((p) => (
+              <figure class="ns-jar rvhg-tilt" data-tilt>
+                <span class="ns-jar__card">
+                  <LegacyImg src={assetUrl(p.image)} alt={p.name} width={800} height={800} loading="eager" fetchpriority="high" />
+                </span>
+                <figcaption>{p.flavor}<small>Không thêm đường · 500 g</small></figcaption>
+              </figure>
+            ))}
+          </div>
+
+          <ul class="ns-stats">
+            <li><span class="rvhg-countup" data-countup="80">80</span><small>% đậu xanh (rau má)</small></li>
+            <li><span>22 g</span><small>đạm / 100 g</small></li>
+            <li><span>0</span><small>đường thêm vào</small></li>
+            <li><span>500 g</span><small>mỗi hũ</small></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY NO-SUGAR -->
+    <section class="rvhg-section rvhg-band-soft">
+      <div class="rvhg-container">
+        <header class="ns-head" data-reveal>
+          <p class="rvhg-eyebrow ns-eyebrow ns-eyebrow--ink">Vì sao chọn dòng không thêm đường</p>
+          <h2>Thuần khiết, thuần thực vật.</h2>
+          <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
+        </header>
+        <ul class="ns-why">
+          <li class="ns-why__card" data-reveal>
+            <h3>Loại bỏ hoàn toàn đường</h3>
+            <p>Công thức không thêm đường; vị ngọt nhẹ hoàn toàn đến từ nguyên liệu tự nhiên.</p>
+          </li>
+          <li class="ns-why__card" data-reveal style="--reveal-delay:80ms">
+            <h3>Giàu đạm thực vật</h3>
+            <p>Tỷ lệ đậu xanh rất cao (74–80%) cho tới 19,8–22,2 g đạm trên mỗi 100 g.</p>
+          </li>
+          <li class="ns-why__card" data-reveal style="--reveal-delay:160ms">
+            <h3>Plant-based tự nhiên</h3>
+            <p>Rau má, matcha, sữa dừa và nghệ — nguyên liệu thực vật, thanh lành cho lối sống xanh.</p>
+          </li>
+          <li class="ns-why__card" data-reveal style="--reveal-delay:240ms">
+            <h3>Không chất bảo quản</h3>
+            <p>Sản xuất trên dây chuyền đạt chứng nhận ISO 22000:2018 (Quacert).</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PRODUCT BLOCKS -->
+    {items.map((p, idx) => (
+      <section class={`rvhg-section ns-prod ${idx % 2 ? 'ns-prod--alt' : ''}`} style={`--pa:${p.accent};--pa-ink:${p.accentInk};--pa-soft:${p.accentSoft}`}>
+        <div class="rvhg-container ns-prod__grid">
+          <div class="ns-prod__media rvhg-tilt" data-tilt data-reveal={idx % 2 ? 'right' : 'left'}>
+            <LegacyImg src={assetUrl(p.image)} alt={p.name} width={800} height={800} loading="lazy" />
+          </div>
+          <div class="ns-prod__copy" data-reveal={idx % 2 ? 'left' : 'right'}>
+            <p class="rvhg-eyebrow ns-eyebrow--ink">{p.flavor} · Không thêm đường</p>
+            <h2>{p.name.replace(' — Không thêm đường', '')}</h2>
+            <div class="gold-rule gold-rule--draw"></div>
+            <p class="ns-prod__story">{p.story}</p>
+            <p class="ns-prod__ingredients"><strong>Thành phần:</strong> {p.ingredients}</p>
+            <table class="ns-nutri">
+              <tbody>
+                <tr><th>Năng lượng</th><td>{p.nutrition.energy}</td><th>Chất đạm</th><td>{p.nutrition.protein}</td></tr>
+                <tr><th>Carbohydrat</th><td>{p.nutrition.carb}</td><th>Chất béo</th><td>{p.nutrition.fat}</td></tr>
+                <tr><th>Natri</th><td>{p.nutrition.sodium}</td><th>Đường tổng</th><td>{p.nutrition.sugar}</td></tr>
+              </tbody>
+            </table>
+            <p class="ns-prod__foot">
+              <a class="ns-decl" href={assetUrl(p.declHref)} target="_blank" rel="noopener noreferrer">Bản tự công bố (PDF)  ›</a>
+              <span class="ns-prod__meta">{p.weight} · Mã vạch {p.sku}</span>
+            </p>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- HOW TO USE -->
+    <section class="rvhg-section rvhg-band-tint">
+      <div class="rvhg-container">
+        <header class="ns-head" data-reveal>
+          <p class="rvhg-eyebrow ns-eyebrow--ink">Cách pha</p>
+          <h2>Đơn giản trong ba bước.</h2>
+          <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
+        </header>
+        <ol class="ns-steps">
+          {items[0].usage.map((s, i) => (
+            <li data-reveal style={`--reveal-delay:${i * 90}ms`}>
+              <span class="ns-steps__no" aria-hidden="true">{i + 1}</span>
+              <p>{s}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- SWEETENED FLAVOURS -->
+    <section class="rvhg-section">
+      <div class="rvhg-container">
+        <header class="ns-head" data-reveal>
+          <p class="rvhg-eyebrow ns-eyebrow--ink">Trọn dòng bột đậu xanh</p>
+          <h2>Bạn cũng có thể thích.</h2>
+          <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
+        </header>
+        <div class="ns-others">
+          {singles.map((o, i) => (
+            <a class="ns-other rvhg-tilt" href={`/${o.slug}/`} data-tilt data-reveal style={`--reveal-delay:${i * 70}ms;--pa:${o.accent}`}>
+              <span class="ns-other__media">
+                <LegacyImg src={assetUrl(o.image)} alt={o.name} width={600} height={600} loading="lazy" />
+              </span>
+              <span class="ns-other__name">{o.name}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="rvhg-section rvhg-band-night rvhg-section--tight">
+      <div class="rvhg-container ns-cta" data-reveal>
+        <h2>Đặt mua dòng không thêm đường.</h2>
+        <p>Có mặt tại BigC, WinMart, AEON, Lotte, Co.opmart, MM Mega Market, Lan Chi — hoặc trên Shopee và TikTok Shop.</p>
+        <div class="ns-cta__buttons">
+          <a class="rvhg-btn" href="https://shopee.vn/" target="_blank" rel="noopener noreferrer">Mua trên Shopee</a>
+          <a class="rvhg-btn rvhg-btn--ghost" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok Shop</a>
+          <a class="rvhg-btn--link" href="/diem-ban-rong-vang-hoang-gia/">Tìm điểm bán  ›</a>
+        </div>
+        <p class="ns-cta__meta">{COMPANY.legalName}</p>
+      </div>
+    </section>
+  </div>
+
+  <Motion />
+</BaseLayout>
+
+<style>
+  /* ---------- HERO — deep-lacquer green + gold, echoing the premium jar ---------- */
+  .ns-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    text-align: center;
+    color: #eef3ea;
+    background: radial-gradient(130% 120% at 50% -20%, #2f5a3c 0%, #16341f 48%, #0f2417 100%);
+    padding-block: 1.5rem clamp(3rem, 6vw, 5.5rem);
+  }
+  .ns-hero__glow {
+    position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(50% 45% at 50% 12%, rgba(176, 141, 87, 0.3), transparent 70%);
+  }
+  .ns-hero :global(.rvhg-breadcrumbs a),
+  .ns-hero :global(.rvhg-breadcrumbs [aria-current='page']),
+  .ns-hero :global(.rvhg-breadcrumbs ol) { color: #b9c7b3; }
+  .ns-hero :global(.rvhg-breadcrumbs a:hover) { color: #fff; }
+  .ns-eyebrow { color: var(--color-brass-300, #d8c29a); }
+  .ns-hero__title {
+    margin: 0.8rem auto 0;
+    max-width: 20ch;
+    font-size: var(--text-headline);
+    color: #f4f7f1;
+  }
+  .ns-gold { color: var(--color-brass-300, #d8c29a); font-style: italic; }
+  .ns-hero__lead {
+    margin: 1rem auto 0;
+    max-width: 52ch;
+    font-size: clamp(1.05rem, 0.8vw + 0.9rem, 1.3rem);
+    line-height: 1.6;
+    color: #cdd8c6;
+  }
+  .ns-hero .gold-rule { --gold-line: #d8c29a; }
+  .ns-hero__jars {
+    margin: clamp(2.25rem, 5vw, 3.25rem) auto 0;
+    display: flex;
+    justify-content: center;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    flex-wrap: wrap;
+  }
+  .ns-jar { margin: 0; width: min(17rem, 40vw); }
+  .ns-jar__card {
+    display: block;
+    background: #fbf8f1;
+    border-radius: var(--radius-lg, 8px);
+    border: 1px solid color-mix(in srgb, var(--brass) 45%, transparent);
+    box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.7);
+    padding: 1.25rem;
+  }
+  .ns-jar__card :global(img) { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; display: block; }
+  .ns-jar figcaption {
+    margin-top: 0.9rem;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: #f4f7f1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .ns-jar figcaption small {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-brass-300, #d8c29a);
+  }
+  .ns-stats {
+    list-style: none;
+    max-width: 44rem;
+    margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
+    padding: 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    border-top: 1px solid color-mix(in srgb, var(--brass) 30%, transparent);
+  }
+  .ns-stats li { display: flex; flex-direction: column; gap: 0.25rem; }
+  .ns-stats span { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.3rem); font-weight: 600; color: var(--color-brass-300, #d8c29a); line-height: 1; }
+  .ns-stats small { font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; color: #b9c7b3; }
+  @media (max-width: 620px) { .ns-stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; } }
+
+  /* ---------- section heads ---------- */
+  .ns-head { max-width: 42rem; margin: 0 auto 2.75rem; text-align: center; }
+  .ns-head h2 { font-size: var(--text-display); margin-top: 0.5rem; }
+  .ns-eyebrow--ink { color: var(--color-bean-700, #4c572f); }
+
+  /* ---------- WHY ---------- */
+  .ns-why {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
+  }
+  .ns-why__card {
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-top: 3px solid var(--color-bean-500, #7c8a4e);
+    border-radius: var(--radius-lg, 8px);
+    padding: 1.6rem 1.4rem;
+  }
+  .ns-why__card h3 { font-size: 1.1rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+  .ns-why__card p { color: var(--color-mute); font-size: 0.925rem; line-height: 1.55; }
+  @media (max-width: 980px) { .ns-why { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .ns-why { grid-template-columns: 1fr; } }
+
+  /* ---------- PRODUCT BLOCKS ---------- */
+  .ns-prod__grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+  .ns-prod--alt .ns-prod__media { order: 2; }
+  .ns-prod__media {
+    background: color-mix(in srgb, var(--pa) 9%, #fff);
+    border: 1px solid color-mix(in srgb, var(--pa) 22%, var(--color-line));
+    border-radius: var(--radius-lg, 8px);
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    box-shadow: 0 24px 60px -34px color-mix(in srgb, var(--pa-ink) 55%, transparent);
+  }
+  .ns-prod__media :global(img) { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; display: block; }
+  .ns-prod__copy .rvhg-eyebrow { color: var(--pa-ink); }
+  .ns-prod__copy h2 { font-size: var(--text-title); margin-top: 0.4rem; }
+  .ns-prod__copy .gold-rule { --gold-line: var(--pa); }
+  .ns-prod__story { margin-top: 1.3rem; line-height: 1.7; color: var(--color-ink-soft); }
+  .ns-prod__ingredients { margin-top: 1.1rem; font-size: 0.95rem; line-height: 1.6; color: var(--color-mute); }
+  .ns-prod__ingredients strong { color: var(--color-ink); }
+  .ns-nutri {
+    margin-top: 1.4rem;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.925rem;
+  }
+  .ns-nutri th, .ns-nutri td { padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--color-line); text-align: left; }
+  .ns-nutri th { font-weight: 500; color: var(--color-mute); }
+  .ns-nutri td { font-weight: 600; color: var(--pa-ink); text-align: right; font-variant-numeric: tabular-nums; }
+  .ns-prod__foot {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .ns-decl {
+    color: var(--pa-ink); font-weight: 500; text-decoration: underline;
+    text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, var(--pa) 50%, transparent);
+  }
+  .ns-prod__meta { font-size: 0.8rem; color: var(--color-mute); }
+  @media (max-width: 820px) {
+    .ns-prod__grid { grid-template-columns: 1fr; gap: 2rem; }
+    .ns-prod--alt .ns-prod__media { order: -1; }
+    .ns-prod__media { max-width: 24rem; margin-inline: auto; }
+  }
+
+  /* ---------- STEPS ---------- */
+  .ns-steps {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .ns-steps li { text-align: center; padding: 0 0.5rem; }
+  .ns-steps__no {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 3rem; height: 3rem; border-radius: 9999px;
+    background: color-mix(in srgb, var(--color-bean-500, #7c8a4e) 16%, #fff);
+    border: 1px solid color-mix(in srgb, var(--color-bean-500, #7c8a4e) 45%, transparent);
+    color: var(--color-bean-700, #4c572f);
+    font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; margin-bottom: 1rem;
+  }
+  .ns-steps p { color: var(--color-ink-soft); line-height: 1.6; max-width: 26ch; margin-inline: auto; }
+  @media (max-width: 720px) { .ns-steps { grid-template-columns: 1fr; gap: 1.75rem; } }
+
+  /* ---------- OTHER FLAVOURS ---------- */
+  .ns-others { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .ns-other { display: flex; flex-direction: column; gap: 0.75rem; text-decoration: none; color: var(--color-ink); }
+  .ns-other__media {
+    aspect-ratio: 1 / 1;
+    background: color-mix(in srgb, var(--pa, #ccc) 10%, #fff);
+    border: 1px solid color-mix(in srgb, var(--pa, #ccc) 20%, var(--color-line));
+    border-radius: var(--radius-lg, 8px);
+    overflow: hidden; display: grid; place-items: center; padding: 0.75rem;
+  }
+  .ns-other__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
+  .ns-other__name { font-weight: 600; font-size: 0.95rem; line-height: 1.3; letter-spacing: -0.01em; }
+  @media (max-width: 980px) { .ns-others { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px) { .ns-others { grid-template-columns: 1fr; } }
+
+  /* ---------- CTA ---------- */
+  .ns-cta { text-align: center; max-width: 46rem; margin-inline: auto; }
+  .ns-cta h2 { font-size: var(--text-display); }
+  .ns-cta > p { margin-top: 1rem; color: var(--color-night-mute); }
+  .ns-cta__buttons { margin-top: 1.75rem; display: flex; gap: 0.75rem 1.25rem; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .ns-cta__meta { margin-top: 1.75rem; font-size: 0.8rem; color: color-mix(in srgb, var(--color-night-mute) 80%, transparent); }
+</style>
