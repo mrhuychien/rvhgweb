@@ -9,7 +9,7 @@ oldUrl: 'https://www.rongvanghoanggia.com/ban-tu-cong-bo-rong-vang-hoang-gia/'
 
 Theo quy định tại **Nghị định 15/2018/NĐ-CP** về an toàn thực phẩm, Công ty Cổ phần Hoàng Giang thực hiện **tự công bố** đối với các sản phẩm bánh đậu xanh, bột đậu xanh và chè đậu đen mang thương hiệu Rồng Vàng Hoàng Gia.
 
-**Cập nhật ngày 01/07/2023.**
+**Cập nhật:** hồ sơ gốc ngày 01/07/2023; bổ sung tự công bố dòng **bột đậu các loại** năm 2026 (xem mục bên dưới).
 
 ## Bản tự công bố các sản phẩm đang lưu hành
 
@@ -25,11 +25,25 @@ Theo quy định tại **Nghị định 15/2018/NĐ-CP** về an toàn thực ph
 - [Bản tự công bố 10 — Chè đậu đen cốt dừa (PDF)](/cong-bo/10-che-dau-den-cot-dua.pdf) · 2021
 - [Bản tự công bố — Bột đậu xanh nguyên chất (PDF)](/cong-bo/11-bot-dau-xanh-nguyen-chat.pdf) · 2019
 
+### Bột đậu các loại — cập nhật 2026
+
+Dòng bột đậu xanh pha sẵn (cà rốt, rau má, sữa dừa, matcha) và dòng không thêm đường (plant-based) đã hoàn tất tự công bố năm 2026:
+
+- [Bản tự công bố — Bột đậu xanh Cà Rốt (PDF)](/cong-bo/TCB2026/01.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20c%C3%A0%20r%E1%BB%91t%20RVHG.pdf) · 2026
+- [Bản tự công bố — Bột đậu xanh Sữa Dừa (PDF)](/cong-bo/TCB2026/02.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20s%E1%BB%AFa%20d%E1%BB%ABa%20RVHG.pdf) · 2026
+- [Bản tự công bố — Bột đậu xanh Rau Má (PDF)](/cong-bo/TCB2026/03.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20rau%20m%C3%A1%20RVHG.pdf) · 2026
+- [Bản tự công bố — Bột đậu xanh Matcha (PDF)](/cong-bo/TCB2026/04.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20matcha%20RVHG.pdf) · 2026
+- [Bản tự công bố — Bột đậu xanh Sữa Dừa, không thêm đường (PDF)](/cong-bo/TCB2026/05.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20s%E1%BB%AFa%20d%E1%BB%ABa%20kh%C3%B4ng%20th%C3%AAm%20%C4%91%C6%B0%E1%BB%9Dng%20RVHG.pdf) · 2026
+- [Bản tự công bố — Bột đậu xanh Rau Má, không thêm đường (PDF)](/cong-bo/TCB2026/06.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20rau%20m%C3%A1%20kh%C3%B4ng%20th%C3%AAm%20%C4%91%C6%B0%E1%BB%9Dng%20RVHG.pdf) · 2026
+
+Kèm theo tiêu chuẩn cơ sở áp dụng cho dòng bột đậu: [TCCS 01:2026 (PDF)](/cong-bo/TCB2026/TCCS%2001%202026.pdf) · [TCCS 02:2026 (PDF)](/cong-bo/TCB2026/TCCS%2002%202026.pdf).
+
 Các bản tự công bố sản phẩm đầy đủ (bao gồm phiếu kết quả kiểm nghiệm trong thời hạn quy định) được lưu tại doanh nghiệp và đã nộp tại **Chi cục An toàn vệ sinh thực phẩm Hải Dương**.
 
 ## Văn bản gửi cơ quan quản lý
 
 - [Công văn đính chính hồ sơ tự công bố — gửi Chi cục Vệ sinh an toàn thực phẩm Hải Dương (PDF)](/cong-bo/cong-van-dinh-chinh-thanh-phan-nguyen-lieu.pdf) · 10/2024 — về việc đính chính thành phần nguyên liệu.
+- [Công văn tự công bố dòng bột đậu các loại (PDF)](/cong-bo/TCB2026/CV%20nhan%20tu%20cong%20bo.pdf) · 2026
 
 ## Thông tin tổ chức
 
