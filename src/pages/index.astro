@@ -604,13 +604,13 @@ const powderSlides = [
     display: grid;
     align-items: center;
     justify-items: center;
-    gap: 2rem 1.5rem;
+    gap: 3rem 2rem;
   }
   .rvhg-logos--dist { grid-template-columns: repeat(4, 1fr); }
   .rvhg-logos--media { grid-template-columns: repeat(5, 1fr); }
   .rvhg-logos img {
     max-width: 100%;
-    max-height: 64px;
+    max-height: 128px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -620,11 +620,11 @@ const powderSlides = [
   }
   .rvhg-logos li:hover img,
   .rvhg-logos a:hover img { filter: grayscale(0); opacity: 1; }
-  .rvhg-logos--media img { max-height: 56px; border-radius: 4px; }
+  .rvhg-logos--media img { max-height: 112px; border-radius: 4px; }
   @media (max-width: 768px) {
     .rvhg-logos--dist { grid-template-columns: repeat(3, 1fr); }
     .rvhg-logos--media { grid-template-columns: repeat(4, 1fr); }
-    .rvhg-logos img { max-height: 52px; }
+    .rvhg-logos img { max-height: 104px; }
   }
   @media (max-width: 460px) {
     .rvhg-logos--dist { grid-template-columns: repeat(2, 1fr); }
