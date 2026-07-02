@@ -74,27 +74,10 @@ export const ASSETS = {
   favicon: '/favicon.ico',
 } as const;
 
-export interface NavItem {
-  label: string;
-  href: string;
-  children?: { label: string; href: string }[];
-}
-
-export const NAV: NavItem[] = [
+export const NAV: { label: string; href: string }[] = [
   { label: 'Trang chủ', href: '/' },
   { label: 'Giới thiệu', href: '/gioi-thieu/' },
-  {
-    label: 'Sản phẩm',
-    href: '/san-pham/',
-    children: [
-      { label: 'Tất cả sản phẩm', href: '/san-pham/' },
-      { label: 'Bột đậu xanh Cà Rốt', href: '/botdx-carot/' },
-      { label: 'Bột đậu xanh Rau Má', href: '/botdx-rauma/' },
-      { label: 'Bột đậu xanh Sữa Dừa', href: '/botdx-suadua/' },
-      { label: 'Bột đậu xanh Matcha', href: '/botdx-matcha/' },
-      { label: 'Bột đậu xanh Không thêm đường', href: '/bdx-rauma-khongduong/' },
-    ],
-  },
+  { label: 'Sản phẩm', href: '/san-pham/' },
   { label: 'Điểm bán', href: '/diem-ban-rong-vang-hoang-gia/' },
   { label: 'Tin tức', href: '/tin-tuc/' },
   { label: 'Công bố', href: '/cong-bo/' },

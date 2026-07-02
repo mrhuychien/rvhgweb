@@ -4,9 +4,6 @@ import { NAV } from '../data/site';
 const path = Astro.url.pathname;
 const isActive = (href: string) =>
   href === '/' ? path === '/' : path === href || path.startsWith(href);
-// A parent item is "current" when the active page is one of its children.
-const itemActive = (item: (typeof NAV)[number]) =>
-  isActive(item.href) || (item.children?.some((c) => isActive(c.href)) ?? false);
 
 // Split the nav into two groups that flank the central emblem (old-site layout).
 const mid = Math.ceil(NAV.length / 2);
@@ -29,22 +26,8 @@ const LANGS = [
     <nav class="rvhg-header__side rvhg-header__side--left" aria-label="Điều hướng (trái)">
       <ul>
         {navLeft.map((item) => (
-          <li class={item.children ? 'rvhg-nav-item rvhg-nav-item--has-sub' : 'rvhg-nav-item'}>
-            <a href={item.href} aria-current={itemActive(item) ? 'page' : undefined} aria-haspopup={item.children ? 'true' : undefined}>
-              {item.label}
-              {item.children && (
-                <svg class="rvhg-nav-caret" viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-                  <path d="M2.5 4.5 6 8l3.5-3.5" />
-                </svg>
-              )}
-            </a>
-            {item.children && (
-              <ul class="rvhg-subnav">
-                {item.children.map((c) => (
-                  <li><a href={c.href} aria-current={isActive(c.href) ? 'page' : undefined}>{c.label}</a></li>
-                ))}
-              </ul>
-            )}
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
           </li>
         ))}
       </ul>
@@ -62,22 +45,8 @@ const LANGS = [
     <nav class="rvhg-header__side rvhg-header__side--right" aria-label="Điều hướng (phải)">
       <ul>
         {navRight.map((item) => (
-          <li class={item.children ? 'rvhg-nav-item rvhg-nav-item--has-sub' : 'rvhg-nav-item'}>
-            <a href={item.href} aria-current={itemActive(item) ? 'page' : undefined} aria-haspopup={item.children ? 'true' : undefined}>
-              {item.label}
-              {item.children && (
-                <svg class="rvhg-nav-caret" viewBox="0 0 12 12" width="9" height="9" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-                  <path d="M2.5 4.5 6 8l3.5-3.5" />
-                </svg>
-              )}
-            </a>
-            {item.children && (
-              <ul class="rvhg-subnav">
-                {item.children.map((c) => (
-                  <li><a href={c.href} aria-current={isActive(c.href) ? 'page' : undefined}>{c.label}</a></li>
-                ))}
-              </ul>
-            )}
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
           </li>
         ))}
         <li class="rvhg-header__lang">
@@ -111,14 +80,7 @@ const LANGS = [
     <ul>
       {NAV.map((item) => (
         <li>
-          <a href={item.href} aria-current={itemActive(item) ? 'page' : undefined}>{item.label}</a>
-          {item.children && (
-            <ul class="rvhg-mobile-subnav">
-              {item.children.filter((c) => c.href !== item.href).map((c) => (
-                <li><a href={c.href} aria-current={isActive(c.href) ? 'page' : undefined}>{c.label}</a></li>
-              ))}
-            </ul>
-          )}
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
         </li>
       ))}
       <li class="rvhg-mobile-nav__lang">
@@ -217,64 +179,6 @@ const LANGS = [
     color: var(--color-brass-300, #d8c29a);
   }
 
-  /* dropdown (zero-JS: revealed on hover / keyboard focus-within) */
-  .rvhg-nav-item { position: relative; }
-  .rvhg-nav-caret {
-    margin-left: 0.28rem;
-    opacity: 0.7;
-    transition: transform 0.2s var(--ease-refined, ease);
-  }
-  .rvhg-nav-item--has-sub:hover .rvhg-nav-caret,
-  .rvhg-nav-item--has-sub:focus-within .rvhg-nav-caret { transform: rotate(180deg); }
-  .rvhg-header__side .rvhg-subnav {
-    display: block;                   /* beats `.rvhg-header__side ul { display: flex }` (0,2,0 > 0,1,1) */
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-top: 1.55rem;              /* clears the tall header bar */
-    transform: translateX(-50%) translateY(6px);
-    min-width: 15.5rem;
-    list-style: none;
-    padding: 0.4rem;
-    background: radial-gradient(120% 150% at 50% -20%, #4a1215 0%, #2a0c0e 72%);
-    border: 1px solid color-mix(in srgb, var(--brass) 38%, transparent);
-    border-radius: var(--radius-md, 4px);
-    box-shadow: 0 22px 46px -20px rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.18s var(--ease-refined, ease), transform 0.18s var(--ease-refined, ease);
-    z-index: 60;
-  }
-  .rvhg-subnav::before {              /* transparent bridge so the cursor can cross the gap */
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -1.75rem;
-    height: 1.75rem;
-  }
-  .rvhg-nav-item--has-sub:hover .rvhg-subnav,
-  .rvhg-nav-item--has-sub:focus-within .rvhg-subnav {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
-  }
-  .rvhg-subnav a {
-    display: block;
-    padding: 0.62rem 0.85rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.015em;
-    text-transform: none;
-    white-space: nowrap;
-    color: var(--color-paper-50, #fbf8f1);
-    border-radius: var(--radius-sm, 2px);
-  }
-  .rvhg-subnav a:hover { background: color-mix(in srgb, var(--brass) 18%, transparent); color: var(--color-brass-300, #d8c29a); }
-  .rvhg-subnav a[aria-current='page'] { color: var(--color-brass-300, #d8c29a); }
-
   /* language switcher */
   .rvhg-header__lang {
     display: inline-flex;
@@ -337,21 +241,6 @@ const LANGS = [
     border-bottom: 1px solid color-mix(in srgb, var(--brass) 18%, transparent);
   }
   .rvhg-mobile-nav a[aria-current='page'] { color: var(--color-brass-300, #d8c29a); }
-  .rvhg-mobile-subnav {
-    list-style: none;
-    margin: 0.15rem 0 0.6rem;
-    padding: 0 0 0 0.9rem;
-    border-left: 1px solid color-mix(in srgb, var(--brass) 24%, transparent);
-  }
-  .rvhg-mobile-subnav a {
-    padding: 0.55rem 0.25rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.02em;
-    text-transform: none;
-    border-bottom: 0;
-    color: var(--color-night-mute, #cbbba0);
-  }
-  .rvhg-mobile-subnav a[aria-current='page'] { color: var(--color-brass-300, #d8c29a); }
   .rvhg-mobile-nav__lang {
     display: flex;
     align-items: center;
