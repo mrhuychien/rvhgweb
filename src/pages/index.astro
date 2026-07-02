@@ -4,8 +4,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
 import Motion from '../components/Motion.astro';
 import { SITE, REASONS, FEATURED, DISTRIBUTION_LOGOS, MEDIA_LOGOS } from '../data/site';
+import { POWDERS, POWDER_SINGLES, assetUrl } from '../data/powders';
 
 const lines = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
+
+// New "bột đậu xanh" drinks for the home-page slider (4 flavours + the no-sugar pair).
+const powderSlides = [
+  ...POWDER_SINGLES.map((s) => ({
+    href: `/${s}/`,
+    image: POWDERS[s].image,
+    name: POWDERS[s].name,
+    tag: POWDERS[s].flavor,
+    desc: POWDERS[s].tagline,
+    accent: POWDERS[s].accent,
+    accentInk: POWDERS[s].accentInk,
+  })),
+  {
+    href: '/bdx-rauma-khongduong/',
+    image: POWDERS['botdx-rauma-khongduong'].image,
+    name: 'Không thêm đường',
+    tag: 'Plant based',
+    desc: 'Rau má & sữa dừa — thuần thực vật, đạm cao, loại bỏ hoàn toàn đường.',
+    accent: '#3f7d4e',
+    accentInk: '#2c5c39',
+  },
+];
 ---
 
 <BaseLayout title={SITE.name} description={SITE.shortDescription}>
@@ -86,6 +109,41 @@ const lines = (await getCollection('productCategories')).sort((a, b) => a.data.o
             <span class="rvhg-feat__name">{p.name}</span>
           </a>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.5 · BỘT ĐẬU XANH PHA SẴN — slider -->
+  <section class="rvhg-section rvhg-band-soft">
+    <div class="rvhg-container">
+      <header class="rvhg-home-slider__head" data-reveal>
+        <p class="rvhg-eyebrow">Mới ra mắt</p>
+        <h2>Bột đậu xanh — thức uống pha sẵn.</h2>
+        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
+        <p>Đậu xanh lòng vàng Hải Dương phối cùng cà rốt, rau má, sữa dừa, matcha — và dòng không thêm đường thuần thực vật.</p>
+      </header>
+
+      <div class="rvhg-slider" data-slider data-reveal>
+        <button class="rvhg-slider__arrow rvhg-slider__arrow--prev" type="button" aria-label="Xem trước" data-slider-prev>‹</button>
+        <ul class="rvhg-slider__track" data-slider-track>
+          {powderSlides.map((s) => (
+            <li class="rvhg-slide" style={`--pa:${s.accent};--pa-ink:${s.accentInk}`}>
+              <a href={s.href}>
+                <span class="rvhg-slide__media">
+                  <LegacyImg src={assetUrl(s.image)} alt={s.name} width={640} height={640} loading="lazy" />
+                </span>
+                <span class="rvhg-slide__body">
+                  <span class="rvhg-slide__tag">{s.tag}</span>
+                  <span class="rvhg-slide__name">{s.name}</span>
+                  <span class="rvhg-slide__desc">{s.desc}</span>
+                  <span class="rvhg-slide__go" aria-hidden="true">Xem chi tiết  ›</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <button class="rvhg-slider__arrow rvhg-slider__arrow--next" type="button" aria-label="Xem tiếp" data-slider-next>›</button>
+        <div class="rvhg-slider__dots" data-slider-dots aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -433,6 +491,109 @@ const lines = (await getCollection('productCategories')).sort((a, b) => a.data.o
   @media (max-width: 460px) {
     .rvhg-cats { grid-template-columns: 1fr; }
     .rvhg-cat, .rvhg-cat--lg, .rvhg-cat--lg:first-child { grid-column: span 1; aspect-ratio: 3 / 2; }
+  }
+
+  /* ---------- 3.5 · Powder slider ---------- */
+  .rvhg-home-slider__head {
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto 3rem;
+  }
+  .rvhg-home-slider__head h2 { font-size: var(--text-display); margin-top: 0.6rem; }
+  .rvhg-home-slider__head > p { margin-top: 1rem; color: var(--color-mute); }
+
+  .rvhg-slider { position: relative; }
+  .rvhg-slider__track {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .rvhg-slider__track::-webkit-scrollbar { display: none; }
+  .rvhg-slide {
+    flex: 0 0 calc((100% - 3rem) / 3);
+    scroll-snap-align: start;
+    --pa: var(--brass);
+    --pa-ink: var(--color-brass-700, #7a6234);
+  }
+  .rvhg-slide > a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-ink);
+    background: var(--color-card, #fff);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg, 8px);
+    overflow: hidden;
+    transition: box-shadow 0.3s var(--ease-refined, ease), transform 0.3s var(--ease-refined, ease);
+  }
+  .rvhg-slide > a:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
+  .rvhg-slide__media {
+    aspect-ratio: 4 / 3;
+    background: color-mix(in srgb, var(--pa) 10%, #fff);
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    border-bottom: 3px solid var(--pa);
+  }
+  .rvhg-slide__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
+  .rvhg-slide__body { padding: 1.25rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
+  .rvhg-slide__tag { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pa-ink); font-weight: 600; }
+  .rvhg-slide__name { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: -0.01em; line-height: 1.15; }
+  .rvhg-slide__desc { color: var(--color-mute); font-size: 0.9rem; line-height: 1.5; flex: 1; }
+  .rvhg-slide__go { margin-top: 0.5rem; color: var(--pa-ink); font-weight: 500; font-size: 0.9rem; }
+
+  .rvhg-slider__arrow {
+    display: none;
+    position: absolute;
+    top: 33%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-line);
+    background: var(--color-paper, #fbf8f1);
+    color: var(--color-ink);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    place-items: center;
+    box-shadow: var(--shadow-soft);
+    transition: background 0.2s var(--ease-refined, ease), color 0.2s var(--ease-refined, ease);
+  }
+  .rvhg-slider__arrow:hover { background: var(--color-ink); color: #fff; }
+  .rvhg-slider__arrow--prev { left: -1.1rem; }
+  .rvhg-slider__arrow--next { right: -1.1rem; }
+  [data-slider-ready] .rvhg-slider__arrow { display: grid; }
+
+  .rvhg-slider__dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.75rem; }
+  .rvhg-slider__dots button {
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    border: 0;
+    border-radius: 9999px;
+    background: var(--color-line);
+    cursor: pointer;
+    transition: background 0.2s var(--ease-refined, ease), width 0.2s var(--ease-refined, ease);
+  }
+  .rvhg-slider__dots button[aria-current='true'] { background: var(--color-primary); width: 1.5rem; }
+
+  @media (max-width: 900px) {
+    .rvhg-slide { flex-basis: calc((100% - 1.5rem) / 2); }
+    [data-slider-ready] .rvhg-slider__arrow { display: none; }
+  }
+  @media (max-width: 600px) {
+    .rvhg-slider__track { gap: 1rem; }
+    .rvhg-slide { flex-basis: 82%; }
   }
 
   /* ---------- 5 & 6 · Logo walls ---------- */
