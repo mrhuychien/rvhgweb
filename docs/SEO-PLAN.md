@@ -210,15 +210,16 @@ Mỗi bài: 1 câu định-nghĩa-trước + heading câu hỏi + FAQ (kèm sche
 - [x] FAQ schema (bài bột mới + **5 trang danh mục trụ**) + cơ chế tái sử dụng
 - [x] `robots.txt`: khai báo cho phép bot AI (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot…)
 - [x] BreadcrumbList + khối "định-nghĩa-trước" (quick answer) cho 5 trang danh mục
+- [x] Rà soát & tối ưu title/description trang chính theo công thức §3 (+ sửa lỗi lặp tên thương hiệu trong `<title>` toàn site)
 - [ ] Cài GA4 + Search Console + Bing, submit sitemap *(cần ID từ chủ website)*
-- [ ] Rà soát title/description trang chính theo công thức §3
 - [ ] Tạo Google Business Profile 2 showroom *(cần tài khoản Google của chủ website)*
 
 **30 ngày**
-- [ ] HowTo schema "cách pha"; Product `offers`; ImageObject
-- [ ] Chuyển ảnh mới sang `<Image>` AVIF/WebP + đổi tên ASCII
-- [ ] Bài trụ "Bánh đậu xanh là gì" + "Bột đậu xanh có tác dụng gì" + quick-answer/FAQ
-- [ ] Khối "quotable facts" trên trang chủ & giới thiệu
+- [x] HowTo schema "cách pha" (bài bột) + bài trụ "Bánh đậu xanh là gì" + "Bột đậu xanh có tác dụng gì" + quick-answer/FAQ
+- [x] Bài trụ cụm C "Đặc sản Hải Dương làm quà biếu" + bài authority "OCOP 5 sao là gì" (Đợt 1 hoàn tất 4/5)
+- [ ] Product `offers` + `sameAs` mở rộng *(cần link shop Shopee/TikTok + kênh YouTube thật)*
+- [ ] ImageObject; chuyển ảnh mới sang `<Image>` AVIF/WebP + đổi tên ASCII
+- [ ] Khối "quotable facts" hiển thị trên trang chủ & giới thiệu (llms.txt đã có)
 
 **60 ngày**
 - [ ] 5–8 bài theo cluster (Đợt 1 + 2); internal linking hoàn chỉnh
@@ -236,6 +237,8 @@ Mỗi bài: 1 câu định-nghĩa-trước + heading câu hỏi + FAQ (kèm sche
 - **Cơ chế FAQ/HowTo schema tái sử dụng cho bài viết**: thêm trường `faq` và `howTo` vào schema `posts`; `PostLayout` tự sinh **FAQPage** + **HowTo** JSON-LD; áp dụng cho bài *"Bột đậu xanh pha sẵn…"* (mục hỏi đáp + cách pha) → sẵn sàng cho AI trích dẫn và rich result của Google.
 - **FAQ + định-nghĩa-trước cho 5 trang danh mục trụ**: thêm trường `quickAnswer` và `faq` vào schema `productCategories`; `ProductLineLayout` tự sinh **BreadcrumbList** + **FAQPage** JSON-LD, hiển thị khối "trả lời nhanh" (định-nghĩa-trước) dưới hero và mục "Câu hỏi thường gặp" (nội dung hiện diện đúng chuẩn Google). Áp dụng cho *bột đậu*, *truyền thống*, *thượng hạng*, *Tết*, *trái cây* — bám sát 3 từ khoá trọng tâm (bánh đậu xanh, bột đậu xanh, đặc sản Việt Nam) và các truy vấn "là gì / có tác dụng gì / mua ở đâu / OCOP 5 sao là gì".
 - **`robots.txt` chào đón bot AI**: khai báo `Allow: /` tường minh cho GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Bytespider… → tăng cơ hội được các answer engine trích dẫn.
+- **4 bài trụ nội dung mới** (chuẩn GEO: định-nghĩa-trước + heading câu hỏi + đoạn tự-chứa + FAQ/HowTo schema + internal link): *"Bánh đậu xanh là gì?"* (cụm A), *"Bột đậu xanh có tác dụng gì?"* (cụm B), *"Đặc sản Hải Dương làm quà biếu"* (cụm C), *"OCOP 5 sao là gì?"* (authority, kết nối 3 cụm). → Đợt 1 lịch nội dung hoàn tất 4/5.
+- **Tối ưu title/description + sửa lỗi lặp tên thương hiệu**: thêm `seoTitle` (tách khỏi H1) cho `pages` + `productCategories`; guard trong `SEO.astro` chặn lặp brand trong `<title>` (đã sửa ~11 trang gồm trang bột landing, tin tức, công bố, thông cáo báo chí). Tiêu đề trang chính nay dẫn từ khoá, brand xuất hiện 1 lần, ~40–61 ký tự (vd. trang chủ: *"Bánh đậu xanh OCOP 5 sao Quốc gia | Rồng Vàng Hoàng Gia"*).
 
 ---
 
