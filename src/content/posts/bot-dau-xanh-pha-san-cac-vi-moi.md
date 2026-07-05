@@ -7,6 +7,27 @@ cover: '/images/bot/bot-tong-hop.jpg'
 tags: ['bột đậu xanh', 'bột đậu xanh pha sẵn', 'cà rốt', 'rau má', 'sữa dừa', 'matcha', 'không thêm đường', 'tin tức']
 oldUrl: 'https://www.rongvanghoanggia.com/bot-dau-xanh-pha-san-cac-vi-moi/'
 relatedProducts: ['bot-dau-xanh-dinh-duong', 'bot-dau-xanh-nguyen-chat', 'che-dau-den-cot-dua']
+faq:
+  - q: 'Uống bột đậu xanh pha sẵn có béo không?'
+    a: 'Một gói 40 g của các vị có đường cung cấp khoảng 146–162 kcal — tương đương một bữa phụ nhẹ. Nếu quan tâm đến cân nặng, hãy chọn dòng không thêm đường (đạm cao, đường thấp) và dùng đúng khẩu phần.'
+  - q: 'Trẻ em dùng bột đậu xanh được không?'
+    a: 'Được, với khẩu phần phù hợp theo độ tuổi. Vị cà rốt và sữa dừa thường hợp khẩu vị trẻ; với trẻ nhỏ nên pha loãng hơn.'
+  - q: 'Bột đậu xanh pha sẵn khác gì bột đậu xanh dinh dưỡng thông thường?'
+    a: 'Dòng pha sẵn được phối thêm nguyên liệu tạo vị (cà rốt, rau má, sữa dừa, matcha) và đóng gói theo khẩu phần tiện lợi, bên cạnh bột đậu xanh dinh dưỡng và chè đậu đen cốt dừa nguyên bản.'
+  - q: 'Bột đậu xanh pha lạnh có được không?'
+    a: 'Được. Với vị có đường, nên dùng hai gói và thêm đá để vị đủ đậm. Rau má và matcha pha lạnh rất được ưa chuộng vào mùa hè.'
+  - q: 'Dòng bột đậu xanh không thêm đường có vị nhạt không?'
+    a: 'Không hẳn. Vị ngọt nhẹ đến tự nhiên từ đậu xanh và sữa dừa; nếu thích ngọt hơn có thể tự thêm mật ong hoặc chất tạo ngọt tuỳ khẩu vị.'
+  - q: 'Bảo quản bột đậu xanh thế nào?'
+    a: 'Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp; dùng trong hạn in trên bao bì và đóng kín sau khi mở (với hũ 500 g).'
+  - q: 'Người cần kiêng đường dùng bột đậu xanh được không?'
+    a: 'Dòng không thêm đường có lượng đường tổng thấp hơn hẳn (17,8–24,1 g trên 100 g, phần lớn đến tự nhiên từ nguyên liệu). Người có bệnh lý cần kiểm soát đường huyết nên tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng.'
+howTo:
+  name: 'Cách pha bột đậu xanh pha sẵn Rồng Vàng Hoàng Gia'
+  steps:
+    - 'Xé một gói bột (40 g) cho vào ly.'
+    - 'Rót khoảng 150 ml nước sôi.'
+    - 'Khuấy đều đến khi bột tan mịn rồi thưởng thức. Uống lạnh thì thêm đá (nên dùng hai gói).'
 ---
 
 Đậu xanh lòng vàng Xứ Đông vốn quen nằm gọn trong viên bánh tan mềm. Nay cũng chính hạt đậu ấy bước vào ly nước ấm buổi sáng, thành một thức uống pha sẵn tiện lợi. Rồng Vàng Hoàng Gia giới thiệu trọn bộ bột đậu xanh pha sẵn với bốn vị — cà rốt, rau má, sữa dừa, matcha — cùng dòng không thêm đường thuần thực vật. Bài viết này là cẩm nang đầy đủ để quý khách hiểu, chọn và pha đúng từng vị.

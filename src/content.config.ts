@@ -105,6 +105,10 @@ const posts = defineCollection({
     tags: z.array(z.string()).default([]),
     oldUrl: z.string(),
     relatedProducts: z.array(z.string()).default([]),
+    /** Hỏi–đáp → FAQPage JSON-LD (giúp rich result + được AI trích dẫn). */
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
+    /** Các bước hướng dẫn → HowTo JSON-LD (vd. cách pha). */
+    howTo: z.object({ name: z.string(), steps: z.array(z.string()).min(2) }).optional(),
     draft: z.boolean().default(false),
     /**
      * Link tùy chỉnh cho bài viết, ghi đè tên file.

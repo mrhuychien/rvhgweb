@@ -122,3 +122,17 @@ export function faqSchema(qa: { q: string; a: string }[]) {
     })),
   };
 }
+
+export function howToSchema(opts: { name: string; steps: string[]; image?: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: opts.name,
+    ...(opts.image ? { image: abs(opts.image) } : {}),
+    step: opts.steps.map((text, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      text,
+    })),
+  };
+}
