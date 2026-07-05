@@ -7,6 +7,20 @@ const entry = await getEntry('pages', 'gioi-thieu');
 if (!entry) throw new Error('Missing content: pages/gioi-thieu');
 const { Content } = await render(entry);
 const d = entry.data;
+
+// Cột mốc phát triển — thay cho ảnh timeline (infographic) vốn bị cắt khi crop.
+// Dạng text: đọc được trên mọi thiết bị, và Google/AI đọc được (tốt cho SEO/GEO).
+const milestones = [
+  { year: '1997', title: 'Khởi nghiệp', body: 'Bắt đầu từ cơ sở sản xuất bánh đậu xanh nhỏ lẻ, làm thủ công từng mẻ.' },
+  { year: '2001', title: 'Thành lập doanh nghiệp', body: 'Chính thức thành lập công ty, chuyển sang hoạt động chuyên nghiệp.' },
+  { year: '2002', title: 'Huy chương Vàng Hàng Việt Nam Chất lượng cao', body: 'Lần đầu tham gia và đạt huy chương vàng.' },
+  { year: '2003', title: 'Chuyển đổi', body: 'Trở thành Công ty Cổ phần Hoàng Giang.' },
+  { year: '2004', title: 'Cúp Vàng & Giải thưởng Quốc gia', body: 'Cúp vàng thương hiệu an toàn vì sức khoẻ cộng đồng; giải thưởng quốc gia về chất lượng và an toàn thực phẩm.' },
+  { year: '2008', title: 'Khánh thành nhà máy', body: 'Xây dựng nhà máy mới, chính thức đi vào hoạt động.' },
+  { year: '2014', title: 'Xác lập Kỷ lục', body: 'Xác lập Kỷ lục Đặc sản quà tặng Việt Nam và Đặc sản quà tặng Châu Á.' },
+  { year: '2016', title: 'Đạt tiêu chuẩn ISO 22000', body: 'Hoàn thiện hệ thống quản lý chất lượng theo tiêu chuẩn quốc tế ISO 22000.' },
+  { year: '2024', title: 'OCOP 5 sao Quốc gia', body: 'Bánh đậu xanh Rồng Vàng Hoàng Gia được công nhận OCOP 5 sao Quốc gia — sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt.', highlight: true },
+];
 ---
 
 <PageLayout
@@ -17,7 +31,102 @@ const d = entry.data;
   heroImage={d.heroImage}
   eyebrow="Về Rồng Vàng Hoàng Gia"
   headingHtml={`<span data-years-since="${FOUNDED_YEAR}">${YEARS_EXPERIENCE}</span> năm gìn giữ một nghề.`}
-  lede="Bánh đậu xanh OCOP 5 sao Quốc gia 2024. Sản xuất theo tiêu chuẩn ISO 22000:2018. Từ Hải Dương ra 5 quốc gia."
+  lede="Bánh đậu xanh OCOP 5 sao Quốc gia 2024. Sản xuất theo tiêu chuẩn ISO 22000:2018. Từ Hải Dương ra 6 quốc gia."
 >
   <Content />
+
+  <ol class="rvhg-timeline" aria-label="Các cột mốc phát triển của Rồng Vàng Hoàng Gia">
+    {milestones.map((m) => (
+      <li class={`rvhg-tl__item${m.highlight ? ' is-flagship' : ''}`}>
+        <span class="rvhg-tl__year">{m.year}</span>
+        <div class="rvhg-tl__card">
+          <h3 class="rvhg-tl__title">{m.title}</h3>
+          <p class="rvhg-tl__body">{m.body}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
 </PageLayout>
+
+<style>
+  .rvhg-timeline {
+    list-style: none;
+    margin: 2.5rem auto 0;
+    padding: 0;
+    max-width: 44rem;
+    position: relative;
+  }
+  /* Trục dọc */
+  .rvhg-timeline::before {
+    content: '';
+    position: absolute;
+    left: 5.5rem;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 2px;
+    background: linear-gradient(var(--color-line, #e7e2d6), var(--color-gold, #c8a04d));
+  }
+  .rvhg-tl__item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 1.25rem;
+    padding: 0.6rem 0;
+    align-items: start;
+  }
+  .rvhg-tl__year {
+    text-align: right;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--color-ink, #201a12);
+    padding-top: 0.15rem;
+    font-variant-numeric: tabular-nums;
+  }
+  /* Chấm mốc trên trục */
+  .rvhg-tl__card::before {
+    content: '';
+    position: absolute;
+    left: calc(5.5rem - 5px);
+    margin-top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-paper, #fbf8f1);
+    border: 2px solid var(--color-gold, #c8a04d);
+  }
+  .rvhg-tl__card {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  .rvhg-tl__title {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--color-ink, #201a12);
+  }
+  .rvhg-tl__body {
+    margin: 0.35rem 0 0;
+    color: var(--color-mute, #6b6152);
+    font-size: 0.97rem;
+    line-height: 1.6;
+  }
+  /* Mốc OCOP 5 sao — nhấn mạnh */
+  .is-flagship .rvhg-tl__year { color: var(--color-gold, #c8a04d); }
+  .is-flagship .rvhg-tl__card::before {
+    background: var(--color-gold, #c8a04d);
+    box-shadow: 0 0 0 4px rgba(200, 160, 77, 0.2);
+    width: 14px;
+    height: 14px;
+    left: calc(5.5rem - 6px);
+  }
+  .is-flagship .rvhg-tl__title { color: var(--color-gold-deep, #9a7a2e); }
+
+  @media (max-width: 560px) {
+    .rvhg-timeline::before { left: 3.4rem; }
+    .rvhg-tl__item { grid-template-columns: 3.4rem 1fr; gap: 0.9rem; }
+    .rvhg-tl__year { font-size: 0.95rem; }
+    .rvhg-tl__card::before { left: calc(3.4rem - 5px); }
+    .is-flagship .rvhg-tl__card::before { left: calc(3.4rem - 6px); }
+  }
+</style>
