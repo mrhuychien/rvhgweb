@@ -1,5 +1,6 @@
 ---
-title: 'Câu chuyện sản phẩm — Rồng Vàng Hoàng Gia'
+title: 'Câu chuyện sản phẩm'
+seoTitle: 'Câu chuyện bánh đậu xanh tiến vua'
 description: 'Từ sắc phong "Bánh Ngon" của vua Khải Định năm 1918 đến chứng nhận OCOP 5 sao Quốc gia 2024 — câu chuyện do Chủ tịch HĐQT Đào Quang Chuyện kể lại.'
 oldUrl: 'https://www.rongvanghoanggia.com/cau-chuyen-san-pham-rong-vang-hoang-gia-2/'
 route: '/cau-chuyen-san-pham-rong-vang-hoang-gia-2/'

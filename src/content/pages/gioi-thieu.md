@@ -1,5 +1,6 @@
 ---
-title: 'Giới thiệu công ty — Rồng Vàng Hoàng Gia'
+title: 'Giới thiệu công ty'
+seoTitle: 'Giới thiệu bánh đậu xanh OCOP 5 sao'
 description: 'Công ty Cổ phần Hoàng Giang (MST 0800280839) — thương hiệu Rồng Vàng Hoàng Gia. Nhà xưởng 6.200 m², 100-150 công nhân, vốn điều lệ 20 tỷ, chứng nhận ISO 22000:2018, OCOP 5 sao Quốc gia 2024.'
 oldUrl: 'https://www.rongvanghoanggia.com/gioi-thieu/'
 route: '/gioi-thieu/'

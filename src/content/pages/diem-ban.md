@@ -1,5 +1,5 @@
 ---
-title: 'Điểm bán Rồng Vàng Hoàng Gia'
+title: 'Điểm bán — mua bánh đậu xanh chính hãng'
 description: 'Sản phẩm Rồng Vàng Hoàng Gia có mặt tại các đại siêu thị toàn quốc, sân bay, trạm dừng nghỉ, khu du lịch và 2 showroom tại TP Hải Dương.'
 oldUrl: 'https://www.rongvanghoanggia.com/diem-ban-rong-vang-hoang-gia/'
 route: '/diem-ban-rong-vang-hoang-gia/'

@@ -51,7 +51,8 @@ const slug = Astro.params.slug;
 
 {kind === 'page' && (
   <PageLayout
-    title={(entry as CollectionEntry<'pages'>).data.title}
+    title={(entry as CollectionEntry<'pages'>).data.seoTitle ?? (entry as CollectionEntry<'pages'>).data.title}
+    heading={(entry as CollectionEntry<'pages'>).data.title}
     description={(entry as CollectionEntry<'pages'>).data.description}
     canonical={(entry as CollectionEntry<'pages'>).data.route}
     image={(entry as CollectionEntry<'pages'>).data.ogImage}

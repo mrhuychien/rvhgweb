@@ -32,7 +32,14 @@ const canonicalUrl = canonical
   : new URL(Astro.url.pathname, SITE.url).href;
 const imageUrl = image.startsWith('http') ? image : siteUrl + image;
 
-const fullTitle = title === SITE.name ? `${SITE.name} — ${SITE.tagline}` : `${title} | ${SITE.name}`;
+// Trang chủ: brand + tagline. Ngược lại nối brand vào sau — nhưng KHÔNG lặp
+// nếu tiêu đề đã chứa sẵn tên thương hiệu (tránh "… Rồng Vàng Hoàng Gia | Rồng Vàng Hoàng Gia").
+const fullTitle =
+  title === SITE.name
+    ? `${SITE.name} — ${SITE.tagline}`
+    : title.includes(SITE.name)
+      ? title
+      : `${title} | ${SITE.name}`;
 const robots = noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large';
 ---
 

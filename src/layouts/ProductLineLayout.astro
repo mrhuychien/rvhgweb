@@ -25,7 +25,7 @@ const jsonLd: Record<string, unknown>[] = [
 if (d.faq.length > 0) jsonLd.push(faqSchema(d.faq));
 ---
 
-<BaseLayout title={`${d.title} — Rồng Vàng Hoàng Gia`} description={d.description} canonical={url} image={d.heroImage} jsonLd={jsonLd}>
+<BaseLayout title={d.seoTitle ?? d.title} description={d.description} canonical={url} image={d.heroImage} jsonLd={jsonLd}>
   <!-- Hero — full-bleed, centered, oversized -->
   <section class="rvhg-line-hero" style={d.accent ? `--rvhg-accent: ${d.accent}` : ''}>
     <div class="rvhg-container rvhg-line-hero__head">

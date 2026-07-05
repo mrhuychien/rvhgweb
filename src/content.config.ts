@@ -5,6 +5,8 @@ const pages = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
+    /** Tiêu đề tối ưu SEO cho thẻ <title> (tách khỏi H1 hiển thị). Bỏ trống thì dùng `title`. */
+    seoTitle: z.string().optional(),
     description: z.string(),
     oldUrl: z.string(),
     route: z.string(),
@@ -41,6 +43,8 @@ const productCategories = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/product-categories' }),
   schema: z.object({
     title: z.string(),
+    /** Tiêu đề tối ưu SEO cho thẻ <title> (tách khỏi H1 hiển thị). Bỏ trống thì dùng `title`. */
+    seoTitle: z.string().optional(),
     /** Short eyebrow phrase shown above the line title, Apple-style. */
     eyebrow: z.string().optional(),
     /** Hero subline — one breathing sentence under the title. */

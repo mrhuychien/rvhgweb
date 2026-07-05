@@ -1,5 +1,5 @@
 ---
-title: 'Liên hệ — Rồng Vàng Hoàng Gia'
+title: 'Liên hệ & đặt hàng'
 description: 'Liên hệ Công ty Cổ phần Hoàng Giang — hotline 0934362658, email info@rongvanghoanggia.com, showroom 209C Tuệ Tĩnh và 9 Bạch Đằng, TP Hải Dương.'
 oldUrl: 'https://www.rongvanghoanggia.com/lien-he/'
 route: '/lien-he/'

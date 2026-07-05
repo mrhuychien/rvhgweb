@@ -10,7 +10,7 @@ const d = entry.data;
 ---
 
 <PageLayout
-  title={d.title}
+  title={d.seoTitle ?? d.title}
   description={d.description}
   canonical={d.route}
   image={d.ogImage}

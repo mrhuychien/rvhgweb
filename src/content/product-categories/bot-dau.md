@@ -1,5 +1,6 @@
 ---
 title: 'Bột đậu các loại'
+seoTitle: 'Bột đậu xanh các vị & chè đậu đen'
 eyebrow: 'Dinh dưỡng hằng ngày'
 tagline: 'Đậu nguyên hạt, rang chín, xay nhuyễn — pha là dùng.'
 description: 'Bột đậu xanh các vị (cà rốt, rau má, sữa dừa, matcha, dinh dưỡng), dòng không thêm đường và chè đậu đen cốt dừa Rồng Vàng Hoàng Gia — sản phẩm uống pha sẵn, nguyên liệu đậu nguyên hạt rang chín, không phụ gia tạo ngọt nhân tạo.'
