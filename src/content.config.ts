@@ -20,6 +20,8 @@ const productItem = z.object({
   image: z.string().optional(),
   weight: z.string().optional(),
   isOcop5Star: z.boolean().default(false),
+  /** Optional link to a dedicated product page; makes the tile clickable. */
+  href: z.string().optional(),
 });
 
 const certification = z.object({

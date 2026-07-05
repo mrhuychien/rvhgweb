@@ -9,9 +9,15 @@ interface Props {
   loading?: 'lazy' | 'eager';
   /** Optional accent hex for the nameplate fallback. */
   accent?: string;
+  /** Optional link — when set, the whole tile becomes clickable. */
+  href?: string;
 }
 
-const { name, image, weight, isOcop5Star = false, loading = 'lazy', accent } = Astro.props;
+const { name, image, weight, isOcop5Star = false, loading = 'lazy', accent, href } = Astro.props;
+
+// A linked tile renders as <a> (with a <span> caption); otherwise <figure>/<figcaption>.
+const Wrapper = href ? 'a' : 'figure';
+const Caption = href ? 'span' : 'figcaption';
 
 /** Initials shown on the nameplate fallback when an image is missing. */
 const initials = name
@@ -27,7 +33,7 @@ const fallbackStyle = accent
   : '';
 ---
 
-<figure class="rvhg-tile">
+<Wrapper class:list={['rvhg-tile', href && 'rvhg-tile--link']} href={href}>
   <div class="rvhg-tile__media">
     {image ? (
       <LegacyImg src={image} alt={name} width={600} height={600} loading={loading} sizes="(max-width: 600px) 50vw, 25vw" />
@@ -38,11 +44,11 @@ const fallbackStyle = accent
     )}
     {isOcop5Star && <span class="rvhg-tile__badge">OCOP 5★</span>}
   </div>
-  <figcaption class="rvhg-tile__name">
+  <Caption class="rvhg-tile__name">
     {name}
     {weight && <small> · {weight}</small>}
-  </figcaption>
-</figure>
+  </Caption>
+</Wrapper>
 
 <style>
   .rvhg-tile {
@@ -100,5 +106,17 @@ const fallbackStyle = accent
   .rvhg-tile__name small {
     color: var(--color-mute);
     font-weight: 400;
+  }
+
+  /* Clickable variant */
+  .rvhg-tile--link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  .rvhg-tile--link:hover .rvhg-tile__name {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-link-underline, var(--brass));
   }
 </style>

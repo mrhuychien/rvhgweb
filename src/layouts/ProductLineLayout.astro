@@ -112,11 +112,12 @@ const url = `/danh-muc-san-pham/${entry.id}/`;
           {d.products.map((p, i) => (
             <ProductTile
               name={p.name}
-              image={p.image}
+              image={p.image ? encodeURI(p.image) : undefined}
               weight={p.weight}
               isOcop5Star={p.isOcop5Star}
               accent={d.accent}
               loading={i < 4 ? 'eager' : 'lazy'}
+              href={p.href}
             />
           ))}
         </div>
