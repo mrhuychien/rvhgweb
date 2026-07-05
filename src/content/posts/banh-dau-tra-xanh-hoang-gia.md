@@ -1,12 +1,24 @@
 ---
 title: Bánh đậu trà xanh Hoàng Gia
-description: Xuất hiện từ đầu thế kỷ 20, ai ai cũng biết đến bánh đậu xanh- thức quà không thể thiếu khi dừng chân tại Hải Dương.
+description: 'Bánh đậu trà xanh Hoàng Gia — đặc sản Hải Dương kết hợp đậu xanh bùi với bột trà xanh matcha chuẩn Nhật, vị ngọt thanh mát, đạt OCOP 5 sao Quốc gia.'
 publishDate: 2024-10-01
 cover: /images/legacy/banh-dau-xanh-mon-qua-gan-ket-tuoi-tho-bao-the-he-01-1024x683.jpg
 tags: []
 author: Rồng Vàng Hoàng Gia
 oldUrl: https://www.rongvanghoanggia.com/banh-dau-tra-xanh-hoang-gia/
 relatedProducts: []
+updated: 2026-07-05
+faq:
+  - q: 'Bánh đậu trà xanh Hoàng Gia có thành phần gì đặc biệt?'
+    a: 'Bánh kết hợp hạt đậu xanh tuyển chọn với bột trà xanh matcha chuẩn Nhật Bản. Vị bùi của đậu xanh hoà cùng vị chát thanh, thanh khiết của trà xanh tạo nên hương vị đặc trưng.'
+  - q: 'Vì sao bánh đậu trà xanh Hoàng Gia không bị ngọt gắt?'
+    a: 'Bánh dùng đường Gluco thay cho đường thường, cho vị ngọt dịu, man mát, tan ngay khi vào miệng và không đọng cặn ở cổ họng. Nhờ vậy bánh phù hợp cả với người sợ béo, sợ ngọt.'
+  - q: 'Bánh đậu trà xanh Hoàng Gia có dùng mỡ động vật không?'
+    a: 'Không. Bánh dùng hoàn toàn dầu thực vật thay cho mỡ lợn, nên người ăn chay có thể yên tâm thưởng thức và bánh cũng có thời hạn sử dụng lâu hơn.'
+  - q: 'Làm sao phân biệt bánh đậu trà xanh chất lượng với hàng kém?'
+    a: 'Bánh đậu trà xanh chất lượng dùng bột trà xanh matcha tự nhiên, có mùi thơm đặc trưng và vị chát thanh. Một số cơ sở chỉ dùng phẩm màu nên bánh không có mùi thơm tự nhiên và đắng ngắt, người mua cần thận trọng.'
+  - q: 'Ai sản xuất bánh đậu trà xanh Rồng Vàng Hoàng Gia?'
+    a: 'Nhà sản xuất là Công ty Cổ phần Hoàng Giang, hoạt động từ năm 1997, đạt chứng nhận ISO 22000:2018 và không dùng chất bảo quản. Bánh đậu trà xanh Rồng Vàng Hoàng Gia đạt OCOP 5 sao Quốc gia 2024.'
 ---
 
 Xuất hiện từ đầu thế kỷ 20, ai ai cũng biết đến bánh đậu xanh- thức quà không thể thiếu khi dừng chân tại Hải Dương. Nếu ngày xưa, bánh được thưởng thức kèm chén trà nóng như một thú vui tao nhã của các cụ thì ngày nay, bánh đậu xanh đã chiếm được cảm tình của cả tầng lớp thanh niên, giới trẻ, đặc biệt là các em nhỏ. Cơn sốt bánh đậu xanh trà xanh hoàng gia đã thực sự tạo ra bước ngoặt lịch sử này.

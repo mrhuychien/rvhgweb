@@ -1,11 +1,19 @@
 ---
 title: 'Thông cáo báo chí sự kiện ““Lễ đón nhận Chứng nhận sản phẩm OCOP 5 sao quốc gia: Bánh đậu xanh Rồng Vàng Hoàng Gia và khai trương showroom”'
-description: 'Khởi nghiệp từ năm 1997 tại Hải Dương, Công ty cổ phần Hoàng Giang là một doanh nghiệp chuyên sản xuất bánh đậu xanh và bột đậu với thương hiệu “Rồng Vàng Ho…'
+description: 'Thông cáo báo chí: lễ đón nhận chứng nhận OCOP 5 sao Quốc gia cho bánh đậu xanh Rồng Vàng Hoàng Gia và khai trương showroom tại Hải Dương – thương hiệu từ năm 1997.'
 publishDate: 2024-10-01
 author: 'Rồng Vàng Hoàng Gia'
 tags: []
 oldUrl: 'https://www.rongvanghoanggia.com/thong-cao-bao-chi-su-kien-le-don-nhan-chung-nhan-san-pham-ocop-5-sao-quoc-gia-banh-dau-xanh-rong-vang-hoang-gia-va-khai-truong-showroom/'
 relatedProducts: []
+updated: 2026-07-05
+faq:
+  - q: 'Sự kiện lễ đón nhận chứng nhận OCOP 5 sao có gì nổi bật?'
+    a: 'Sự kiện đánh dấu việc bánh đậu xanh Rồng Vàng Hoàng Gia được công nhận OCOP 5 sao Quốc gia, đồng thời khai trương showroom giới thiệu sản phẩm. Đây là cột mốc quan trọng của Công ty Cổ phần Hoàng Giang tại Hải Dương.'
+  - q: 'Công ty Cổ phần Hoàng Giang có bề dày như thế nào?'
+    a: 'Công ty khởi nghiệp từ năm 1997 tại Hải Dương, chuyên sản xuất bánh đậu xanh và bột đậu thương hiệu Rồng Vàng Hoàng Gia. Sản phẩm đạt tiêu chuẩn ISO 22000:2018 và đã xuất khẩu tới Nhật Bản, Mỹ, Canada cùng nhiều thị trường khác.'
+  - q: 'Vì sao chứng nhận OCOP 5 sao quan trọng với thương hiệu?'
+    a: 'OCOP 5 sao Quốc gia khẳng định chất lượng vượt trội và uy tín của bánh đậu xanh truyền thống Hải Dương, tạo động lực để công ty mở rộng thị trường trong nước và xuất khẩu. Rồng Vàng Hoàng Gia là bánh đậu xanh duy nhất cả nước đạt thứ hạng này.'
 ---
 
 **1\. Thông tin tổng quan về công ty:**

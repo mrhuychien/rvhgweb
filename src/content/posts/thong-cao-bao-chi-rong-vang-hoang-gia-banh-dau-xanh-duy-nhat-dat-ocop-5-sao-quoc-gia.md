@@ -1,11 +1,19 @@
 ---
 title: 'Thông cáo báo chí: Rồng Vàng Hoàng Gia – Bánh đậu xanh duy nhất đạt OCOP 5 sao quốc gia'
-description: 'Công ty cổ phần Hoàng Giang – Thương Hiệu Rồng Vàng Hoàng Gia'
+description: 'Thông cáo báo chí: bánh đậu xanh Rồng Vàng Hoàng Gia (Công ty CP Hoàng Giang, Hải Dương) là sản phẩm đầu tiên và duy nhất cả nước đạt OCOP 5 sao Quốc gia năm 2024.'
 publishDate: 2024-10-01
 author: 'Rồng Vàng Hoàng Gia'
 tags: []
 oldUrl: 'https://www.rongvanghoanggia.com/thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia/'
 relatedProducts: []
+updated: 2026-07-05
+faq:
+  - q: 'Bánh đậu xanh Rồng Vàng Hoàng Gia đạt chứng nhận gì?'
+    a: 'Sản phẩm bánh đậu xanh Rồng Vàng Hoàng Gia của Công ty Cổ phần Hoàng Giang được công nhận đạt OCOP 5 sao cấp quốc gia năm 2024. Đây là chứng nhận cao quý và uy tín trong ngành thực phẩm Việt Nam.'
+  - q: 'Chứng nhận OCOP 5 sao Quốc gia có ý nghĩa gì?'
+    a: 'OCOP 5 sao là thứ hạng cao nhất của Chương trình Mỗi xã một sản phẩm, khẳng định chất lượng và uy tín được công nhận trên toàn quốc. Bánh đậu xanh Rồng Vàng Hoàng Gia là một trong 4 sản phẩm cả nước đạt hạng này trong đợt đánh giá năm 2024.'
+  - q: 'Có phải Rồng Vàng Hoàng Gia là bánh đậu xanh duy nhất đạt OCOP 5 sao?'
+    a: 'Đúng vậy, đây là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt OCOP 5 sao Quốc gia tính đến thời điểm hiện tại, đồng thời là sản phẩm đầu tiên của tỉnh Hải Dương đạt thứ hạng này.'
 ---
 
 **Thông Cáo Báo Chí**

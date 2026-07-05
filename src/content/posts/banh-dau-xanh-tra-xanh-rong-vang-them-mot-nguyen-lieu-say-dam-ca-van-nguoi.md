@@ -1,11 +1,21 @@
 ---
 title: 'Bánh đậu xanh trà xanh rồng vàng- Thêm một nguyên liệu say đắm cả vạn người'
-description: '“Hải Dương- Bánh đậu xanh”- cụm từ quá quen thuộc được truyền miệng khắp dải đất hình chữ S.'
+description: 'Bánh đậu xanh trà xanh Rồng Vàng Hoàng Gia: matcha Nhật Bản, ngọt thanh không gắt, chuẩn quà biếu. Đặc sản Hải Dương OCOP 5 sao, ISO 22000, không chất bảo quản.'
 publishDate: 2024-10-01
 author: 'Rồng Vàng Hoàng Gia'
 tags: []
 oldUrl: 'https://www.rongvanghoanggia.com/banh-dau-xanh-tra-xanh-rong-vang-them-mot-nguyen-lieu-say-dam-ca-van-nguoi/'
 relatedProducts: []
+faq:
+  - q: 'Bánh đậu xanh trà xanh Rồng Vàng Hoàng Gia có gì đặc biệt?'
+    a: 'Bánh đậu xanh trà xanh sử dụng bột matcha Nhật Bản, cho màu xanh đẹp mắt và mùi thơm dịu. Bánh tan mịn trên đầu lưỡi, ngọt thanh mát, không gắt hay khé cổ như dòng truyền thống, rất phù hợp cho người ngại đồ ngọt.'
+  - q: 'Bánh đậu xanh trà xanh mua chính hãng ở đâu?'
+    a: 'Bạn có thể mua tại các hệ thống siêu thị lớn như BigC/GO!, WinMart, AEON, Co.opmart, Lotte Mart trên toàn quốc, gồm cả Hà Nội và TP.HCM. Ngoài ra có gian hàng chính hãng trên Shopee, TikTok Shop hoặc liên hệ hotline/Zalo 0934362658.'
+  - q: 'Bánh đậu xanh trà xanh có dùng làm quà biếu được không?'
+    a: 'Rất phù hợp. Bánh đậu xanh trà xanh có bao bì đẹp, vị thanh nhã và thường được chọn làm quà tặng, quà biếu đặc sản Hải Dương. Các dòng hộp quà cao cấp, đặc biệt hộp quà OCOP, càng trang trọng khi biếu tặng.'
+  - q: 'Bánh đậu xanh trà xanh Rồng Vàng Hoàng Gia có chất bảo quản không?'
+    a: 'Không. Rồng Vàng Hoàng Gia cam kết không sử dụng chất bảo quản, sản xuất theo tiêu chuẩn ISO 22000:2018. Thương hiệu là bánh đậu xanh đầu tiên và duy nhất cả nước đạt OCOP 5 sao Quốc gia 2024, có tem chống hàng giả để nhận biết hàng chính hãng.'
+updated: 2026-07-05
 ---
 
 “Hải Dương- Bánh đậu xanh”- cụm từ quá quen thuộc được truyền miệng khắp dải đất hình chữ S. Ra đời từ những năm đầu thế kỷ 20, vị ngọt sắc của những chiếc bánh đậu xanh luôn in đậm trong tâm trí khách du lịch ở mọi miền Tổ quốc.

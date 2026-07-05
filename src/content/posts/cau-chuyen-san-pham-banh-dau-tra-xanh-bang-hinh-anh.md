@@ -7,6 +7,14 @@ cover: '/images/legacy/post-cau-chuyen-tra-xanh.jpg'
 tags: ['bánh đậu trà xanh', 'câu chuyện sản phẩm', 'hình ảnh']
 oldUrl: 'https://www.rongvanghoanggia.com/cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh/'
 relatedProducts: ['banh-dau-tra-xanh']
+updated: 2026-07-05
+faq:
+  - q: 'Bánh đậu trà xanh Rồng Vàng Hoàng Gia được làm qua những bước nào?'
+    a: 'Đậu xanh được tuyển chọn, đãi sạch vỏ, xay mịn làm nền, rồi hoà cùng bột trà xanh nguyên chất theo tỷ lệ cân chỉnh. Hỗn hợp được sên với đường và dầu thực vật, đóng khuôn thành thỏi rồi đóng gói.'
+  - q: 'Bánh đậu trà xanh Rồng Vàng Hoàng Gia được đóng gói theo tiêu chuẩn nào?'
+    a: 'Bánh được đóng khuôn và đóng gói trong phòng đạt chuẩn quốc tế ISO 22000:2018. Sản phẩm đã đạt OCOP 5 sao Quốc gia 2024 — bánh đậu xanh đầu tiên và duy nhất cả nước đạt hạng sao cao nhất.'
+  - q: 'Bột trà xanh trong bánh có lấn át vị đậu không?'
+    a: 'Không. Bột trà xanh nguyên chất được đưa vào với tỷ lệ cân chỉnh kỹ, đủ để tạo hương và hậu ngọt mà không lấn át vị bùi của đậu xanh, giữ được sự cân bằng của miếng bánh.'
 ---
 
 Một thỏi bánh đậu trà xanh nhỏ xíu, nhưng phía sau là cả một quy trình. Bài này kể câu chuyện ấy bằng hình ảnh.
