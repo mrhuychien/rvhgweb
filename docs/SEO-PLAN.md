@@ -207,11 +207,12 @@ Mỗi bài: 1 câu định-nghĩa-trước + heading câu hỏi + FAQ (kèm sche
 
 **Quick wins — tuần 1** *(một phần đã làm, §11)*
 - [x] Refresh `llms.txt` (sản phẩm/bài mới, bỏ số liệu lỗi thời)
-- [x] FAQ schema (bắt đầu ở bài bột mới) + cơ chế tái sử dụng
-- [ ] Cài GA4 + Search Console + Bing, submit sitemap
-- [ ] `robots.txt`: khai báo cho phép bot AI (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…)
+- [x] FAQ schema (bài bột mới + **5 trang danh mục trụ**) + cơ chế tái sử dụng
+- [x] `robots.txt`: khai báo cho phép bot AI (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot…)
+- [x] BreadcrumbList + khối "định-nghĩa-trước" (quick answer) cho 5 trang danh mục
+- [ ] Cài GA4 + Search Console + Bing, submit sitemap *(cần ID từ chủ website)*
 - [ ] Rà soát title/description trang chính theo công thức §3
-- [ ] Tạo Google Business Profile 2 showroom
+- [ ] Tạo Google Business Profile 2 showroom *(cần tài khoản Google của chủ website)*
 
 **30 ngày**
 - [ ] HowTo schema "cách pha"; Product `offers`; ImageObject
@@ -233,6 +234,8 @@ Mỗi bài: 1 câu định-nghĩa-trước + heading câu hỏi + FAQ (kèm sche
 
 - **`public/llms.txt` được viết lại**: cập nhật dòng bột ("Bột đậu các loại" + 6 vị mới + link 5 landing), thêm bài viết mới, bỏ số "28 năm" (dễ lỗi thời) thay bằng "từ năm 1997", bổ sung khối "sự thật đáng trích dẫn" cho AI.
 - **Cơ chế FAQ/HowTo schema tái sử dụng cho bài viết**: thêm trường `faq` và `howTo` vào schema `posts`; `PostLayout` tự sinh **FAQPage** + **HowTo** JSON-LD; áp dụng cho bài *"Bột đậu xanh pha sẵn…"* (mục hỏi đáp + cách pha) → sẵn sàng cho AI trích dẫn và rich result của Google.
+- **FAQ + định-nghĩa-trước cho 5 trang danh mục trụ**: thêm trường `quickAnswer` và `faq` vào schema `productCategories`; `ProductLineLayout` tự sinh **BreadcrumbList** + **FAQPage** JSON-LD, hiển thị khối "trả lời nhanh" (định-nghĩa-trước) dưới hero và mục "Câu hỏi thường gặp" (nội dung hiện diện đúng chuẩn Google). Áp dụng cho *bột đậu*, *truyền thống*, *thượng hạng*, *Tết*, *trái cây* — bám sát 3 từ khoá trọng tâm (bánh đậu xanh, bột đậu xanh, đặc sản Việt Nam) và các truy vấn "là gì / có tác dụng gì / mua ở đâu / OCOP 5 sao là gì".
+- **`robots.txt` chào đón bot AI**: khai báo `Allow: /` tường minh cho GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot, PerplexityBot, Google-Extended, Applebot-Extended, CCBot, Bytespider… → tăng cơ hội được các answer engine trích dẫn.
 
 ---
 

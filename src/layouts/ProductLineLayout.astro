@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
 import ProductTile from '../components/ProductTile.astro';
+import { breadcrumbSchema, faqSchema } from '../data/jsonld';
 import { COMPANY } from '../data/site';
 
 interface Props {
@@ -12,15 +13,26 @@ interface Props {
 const { entry } = Astro.props;
 const d = entry.data;
 const url = `/danh-muc-san-pham/${entry.id}/`;
+
+// Structured data: Breadcrumb + (optional) FAQPage — rich result & AI citation for the pillar pages.
+const jsonLd: Record<string, unknown>[] = [
+  breadcrumbSchema([
+    { name: 'Trang chủ', url: '/' },
+    { name: 'Sản phẩm', url: '/san-pham/' },
+    { name: d.title, url },
+  ]),
+];
+if (d.faq.length > 0) jsonLd.push(faqSchema(d.faq));
 ---
 
-<BaseLayout title={`${d.title} — Rồng Vàng Hoàng Gia`} description={d.description} canonical={url} image={d.heroImage}>
+<BaseLayout title={`${d.title} — Rồng Vàng Hoàng Gia`} description={d.description} canonical={url} image={d.heroImage} jsonLd={jsonLd}>
   <!-- Hero — full-bleed, centered, oversized -->
   <section class="rvhg-line-hero" style={d.accent ? `--rvhg-accent: ${d.accent}` : ''}>
     <div class="rvhg-container rvhg-line-hero__head">
       {d.eyebrow && <p class="rvhg-eyebrow">{d.eyebrow}</p>}
       <h1>{d.title}</h1>
       <p class="rvhg-line-hero__tagline">{d.tagline}</p>
+      {d.quickAnswer && <p class="rvhg-line-hero__answer">{d.quickAnswer}</p>}
       <div class="gold-rule rvhg-rule--center"></div>
     </div>
     {d.heroImage && (
@@ -125,6 +137,27 @@ const url = `/danh-muc-san-pham/${entry.id}/`;
     </section>
   )}
 
+  <!-- FAQ — visible content backing the FAQPage schema (GEO + rich result) -->
+  {d.faq.length > 0 && (
+    <section class="rvhg-section">
+      <div class="rvhg-container rvhg-line-faq">
+        <header class="rvhg-line-sec__head rvhg-line-sec__head--center">
+          <p class="rvhg-eyebrow">Câu hỏi thường gặp</p>
+          <h2>Giải đáp nhanh.</h2>
+          <div class="gold-rule rvhg-rule--center"></div>
+        </header>
+        <dl class="rvhg-faq">
+          {d.faq.map((item) => (
+            <div class="rvhg-faq__item">
+              <dt>{item.q}</dt>
+              <dd>{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  )}
+
   <!-- CTA -->
   <section class="rvhg-section rvhg-band-tint rvhg-section--tight">
     <div class="rvhg-container rvhg-line-cta">
@@ -163,6 +196,14 @@ const url = `/danh-muc-san-pham/${entry.id}/`;
     font-weight: 400;
     max-width: 36ch;
     margin-inline: auto;
+  }
+  /* Definition-first quick answer — concise, quotable lede for AI/GEO. */
+  .rvhg-line-hero__answer {
+    margin: 1.4rem auto 0;
+    max-width: 60ch;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--color-ink-soft);
   }
   .rvhg-line-hero__media {
     margin-top: 3rem;
@@ -292,6 +333,28 @@ const url = `/danh-muc-san-pham/${entry.id}/`;
   }
   @media (max-width: 1024px) { .rvhg-tile-grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 768px)  { .rvhg-tile-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; } }
+
+  /* FAQ */
+  .rvhg-line-faq { max-width: 52rem; }
+  .rvhg-faq {
+    margin: 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .rvhg-faq__item {
+    border-bottom: 1px solid var(--color-line);
+    padding: 1.5rem 0;
+  }
+  .rvhg-faq dt {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    color: var(--color-ink);
+  }
+  .rvhg-faq dd {
+    margin: 0.6rem 0 0;
+    color: var(--color-ink-soft);
+    line-height: 1.7;
+  }
 
   /* CTA */
   .rvhg-line-cta {

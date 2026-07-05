@@ -2,8 +2,55 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-# AI crawlers — full knowledge base
-# llms.txt: https://www.rongvanghoanggia.com/llms.txt
-# llms-full.txt: https://www.rongvanghoanggia.com/llms-full.txt
+# ─── AI crawlers & answer engines ───────────────────────────────
+# Chúng tôi CHỦ ĐỘNG chào đón bot AI để nội dung được trích dẫn trong
+# câu trả lời của ChatGPT, Perplexity, Gemini, Copilot, Claude…
+# Bản tóm tắt dành cho AI:
+#   llms.txt:      https://www.rongvanghoanggia.com/llms.txt
+#   llms-full.txt: https://www.rongvanghoanggia.com/llms-full.txt
+
+# OpenAI (ChatGPT / SearchGPT)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Google (Gemini / AI Overviews grounding) & Bing/Copilot
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (nguồn huấn luyện cho nhiều LLM) & các bot khác
+User-agent: CCBot
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: Meta-ExternalAgent
+Allow: /
+User-agent: Bytespider
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: cohere-ai
+Allow: /
 
 Sitemap: https://www.rongvanghoanggia.com/sitemap-index.xml

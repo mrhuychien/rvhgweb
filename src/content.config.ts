@@ -47,6 +47,10 @@ const productCategories = defineCollection({
     tagline: z.string(),
     /** Card description fallback for grids on home / overview. */
     description: z.string(),
+    /** Câu trả lời ngắn kiểu "định-nghĩa-trước" hiển thị dưới hero — tối ưu AI trích dẫn (GEO). */
+    quickAnswer: z.string().optional(),
+    /** Hỏi–đáp → mục FAQ hiển thị + FAQPage JSON-LD (rich result + được AI trích dẫn). */
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     order: z.number().default(0),
     heroImage: z.string().optional(),
     /** Image for the homepage "Danh mục sản phẩm" card grid (authentic old-site photo). */
