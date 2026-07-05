@@ -33,8 +33,9 @@ const {
   jsonLd,
 } = Astro.props;
 
-// Analytics placeholders — empty at v1.
-const GA_ID = import.meta.env.PUBLIC_GA_ID ?? '';
+// Google Analytics 4. Mã đo lường là dữ liệu công khai (hiện ngay trong mã trang),
+// nên đặt sẵn ở đây; có thể ghi đè bằng biến môi trường PUBLIC_GA_ID trên Vercel.
+const GA_ID = import.meta.env.PUBLIC_GA_ID ?? 'G-61NZLGQZBY';
 const FB_PIXEL = import.meta.env.PUBLIC_FB_PIXEL ?? '';
 ---
 
