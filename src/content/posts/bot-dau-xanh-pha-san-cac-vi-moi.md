@@ -72,7 +72,7 @@ Vùng đất Hải Dương — Xứ Đông xưa — từ lâu đã gắn với n
 
 ## Bột đậu xanh Cà Rốt — sắc cam của dưỡng chất
 
-<img src="/images/bot/bot%20dau%20xanh%20ca%20rot.jpg" alt="Bột đậu xanh cà rốt Rồng Vàng Hoàng Gia — hộp 400g và gói 40g" loading="lazy" decoding="async" width="922" height="1152" />
+<img src="/images/bot/bot-dau-xanh-ca-rot.jpg" alt="Bột đậu xanh cà rốt Rồng Vàng Hoàng Gia — hộp 400g và gói 40g" loading="lazy" decoding="async" width="922" height="1152" />
 
 Cà rốt là loại củ quen thuộc trong gian bếp Việt, nổi tiếng với sắc cam ấm và nguồn beta-caroten dồi dào — tiền chất mà cơ thể chuyển hoá thành vitamin A. Khi đưa cà rốt vào bột đậu xanh, chúng tôi không chỉ mượn màu, mà mượn cả cái vị ngọt bùi rất riêng của củ cà rốt chín.
 
@@ -86,7 +86,7 @@ Cà rốt là loại củ quen thuộc trong gian bếp Việt, nổi tiếng v�
 
 ## Bột đậu xanh Rau Má — thanh mát từ thiên nhiên
 
-<img src="/images/bot/bot%20dau%20xanh%20rau%20ma.jpg" alt="Bột đậu xanh rau má Rồng Vàng Hoàng Gia — hộp 400g và gói 40g" loading="lazy" decoding="async" width="1122" height="1402" />
+<img src="/images/bot/bot-dau-xanh-rau-ma.jpg" alt="Bột đậu xanh rau má Rồng Vàng Hoàng Gia — hộp 400g và gói 40g" loading="lazy" decoding="async" width="1122" height="1402" />
 
 Rau má là loại rau dân dã của người Việt, gắn với ký ức những ly nước xanh mát ngày hè. Rau má dùng trong sản phẩm này được tuyển từ vùng Bắc Trung Bộ — nơi có truyền thống trồng và dùng rau má lâu đời. Vị thanh nhẹ đặc trưng của rau má là điểm nhấn khiến ly bột đậu xanh trở nên mát dịu, khác hẳn cảm giác ngọt đậm thường thấy.
 
@@ -100,7 +100,7 @@ Rau má là loại rau dân dã của người Việt, gắn với ký ức nh�
 
 ## Bột đậu xanh Sữa Dừa — béo nhẹ, tròn vị
 
-<img src="/images/bot/bot%20dau%20xanh%20sua%20dua.jpg" alt="Bột đậu xanh sữa dừa Rồng Vàng Hoàng Gia — hộp 400g và gói 40g" loading="lazy" decoding="async" width="1190" height="1322" />
+<img src="/images/bot/bot-dau-xanh-sua-dua.jpg" alt="Bột đậu xanh sữa dừa Rồng Vàng Hoàng Gia — hộp 400g và gói 40g" loading="lazy" decoding="async" width="1190" height="1322" />
 
 Nếu cà rốt là sự ấm áp và rau má là sự thanh mát, thì sữa dừa là sự tròn đầy. Vị béo thơm của dừa là thứ hương gần như ai cũng thích — nó gợi nhớ chè, xôi, những món quà quê ngọt ngào. Khi phối bột sữa dừa vào đậu xanh, chúng tôi có một ly nước vừa quen vừa mới: quen ở cái béo dừa, mới ở nền đậu bùi.
 
@@ -114,7 +114,7 @@ Nếu cà rốt là sự ấm áp và rau má là sự thanh mát, thì sữa d�
 
 ## Bột đậu xanh Matcha — tinh tế Đông – Tây
 
-<img src="/images/bot/bot%20dau%20xanh%20matcha.jpg" alt="Bột đậu xanh matcha Rồng Vàng Hoàng Gia — hộp 400g và gói 40g" loading="lazy" decoding="async" width="942" height="1136" />
+<img src="/images/bot/bot-dau-xanh-matcha.jpg" alt="Bột đậu xanh matcha Rồng Vàng Hoàng Gia — hộp 400g và gói 40g" loading="lazy" decoding="async" width="942" height="1136" />
 
 Matcha — bột trà xanh Nhật Bản — đã trở thành một phần của văn hoá thưởng thức hiện đại, được yêu thích bởi hương cốm chát nhẹ và sắc xanh sang trọng. Đưa matcha vào bột đậu xanh là một cuộc gặp gỡ Đông – Tây thú vị: cái bùi mộc mạc của đậu xanh Xứ Đông đứng cạnh cái thanh tao tinh tế của trà xanh Nhật.
 
@@ -128,7 +128,7 @@ Matcha — bột trà xanh Nhật Bản — đã trở thành một phần của
 
 ## Dòng không thêm đường — thuần thực vật cho lối sống xanh
 
-<img src="/images/bot/bot%20dau%20xanh%20rau%20ma%20khong%20them%20duong.jpg" alt="Bột đậu xanh rau má không thêm đường Rồng Vàng Hoàng Gia — hũ 500g plant-based" loading="lazy" decoding="async" width="1086" height="1448" />
+<img src="/images/bot/bot-dau-xanh-rau-ma-khong-duong.jpg" alt="Bột đậu xanh rau má không thêm đường Rồng Vàng Hoàng Gia — hũ 500g plant-based" loading="lazy" decoding="async" width="1086" height="1448" />
 
 Có một nhóm người dùng ngày càng đông: họ đọc kỹ nhãn, để ý lượng đường, ưu tiên nguyên liệu thực vật và thích gu nguyên bản. Dòng **không thêm đường** ra đời cho chính họ. Đây là bước đi tiên phong của Rồng Vàng Hoàng Gia: loại bỏ hoàn toàn đường thêm vào, giữ trọn nguồn dinh dưỡng thuần khiết từ đậu xanh và nguyên liệu tự nhiên.
 

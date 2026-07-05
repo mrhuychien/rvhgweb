@@ -62,7 +62,7 @@ export const POWDERS: Record<string, Powder> = {
     accent: '#e1622a',
     accentInk: '#b0451a',
     accentSoft: '#fbeee4',
-    image: '/images/bot/bot dau xanh ca rot.jpg',
+    image: '/images/bot/bot-dau-xanh-ca-rot.jpg',
     ingredients:
       'Đường (đường kính trắng, đường gluco), bột đậu xanh (40%), bột cà rốt (9%), sữa bột, bột nghệ, hương liệu vani tổng hợp.',
     highlights: [
@@ -88,7 +88,7 @@ export const POWDERS: Record<string, Powder> = {
     accent: '#86b23a',
     accentInk: '#5e7d24',
     accentSoft: '#f1f6e4',
-    image: '/images/bot/bot dau xanh rau ma.jpg',
+    image: '/images/bot/bot-dau-xanh-rau-ma.jpg',
     ingredients:
       'Đường (đường kính trắng, đường gluco), bột đậu xanh (40%), bột rau má (10%), sữa bột, hương liệu vani tổng hợp.',
     highlights: [
@@ -114,7 +114,7 @@ export const POWDERS: Record<string, Powder> = {
     accent: '#e0a32e',
     accentInk: '#986a14',
     accentSoft: '#fbf2dd',
-    image: '/images/bot/bot dau xanh sua dua.jpg',
+    image: '/images/bot/bot-dau-xanh-sua-dua.jpg',
     ingredients:
       'Đường (đường kính trắng, đường gluco), bột đậu xanh (30%), bột sữa dừa (20%), sữa bột, hương liệu vani tổng hợp.',
     highlights: [
@@ -140,7 +140,7 @@ export const POWDERS: Record<string, Powder> = {
     accent: '#5c9a3e',
     accentInk: '#3f6e2a',
     accentSoft: '#eaf3e2',
-    image: '/images/bot/bot dau xanh matcha.jpg',
+    image: '/images/bot/bot-dau-xanh-matcha.jpg',
     ingredients:
       'Đường (đường kính trắng, đường gluco), bột đậu xanh (45%), bột matcha trà xanh (2,5%), sữa bột, hương liệu vani tổng hợp.',
     highlights: [
@@ -166,7 +166,7 @@ export const POWDERS: Record<string, Powder> = {
     accent: '#3f7d4e',
     accentInk: '#2c5c39',
     accentSoft: '#e9f0e6',
-    image: '/images/bot/bot dau xanh rau ma khong them duong.jpg',
+    image: '/images/bot/bot-dau-xanh-rau-ma-khong-duong.jpg',
     ingredients: 'Bột đậu xanh (80%), bột sữa dừa, bột rau má (8%), bột matcha trà xanh.',
     highlights: [
       { title: '80% đậu xanh nguyên chất', body: 'Tỷ lệ đậu xanh rất cao — đạm 22,2 g/100 g, giàu dưỡng chất.' },
@@ -192,7 +192,7 @@ export const POWDERS: Record<string, Powder> = {
     accent: '#c79a3a',
     accentInk: '#8f6816',
     accentSoft: '#f8f1dc',
-    image: '/images/bot/bot dau xanh sua dua khong them duong (2).jpg',
+    image: '/images/bot/bot-dau-xanh-sua-dua-khong-duong.jpg',
     ingredients: 'Bột đậu xanh (74%), bột sữa dừa (20%), bột cà rốt, bột nghệ.',
     highlights: [
       { title: '74% đậu xanh nguyên chất', body: 'Đạm 19,8 g/100 g, giàu dưỡng chất từ đậu xanh.' },
