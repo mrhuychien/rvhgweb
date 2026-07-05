@@ -9,6 +9,8 @@ interface Props {
   image?: string;
   heroImage?: string;
   heading?: string;
+  /** Heading with inline markup (e.g. an auto-updating year span). Takes precedence over `heading`. */
+  headingHtml?: string;
   eyebrow?: string;
   lede?: string;
   breadcrumbs?: { name: string; url: string }[];
@@ -21,6 +23,7 @@ const {
   image,
   heroImage,
   heading,
+  headingHtml,
   eyebrow,
   lede,
   jsonLd,
@@ -32,7 +35,7 @@ const {
     <header class="rvhg-page__hero">
       <div class="rvhg-container">
         {eyebrow && <p class="rvhg-eyebrow">{eyebrow}</p>}
-        <h1>{heading ?? title}</h1>
+        {headingHtml ? <h1 set:html={headingHtml}></h1> : <h1>{heading ?? title}</h1>}
         {lede && <p class="rvhg-page__lede">{lede}</p>}
       </div>
       {heroImage && (

@@ -65,6 +65,12 @@ export const COMPANY = {
   ],
 } as const;
 
+/** Founding year — single source for the auto-updating "số năm kinh nghiệm". */
+export const FOUNDED_YEAR = 1997;
+/** Years since founding, computed at build time; the client bumps it to the
+ *  visitor's current year (see the [data-years-since] updater in BaseLayout). */
+export const YEARS_EXPERIENCE = Math.max(0, new Date().getFullYear() - FOUNDED_YEAR);
+
 /** Brand assets — mirrored from the original wp-content into /images/legacy/ in Phase 1.
  * If a file is missing it falls back to the inline SVG mark in Header/Footer. */
 export const ASSETS = {
@@ -100,8 +106,8 @@ export const MEDIA_MENTIONS: { name: string; url: string }[] = [
 /** Nine reasons / "Bí quyết thành công" — distilled from the live home page. */
 export const REASONS: { title: string; body: string }[] = [
   {
-    title: 'Kinh nghiệm 28 năm',
-    body: 'Khởi nghiệp từ 1997. 28 năm sản xuất và kinh doanh bánh đậu xanh tại thị trường Việt Nam và xuất khẩu.',
+    title: `Kinh nghiệm <span data-years-since="${FOUNDED_YEAR}">${YEARS_EXPERIENCE}</span> năm`,
+    body: `Khởi nghiệp từ ${FOUNDED_YEAR}. <span data-years-since="${FOUNDED_YEAR}">${YEARS_EXPERIENCE}</span> năm sản xuất và kinh doanh bánh đậu xanh tại thị trường Việt Nam và xuất khẩu.`,
   },
   {
     title: 'Nguyên liệu chất lượng',

@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
 import Motion from '../components/Motion.astro';
-import { SITE, REASONS, FEATURED, DISTRIBUTION_LOGOS, MEDIA_LOGOS } from '../data/site';
+import { SITE, REASONS, FEATURED, DISTRIBUTION_LOGOS, MEDIA_LOGOS, YEARS_EXPERIENCE } from '../data/site';
 import { POWDERS, POWDER_SINGLES, assetUrl } from '../data/powders';
 
 const lines = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
@@ -62,7 +62,7 @@ const powderSlides = [
       </figure>
 
       <ul class="rvhg-hero3d__stats">
-        <li><span class="rvhg-countup" data-countup="28">28</span><small>Năm kinh nghiệm</small></li>
+        <li><span class="rvhg-countup" data-countup={YEARS_EXPERIENCE} data-years-since="1997">{YEARS_EXPERIENCE}</span><small>Năm kinh nghiệm</small></li>
         <li><span>5★</span><small>OCOP Quốc gia</small></li>
         <li><span class="rvhg-countup" data-countup="6">6</span><small>Thị trường xuất khẩu</small></li>
         <li><span>ISO</span><small>22000:2018</small></li>
@@ -82,8 +82,8 @@ const powderSlides = [
       <ul class="rvhg-home-reasons">
         {REASONS.map((r, i) => (
           <li data-reveal style={`--reveal-delay:${(i % 3) * 90}ms`}>
-            <h3>{r.title}</h3>
-            <p>{r.body}</p>
+            <h3 set:html={r.title}></h3>
+            <p set:html={r.body}></p>
           </li>
         ))}
       </ul>

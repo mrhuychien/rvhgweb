@@ -26,7 +26,10 @@
     function countUp(el) {
       if (el.dataset.done) return;
       el.dataset.done = '1';
-      var target = parseFloat(el.dataset.countup) || 0;
+      // [data-years-since] wins so the counter reflects the visitor's current year
+      var target = el.dataset.yearsSince
+        ? Math.max(0, new Date().getFullYear() - parseInt(el.dataset.yearsSince, 10))
+        : (parseFloat(el.dataset.countup) || 0);
       if (reduce) { el.textContent = String(target); return; }
       var dur = 1500, t0 = performance.now();
       (function tick(now) {

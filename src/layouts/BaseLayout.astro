@@ -105,6 +105,27 @@ const FB_PIXEL = import.meta.env.PUBLIC_FB_PIXEL ?? '';
     </main>
     <Footer />
 
+    <!-- Auto-updates "số năm" numerals ([data-years-since]) to the visitor's
+         current year, so the count stays correct even between deploys. The
+         animated hero counter (.rvhg-countup) is handled by Motion instead. -->
+    <script is:inline>
+      (function () {
+        function updateYears() {
+          var now = new Date().getFullYear();
+          document.querySelectorAll('[data-years-since]').forEach(function (el) {
+            if (el.classList.contains('rvhg-countup')) return;
+            var since = parseInt(el.getAttribute('data-years-since'), 10);
+            if (since) el.textContent = String(Math.max(0, now - since));
+          });
+        }
+        updateYears();
+        if (!window.__rvhgYears) {
+          window.__rvhgYears = 1;
+          document.addEventListener('astro:page-load', updateYears);
+        }
+      })();
+    </script>
+
     <!-- Machine translation (Google) — adds EN / JA / KO / ZH / FR like the old site -->
     <div id="google_translate_element" aria-hidden="true" transition:persist></div>
     <script is:inline>
