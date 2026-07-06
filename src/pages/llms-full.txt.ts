@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { SITE, COMPANY } from '../data/site';
-import { postSlug } from '../lib/posts';
+import { postSlug, isPublished } from '../lib/posts';
 
 export const prerender = true;
 
@@ -15,7 +15,7 @@ export const GET: APIRoute = async () => {
   const [pages, productCategories, posts, policies] = await Promise.all([
     getCollection('pages'),
     getCollection('productCategories'),
-    getCollection('posts', (p) => !p.data.draft),
+    getCollection('posts', isPublished),
     getCollection('policies'),
   ]);
 

@@ -4,10 +4,10 @@ import { getCollection, render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
 import PolicyLayout from '../../layouts/PolicyLayout.astro';
 import PageLayout from '../../layouts/PageLayout.astro';
-import { postSlug } from '../../lib/posts';
+import { postSlug, isPublished } from '../../lib/posts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', (p) => !p.data.draft);
+  const posts = await getCollection('posts', isPublished);
   const policies = await getCollection('policies');
   const pages = (await getCollection('pages')).filter((p) => !p.data.standalone);
 

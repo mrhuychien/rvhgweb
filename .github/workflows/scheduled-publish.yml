@@ -1,0 +1,45 @@
+name: Đăng bài theo lịch
+
+# Build lại website mỗi ngày để "mở khoá" các bài viết có publishDate đã tới
+# (cơ chế đăng bài hẹn giờ — xem src/lib/posts.ts::isPublished).
+#
+# Cần 1 secret: VERCEL_DEPLOY_HOOK
+#   Lấy tại: Vercel → Project rvhgweb → Settings → Git → Deploy Hooks
+#   → tạo hook (branch production) → copy URL → GitHub repo → Settings →
+#     Secrets and variables → Actions → New repository secret:
+#     Name = VERCEL_DEPLOY_HOOK, Value = <URL vừa copy>
+#
+# Lưu ý: lịch (schedule) chỉ chạy khi workflow này đã nằm trên nhánh mặc định
+# (main). Nếu chưa cấu hình secret, job sẽ bỏ qua êm (không báo lỗi đỏ).
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 00:00 UTC = 07:00 giờ Việt Nam, mỗi ngày
+  workflow_dispatch: {} # cho phép bấm chạy tay từ tab Actions
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scheduled-publish
+  cancel-in-progress: false
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Kích hoạt build lại trên Vercel
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::warning::Chưa cấu hình secret VERCEL_DEPLOY_HOOK — bỏ qua build theo lịch."
+            exit 0
+          fi
+          echo "Gọi Vercel Deploy Hook để build lại…"
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST "$HOOK")
+          echo "Deploy hook trả về HTTP $code"
+          case "$code" in
+            2*) echo "OK — Vercel đang build lại; bài tới hạn sẽ được đăng." ;;
+            *)  echo "::error::Deploy hook thất bại (HTTP $code)"; exit 1 ;;
+          esac

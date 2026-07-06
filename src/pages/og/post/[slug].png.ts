@@ -1,11 +1,12 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { renderOg } from '../../../lib/og';
+import { isPublished } from '../../../lib/posts';
 
 export const prerender = true;
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', (p) => !p.data.draft);
+  const posts = await getCollection('posts', isPublished);
   return posts.map((p) => ({ params: { slug: p.id }, props: { entry: p } }));
 }
 
