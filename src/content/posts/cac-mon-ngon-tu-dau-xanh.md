@@ -65,6 +65,12 @@ Bột đậu xanh Rồng Vàng Hoàng Gia có tới 6 vị để đổi khẩu v
 
 Sáng tạo hơn nữa là kem đậu xanh mát lạnh, hay sinh tố đậu xanh sữa dừa cho ngày hè. Vị bùi đặc trưng của đậu xanh quyện với độ béo của sữa, cốt dừa tạo nên món tráng miệng vừa lạ vừa quen. Chính khả năng "biến hình" này cho thấy vì sao đậu xanh bền bỉ trong bếp Việt: từ món cổ truyền đến món tân thời, hạt đậu nhỏ ấy đều có chỗ đứng. Bạn hoàn toàn có thể tận dụng bột đậu xanh pha sẵn làm nền cho các món kem, sữa hạt này để tiết kiệm thời gian.
 
+## Chọn và sơ chế đậu xanh thế nào cho món ngon?
+
+Chất lượng món ăn bắt đầu từ khâu chọn đậu. **Nên chọn hạt đậu xanh đều, chắc, màu tươi, không mốc hay mọt; đậu đãi vỏ cho món cần độ mịn, để nguyên vỏ khi muốn tăng chất xơ và độ mát.** Trước khi nấu, ngâm đậu vài giờ cho mềm sẽ giúp đậu nhanh nhừ và tiết kiệm thời gian đun.
+
+Với món cần sánh mịn như chè nhuyễn, bánh hay sữa hạt, đậu đãi vỏ rồi nấu chín, tán hoặc xay kỹ sẽ cho kết cấu mượt. Với cháo hay chè nguyên hạt, chỉ cần ninh vừa tới để hạt còn bùi, không nát. Nếu không có thời gian sơ chế, các sản phẩm chế biến sẵn từ đậu xanh — như bột pha sẵn hay bánh đóng hộp — là cách giữ trọn hương vị mà vẫn nhanh gọn cho ngày bận rộn.
+
 ## Mua sản phẩm đậu xanh tiện lợi ở đâu?
 
 Nếu bạn muốn thưởng thức vị đậu xanh mà không có thời gian nấu, các sản phẩm tiện lợi của Rồng Vàng Hoàng Gia là gợi ý đáng cân nhắc: bánh đậu xanh mềm tan để thưởng trà, bột đậu xanh pha sẵn 6 vị chỉ cần nước sôi, và cả chè đậu đen cốt dừa đóng gói cho những ngày thèm món mát. Thương hiệu có bánh đậu xanh đầu tiên và duy nhất cả nước đạt OCOP 5 sao Quốc gia 2024, làm từ năm 1997 và không dùng chất bảo quản.
