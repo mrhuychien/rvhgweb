@@ -113,8 +113,8 @@
   /* ---- Lacquer (oxblood — dark surfaces + primary) ---- */
   --color-lacquer-700: #6e2226;
   --color-lacquer-800: #571a1d;
-  --color-lacquer-900: #3d1114;
-  --color-lacquer-950: #2a0c0e;
+  --color-lacquer-900: #4c1417;
+  --color-lacquer-950: #380f11;
 
   /* ---- Seal (cinnabar — triện + tem only) ---- */
   --color-seal-400: #c0473b;
@@ -223,14 +223,14 @@
   --color-mute-soft: #8c7c6b;
   --color-line: #e4dac6;         /* warm hairline */
   --color-line-soft: #ece3d3;
-  --color-night: #2a0c0e;        /* lacquer-950 (was #000) */
-  --color-night-soft: #3d1114;   /* lacquer-900 */
+  --color-night: #380f11;        /* lacquer-950 (was #000) */
+  --color-night-soft: #4c1417;   /* lacquer-900 */
   --color-night-text: #fbf8f1;
   --color-night-mute: #cbbba0;   /* warm taupe on dark */
 
   /* primary button = oxblood lacquer (§0 rule 2) */
   --color-primary: #571a1d;
-  --color-primary-hover: #3d1114;
+  --color-primary-hover: #4c1417;
   --color-primary-foreground: #fbf8f1;
 
   /* brand legacy names kept pointing at correct hues */
