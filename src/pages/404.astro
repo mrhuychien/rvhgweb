@@ -3,40 +3,101 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Không tìm thấy trang (404)" description="Trang bạn tìm không tồn tại hoặc đã được di chuyển." noindex={true}>
-  <section class="rvhg-container rvhg-404">
-    <p class="rvhg-eyebrow">404</p>
-    <h1>Không tìm thấy trang.</h1>
-    <p>Trang có thể đã được di chuyển. Quay lại trang chủ hoặc khám phá sản phẩm.</p>
-    <div class="rvhg-404__cta">
-      <a class="rvhg-btn" href="/">Về trang chủ</a>
-      <a class="rvhg-btn rvhg-btn--ghost" href="/san-pham/">Xem sản phẩm</a>
+  <section class="rvhg-404 rvhg-band-night">
+    <div class="rvhg-404__grid" aria-hidden="true"></div>
+    <div class="rvhg-404__orbit" aria-hidden="true"><span>404</span></div>
+    <div class="rvhg-container rvhg-404__inner">
+      <p class="rvhg-eyebrow">Lost in the archive</p>
+      <h1>Trang này đã rời<br/><em>khỏi hành trình.</em></h1>
+      <p>Đường dẫn có thể đã được thay đổi. Bạn có thể quay lại trang chủ hoặc tiếp tục khám phá sản phẩm.</p>
+      <div class="rvhg-404__cta">
+        <a class="rvhg-btn" href="/">Về trang chủ</a>
+        <a class="rvhg-btn rvhg-btn--ghost" href="/san-pham/">Xem sản phẩm</a>
+      </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
   .rvhg-404 {
-    padding-block: 4.5rem 6rem;
-    text-align: center;
+    position: relative;
+    isolation: isolate;
+    min-height: 72svh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding-block: 5rem;
+    background:
+      radial-gradient(42rem 30rem at 75% 42%, rgb(133 30 35 / 0.5), transparent 72%),
+      linear-gradient(135deg, #28070a, #140205);
   }
-  @media (min-width: 768px) {
-    .rvhg-404 { padding-block: 7rem 8rem; }
+  .rvhg-404__grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.2;
+    background:
+      linear-gradient(rgb(240 210 146 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(240 210 146 / 0.08) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(circle at 70% 50%, black, transparent 72%);
+  }
+  .rvhg-404__inner { position: relative; z-index: 2; }
+  .rvhg-404 .rvhg-eyebrow { color: #dfbc74; }
+  .rvhg-404__orbit {
+    position: absolute;
+    right: 4%;
+    width: min(48vw, 40rem);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgb(240 210 146 / 0.22);
+    border-radius: 50%;
+    transform: rotateX(65deg) rotateZ(-12deg);
+  }
+  .rvhg-404__orbit::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #f0d292;
+    box-shadow: 0 0 20px #f0d292;
+  }
+  .rvhg-404__orbit span {
+    color: rgb(240 210 146 / 0.08);
+    font-family: var(--font-display);
+    font-size: 18vw;
+    transform: rotateZ(12deg) rotateX(-65deg);
   }
   .rvhg-404 h1 {
-    margin-top: 0.6rem;
-    font-size: var(--text-headline);
+    max-width: 12ch;
+    margin-top: 1rem;
+    color: #fff8ea;
+    font-size: clamp(3.1rem, 7vw, 7rem);
+    font-weight: 500;
+    line-height: 0.94;
+    letter-spacing: -0.055em;
   }
-  .rvhg-404 p {
-    margin: 1.25rem auto 0;
-    color: var(--color-mute);
-    max-width: 38rem;
-    font-size: clamp(1rem, 0.5vw + 0.95rem, 1.2rem);
+  .rvhg-404 h1 em {
+    color: #e7c986;
+    font-weight: 400;
+  }
+  .rvhg-404__inner > p:not(.rvhg-eyebrow) {
+    max-width: 34rem;
+    margin-top: 1.4rem;
+    color: rgb(255 248 234 / 0.54);
+    font-size: 0.95rem;
+    line-height: 1.72;
   }
   .rvhg-404__cta {
     margin-top: 2rem;
     display: flex;
-    gap: 0.75rem;
-    justify-content: center;
+    gap: 0.75rem 1rem;
     flex-wrap: wrap;
+  }
+  @media (max-width: 700px) {
+    .rvhg-404__orbit { right: -34%; width: 110vw; opacity: 0.55; }
   }
 </style>

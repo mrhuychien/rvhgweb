@@ -35,6 +35,7 @@ const fallbackStyle = accent
 
 <Wrapper class:list={['rvhg-tile', href && 'rvhg-tile--link']} href={href}>
   <div class="rvhg-tile__media">
+    <span class="rvhg-tile__grid" aria-hidden="true"></span>
     {image ? (
       <LegacyImg src={image} alt={name} width={600} height={600} loading={loading} sizes="(max-width: 600px) 50vw, 25vw" />
     ) : (
@@ -43,10 +44,11 @@ const fallbackStyle = accent
       </div>
     )}
     {isOcop5Star && <span class="rvhg-tile__badge">OCOP 5★</span>}
+    <span class="rvhg-tile__view" aria-hidden="true">Xem ↗</span>
   </div>
   <Caption class="rvhg-tile__name">
-    {name}
-    {weight && <small> · {weight}</small>}
+    <span>{name}</span>
+    {weight && <small>{weight}</small>}
   </Caption>
 </Wrapper>
 
@@ -55,23 +57,48 @@ const fallbackStyle = accent
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0;
+    border: 1px solid var(--color-line);
+    background: color-mix(in srgb, #fff 78%, var(--color-paper));
+    box-shadow: 0 22px 60px -48px rgb(42 9 11 / 0.52);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .rvhg-tile:hover {
+    border-color: color-mix(in srgb, var(--brass) 58%, var(--color-line));
+    box-shadow: 0 32px 85px -48px rgb(42 9 11 / 0.58);
   }
   .rvhg-tile__media {
     position: relative;
     aspect-ratio: 1 / 1;
-    background: var(--color-paper-tint);
-    border-radius: var(--radius-card);
+    display: grid;
+    place-items: center;
+    padding: 0.75rem;
+    background:
+      radial-gradient(circle at 50% 44%, rgb(255 255 255 / 0.95), transparent 54%),
+      var(--color-paper-tint);
     overflow: hidden;
   }
+  .rvhg-tile__grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.38;
+    background:
+      linear-gradient(rgb(116 80 42 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(116 80 42 / 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle, black, transparent 72%);
+  }
   .rvhg-tile__media :global(img) {
+    position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+    object-fit: contain;
+    filter: drop-shadow(0 24px 22px rgb(66 23 19 / 0.14));
+    transition: transform 0.65s var(--ease-out-expo, ease), filter 0.45s ease;
   }
   .rvhg-tile:hover .rvhg-tile__media :global(img) {
-    transform: scale(1.03);
+    transform: scale(1.045) translateY(-4px);
+    filter: drop-shadow(0 30px 26px rgb(66 23 19 / 0.2));
   }
   .rvhg-tile__plate {
     width: 100%;
@@ -87,25 +114,53 @@ const fallbackStyle = accent
   }
   .rvhg-tile__badge {
     position: absolute;
+    z-index: 2;
     top: 0.75rem;
     left: 0.75rem;
-    background: var(--color-seal-600, #8f2b22);
-    color: var(--color-paper-50, #fbf8f1);
-    font-size: 0.65rem;
+    border: 1px solid rgb(255 248 234 / 0.2);
+    background: rgb(113 25 31 / 0.92);
+    color: #fff8ea;
+    font-size: 0.58rem;
     font-weight: 600;
-    letter-spacing: 0.05em;
-    padding: 0.3rem 0.55rem;
-    border-radius: var(--radius-sm, 2px);
+    letter-spacing: 0.08em;
+    padding: 0.35rem 0.55rem;
+    text-transform: uppercase;
   }
+  .rvhg-tile__view {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 2;
+    padding: 0.35rem 0.5rem;
+    color: #fff8ea;
+    background: rgb(34 5 8 / 0.78);
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.35s var(--ease-out-expo, ease);
+  }
+  .rvhg-tile:hover .rvhg-tile__view { opacity: 1; transform: none; }
   .rvhg-tile__name {
-    font-size: 0.95rem;
-    line-height: 1.35;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 1rem;
+    border-top: 1px solid var(--color-line);
     color: var(--color-ink);
-    font-weight: 500;
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.35;
   }
   .rvhg-tile__name small {
     color: var(--color-mute);
     font-weight: 400;
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
   }
 
   /* Clickable variant */
@@ -115,8 +170,6 @@ const fallbackStyle = accent
     cursor: pointer;
   }
   .rvhg-tile--link:hover .rvhg-tile__name {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: var(--color-link-underline, var(--brass));
+    color: #72191f;
   }
 </style>

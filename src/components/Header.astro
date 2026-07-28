@@ -1,326 +1,489 @@
 ---
-import { NAV } from '../data/site';
+import { NAV, SITE } from '../data/site';
 
 const path = Astro.url.pathname;
 const isActive = (href: string) =>
   href === '/' ? path === '/' : path === href || path.startsWith(href);
 
-// Split the nav into two groups that flank the central emblem (old-site layout).
-const mid = Math.ceil(NAV.length / 2);
-const navLeft = NAV.slice(0, mid);
-const navRight = NAV.slice(mid);
-
-// Languages offered by the Google machine-translation switcher.
 const LANGS = [
-  { code: 'vi', label: 'Tiếng Việt' },
-  { code: 'en', label: 'English' },
-  { code: 'ja', label: '日本語' },
-  { code: 'ko', label: '한국어' },
-  { code: 'zh-CN', label: '中文' },
-  { code: 'fr', label: 'Français' },
+  { code: 'vi', label: 'VI' },
+  { code: 'en', label: 'EN' },
+  { code: 'ja', label: 'JP' },
+  { code: 'ko', label: 'KR' },
+  { code: 'zh-CN', label: 'CN' },
+  { code: 'fr', label: 'FR' },
 ];
 ---
 
 <header class="rvhg-header" data-rvhg-header>
-  <div class="rvhg-header__inner">
-    <nav class="rvhg-header__side rvhg-header__side--left" aria-label="Điều hướng (trái)">
-      <ul>
-        {navLeft.map((item) => (
-          <li>
-            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+  <div class="rvhg-header__shell">
+    <div class="rvhg-header__inner">
+      <a href="/" class="rvhg-header__brand" aria-label={`Trang chủ — ${SITE.name}`}>
+        <span class="rvhg-header__mark">
+          <img
+            src="/images/legacy/logo-seal.png"
+            alt=""
+            width="512"
+            height="512"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <span class="rvhg-header__mark-ring" aria-hidden="true"></span>
+        </span>
+        <span class="rvhg-header__wordmark">
+          <strong>Rồng Vàng</strong>
+          <small>Hoàng Gia · Since 1997</small>
+        </span>
+      </a>
 
-    <a href="/" class="rvhg-header__emblem" aria-label="Trang chủ — Rồng Vàng Hoàng Gia">
-      <img
-        src="/images/legacy/logo-seal.png"
-        alt="Rồng Vàng Hoàng Gia — Đặc sản nức tiếng Hải Dương"
-        width="512" height="512"
-        decoding="async" fetchpriority="high"
-      />
-    </a>
+      <nav class="rvhg-header__nav" aria-label="Điều hướng chính">
+        <ul>
+          {NAV.map((item, i) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+                style={`--nav-index:${i}`}
+              >
+                <span>{item.label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-    <nav class="rvhg-header__side rvhg-header__side--right" aria-label="Điều hướng (phải)">
-      <ul>
-        {navRight.map((item) => (
-          <li>
-            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
-          </li>
-        ))}
-        <li class="rvhg-header__lang">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-            <circle cx="12" cy="12" r="9" />
-            <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+      <div class="rvhg-header__actions">
+        <label class="rvhg-header__lang">
+          <span class="sr-only">Ngôn ngữ / Language</span>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18M12 3c2.5 2.7 3.7 5.7 3.7 9S14.5 18.3 12 21c-2.5-2.7-3.7-5.7-3.7-9S9.5 5.7 12 3Z"></path>
           </svg>
-          <select class="rvhg-lang-select" data-rvhg-lang aria-label="Ngôn ngữ / Language">
-            {LANGS.map((l) => <option value={l.code}>{l.label}</option>)}
+          <select class="rvhg-lang-select" data-rvhg-lang>
+            {LANGS.map((lang) => <option value={lang.code}>{lang.label}</option>)}
           </select>
-        </li>
-      </ul>
-    </nav>
+        </label>
+        <a class="rvhg-header__cta" href="/san-pham/">
+          <span>Khám phá</span>
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"></path>
+          </svg>
+        </a>
+      </div>
 
-    <button
-      type="button"
-      class="rvhg-header__toggle"
-      aria-expanded="false"
-      aria-controls="rvhg-mobile-nav"
-      aria-label="Mở menu"
-      data-rvhg-menu-toggle
-    >
-      <svg viewBox="0 0 20 20" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-        <line x1="2" y1="6" x2="18" y2="6" />
-        <line x1="2" y1="12" x2="18" y2="12" />
-      </svg>
-    </button>
+      <button
+        type="button"
+        class="rvhg-header__toggle"
+        aria-expanded="false"
+        aria-controls="rvhg-mobile-nav"
+        aria-label="Mở menu"
+        data-rvhg-menu-toggle
+      >
+        <span></span><span></span>
+      </button>
+    </div>
   </div>
 
-  <nav id="rvhg-mobile-nav" class="rvhg-mobile-nav" aria-label="Điều hướng (di động)" hidden>
+  <nav id="rvhg-mobile-nav" class="rvhg-mobile-nav" aria-label="Điều hướng di động" hidden>
+    <div class="rvhg-mobile-nav__head">
+      <span>Điều hướng</span>
+      <span>RVHG / 1997—2026</span>
+    </div>
     <ul>
-      {NAV.map((item) => (
+      {NAV.map((item, i) => (
         <li>
-          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+            <span class="rvhg-mobile-nav__no">{String(i + 1).padStart(2, '0')}</span>
+            <span>{item.label}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
         </li>
       ))}
-      <li class="rvhg-mobile-nav__lang">
-        <span>Ngôn ngữ / Language</span>
-        <select class="rvhg-lang-select rvhg-lang-select--mobile" data-rvhg-lang aria-label="Ngôn ngữ / Language">
-          {LANGS.map((l) => <option value={l.code}>{l.label}</option>)}
-        </select>
-      </li>
     </ul>
+    <div class="rvhg-mobile-nav__foot">
+      <label>
+        <span>Ngôn ngữ</span>
+        <select class="rvhg-lang-select rvhg-lang-select--mobile" data-rvhg-lang>
+          {LANGS.map((lang) => <option value={lang.code}>{lang.label}</option>)}
+        </select>
+      </label>
+      <a href="/lien-he/">Liên hệ hợp tác →</a>
+    </div>
   </nav>
+  <span class="rvhg-header__beam" aria-hidden="true"></span>
 </header>
 
 <style>
   .rvhg-header {
     position: sticky;
     top: 0;
-    z-index: 50;
-    color: var(--color-paper-50, #fbf8f1);
-    background:
-      radial-gradient(120% 140% at 50% -10%, #701a1b 0%, #4c1417 45%, #380f11 100%);
-    border-bottom: 1px solid color-mix(in srgb, var(--brass) 45%, transparent);
+    z-index: 80;
+    height: 88px;
+    color: #fff8ea;
+    background: color-mix(in srgb, #220609 86%, transparent);
+    border-bottom: 1px solid rgb(230 195 126 / 0.14);
+    backdrop-filter: blur(22px) saturate(135%);
+    -webkit-backdrop-filter: blur(22px) saturate(135%);
+    transition:
+      height 0.45s var(--ease-out-expo, ease),
+      background 0.45s ease,
+      box-shadow 0.45s ease;
   }
-  /* brass corner brackets — restrained nod to the lacquer frame */
-  .rvhg-header::before,
-  .rvhg-header::after {
+  .rvhg-header::before {
     content: '';
     position: absolute;
-    top: 10px;
-    width: 26px;
-    height: 26px;
-    border-top: 1px solid color-mix(in srgb, var(--color-brass-400, #c5a878) 70%, transparent);
+    inset: 0;
     pointer-events: none;
+    opacity: 0.34;
+    background:
+      linear-gradient(90deg, transparent, rgb(255 227 170 / 0.08) 50%, transparent),
+      radial-gradient(80% 120% at 50% -80%, rgb(208 43 47 / 0.42), transparent 70%);
   }
-  .rvhg-header::before { left: 12px;  border-left: 1px solid color-mix(in srgb, var(--color-brass-400, #c5a878) 70%, transparent); }
-  .rvhg-header::after  { right: 12px; border-right: 1px solid color-mix(in srgb, var(--color-brass-400, #c5a878) 70%, transparent); }
-
+  .rvhg-header[data-scrolled] {
+    height: 72px;
+    background: color-mix(in srgb, #1b0508 94%, transparent);
+    box-shadow: 0 20px 70px rgb(10 0 2 / 0.3);
+  }
+  .rvhg-header__shell,
   .rvhg-header__inner {
-    max-width: 1180px;
+    height: 100%;
+  }
+  .rvhg-header__inner {
+    position: relative;
+    width: min(100% - 2rem, 1440px);
     margin-inline: auto;
-    padding-inline: 1.5rem;
-    min-height: 92px;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: minmax(230px, 0.9fr) minmax(500px, 1.8fr) minmax(210px, 0.8fr);
     align-items: center;
-    gap: 1.25rem;
-    transition: min-height 0.3s var(--ease-refined, ease);
+    gap: clamp(1rem, 2vw, 2.5rem);
   }
-  @media (min-width: 768px) {
-    .rvhg-header__inner { padding-inline: 2.5rem; }
-  }
-  .rvhg-header[data-scrolled] .rvhg-header__inner { min-height: 72px; }
 
-  /* central emblem */
-  .rvhg-header__emblem {
+  .rvhg-header__brand {
     display: inline-flex;
-    justify-self: center;
-    line-height: 0;
-  }
-  .rvhg-header__emblem img {
-    width: 76px;
-    height: 76px;
-    border-radius: 9999px;
-    object-fit: cover;
-    display: block;
-    /* hairline brass ring lifts the red seal off the maroon header */
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-brass-400, #c5a878) 55%, transparent);
-    transition: width 0.3s var(--ease-refined, ease), height 0.3s var(--ease-refined, ease);
-  }
-  .rvhg-header[data-scrolled] .rvhg-header__emblem img { width: 60px; height: 60px; }
-
-  /* flanking nav groups */
-  .rvhg-header__side ul {
-    display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.75rem;
+    width: fit-content;
+    color: inherit;
+    text-decoration: none;
+  }
+  .rvhg-header__mark {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    transition: transform 0.45s var(--ease-out-expo, ease);
+  }
+  .rvhg-header__brand:hover .rvhg-header__mark { transform: rotate(-5deg) scale(1.04); }
+  .rvhg-header__mark img {
+    position: relative;
+    z-index: 1;
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .rvhg-header__mark-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgb(239 207 145 / 0.48);
+    border-radius: 50%;
+  }
+  .rvhg-header__mark-ring::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    top: -2px;
+    left: calc(50% - 2px);
+    border-radius: 50%;
+    background: #efcf91;
+    box-shadow: 0 0 14px #efcf91;
+  }
+  .rvhg-header__wordmark {
+    display: flex;
+    flex-direction: column;
+    gap: 0.14rem;
+    line-height: 1;
+  }
+  .rvhg-header__wordmark strong {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+  }
+  .rvhg-header__wordmark small {
+    color: rgb(244 222 181 / 0.58);
+    font-size: 0.58rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .rvhg-header__nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.15rem, 0.7vw, 0.7rem);
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .rvhg-header__side--left ul  { justify-content: flex-end; }
-  .rvhg-header__side--right ul { justify-content: flex-start; }
-  .rvhg-header__side a {
-    display: inline-block;
-    padding: 0.5rem 0.7rem;
-    font-size: 0.8rem;
+  .rvhg-header__nav a {
+    position: relative;
+    display: inline-flex;
+    padding: 0.65rem 0.58rem;
+    color: rgb(255 248 234 / 0.68);
+    font-size: clamp(0.68rem, 0.7vw, 0.78rem);
     font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--color-paper-50, #fbf8f1);
+    letter-spacing: 0.075em;
     text-decoration: none;
+    text-transform: uppercase;
     white-space: nowrap;
-    transition: color 0.18s var(--ease-refined, ease);
+    transition: color 0.25s ease;
   }
-  .rvhg-header__side a:hover { color: var(--color-brass-300, #d8c29a); }
-  .rvhg-header__side a[aria-current='page'] {
-    color: var(--color-brass-300, #d8c29a);
+  .rvhg-header__nav a::after {
+    content: '';
+    position: absolute;
+    left: 0.58rem;
+    right: 0.58rem;
+    bottom: 0.25rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #efcf91, transparent);
+    transform: scaleX(0);
+    transition: transform 0.35s var(--ease-out-expo, ease);
   }
+  .rvhg-header__nav a:hover,
+  .rvhg-header__nav a[aria-current='page'] { color: #fff8ea; }
+  .rvhg-header__nav a:hover::after,
+  .rvhg-header__nav a[aria-current='page']::after { transform: scaleX(1); }
 
-  /* language switcher */
+  .rvhg-header__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.65rem;
+  }
   .rvhg-header__lang {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    margin-left: 0.4rem;
-    padding-left: 0.7rem;
-    border-left: 1px solid color-mix(in srgb, var(--brass) 35%, transparent);
-    color: var(--color-brass-300, #d8c29a);
+    gap: 0.28rem;
+    color: rgb(255 248 234 / 0.62);
   }
   .rvhg-lang-select {
     appearance: none;
     -webkit-appearance: none;
-    background: transparent;
     border: 0;
-    color: var(--color-paper-50, #fbf8f1);
+    background: transparent;
+    color: inherit;
+    padding: 0.4rem 0.2rem;
     font: inherit;
-    font-size: 0.8rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     cursor: pointer;
-    padding: 0.3rem 0.2rem;
   }
-  .rvhg-lang-select:hover { color: var(--color-brass-300, #d8c29a); }
-  .rvhg-lang-select option { color: #1c1714; text-transform: none; }
+  .rvhg-lang-select option { color: #1c090b; }
+  .rvhg-header__cta {
+    min-height: 39px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid rgb(239 207 145 / 0.42);
+    color: #f5ddb0;
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  }
+  .rvhg-header__cta:hover {
+    color: #26070a;
+    background: #efcf91;
+    border-color: #efcf91;
+  }
 
-  /* mobile toggle */
   .rvhg-header__toggle {
     display: none;
-    grid-column: 1;
-    justify-self: start;
-    align-items: center;
-    justify-content: center;
-    padding: 0.4rem;
-    border: 0;
-    background: transparent;
-    color: var(--color-paper-50, #fbf8f1);
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgb(239 207 145 / 0.32);
+    background: rgb(255 255 255 / 0.035);
+    color: #fff8ea;
+    place-items: center;
     cursor: pointer;
   }
+  .rvhg-header__toggle span {
+    position: absolute;
+    width: 17px;
+    height: 1px;
+    background: currentColor;
+    transition: transform 0.3s ease;
+  }
+  .rvhg-header__toggle span:first-child { transform: translateY(-4px); }
+  .rvhg-header__toggle span:last-child { transform: translateY(4px); }
+  .rvhg-header__toggle[aria-expanded='true'] span:first-child { transform: rotate(45deg); }
+  .rvhg-header__toggle[aria-expanded='true'] span:last-child { transform: rotate(-45deg); }
 
-  /* mobile drawer */
+  .rvhg-header__beam {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: var(--rvhg-scroll, 0%);
+    height: 1px;
+    background: linear-gradient(90deg, #9f252a, #f0d292);
+    box-shadow: 0 0 12px rgb(240 210 146 / 0.65);
+    transition: width 0.08s linear;
+  }
+
   .rvhg-mobile-nav {
-    background: #380f11;
-    border-top: 1px solid color-mix(in srgb, var(--brass) 30%, transparent);
+    position: fixed;
+    inset: 72px 0 0;
+    z-index: -1;
+    min-height: calc(100svh - 72px);
+    overflow-y: auto;
+    padding: 1.5rem 1.25rem 2rem;
+    color: #fff8ea;
+    background:
+      radial-gradient(80% 55% at 100% 0%, rgb(133 30 34 / 0.42), transparent 72%),
+      #190407;
+  }
+  .rvhg-mobile-nav__head,
+  .rvhg-mobile-nav__foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: rgb(239 207 145 / 0.56);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
   }
   .rvhg-mobile-nav ul {
     list-style: none;
-    margin: 0;
-    padding: 0.5rem 1.5rem 1.25rem;
+    margin: 1.25rem 0;
+    padding: 0;
+    border-top: 1px solid rgb(239 207 145 / 0.16);
   }
-  .rvhg-mobile-nav a {
-    display: block;
-    padding: 0.9rem 0.25rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--color-paper-50, #fbf8f1);
-    text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--brass) 18%, transparent);
-  }
-  .rvhg-mobile-nav a[aria-current='page'] { color: var(--color-brass-300, #d8c29a); }
-  .rvhg-mobile-nav__lang {
-    display: flex;
+  .rvhg-mobile-nav li { border-bottom: 1px solid rgb(239 207 145 / 0.16); }
+  .rvhg-mobile-nav li a {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 0.25rem 0.25rem;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    color: #fff8ea;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 7vw, 2rem);
   }
-  .rvhg-mobile-nav__lang span {
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-brass-300, #d8c29a);
+  .rvhg-mobile-nav__no {
+    color: #c39d5d;
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
   }
+  .rvhg-mobile-nav li a > span:last-child {
+    color: rgb(239 207 145 / 0.5);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+  }
+  .rvhg-mobile-nav__foot {
+    align-items: center;
+    padding-top: 1rem;
+  }
+  .rvhg-mobile-nav__foot label { display: flex; align-items: center; gap: 0.5rem; }
+  .rvhg-mobile-nav__foot a { color: #efcf91; text-decoration: none; }
   .rvhg-lang-select--mobile {
-    border: 1px solid color-mix(in srgb, var(--brass) 35%, transparent);
-    border-radius: var(--radius-sm, 2px);
-    padding: 0.5rem 0.6rem;
+    color: #fff8ea;
+    border-bottom: 1px solid rgb(239 207 145 / 0.4);
   }
 
+  @media (max-width: 1180px) {
+    .rvhg-header__inner { grid-template-columns: minmax(195px, 0.8fr) 1.8fr auto; gap: 0.7rem; }
+    .rvhg-header__wordmark small { display: none; }
+    .rvhg-header__nav a { padding-inline: 0.4rem; font-size: 0.67rem; }
+    .rvhg-header__nav a::after { left: 0.4rem; right: 0.4rem; }
+    .rvhg-header__cta span { display: none; }
+  }
   @media (max-width: 900px) {
-    .rvhg-header__side { display: none; }
-    .rvhg-header::before, .rvhg-header::after { display: none; }
+    .rvhg-header { height: 72px; }
     .rvhg-header__inner {
-      position: relative;            /* anchor the absolutely-centred emblem */
+      width: min(100% - 1.5rem, 1440px);
       display: flex;
-      align-items: center;
-      min-height: 70px;
-      padding-inline: 1.25rem;
+      justify-content: space-between;
     }
-    .rvhg-header__toggle { display: inline-flex; }
-    /* dead-centre the emblem regardless of the hamburger width */
-    .rvhg-header__emblem {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .rvhg-header__emblem img { width: 62px; height: 62px; }
-    .rvhg-header[data-scrolled] .rvhg-header__inner { min-height: 60px; }
-    .rvhg-header[data-scrolled] .rvhg-header__emblem img { width: 52px; height: 52px; }
+    .rvhg-header__nav,
+    .rvhg-header__actions { display: none; }
+    .rvhg-header__toggle { position: relative; display: grid; }
+    .rvhg-header__mark { width: 48px; height: 48px; }
+    .rvhg-header__mark img { width: 41px; height: 41px; }
+  }
+  @media (max-width: 380px) {
+    .rvhg-header__wordmark strong { font-size: 0.9rem; }
   }
 </style>
 
 <script>
   function initHeader() {
-    const header = document.querySelector('[data-rvhg-header]');
+    const header = document.querySelector('[data-rvhg-header]') as HTMLElement | null;
     const toggle = document.querySelector('[data-rvhg-menu-toggle]') as HTMLButtonElement | null;
     const nav = document.getElementById('rvhg-mobile-nav');
-    if (!header || !toggle || !nav) return;
+    if (!header || !toggle || !nav || header.dataset.ready) return;
+    header.dataset.ready = 'true';
 
     const close = () => {
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Mở menu');
       nav.hidden = true;
+      document.body.classList.remove('rvhg-menu-open');
     };
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      nav.hidden = open;
-    });
-    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
 
-    // language switcher — reflect current language, switch on change
-    const m = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
-    const current = m ? decodeURIComponent(m[1]) : 'vi';
-    document.querySelectorAll('[data-rvhg-lang]').forEach((el) => {
-      const sel = el as HTMLSelectElement;
-      sel.value = current;
-      sel.addEventListener('change', () => {
-        const fn = (window as unknown as { rvhgSetLang?: (l: string) => void }).rvhgSetLang;
-        if (fn) fn(sel.value);
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.setAttribute('aria-label', isOpen ? 'Mở menu' : 'Đóng menu');
+      nav.hidden = isOpen;
+      document.body.classList.toggle('rvhg-menu-open', !isOpen);
+    });
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', close));
+
+    const match = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
+    const current = match ? decodeURIComponent(match[1]) : 'vi';
+    document.querySelectorAll('[data-rvhg-lang]').forEach((element) => {
+      const select = element as HTMLSelectElement;
+      select.value = current;
+      select.addEventListener('change', () => {
+        const setLanguage = (window as unknown as { rvhgSetLang?: (lang: string) => void }).rvhgSetLang;
+        if (setLanguage) setLanguage(select.value);
       });
     });
 
-    const onScroll = () => {
-      if (window.scrollY > 8) header.setAttribute('data-scrolled', '');
-      else header.removeAttribute('data-scrolled');
+    let ticking = false;
+    const update = () => {
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const progress = Math.min(100, Math.max(0, window.scrollY / max * 100));
+      header.style.setProperty('--rvhg-scroll', `${progress}%`);
+      header.toggleAttribute('data-scrolled', window.scrollY > 12);
+      ticking = false;
     };
-    onScroll();
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) close();
+      update();
+    }, { passive: true });
+    update();
   }
+
   initHeader();
-  document.addEventListener('astro:after-swap', initHeader);
+  document.addEventListener('astro:page-load', initHeader);
 </script>
