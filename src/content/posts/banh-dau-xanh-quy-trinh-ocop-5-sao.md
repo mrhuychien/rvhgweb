@@ -12,7 +12,7 @@ faq:
   - q: 'Quy trình sản xuất có gì đặc biệt?'
     a: 'Bánh đi qua các công đoạn chung: tuyển đậu, rang và xay mịn, phối trộn với đường và dầu thực vật, ép khuôn rồi đóng gói — tất cả đặt dưới hệ thống kiểm soát ISO 22000:2018 tại nhà xưởng 6.200 m². Điểm đặc biệt là kỷ luật xuyên suốt giúp chất lượng đồng đều giữa các mẻ.'
   - q: 'ISO 22000 nghĩa là gì?'
-    a: 'ISO 22000:2018 là tiêu chuẩn quốc tế về hệ thống quản lý an toàn thực phẩm. RVHG được Quacert cấp chứng nhận ngày 08/08/2023 (số HA 394/2.23.CIV) và áp dụng HACCP, nghĩa là mối nguy được phòng ngừa ngay trong quy trình thay vì chỉ kiểm tra ở khâu cuối.'
+    a: 'ISO 22000:2018 là tiêu chuẩn quốc tế về hệ thống quản lý an toàn thực phẩm. RVHG được Quacert cấp chứng nhận ngày 08/08/2026 (số HA 394/4.26.CIV) và áp dụng HACCP, nghĩa là mối nguy được phòng ngừa ngay trong quy trình thay vì chỉ kiểm tra ở khâu cuối.'
   - q: 'OCOP 5 sao đảm bảo điều gì cho người mua?'
     a: 'OCOP 5 sao là phân hạng cao nhất do Hội đồng cấp Trung ương công nhận và đạt tiêu chuẩn xuất khẩu. Với người mua, đó là cam kết chất lượng đã được kiểm chứng: nguyên liệu tuyển chọn, không chất bảo quản, sản xuất theo ISO 22000:2018 và nguồn gốc rõ ràng.'
   - q: 'Bánh đậu xanh RVHG có dùng chất bảo quản không?'
@@ -43,7 +43,7 @@ Chính sự nhất quán này tạo nên khác biệt. Một hộ làm thủ cô
 
 ISO 22000:2018 là **tiêu chuẩn quốc tế về hệ thống quản lý an toàn thực phẩm**, còn HACCP là phương pháp phân tích mối nguy và kiểm soát tại các điểm tới hạn trong quá trình sản xuất. Nói gọn, cả hai cùng trả lời một câu hỏi: làm thế nào để phòng ngừa rủi ro mất an toàn thực phẩm ngay từ trong quy trình, thay vì chỉ kiểm tra thành phẩm ở khâu cuối.
 
-RVHG áp dụng HACCP và được cấp chứng nhận ISO 22000:2018 (số HA 394/2.23.CIV, do Quacert cấp ngày 08/08/2023). Đây không phải tấm giấy để trưng bày: nó đồng nghĩa với việc từng lô đậu, từng công đoạn, từng thông số đều được giám sát theo một hệ thống được đánh giá độc lập. Với người mua, chứng nhận này là bảo chứng rằng độ an toàn của hộp bánh không phụ thuộc vào may rủi, mà vào một quy trình đã được chuẩn hoá.
+RVHG áp dụng HACCP và được cấp chứng nhận ISO 22000:2018 (số HA 394/4.26.CIV, do Quacert cấp ngày 08/08/2026). Đây không phải tấm giấy để trưng bày: nó đồng nghĩa với việc từng lô đậu, từng công đoạn, từng thông số đều được giám sát theo một hệ thống được đánh giá độc lập. Với người mua, chứng nhận này là bảo chứng rằng độ an toàn của hộp bánh không phụ thuộc vào may rủi, mà vào một quy trình đã được chuẩn hoá.
 
 ## Vì sao "không chất bảo quản" lại là một tiêu chí khắt khe?
 

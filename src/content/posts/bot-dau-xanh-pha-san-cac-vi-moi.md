@@ -140,7 +140,7 @@ Dòng này có hai vị, đều đóng hũ 500 g và mang nhãn "plant based" �
 
 Để dễ hình dung: các vị có đường có lượng đường tổng dao động 54–64 g trên 100 g, còn dòng không thêm đường chỉ 18–24 g — phần lớn đến tự nhiên từ nguyên liệu. Đồng thời lượng đạm nhảy vọt từ khoảng 8–12 g lên gần 20–22 g. Đây là lựa chọn hợp lý cho người tập luyện, người ăn kiêng có kiểm soát, hoặc đơn giản là người muốn cắt giảm đường mà không muốn từ bỏ thói quen uống một ly bột ấm.
 
-> Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (mã HA 394/2.23.CIV, do Quacert cấp ngày 08/08/2023). Và năm 2024, bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt chứng nhận OCOP 5 sao Quốc gia — một nền tảng chất lượng mà dòng bột đậu pha sẵn được kế thừa.
+> Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (mã HA 394/4.26.CIV, do Quacert cấp ngày 08/08/2026). Và năm 2024, bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt chứng nhận OCOP 5 sao Quốc gia — một nền tảng chất lượng mà dòng bột đậu pha sẵn được kế thừa.
 
 ## So sánh dinh dưỡng sáu vị
 
@@ -234,7 +234,7 @@ Một sản phẩm uống hằng ngày thì chất lượng và an toàn phải 
 
 Nguyên liệu chính là đậu xanh lòng vàng tuyển chọn, có nguồn gốc rõ ràng. Các nguyên liệu phối — cà rốt, rau má, sữa dừa, matcha — đều là nguyên liệu tự nhiên, được chọn theo tiêu chí hương vị và độ ổn định. Một chi tiết nhỏ nhưng thể hiện quan điểm làm nghề: trong thành phần đường của các vị có đường, chúng tôi dùng cả đường gluco bên cạnh đường kính, để vị ngọt dịu và hài hoà hơn.
 
-Về hệ thống quản lý, toàn bộ quy trình sản xuất đạt chứng nhận **ISO 22000:2018** — hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế, mã HA 394/2.23.CIV, do Quacert cấp ngày 08/08/2023. Đây là cùng một dây chuyền, cùng một chuẩn kiểm soát mà những sản phẩm bánh đậu xanh của chúng tôi đang áp dụng.
+Về hệ thống quản lý, toàn bộ quy trình sản xuất đạt chứng nhận **ISO 22000:2018** — hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế, mã HA 394/4.26.CIV, do Quacert cấp ngày 08/08/2026. Đây là cùng một dây chuyền, cùng một chuẩn kiểm soát mà những sản phẩm bánh đậu xanh của chúng tôi đang áp dụng.
 
 Về pháp lý và minh bạch, cả sáu vị bột đậu pha sẵn đều đã hoàn tất **tự công bố sản phẩm** năm 2026 theo quy định. Quý khách có thể tra cứu và tải bản tự công bố của từng sản phẩm trên trang [Bản tự công bố sản phẩm](/ban-tu-cong-bo-rong-vang-hoang-gia/) hoặc ngay tại trang [dòng bột đậu các loại](/danh-muc-san-pham/bot-dau/). Việc công khai này không chỉ là thủ tục — đó là cách chúng tôi để quý khách yên tâm về thứ mình uống mỗi ngày.
 

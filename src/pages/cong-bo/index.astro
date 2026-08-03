@@ -45,7 +45,7 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
   <!-- Certifications -->
   <section class="rvhg-section">
     <div class="rvhg-container">
-      <p class="rvhg-eyebrow">Chứng nhận chính</p>
+      <p class="rvhg-eyebrow">Chứng nhận & pháp lý</p>
       <div class="rvhg-pub-cert-grid">
         <article>
           <h2>OCOP 5 sao Quốc gia 2024</h2>
@@ -53,7 +53,19 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
         </article>
         <article>
           <h2>ISO 22000:2018</h2>
-          <p>Chứng chỉ quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế — số HA 394/2.23.CIV, Quacert cấp ngày 08/08/2023, đã được duy trì liên tục.</p>
+          <p>Hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế — số HA 394/4.26.CIV, hiệu lực từ 08/08/2026 đến 07/08/2029, do Trung tâm Chứng nhận Phù hợp (QUACERT) cấp. Phạm vi: sản xuất bánh đậu xanh, bột đậu uống liền.</p>
+          <a class="rvhg-cert-doc" href="/cong-bo/giay-chung-nhan-iso-22000-2026.pdf" target="_blank" rel="noopener noreferrer">
+            <img src="/images/chung-nhan/iso-22000-2026.jpg" alt="Giấy chứng nhận ISO 22000:2018 của Công ty Cổ phần Hoàng Giang — QUACERT" width="1000" height="1414" loading="lazy" />
+            <span>Tải giấy chứng nhận ISO (PDF)  ›</span>
+          </a>
+        </article>
+        <article>
+          <h2>Giấy chứng nhận đăng ký doanh nghiệp</h2>
+          <p>Công ty Cổ phần Hoàng Giang — mã số doanh nghiệp 0800280839, vốn điều lệ 60 tỷ đồng. Đăng ký lần đầu 06/06/2003; đăng ký thay đổi lần thứ 8 ngày 21/07/2026 (Sở Tài chính TP Hải Phòng).</p>
+          <a class="rvhg-cert-doc" href="/cong-bo/giay-chung-nhan-dang-ky-kinh-doanh-2026.pdf" target="_blank" rel="noopener noreferrer">
+            <img src="/images/chung-nhan/dang-ky-kinh-doanh-2026.jpg" alt="Giấy chứng nhận đăng ký doanh nghiệp — Công ty Cổ phần Hoàng Giang" width="1000" height="1414" loading="lazy" />
+            <span>Tải giấy đăng ký kinh doanh (PDF)  ›</span>
+          </a>
         </article>
       </div>
     </div>
@@ -126,7 +138,7 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
   .rvhg-pub-cert-grid {
     margin-top: 1.5rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 2.5rem;
   }
   .rvhg-pub-cert-grid article {
@@ -141,8 +153,32 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
     margin-top: 0.85rem;
     color: var(--color-mute);
   }
+  /* Document thumbnail + download link (ISO / business-registration certificates) */
+  .rvhg-cert-doc {
+    display: block;
+    margin-top: 1.1rem;
+    text-decoration: none;
+  }
+  .rvhg-cert-doc img {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    display: block;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-md, 4px);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .rvhg-cert-doc:hover img { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .rvhg-cert-doc span {
+    display: inline-block;
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-rvhg-gold-dark, #7a6234);
+  }
   @media (max-width: 768px) {
-    .rvhg-pub-cert-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .rvhg-pub-cert-grid { gap: 1.75rem; }
   }
 
   .rvhg-pub-list-head {

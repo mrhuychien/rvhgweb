@@ -60,7 +60,7 @@ Không có một hộp quà "đúng cho mọi trường hợp" — chọn quà l
 
 OCOP là viết tắt của "One Commune One Product" — chương trình "Mỗi xã một sản phẩm" nhằm phát triển sản phẩm nông thôn tiêu biểu của Việt Nam. Sản phẩm được chấm theo thang sao, trong đó **5 sao là phân hạng cao nhất, do cấp Trung ương công nhận và đạt tiêu chuẩn xuất khẩu**. Năm 2024, bánh đậu xanh Rồng Vàng Hoàng Gia trở thành sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt mức này.
 
-Với một món quà, chứng nhận OCOP 5 sao có ý nghĩa rất thực tế. Nó là một bên thứ ba uy tín "đứng ra bảo chứng" cho chất lượng và nguồn gốc — người tặng không phải tự khen sản phẩm, người nhận cũng không phải băn khoăn. Đi kèm là chứng nhận **ISO 22000:2018** (HA 394/2.23.CIV, Quacert cấp 08/08/2023) về hệ thống quản lý an toàn thực phẩm, và cam kết không dùng chất bảo quản.
+Với một món quà, chứng nhận OCOP 5 sao có ý nghĩa rất thực tế. Nó là một bên thứ ba uy tín "đứng ra bảo chứng" cho chất lượng và nguồn gốc — người tặng không phải tự khen sản phẩm, người nhận cũng không phải băn khoăn. Đi kèm là chứng nhận **ISO 22000:2018** (HA 394/4.26.CIV, Quacert cấp 08/08/2026) về hệ thống quản lý an toàn thực phẩm, và cam kết không dùng chất bảo quản.
 
 Nói gọn: khi bạn chọn một hộp bánh đậu xanh OCOP 5 sao làm quà, bạn không chỉ tặng một món ăn ngon, mà tặng một sản phẩm đã được kiểm chứng ở mức cao nhất của ngành đặc sản Việt Nam. Đó là sự khác biệt giữa "một hộp bánh" và "một món quà tử tế".
 

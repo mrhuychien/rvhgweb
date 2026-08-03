@@ -25,7 +25,7 @@ certifications:
   - title: 'OCOP 5 sao Quốc gia 2024'
     body: 'Sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt phân hạng OCOP 5 sao — chứng nhận cao nhất của Chương trình "Mỗi xã một sản phẩm".'
   - title: 'ISO 22000:2018'
-    body: 'Hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế — chứng chỉ HA 394/2.23.CIV do Quacert cấp ngày 08/08/2023.'
+    body: 'Hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế — chứng chỉ HA 394/4.26.CIV do Quacert cấp ngày 08/08/2026.'
   - title: 'Xuất khẩu 5 quốc gia'
     body: 'Hiện diện trên kệ Nhật Bản, Hoa Kỳ, Anh, Hàn Quốc và Canada — đáp ứng tiêu chuẩn an toàn thực phẩm khắt khe nhất.'
 selfDeclarations:

@@ -31,4 +31,4 @@ Doanh nghiệp, cửa hàng đặc sản, đơn vị làm quà tặng có nhu c�
 - Tên pháp nhân: Công ty Cổ phần Hoàng Giang
 - Mã số thuế: 0800280839
 - Đăng ký kinh doanh: 06/06/2003
-- Chứng nhận: ISO 22000:2018 (HA 394/2.23.CIV) · OCOP 5 sao Quốc gia 2024
+- Chứng nhận: ISO 22000:2018 (HA 394/4.26.CIV) · OCOP 5 sao Quốc gia 2024

@@ -54,7 +54,7 @@ Một mẹo nhỏ: sản phẩm dám công khai đầy đủ thông tin và hồ
 
 Chứng nhận là bằng chứng khách quan cho chất lượng, rất khó làm giả và dễ kiểm chứng. **Bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt OCOP 5 sao Quốc gia năm 2024** — phân hạng cao nhất của chương trình "Mỗi xã một sản phẩm".
 
-Bên cạnh đó là chứng nhận ISO 22000:2018 về hệ thống quản lý an toàn thực phẩm, do Quacert cấp ngày 08/08/2023. Đây là những tiêu chuẩn mà hàng trôi nổi gần như không thể có, bởi chúng đòi hỏi quy trình kiểm soát nghiêm ngặt và được đánh giá độc lập.
+Bên cạnh đó là chứng nhận ISO 22000:2018 về hệ thống quản lý an toàn thực phẩm, do Quacert cấp ngày 08/08/2026. Đây là những tiêu chuẩn mà hàng trôi nổi gần như không thể có, bởi chúng đòi hỏi quy trình kiểm soát nghiêm ngặt và được đánh giá độc lập.
 
 Khi chọn bánh, hãy xem sản phẩm có công bố các chứng nhận này không. Muốn hiểu OCOP 5 sao Quốc gia nghĩa là gì và vì sao nó quan trọng, bạn có thể đọc bài [OCOP 5 sao Quốc gia là gì](/ocop-5-sao-quoc-gia-la-gi/).
 

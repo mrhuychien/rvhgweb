@@ -14,7 +14,7 @@ faq:
   - q: 'Bánh đậu trà xanh Rồng Vàng Hoàng Gia được làm thế nào?'
     a: 'Bánh được làm theo công thức bí truyền của nghệ nhân: đậu xanh đãi sạch vỏ, xay mịn, sên cùng đường và một tỷ lệ dầu thực vật vừa đủ, thêm bột trà xanh cân chỉnh đủ hương mà không lấn át vị đậu.'
   - q: 'Bánh đậu trà xanh Rồng Vàng Hoàng Gia đạt tiêu chuẩn nào?'
-    a: 'Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 do Quacert cấp ngày 08/08/2023. Năm 2024, bánh đậu trà xanh Rồng Vàng Hoàng Gia được công nhận OCOP 5 sao Quốc gia.'
+    a: 'Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 do Quacert cấp ngày 08/08/2026. Năm 2024, bánh đậu trà xanh Rồng Vàng Hoàng Gia được công nhận OCOP 5 sao Quốc gia.'
   - q: 'Nên thưởng thức bánh đậu trà xanh cùng gì?'
     a: 'Bánh đậu trà xanh hợp nhất với một tách trà nóng, theo cách người Xứ Đông vẫn pha trà bên đĩa bánh đậu mỗi chiều. Vị chát thanh của trà làm dịu vị ngọt, giúp miếng bánh không ngấy.'
 ---
@@ -29,7 +29,7 @@ Bánh đậu xanh truyền thống có cái bùi, cái ngọt thanh đặc trưn
 
 Dù biến tấu, bánh đậu trà xanh vẫn được làm theo **công thức bí truyền** của nghệ nhân: đậu xanh đãi sạch vỏ, xay mịn, sên cùng đường và một tỷ lệ dầu thực vật vừa đủ. Cái khó là cân bằng — đủ trà để có hương, nhưng không lấn át vị đậu; đủ ngọt để dễ ăn, nhưng không gắt.
 
-> Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 do Quacert cấp ngày 08/08/2023 — và năm 2024, bánh đậu trà xanh Rồng Vàng Hoàng Gia đã được công nhận OCOP 5 sao Quốc gia.
+> Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 do Quacert cấp ngày 08/08/2026 — và năm 2024, bánh đậu trà xanh Rồng Vàng Hoàng Gia đã được công nhận OCOP 5 sao Quốc gia.
 
 ## Sản phẩm liên quan
 

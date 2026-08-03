@@ -50,7 +50,7 @@ Các bản tự công bố sản phẩm đầy đủ (bao gồm phiếu kết qu
 - Tên: **Công ty Cổ phần Hoàng Giang**
 - Mã số thuế: **0800280839**
 - Địa chỉ sản xuất: Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, TP Hải Phòng
-- Hệ thống quản lý an toàn thực phẩm: **ISO 22000:2018** — số HA 394/2.23.CIV, Quacert cấp ngày **08/08/2023**
+- Hệ thống quản lý an toàn thực phẩm: **ISO 22000:2018** — số HA 394/4.26.CIV, Quacert cấp ngày **08/08/2026**
 
 ## Yêu cầu bản sao
 

@@ -66,7 +66,7 @@ Cuối cùng, chọn sản phẩm OCOP cũng là một cách ủng hộ đặc s
 
 Trong ngành bánh đậu xanh — một nghề truyền thống lâu đời của Hải Dương — cột mốc OCOP 5 sao mang ý nghĩa đặc biệt. Năm 2024, **bánh đậu xanh Rồng Vàng Hoàng Gia trở thành sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt OCOP 5 sao Quốc gia**. Trong hàng trăm cơ sở làm bánh đậu xanh, đây là sản phẩm đầu tiên chạm tới phân hạng cao nhất ấy.
 
-Thành quả đó không đến từ một sớm một chiều. Nó dựa trên nền tảng chứng nhận **ISO 22000:2018** (HA 394/2.23.CIV, do Quacert cấp ngày 08/08/2023), quy trình không dùng chất bảo quản, hồ sơ tự công bố minh bạch, và một câu chuyện thương hiệu bắt nguồn từ sắc phong "Bánh Ngon" của vua Khải Định năm 1918. Đó đúng là kiểu hồ sơ mà một sản phẩm 5 sao cần có: vừa có chiều sâu văn hoá, vừa chuẩn hoá về chất lượng. Đọc thêm về [câu chuyện thương hiệu](/gioi-thieu/) để hiểu hành trình này.
+Thành quả đó không đến từ một sớm một chiều. Nó dựa trên nền tảng chứng nhận **ISO 22000:2018** (HA 394/4.26.CIV, do Quacert cấp ngày 08/08/2026), quy trình không dùng chất bảo quản, hồ sơ tự công bố minh bạch, và một câu chuyện thương hiệu bắt nguồn từ sắc phong "Bánh Ngon" của vua Khải Định năm 1918. Đó đúng là kiểu hồ sơ mà một sản phẩm 5 sao cần có: vừa có chiều sâu văn hoá, vừa chuẩn hoá về chất lượng. Đọc thêm về [câu chuyện thương hiệu](/gioi-thieu/) để hiểu hành trình này.
 
 Với người tiêu dùng, điều này có nghĩa là khi chọn bánh đậu xanh Rồng Vàng Hoàng Gia, bạn đang chọn sản phẩm bánh đậu xanh được công nhận ở mức cao nhất của ngành đặc sản Việt Nam. Xem [dòng thượng hạng OCOP 5 sao](/danh-muc-san-pham/banh-dau-xanh-thuong-hang/) hoặc tìm hiểu [bánh đậu xanh là gì](/banh-dau-xanh-la-gi/) nếu bạn mới bắt đầu.
 

@@ -32,7 +32,7 @@ export function organizationSchema() {
     sameAs: [COMPANY.facebook],
     award: [
       'OCOP 5 sao Quốc gia 2024 — sản phẩm bánh đậu xanh đầu tiên và duy nhất',
-      'ISO 22000:2018 — HA 394/2.23.CIV',
+      'ISO 22000:2018 — HA 394/4.26.CIV',
     ],
   };
 }

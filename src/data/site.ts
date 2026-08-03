@@ -18,10 +18,10 @@ export const COMPANY = {
   businessLicense: '06/06/2003',
   /** Full registration line incl. latest amendment. */
   businessLicenseFull:
-    'ĐKKD 0800280839 cấp ngày 06/06/2003. Đăng ký thay đổi lần thứ 7 ngày 06/8/2025 bởi Sở Tài chính Thành phố Hải Phòng.',
+    'ĐKKD 0800280839 cấp ngày 06/06/2003. Đăng ký thay đổi lần thứ 8 ngày 21/07/2026 bởi Sở Tài chính Thành phố Hải Phòng.',
   representative: 'Ông Đào Văn Tiến',
   isoFull:
-    'Chứng nhận Hệ thống Quản lý An toàn thực phẩm TCVN ISO 22000:2018 / ISO 22000:2018 số HA 394/2.23.CIV cấp ngày 08/08/2023 bởi Tổng cục Tiêu chuẩn Đo lường Chất lượng (Quacert).',
+    'Chứng nhận Hệ thống Quản lý An toàn thực phẩm TCVN ISO 22000:2018 / ISO 22000:2018, số HA 394/4.26.CIV, hiệu lực từ 08/08/2026 đến 07/08/2029, do Trung tâm Chứng nhận Phù hợp (QUACERT) — Uỷ ban Tiêu chuẩn Đo lường Chất lượng Quốc gia cấp. Phạm vi: sản xuất bánh đậu xanh, bột đậu uống liền.',
   founded: '1997',
   /** Three brothers founded the company in 1997. */
   chairman: 'Ông Đào Quang Chuyện — Chủ tịch HĐQT (nguyên Thẩm phán Toà án Nhân dân tỉnh Hải Dương)',
@@ -31,10 +31,10 @@ export const COMPANY = {
     'Ông Đào Văn Tiến (Giám đốc, đại diện pháp luật)',
     'cùng người anh em thứ ba',
   ],
-  capital: '20 tỷ đồng',
+  capital: '60 tỷ đồng',
   factorySize: '6.200 m²',
   workforce: '100–150 công nhân',
-  iso: 'ISO 22000:2018 — HA 394/2.23.CIV (cấp 08/08/2023, Quacert)',
+  iso: 'ISO 22000:2018 — HA 394/4.26.CIV (Quacert, hiệu lực 08/08/2026–07/08/2029)',
   ocop: 'OCOP 5 sao Quốc gia 2024 — bánh đậu xanh đầu tiên và duy nhất',
   factoryAddress: 'Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, thành phố Hải Phòng, Việt Nam',
   showrooms: ['209C Tuệ Tĩnh, TP Hải Dương', '9 Bạch Đằng, TP Hải Dương'],
@@ -119,7 +119,7 @@ export const REASONS: { title: string; body: string }[] = [
   },
   {
     title: 'ISO 22000:2018',
-    body: 'Áp dụng hệ thống quản lý chất lượng theo tiêu chuẩn quốc tế ISO 22000:2018 — HA 394/2.23.CIV (Quacert).',
+    body: 'Áp dụng hệ thống quản lý chất lượng theo tiêu chuẩn quốc tế ISO 22000:2018 — HA 394/4.26.CIV (Quacert).',
   },
   {
     title: 'OCOP 5 sao Quốc gia',
@@ -188,5 +188,5 @@ export const ANCHORS = {
   ocop5Sao:
     'Năm 2024, bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt chứng nhận OCOP 5 sao Quốc gia.',
   iso22000:
-    'Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (HA 394/2.23.CIV) do Quacert cấp ngày 08/08/2023.',
+    'Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (HA 394/4.26.CIV) do Quacert cấp ngày 08/08/2026.',
 } as const;

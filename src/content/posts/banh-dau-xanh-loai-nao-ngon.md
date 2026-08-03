@@ -35,7 +35,7 @@ Hãy dùng bốn giác quan theo thứ tự: nhìn, ngửi, chạm, nếm. **V�
 
 ## Cách phân biệt bánh đậu xanh chuẩn với hàng trôi nổi?
 
-Ngoài cảm quan, hãy kiểm tra ba lớp thông tin ngay trên bao bì. **Thứ nhất là thương hiệu và nguồn gốc**: nhà sản xuất rõ ràng, có địa chỉ, lịch sử minh bạch luôn đáng tin hơn hàng đóng gói sơ sài, không tên tuổi. **Thứ hai là chứng nhận**: bánh chuẩn thường in dấu OCOP, chứng nhận an toàn thực phẩm hoặc tiêu chuẩn quản lý chất lượng. Bánh đậu xanh Rồng Vàng Hoàng Gia sản xuất trên dây chuyền đạt ISO 22000:2018 (chứng nhận bởi Quacert, 08/08/2023) và không dùng chất bảo quản.
+Ngoài cảm quan, hãy kiểm tra ba lớp thông tin ngay trên bao bì. **Thứ nhất là thương hiệu và nguồn gốc**: nhà sản xuất rõ ràng, có địa chỉ, lịch sử minh bạch luôn đáng tin hơn hàng đóng gói sơ sài, không tên tuổi. **Thứ hai là chứng nhận**: bánh chuẩn thường in dấu OCOP, chứng nhận an toàn thực phẩm hoặc tiêu chuẩn quản lý chất lượng. Bánh đậu xanh Rồng Vàng Hoàng Gia sản xuất trên dây chuyền đạt ISO 22000:2018 (chứng nhận bởi Quacert, 08/08/2026) và không dùng chất bảo quản.
 
 **Thứ ba là hạn dùng và tình trạng bao bì**: xem kỹ ngày sản xuất, hạn sử dụng, bao bì còn nguyên vẹn, hút ẩm tốt, không móp rách. Một dấu hiệu tham khảo đáng giá: sản phẩm đã xuất khẩu sang các thị trường khó tính như Nhật, Mỹ, Anh, Hàn, Canada thường phải đạt chuẩn cao và ổn định. Muốn hiểu vì sao chứng nhận lại quan trọng đến vậy, hãy xem [OCOP 5 sao Quốc gia là gì](/ocop-5-sao-quoc-gia-la-gi/).
 

@@ -1,7 +1,7 @@
 ---
 title: 'Giới thiệu công ty'
 seoTitle: 'Giới thiệu bánh đậu xanh OCOP 5 sao'
-description: 'Công ty Cổ phần Hoàng Giang (MST 0800280839) — thương hiệu Rồng Vàng Hoàng Gia. Nhà xưởng 6.200 m², 100-150 công nhân, vốn điều lệ 20 tỷ, chứng nhận ISO 22000:2018, OCOP 5 sao Quốc gia 2024.'
+description: 'Công ty Cổ phần Hoàng Giang (MST 0800280839) — thương hiệu Rồng Vàng Hoàng Gia. Nhà xưởng 6.200 m², 100-150 công nhân, vốn điều lệ 60 tỷ, chứng nhận ISO 22000:2018, OCOP 5 sao Quốc gia 2024.'
 oldUrl: 'https://www.rongvanghoanggia.com/gioi-thieu/'
 route: '/gioi-thieu/'
 heroImage: '/images/legacy/nha-may-rvhg.jpg'
@@ -15,12 +15,13 @@ standalone: true
 - **Tên thương hiệu:** Rồng Vàng Hoàng Gia
 - **Địa chỉ:** Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, TP Hải Phòng
 - **Mã số thuế:** 0800280839
+- **Đăng ký kinh doanh:** cấp lần đầu 06/06/2003; đăng ký thay đổi lần thứ 8 ngày 21/07/2026 (Sở Tài chính TP Hải Phòng)
 - **Đại diện pháp luật:** Ông Đào Văn Tiến — Giám đốc
 - **Quy mô nhà xưởng:** 6.200 m²
 - **Quy mô nhân sự:** 100–150 công nhân
-- **Vốn điều lệ:** 20 tỷ đồng
+- **Vốn điều lệ:** 60 tỷ đồng
 - **Showroom:** 209C Tuệ Tĩnh và 9 Bạch Đằng, TP Hải Dương
-- **Chứng nhận:** Hệ thống Quản lý An toàn thực phẩm TCVN ISO 22000:2018 / ISO 22000:2018, số HA 394/2.23.CIV cấp ngày 08/08/2023 bởi Tổng cục Tiêu chuẩn Đo lường Chất lượng (Quacert).
+- **Chứng nhận:** Hệ thống Quản lý An toàn thực phẩm TCVN ISO 22000:2018 / ISO 22000:2018, số HA 394/4.26.CIV, hiệu lực từ 08/08/2026 đến 07/08/2029, do Trung tâm Chứng nhận Phù hợp (QUACERT) — Uỷ ban Tiêu chuẩn Đo lường Chất lượng Quốc gia cấp; phạm vi: sản xuất bánh đậu xanh, bột đậu uống liền. [Tải giấy chứng nhận ISO (PDF)](/cong-bo/giay-chung-nhan-iso-22000-2026.pdf) · [Tải giấy đăng ký kinh doanh (PDF)](/cong-bo/giay-chung-nhan-dang-ky-kinh-doanh-2026.pdf)
 
 ## Ban lãnh đạo
 
@@ -45,7 +46,7 @@ Quy trình HACCP và ISO 22000:2018 nghiêm ngặt theo tiêu chuẩn quốc t�
 ## Chứng nhận & thành tựu
 
 - **OCOP 5 sao Quốc gia 2024** — bánh đậu xanh **đầu tiên và duy nhất** cả nước đạt phân hạng cao nhất của Chương trình "Mỗi xã một sản phẩm".
-- **ISO 22000:2018** — số HA 394/2.23.CIV, Quacert cấp 08/08/2023.
+- **ISO 22000:2018** — số HA 394/4.26.CIV, Quacert cấp 08/08/2026.
 - **Xuất khẩu** sang Nhật Bản, Hoa Kỳ, Anh, Hàn Quốc, Canada, Trung Quốc.
 - Bảo hộ nhãn hiệu tại Cục Sở hữu trí tuệ Việt Nam, Nhật Bản và Trung Quốc.
 - Xác lập Kỷ lục Đặc sản quà tặng Việt Nam và Đặc sản quà tặng Châu Á.
