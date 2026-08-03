@@ -48,8 +48,13 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
       <p class="rvhg-eyebrow">Chứng nhận & pháp lý</p>
       <div class="rvhg-pub-cert-grid">
         <article>
-          <h2>OCOP 5 sao Quốc gia 2024</h2>
-          <p>Bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt phân hạng 5 sao Quốc gia trong Chương trình "Mỗi xã một sản phẩm".</p>
+          <h2>OCOP 5 sao Quốc gia</h2>
+          <p>Rồng Vàng Hoàng Gia có <strong>3 sản phẩm đạt OCOP 5 sao Quốc gia</strong> — phân hạng cao nhất của Chương trình "Mỗi xã một sản phẩm", do Bộ Nông nghiệp công nhận:</p>
+          <ul class="rvhg-cert-ocop">
+            <li><strong>Bánh đậu xanh</strong> — QĐ 2171/QĐ-BNN-VPĐP ngày 04/7/2024; là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt 5 sao.</li>
+            <li><strong>Bánh đậu trà xanh</strong> — QĐ 2361/QĐ-BNNMT ngày 26/6/2025.</li>
+            <li><strong>Bánh đậu sầu riêng</strong> — QĐ 2361/QĐ-BNNMT ngày 26/6/2025.</li>
+          </ul>
         </article>
         <article>
           <h2>ISO 22000:2018</h2>
@@ -177,6 +182,15 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
     font-weight: 500;
     color: var(--color-rvhg-gold-dark, #7a6234);
   }
+  .rvhg-cert-ocop {
+    margin: 0.85rem 0 0;
+    padding-left: 1.1rem;
+    color: var(--color-mute);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .rvhg-cert-ocop li { margin-top: 0.4rem; }
+  .rvhg-cert-ocop strong { color: var(--color-ink); }
   @media (max-width: 768px) {
     .rvhg-pub-cert-grid { gap: 1.75rem; }
   }
