@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
+import Motion from '../components/Motion.astro';
 import { articleSchema, faqSchema, howToSchema } from '../data/jsonld';
 import { postPath } from '../lib/posts';
 
@@ -41,12 +42,18 @@ if (howTo) jsonLd.push(howToSchema({ name: howTo.name, steps: howTo.steps, image
   jsonLd={jsonLd}
 >
   <article class="rvhg-post">
-    <header class="rvhg-post__head">
+    <header class="rvhg-post__head rvhg-band-night">
+      <div class="rvhg-post__grid" aria-hidden="true"></div>
       <div class="rvhg-container rvhg-container--narrow">
-        <p class="rvhg-eyebrow">Tin tức · {dateStr}</p>
+        <div class="rvhg-post__meta">
+          <p class="rvhg-eyebrow">Journal · {dateStr}</p>
+          <span>RVHG / Editorial</span>
+        </div>
         <h1>{title}</h1>
+        <p class="rvhg-post__dek">{description}</p>
         <p class="rvhg-post__byline">
-          <span>{author}</span>
+          <span>Biên soạn bởi</span>
+          <strong>{author}</strong>
         </p>
         {tags.length > 0 && (
           <ul class="rvhg-post__tags">{tags.map((t) => <li>{t}</li>)}</ul>
@@ -55,63 +62,174 @@ if (howTo) jsonLd.push(howToSchema({ name: howTo.name, steps: howTo.steps, image
     </header>
 
     {cover && (
-      <div class="rvhg-post__cover">
+      <div class="rvhg-post__cover" data-reveal>
+        <span class="rvhg-post__cover-frame" aria-hidden="true"></span>
         <LegacyImg src={cover} alt={title} width={2400} height={1350} loading="eager" fetchpriority="high" />
+        <span class="rvhg-post__cover-code" aria-hidden="true">IMAGE / RVHG—{dateStr.replaceAll('/', '')}</span>
       </div>
     )}
 
-    <div class="rvhg-container rvhg-post__body">
-      <div class="rvhg-prose">
+    <div class="rvhg-container rvhg-post__body" data-reveal>
+      <aside class="rvhg-post__rail" aria-hidden="true">
+        <span>Rồng Vàng Hoàng Gia</span>
+        <i></i>
+        <span>Đọc bài</span>
+      </aside>
+      <div class="rvhg-prose rvhg-post__prose">
         <slot />
       </div>
     </div>
   </article>
+  <Motion />
 </BaseLayout>
 
 <style>
   .rvhg-post__head {
-    text-align: center;
-    padding-top: 3rem;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding-block: clamp(4rem, 8vw, 8rem) clamp(8rem, 14vw, 13rem);
+    background:
+      radial-gradient(50rem 30rem at 50% 0%, rgb(133 30 36 / 0.5), transparent 72%),
+      linear-gradient(145deg, #2a070b, #140205);
   }
-  @media (min-width: 768px) { .rvhg-post__head { padding-top: 6.5rem; } }
+  .rvhg-post__grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.2;
+    background:
+      linear-gradient(rgb(240 210 146 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(240 210 146 / 0.08) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(circle at 50% 30%, black, transparent 78%);
+  }
+  .rvhg-post__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: clamp(2.5rem, 6vw, 5rem);
+  }
+  .rvhg-post__meta .rvhg-eyebrow { color: #dfbc74; }
+  .rvhg-post__meta > span {
+    color: rgb(240 210 146 / 0.35);
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
   .rvhg-post__head h1 {
-    margin-top: 0.6rem;
-    font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+    margin-inline: auto;
+    color: #fff8ea;
+    font-size: clamp(2.8rem, 6vw, 6.4rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.052em;
+    text-align: center;
+  }
+  .rvhg-post__dek {
+    max-width: 46rem;
+    margin: 1.5rem auto 0;
+    color: rgb(255 248 234 / 0.54);
+    font-size: clamp(0.95rem, 0.4vw + 0.9rem, 1.1rem);
+    line-height: 1.72;
+    text-align: center;
   }
   .rvhg-post__byline {
-    margin-top: 1rem;
-    color: var(--color-mute);
-    font-size: 0.95rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    color: rgb(255 248 234 / 0.4);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+  .rvhg-post__byline strong {
+    color: #dfbc74;
+    font-weight: 500;
   }
   .rvhg-post__tags {
     list-style: none;
-    margin: 1.25rem auto 0;
+    margin: 1.5rem auto 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem;
     justify-content: center;
     padding: 0;
   }
   .rvhg-post__tags li {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-sm, 2px);
-    background: var(--color-paper-tint);
-    color: var(--color-mute);
+    padding: 0.3rem 0.65rem;
+    border: 1px solid rgb(240 210 146 / 0.2);
+    color: rgb(255 248 234 / 0.52);
+    background: rgb(255 255 255 / 0.025);
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
   .rvhg-post__cover {
-    margin-top: 3rem;
-    width: 100%;
+    position: relative;
+    z-index: 2;
+    width: min(calc(100% - 3rem), 1180px);
+    margin: clamp(-8rem, -10vw, -6rem) auto 0;
   }
   .rvhg-post__cover :global(img) {
     width: 100%;
-    height: clamp(18rem, 50vw, 32rem);
+    height: clamp(20rem, 52vw, 42rem);
     object-fit: cover;
     display: block;
+    border: 1px solid rgb(240 210 146 / 0.28);
+    box-shadow: 0 45px 110px -52px rgb(32 3 6 / 0.76);
+  }
+  .rvhg-post__cover-frame {
+    position: absolute;
+    z-index: -1;
+    inset: -0.75rem 1.25rem 0.75rem -0.75rem;
+    border: 1px solid rgb(139 32 38 / 0.24);
+  }
+  .rvhg-post__cover-code {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.85rem;
+    color: rgb(255 248 234 / 0.56);
+    font-size: 0.52rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
   }
   .rvhg-post__body {
-    padding-block: 4rem 6rem;
     display: grid;
-    place-items: center;
+    grid-template-columns: minmax(5rem, 0.25fr) minmax(0, 1fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: start;
+    padding-block: clamp(4rem, 9vw, 9rem);
+  }
+  .rvhg-post__rail {
+    position: sticky;
+    top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #9a7b4a;
+    font-size: 0.54rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+  }
+  .rvhg-post__rail i {
+    width: 1px;
+    height: 5rem;
+    background: var(--color-line);
+  }
+  .rvhg-post__prose { max-width: 72ch; }
+  @media (max-width: 720px) {
+    .rvhg-post__head { padding-bottom: 7rem; }
+    .rvhg-post__meta > span { display: none; }
+    .rvhg-post__cover { width: calc(100% - 2rem); margin-top: -4.5rem; }
+    .rvhg-post__cover :global(img) { height: clamp(17rem, 65vw, 28rem); }
+    .rvhg-post__body { grid-template-columns: 1fr; }
+    .rvhg-post__rail { display: none; }
   }
 </style>

@@ -3,21 +3,27 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
 import Motion from '../components/Motion.astro';
-import { SITE, REASONS, FEATURED, DISTRIBUTION_LOGOS, MEDIA_LOGOS, YEARS_EXPERIENCE } from '../data/site';
+import {
+  SITE,
+  REASONS,
+  FEATURED,
+  DISTRIBUTION_LOGOS,
+  MEDIA_LOGOS,
+  YEARS_EXPERIENCE,
+} from '../data/site';
 import { POWDERS, POWDER_SINGLES, assetUrl } from '../data/powders';
 
 const lines = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
 
-// New "bột đậu xanh" drinks for the home-page slider (4 flavours + the no-sugar pair).
 const powderSlides = [
-  ...POWDER_SINGLES.map((s) => ({
-    href: `/${s}/`,
-    image: POWDERS[s].image,
-    name: POWDERS[s].name,
-    tag: POWDERS[s].flavor,
-    desc: POWDERS[s].tagline,
-    accent: POWDERS[s].accent,
-    accentInk: POWDERS[s].accentInk,
+  ...POWDER_SINGLES.map((slug) => ({
+    href: `/${slug}/`,
+    image: POWDERS[slug].image,
+    name: POWDERS[slug].name,
+    tag: POWDERS[slug].flavor,
+    desc: POWDERS[slug].tagline,
+    accent: POWDERS[slug].accent,
+    accentInk: POWDERS[slug].accentInk,
   })),
   {
     href: '/bdx-rauma-khongduong/',
@@ -32,194 +38,364 @@ const powderSlides = [
 ---
 
 <BaseLayout title="Bánh đậu xanh OCOP 5 sao Quốc gia" description={SITE.shortDescription}>
-  <!-- 1 · HERO — dark lacquer band + 3D imperial gold dust -->
-  <section class="rvhg-hero3d rvhg-band-night">
-    <canvas class="rvhg-hero3d__canvas" data-hero-dust aria-hidden="true"></canvas>
-    <span class="rvhg-hero3d__glow" aria-hidden="true"></span>
-
-    <div class="rvhg-container rvhg-hero3d__inner">
-      <p class="rvhg-eyebrow rvhg-hero3d__lead">Rồng Vàng Hoàng Gia · Hải Dương từ 1997</p>
-      <h1 class="rvhg-hero3d__title">
-        Bánh đậu xanh đạt <span class="rvhg-hero3d__hl">OCOP 5 sao Quốc gia</span>
-      </h1>
-      <p class="rvhg-hero3d__sub">Chất lượng đỉnh cao được khẳng định.</p>
-      <div class="gold-rule rvhg-rule--center"></div>
-      <div class="rvhg-hero3d__ctas">
-        <a class="rvhg-btn" href="/san-pham/">Khám phá sản phẩm</a>
-        <a class="rvhg-btn--link" href="/gioi-thieu/">Câu chuyện thương hiệu  ›</a>
+  <!-- HERO · IMPERIAL DIGITAL STAGE -->
+  <section class="rvhg-hero rvhg-band-night">
+    <canvas class="rvhg-hero__dust" data-hero-dust aria-hidden="true"></canvas>
+    <div class="rvhg-hero__architecture" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="rvhg-container rvhg-hero__grid">
+      <div class="rvhg-hero__copy">
+        <div class="rvhg-hero__status">
+          <span class="rvhg-hero__status-pulse"></span>
+          <span>OCOP 5★ Quốc gia · Hải Dương</span>
+        </div>
+        <p class="rvhg-eyebrow">Rồng Vàng Hoàng Gia · Từ 1997</p>
+        <h1>
+          Di sản bánh Việt.
+          <span>Tinh hoa bước vào kỷ nguyên mới.</span>
+        </h1>
+        <p class="rvhg-hero__lede">
+          Bánh đậu xanh truyền thống được nâng tầm bằng chuẩn chất lượng hiện đại,
+          thiết kế tinh tuyển và một tinh thần Hoàng Gia không ngừng chuyển động.
+        </p>
+        <div class="rvhg-hero__actions">
+          <a class="rvhg-btn" href="/san-pham/">
+            Khám phá bộ sưu tập
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="rvhg-btn--link" href="/cau-chuyen-san-pham-rong-vang-hoang-gia-2/">
+            Xem câu chuyện thương hiệu
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <ul class="rvhg-hero__metrics" aria-label="Thông tin nổi bật">
+          <li>
+            <strong class="rvhg-countup" data-countup={YEARS_EXPERIENCE} data-years-since="1997">{YEARS_EXPERIENCE}</strong>
+            <span>Năm kinh nghiệm</span>
+          </li>
+          <li>
+            <strong>5★</strong>
+            <span>OCOP Quốc gia</span>
+          </li>
+          <li>
+            <strong>ISO</strong>
+            <span>22000:2018</span>
+          </li>
+        </ul>
       </div>
 
-      <figure class="rvhg-hero3d__showpiece rvhg-tilt" data-tilt>
-        <LegacyImg
-          src="/images/legacy/hero-home.jpg"
-          alt="Bánh đậu xanh Rồng Vàng Hoàng Gia"
-          width={2400}
-          height={1350}
-          loading="eager"
-          fetchpriority="high"
-        />
-        <figcaption class="rvhg-hero3d__seal">OCOP 5★ Quốc gia</figcaption>
-      </figure>
+      <div class="rvhg-hero__visual" aria-label="Bộ sản phẩm Rồng Vàng Hoàng Gia">
+        <div class="rvhg-stage" data-tilt>
+          <span class="rvhg-stage__halo" aria-hidden="true"></span>
+          <span class="rvhg-stage__orbit rvhg-stage__orbit--one" aria-hidden="true"></span>
+          <span class="rvhg-stage__orbit rvhg-stage__orbit--two" aria-hidden="true"></span>
+          <span class="rvhg-stage__floor" aria-hidden="true"></span>
 
-      <ul class="rvhg-hero3d__stats">
-        <li><span class="rvhg-countup" data-countup={YEARS_EXPERIENCE} data-years-since="1997">{YEARS_EXPERIENCE}</span><small>Năm kinh nghiệm</small></li>
-        <li><span>5★</span><small>OCOP Quốc gia</small></li>
-        <li><span class="rvhg-countup" data-countup="6">6</span><small>Thị trường xuất khẩu</small></li>
-        <li><span>ISO</span><small>22000:2018</small></li>
-      </ul>
-    </div>
-  </section>
+          <figure class="rvhg-stage__main">
+            <LegacyImg
+              src="/images/legacy/hero-home.jpg"
+              alt="Bộ bánh đậu xanh Rồng Vàng Hoàng Gia"
+              width={1672}
+              height={941}
+              loading="eager"
+              fetchpriority="high"
+            />
+            <figcaption>
+              <span>Heritage collection</span>
+              <strong>Imperial Red / 01</strong>
+            </figcaption>
+          </figure>
 
-  <!-- 2 · BÍ QUYẾT THÀNH CÔNG -->
-  <section class="rvhg-section rvhg-band-soft">
-    <div class="rvhg-container">
-      <header class="rvhg-home-reasons__head" data-reveal>
-        <p class="rvhg-eyebrow">Bí quyết thành công</p>
-        <h2>Rồng Vàng Hoàng Gia.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Giữa hàng chục thương hiệu bánh đậu xanh trên thị trường, điều gì đã làm nên sự độc đáo và thành công của thương hiệu Rồng Vàng Hoàng Gia.</p>
-      </header>
-      <ul class="rvhg-home-reasons">
-        {REASONS.map((r, i) => (
-          <li data-reveal style={`--reveal-delay:${(i % 3) * 90}ms`}>
-            <h3 set:html={r.title}></h3>
-            <p set:html={r.body}></p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
+          <div class="rvhg-stage__seal">
+            <span class="rvhg-stage__seal-ring" aria-hidden="true"></span>
+            <img src="/images/legacy/logo-seal.png" alt="" width="512" height="512" />
+          </div>
 
-  <!-- 3 · SẢN PHẨM CAO CẤP -->
-  <section class="rvhg-section">
-    <div class="rvhg-container">
-      <header class="rvhg-home-feat__head" data-reveal>
-        <p class="rvhg-eyebrow">Sản phẩm cao cấp</p>
-        <h2>Tinh tuý từ Rồng Vàng Hoàng Gia.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Hãy khám phá những sản phẩm cao cấp nhất từ Rồng Vàng Hoàng Gia.</p>
-        <a class="rvhg-btn--link" href="/san-pham/">Xem toàn bộ sản phẩm  ›</a>
-      </header>
-      <div class="rvhg-home-feat">
-        {FEATURED.map((p, i) => (
-          <a class="rvhg-feat rvhg-tilt" href={p.href} data-tilt data-reveal style={`--reveal-delay:${(i % 4) * 80}ms`}>
-            <span class="rvhg-feat__media">
-              <LegacyImg src={p.image} alt={p.name} width={600} height={600} loading={i < 4 ? 'eager' : 'lazy'} />
+          <a class="rvhg-stage__product" href="/danh-muc-san-pham/banh-dau-xanh-thuong-hang/">
+            <span class="rvhg-stage__product-media">
+              <LegacyImg src="/images/legacy/hop-5-sao-web.jpg" alt="Hộp quà OCOP 5 sao" width={600} height={600} loading="eager" />
             </span>
-            <span class="rvhg-feat__name">{p.name}</span>
+            <span>
+              <small>Selected piece</small>
+              <strong>OCOP 5 sao</strong>
+            </span>
+          </a>
+
+          <div class="rvhg-stage__coordinate">
+            <span>20.94° N</span>
+            <span>106.33° E</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rvhg-hero__foot rvhg-container">
+      <span>Cuộn để khám phá</span>
+      <span class="rvhg-hero__scroll-line" aria-hidden="true"></span>
+      <span>Tradition / Technology / Taste</span>
+    </div>
+  </section>
+
+  <!-- MANIFESTO · BRAND TIMELINE -->
+  <section class="rvhg-manifesto rvhg-section">
+    <div class="rvhg-container">
+      <div class="rvhg-manifesto__intro" data-reveal>
+        <div class="rvhg-manifesto__index">01 / Di sản sống</div>
+        <p class="rvhg-manifesto__lead">
+          Công nghệ không thay thế truyền thống.
+          <strong>Nó làm truyền thống trở nên sống động hơn.</strong>
+        </p>
+        <p class="rvhg-manifesto__copy">
+          Từ công thức bánh xưa đến hệ thống quản lý chất lượng quốc tế,
+          Rồng Vàng Hoàng Gia kết nối chiều sâu văn hoá với tư duy sản xuất hiện đại.
+        </p>
+      </div>
+      <ol class="rvhg-timeline">
+        <li data-reveal style="--reveal-delay:0ms">
+          <span class="rvhg-timeline__year">1918</span>
+          <span class="rvhg-timeline__node" aria-hidden="true"></span>
+          <h2>Dấu ấn cung đình</h2>
+          <p>Câu chuyện bánh đậu xanh dâng Vua trở thành mạch nguồn cảm hứng của thương hiệu.</p>
+        </li>
+        <li data-reveal style="--reveal-delay:100ms">
+          <span class="rvhg-timeline__year">1997</span>
+          <span class="rvhg-timeline__node" aria-hidden="true"></span>
+          <h2>Một thương hiệu bắt đầu</h2>
+          <p>Rồng Vàng Hoàng Gia khởi nghiệp tại Hải Dương, theo đuổi nghề bánh qua nhiều thế hệ.</p>
+        </li>
+        <li data-reveal style="--reveal-delay:200ms">
+          <span class="rvhg-timeline__year">2024</span>
+          <span class="rvhg-timeline__node" aria-hidden="true"></span>
+          <h2>Chuẩn mực mới</h2>
+          <p>Bánh đậu xanh được công nhận OCOP 5 sao Quốc gia, mở ra một chương phát triển mới.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- FEATURED COLLECTION -->
+  <section class="rvhg-collection rvhg-section rvhg-band-soft">
+    <div class="rvhg-container">
+      <header class="rvhg-section-head" data-reveal>
+        <div>
+          <p class="rvhg-eyebrow">The Royal Selection</p>
+          <h2>Bộ sưu tập nổi bật.</h2>
+        </div>
+        <div>
+          <p>Những hương vị và thiết kế đại diện cho tinh thần Rồng Vàng Hoàng Gia.</p>
+          <a class="rvhg-btn--link" href="/san-pham/">Xem tất cả sản phẩm →</a>
+        </div>
+      </header>
+      <div class="rvhg-collection__grid">
+        {FEATURED.map((product, i) => (
+          <a
+            class:list={['rvhg-product-card', i === 0 && 'rvhg-product-card--hero']}
+            href={product.href}
+            data-tilt
+            data-reveal
+            style={`--card-index:"${String(i + 1).padStart(2, '0')}";--reveal-delay:${(i % 4) * 80}ms`}
+          >
+            <span class="rvhg-product-card__index" aria-hidden="true"></span>
+            <span class="rvhg-product-card__media">
+              <LegacyImg
+                src={product.image}
+                alt={product.name}
+                width={800}
+                height={800}
+                loading={i < 4 ? 'eager' : 'lazy'}
+              />
+            </span>
+            <span class="rvhg-product-card__meta">
+              <span>
+                <small>Rồng Vàng Hoàng Gia</small>
+                <strong>{product.name}</strong>
+              </span>
+              <span class="rvhg-product-card__arrow" aria-hidden="true">↗</span>
+            </span>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 3.5 · BỘT ĐẬU XANH PHA SẴN — slider -->
-  <section class="rvhg-section rvhg-band-soft">
+  <!-- CRAFT / FACTORY -->
+  <section class="rvhg-craft rvhg-section rvhg-band-night">
+    <div class="rvhg-container rvhg-craft__grid">
+      <div class="rvhg-craft__media" data-reveal="left">
+        <LegacyImg
+          src="/images/legacy/nha-may-rvhg.jpg"
+          alt="Nhà máy Rồng Vàng Hoàng Gia"
+          width={2000}
+          height={999}
+          loading="lazy"
+        />
+        <span class="rvhg-craft__scan" aria-hidden="true"></span>
+        <div class="rvhg-craft__media-label">
+          <span>Factory system</span>
+          <strong>6.200 m²</strong>
+        </div>
+      </div>
+      <div class="rvhg-craft__copy" data-reveal="right">
+        <p class="rvhg-eyebrow">Craft meets precision</p>
+        <h2>Hồn nghề thủ công.<br/><em>Nhịp sản xuất hiện đại.</em></h2>
+        <p class="rvhg-craft__lede">
+          Từ tuyển chọn nguyên liệu đến phối trộn, tạo viên và đóng gói —
+          từng công đoạn được quản lý trong hệ thống ISO 22000:2018.
+        </p>
+        <ol class="rvhg-craft__steps">
+          <li>
+            <span>01</span>
+            <div><strong>Tuyển chọn</strong><small>Đậu xanh lòng vàng và nguyên liệu rõ nguồn gốc.</small></div>
+          </li>
+          <li>
+            <span>02</span>
+            <div><strong>Gìn giữ</strong><small>Công thức và hương vị truyền thống Hải Dương.</small></div>
+          </li>
+          <li>
+            <span>03</span>
+            <div><strong>Chuẩn hoá</strong><small>Quản lý chất lượng xuyên suốt quy trình.</small></div>
+          </li>
+        </ol>
+        <a class="rvhg-btn rvhg-btn--ghost" href="/gioi-thieu/">Khám phá nhà máy →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- POWDER SLIDER -->
+  <section class="rvhg-powder rvhg-section">
     <div class="rvhg-container">
-      <header class="rvhg-home-slider__head" data-reveal>
-        <p class="rvhg-eyebrow">Mới ra mắt</p>
-        <h2>Bột đậu xanh — thức uống pha sẵn.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Đậu xanh lòng vàng Hải Dương phối cùng cà rốt, rau má, sữa dừa, matcha — và dòng không thêm đường thuần thực vật.</p>
+      <header class="rvhg-section-head rvhg-section-head--dark" data-reveal>
+        <div>
+          <p class="rvhg-eyebrow">New generation</p>
+          <h2>Bột đậu xanh.<br/><em>Một nhịp sống mới.</em></h2>
+        </div>
+        <div>
+          <p>Đậu xanh lòng vàng Hải Dương phối cùng những hương vị hiện đại, tiện lợi cho mỗi ngày.</p>
+          <a class="rvhg-btn--link" href="/danh-muc-san-pham/bot-dau/">Xem trọn bộ sản phẩm →</a>
+        </div>
       </header>
 
       <div class="rvhg-slider" data-slider data-reveal>
-        <button class="rvhg-slider__arrow rvhg-slider__arrow--prev" type="button" aria-label="Xem trước" data-slider-prev>‹</button>
+        <button class="rvhg-slider__arrow rvhg-slider__arrow--prev" type="button" aria-label="Sản phẩm trước" data-slider-prev>←</button>
         <ul class="rvhg-slider__track" data-slider-track>
-          {powderSlides.map((s) => (
-            <li class="rvhg-slide" style={`--pa:${s.accent};--pa-ink:${s.accentInk}`}>
-              <a href={s.href}>
+          {powderSlides.map((slide, i) => (
+            <li class="rvhg-slide" style={`--pa:${slide.accent};--pa-ink:${slide.accentInk};--slide-no:"${String(i + 1).padStart(2, '0')}"`}>
+              <a href={slide.href}>
+                <span class="rvhg-slide__top">
+                  <span>{slide.tag}</span><span aria-hidden="true"></span>
+                </span>
                 <span class="rvhg-slide__media">
-                  <LegacyImg src={assetUrl(s.image)} alt={s.name} width={640} height={640} loading="eager" />
+                  <LegacyImg src={assetUrl(slide.image)} alt={slide.name} width={720} height={720} loading="eager" />
                 </span>
                 <span class="rvhg-slide__body">
-                  <span class="rvhg-slide__tag">{s.tag}</span>
-                  <span class="rvhg-slide__name">{s.name}</span>
-                  <span class="rvhg-slide__desc">{s.desc}</span>
-                  <span class="rvhg-slide__go" aria-hidden="true">Xem chi tiết  ›</span>
+                  <small>Bột đậu xanh pha sẵn</small>
+                  <strong>{slide.name}</strong>
+                  <span>{slide.desc}</span>
                 </span>
               </a>
             </li>
           ))}
         </ul>
-        <button class="rvhg-slider__arrow rvhg-slider__arrow--next" type="button" aria-label="Xem tiếp" data-slider-next>›</button>
+        <button class="rvhg-slider__arrow rvhg-slider__arrow--next" type="button" aria-label="Sản phẩm tiếp theo" data-slider-next>→</button>
         <div class="rvhg-slider__dots" data-slider-dots aria-hidden="true"></div>
       </div>
     </div>
   </section>
 
-  <!-- 4 · DANH MỤC SẢN PHẨM -->
-  <section class="rvhg-section rvhg-band-soft">
+  <!-- CATEGORY BENTO -->
+  <section class="rvhg-categories rvhg-section rvhg-band-soft">
     <div class="rvhg-container">
-      <header class="rvhg-cats__head" data-reveal>
-        <p class="rvhg-eyebrow">Danh mục sản phẩm</p>
-        <h2>Năm dòng sản phẩm.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
+      <header class="rvhg-section-head" data-reveal>
+        <div>
+          <p class="rvhg-eyebrow">Product universe</p>
+          <h2>Năm thế giới hương vị.</h2>
+        </div>
+        <div>
+          <p>Mỗi dòng sản phẩm mang một ngôn ngữ riêng, cùng chung tiêu chuẩn và bản sắc Hoàng Gia.</p>
+        </div>
       </header>
-      <div class="rvhg-cats">
+      <div class="rvhg-categories__grid">
         {lines.map((line, i) => (
           <a
-            class={`rvhg-cat rvhg-tilt ${i < 2 ? 'rvhg-cat--lg' : ''}`}
+            class:list={['rvhg-category', i === 0 && 'rvhg-category--wide', i === 1 && 'rvhg-category--tall']}
             href={`/danh-muc-san-pham/${line.id}/`}
-            data-tilt
-            data-reveal={i < 2 ? 'zoom' : true}
-            style={`--reveal-delay:${i * 70}ms`}
+            data-reveal={i % 2 ? 'right' : 'left'}
+            style={`--category-no:"0${i + 1}";--reveal-delay:${i * 60}ms`}
           >
             <LegacyImg
               src={line.data.cardImage ?? line.data.heroImage ?? ''}
               alt={line.data.title}
-              width={1024}
-              height={683}
+              width={1400}
+              height={1000}
               loading={i < 2 ? 'eager' : 'lazy'}
-              style={`object-position: ${line.data.cardImagePos ?? 'center'}`}
+              style={`object-position:${line.data.cardImagePos ?? 'center'}`}
             />
-            <span class="rvhg-cat__scrim" aria-hidden="true"></span>
-            <h3 class="rvhg-cat__title">{line.data.title}</h3>
+            <span class="rvhg-category__wash" aria-hidden="true"></span>
+            <span class="rvhg-category__no" aria-hidden="true"></span>
+            <span class="rvhg-category__copy">
+              <small>{line.data.eyebrow ?? `Dòng ${i + 1}`}</small>
+              <strong>{line.data.title}</strong>
+              <span>Khám phá ↗</span>
+            </span>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 5 · HỆ THỐNG PHÂN PHỐI -->
-  <section class="rvhg-section">
+  <!-- REASONS -->
+  <section class="rvhg-reasons rvhg-section">
     <div class="rvhg-container">
-      <header class="rvhg-home-logos__head" data-reveal>
-        <p class="rvhg-eyebrow">Hệ thống phân phối</p>
-        <h2>Có mặt khắp toàn quốc.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Sản phẩm Rồng Vàng Hoàng Gia có mặt trên các chuỗi đại siêu thị, cửa hàng tạp hoá, sân bay, khu du lịch, trạm dừng nghỉ… và các sàn thương mại điện tử Shopee, TikTok Shop.</p>
+      <header class="rvhg-reasons__head" data-reveal>
+        <p class="rvhg-eyebrow">Nine signatures</p>
+        <h2>Chín giá trị làm nên<br/><em>Rồng Vàng Hoàng Gia.</em></h2>
       </header>
-      <ul class="rvhg-logos rvhg-logos--dist" data-reveal>
-        {DISTRIBUTION_LOGOS.map((d) => (
-          <li><img src={d.image} alt={d.name} loading="lazy" decoding="async" /></li>
+      <ol class="rvhg-reasons__grid">
+        {REASONS.map((reason, i) => (
+          <li data-reveal style={`--reveal-delay:${(i % 3) * 70}ms`}>
+            <span>{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3 set:html={reason.title}></h3>
+              <p set:html={reason.body}></p>
+            </div>
+          </li>
         ))}
-      </ul>
+      </ol>
     </div>
   </section>
 
-  <!-- 6 · TRÊN TRUYỀN THÔNG -->
-  <section class="rvhg-section rvhg-band-soft">
+  <!-- TRUST NETWORK -->
+  <section class="rvhg-trust rvhg-section rvhg-band-night">
     <div class="rvhg-container">
-      <header class="rvhg-home-logos__head" data-reveal>
-        <p class="rvhg-eyebrow">Trên truyền thông</p>
-        <h2>Báo chí nói về chúng tôi.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Xem thêm thông tin về Rồng Vàng Hoàng Gia trên các cơ quan thông tấn báo chí chính thống.</p>
-      </header>
-      <ul class="rvhg-logos rvhg-logos--media" data-reveal>
-        {MEDIA_LOGOS.map((m) => (
-          <li>
-            {m.url ? (
-              <a href={m.url} target="_blank" rel="noopener noreferrer" aria-label={m.name}>
-                <img src={m.image} alt={m.name} loading="lazy" decoding="async" />
-              </a>
-            ) : (
-              <img src={m.image} alt={m.name} loading="lazy" decoding="async" />
-            )}
-          </li>
-        ))}
-      </ul>
+      <div class="rvhg-trust__intro" data-reveal>
+        <p class="rvhg-eyebrow">National network</p>
+        <h2>Từ kệ hàng toàn quốc<br/>đến câu chuyện trên truyền thông.</h2>
+        <p>Hiện diện tại các hệ thống phân phối lớn, sân bay, điểm du lịch và các kênh thương mại điện tử.</p>
+      </div>
+      <div class="rvhg-trust__block" data-reveal>
+        <div class="rvhg-trust__label"><span>01</span><strong>Hệ thống phân phối</strong></div>
+        <ul class="rvhg-trust__logos rvhg-trust__logos--distribution">
+          {DISTRIBUTION_LOGOS.map((item) => (
+            <li><img src={item.image} alt={item.name} loading="lazy" decoding="async" /></li>
+          ))}
+        </ul>
+      </div>
+      <div class="rvhg-trust__block" data-reveal>
+        <div class="rvhg-trust__label"><span>02</span><strong>Trên truyền thông</strong></div>
+        <ul class="rvhg-trust__logos rvhg-trust__logos--media">
+          {MEDIA_LOGOS.map((item) => (
+            <li>
+              {item.url ? (
+                <a href={item.url} target="_blank" rel="noopener noreferrer" aria-label={item.name}>
+                  <img src={item.image} alt={item.name} loading="lazy" decoding="async" />
+                </a>
+              ) : (
+                <img src={item.image} alt={item.name} loading="lazy" decoding="async" />
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -227,407 +403,954 @@ const powderSlides = [
 </BaseLayout>
 
 <style>
-  /* ---------- 1 · Hero — dark lacquer + 3D gold dust ---------- */
-  .rvhg-hero3d {
+  /* HERO */
+  .rvhg-hero {
+    --hero-gold: #f0d292;
     position: relative;
+    min-height: calc(100svh - 88px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     isolation: isolate;
     overflow: hidden;
-    text-align: center;
-    /* flows seamlessly out of the oxblood header */
-    background: radial-gradient(135% 130% at 50% -25%, #701a1b 0%, #4c1417 42%, #380f11 100%);
-    padding-block: clamp(3.25rem, 7vw, 6.5rem) clamp(3rem, 6vw, 5.5rem);
+    padding-block: clamp(3rem, 6vw, 6.5rem) 1.5rem;
+    background:
+      radial-gradient(65rem 45rem at 78% 44%, rgb(126 28 33 / 0.55), transparent 70%),
+      radial-gradient(45rem 30rem at 12% 18%, rgb(150 41 46 / 0.22), transparent 72%),
+      linear-gradient(135deg, #250609, #120205 76%);
   }
-  .rvhg-hero3d__canvas,
-  .rvhg-hero3d__glow {
+  .rvhg-hero__dust {
     position: absolute;
     inset: 0;
+    z-index: -1;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    opacity: 0.56;
     pointer-events: none;
   }
-  /* warm halo behind the headline — also the full fallback when JS/WebGL is off */
-  .rvhg-hero3d__glow {
-    background: radial-gradient(58% 48% at 50% 24%, rgba(176, 141, 87, 0.32), transparent 70%);
+  .rvhg-hero__architecture {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    perspective: 800px;
+    opacity: 0.32;
   }
-  .rvhg-hero3d__inner { position: relative; }
+  .rvhg-hero__architecture::before,
+  .rvhg-hero__architecture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(rgb(241 210 146 / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(241 210 146 / 0.08) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(circle at 75% 50%, black, transparent 68%);
+    transform: perspective(800px) rotateX(62deg) translateY(48%);
+    transform-origin: bottom;
+  }
+  .rvhg-hero__architecture::after {
+    transform: none;
+    mask-image: linear-gradient(90deg, transparent 44%, black 80%, transparent);
+    opacity: 0.45;
+  }
+  .rvhg-hero__architecture span {
+    position: absolute;
+    width: 1px;
+    height: 30vh;
+    top: 0;
+    background: linear-gradient(#f0d292, transparent);
+    opacity: 0.2;
+  }
+  .rvhg-hero__architecture span:nth-child(1) { left: 12%; }
+  .rvhg-hero__architecture span:nth-child(2) { left: 38%; height: 18vh; }
+  .rvhg-hero__architecture span:nth-child(3) { right: 31%; height: 24vh; }
+  .rvhg-hero__architecture span:nth-child(4) { right: 8%; height: 42vh; }
 
-  .rvhg-hero3d__lead { color: var(--color-brass-300, #d8c29a); }
-  .rvhg-hero3d__title {
-    margin: 0.7rem auto 0;
-    max-width: 17ch;
-    font-size: var(--text-headline);
-    color: #fbf8f1;
+  .rvhg-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(30rem, 1.14fr);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 6rem);
   }
-  .rvhg-hero3d__hl { color: var(--color-brass-300, #d8c29a); }
-  .rvhg-hero3d__sub {
-    margin-top: 0.85rem;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(1.2rem, 1.5vw + 1rem, 1.95rem);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--color-brass-300, #d8c29a);
-  }
-  .rvhg-hero3d__ctas {
-    margin-top: 1.5rem;
+  .rvhg-hero__copy { position: relative; z-index: 3; }
+  .rvhg-hero__status {
+    width: fit-content;
     display: flex;
-    gap: 1rem 1.75rem;
-    justify-content: center;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 1.6rem;
+    padding: 0.45rem 0.72rem;
+    border: 1px solid rgb(240 210 146 / 0.22);
+    color: rgb(255 248 234 / 0.68);
+    background: rgb(255 255 255 / 0.035);
+    backdrop-filter: blur(10px);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .rvhg-hero__status-pulse {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #f0d292;
+    box-shadow: 0 0 0 5px rgb(240 210 146 / 0.1), 0 0 16px #f0d292;
+    animation: rvhg-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes rvhg-pulse { 50% { box-shadow: 0 0 0 8px transparent, 0 0 20px #f0d292; } }
+  .rvhg-hero .rvhg-eyebrow { color: #dfbc74; }
+  .rvhg-hero h1 {
+    max-width: 10ch;
+    margin-top: 1rem;
+    color: #fff8ea;
+    font-size: clamp(3.3rem, 6.2vw, 7.4rem);
+    font-weight: 500;
+    line-height: 0.91;
+    letter-spacing: -0.06em;
+  }
+  .rvhg-hero h1 span {
+    display: block;
+    margin-top: 0.14em;
+    color: #e7c986;
+    font-size: 0.58em;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+  }
+  .rvhg-hero__lede {
+    max-width: 43rem;
+    margin-top: 1.6rem;
+    color: rgb(255 248 234 / 0.62);
+    font-size: clamp(0.98rem, 0.45vw + 0.9rem, 1.14rem);
+    line-height: 1.76;
+  }
+  .rvhg-hero__actions {
+    display: flex;
     align-items: center;
     flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    margin-top: 2rem;
+  }
+  .rvhg-hero__metrics {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 35rem;
+    margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+    padding: 1.3rem 0 0;
+    border-top: 1px solid rgb(240 210 146 / 0.22);
+  }
+  .rvhg-hero__metrics li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding-inline: 1rem;
+    border-left: 1px solid rgb(240 210 146 / 0.14);
+  }
+  .rvhg-hero__metrics li:first-child { padding-left: 0; border-left: 0; }
+  .rvhg-hero__metrics strong {
+    color: #f0d292;
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.7vw, 2.4rem);
+    font-weight: 500;
+    line-height: 1;
+  }
+  .rvhg-hero__metrics span {
+    color: rgb(255 248 234 / 0.42);
+    font-size: 0.61rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
   }
 
-  /* product showpiece — framed, lifted, brass hairline */
-  .rvhg-hero3d__showpiece {
+  .rvhg-hero__visual {
     position: relative;
-    margin: clamp(2.5rem, 5vw, 3.75rem) auto 0;
-    max-width: 60rem;
-    border-radius: var(--radius-lg, 8px);
-    overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--brass) 50%, transparent);
-    box-shadow: 0 32px 80px -34px rgba(0, 0, 0, 0.75);
+    min-height: clamp(31rem, 56vw, 48rem);
+    display: grid;
+    place-items: center;
+    perspective: 1200px;
   }
-  .rvhg-hero3d__showpiece :global(img) {
+  .rvhg-stage {
+    position: relative;
+    width: min(100%, 47rem);
+    aspect-ratio: 1 / 0.92;
+    transform-style: preserve-3d;
+  }
+  .rvhg-stage__halo {
+    position: absolute;
+    inset: 6%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(178 38 43 / 0.56), rgb(217 166 78 / 0.1) 44%, transparent 72%);
+    filter: blur(18px);
+    transform: translateZ(-80px);
+  }
+  .rvhg-stage__orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgb(240 210 146 / 0.28);
+    border-radius: 50%;
+    transform-style: preserve-3d;
+  }
+  .rvhg-stage__orbit::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: calc(50% - 4px);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f0d292;
+    box-shadow: 0 0 24px #f0d292;
+  }
+  .rvhg-stage__orbit--one {
+    width: 92%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%) rotateX(68deg) rotateZ(-14deg) translateZ(10px);
+    animation: rvhg-orbit-one 18s linear infinite;
+  }
+  .rvhg-stage__orbit--two {
+    width: 72%;
+    aspect-ratio: 1;
+    opacity: 0.52;
+    transform: translate(-50%, -50%) rotateY(66deg) rotateZ(22deg) translateZ(-20px);
+    animation: rvhg-orbit-two 24s linear infinite reverse;
+  }
+  @keyframes rvhg-orbit-one {
+    to { transform: translate(-50%, -50%) rotateX(68deg) rotateZ(346deg) translateZ(10px); }
+  }
+  @keyframes rvhg-orbit-two {
+    to { transform: translate(-50%, -50%) rotateY(66deg) rotateZ(382deg) translateZ(-20px); }
+  }
+  .rvhg-stage__floor {
+    position: absolute;
+    width: 70%;
+    height: 30%;
+    left: 18%;
+    bottom: 2%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgb(0 0 0 / 0.72), transparent 68%);
+    filter: blur(12px);
+    transform: rotateX(72deg) translateZ(-80px);
+  }
+  .rvhg-stage__main {
+    position: absolute;
+    inset: 18% 4% 18% 8%;
+    overflow: hidden;
+    border: 1px solid rgb(240 210 146 / 0.46);
+    background: #550f14;
+    box-shadow:
+      0 44px 100px -42px rgb(0 0 0 / 0.9),
+      0 0 80px rgb(168 34 39 / 0.22);
+    transform: rotateY(-9deg) rotateX(4deg) translateZ(42px);
+    animation: rvhg-stage-float 6s ease-in-out infinite;
+  }
+  .rvhg-stage__main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      linear-gradient(110deg, transparent 20%, rgb(255 255 255 / 0.2) 42%, transparent 58%),
+      linear-gradient(to top, rgb(24 1 4 / 0.58), transparent 42%);
+    background-size: 220% 100%, 100% 100%;
+    animation: rvhg-stage-shine 7s ease-in-out infinite;
+  }
+  @keyframes rvhg-stage-shine { 50% { background-position: -140% 0, 0 0; } }
+  @keyframes rvhg-stage-float {
+    50% { transform: rotateY(-6deg) rotateX(2deg) translateY(-10px) translateZ(48px); }
+  }
+  .rvhg-stage__main :global(img) {
     width: 100%;
-    height: clamp(16rem, 44vw, 30rem);
+    height: 100%;
     object-fit: cover;
     display: block;
+    filter: saturate(1.06) contrast(1.02);
   }
-  .rvhg-hero3d__seal {
+  .rvhg-stage__main figcaption {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--color-seal-600, #8f2b22);
-    color: var(--color-paper-50, #fbf8f1);
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 0.4rem 0.7rem;
-    border-radius: var(--radius-sm, 2px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    z-index: 2;
+    left: 1.1rem;
+    right: 1.1rem;
+    bottom: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: #fff8ea;
   }
+  .rvhg-stage__main figcaption span,
+  .rvhg-stage__main figcaption strong {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .rvhg-stage__main figcaption span { color: rgb(255 248 234 / 0.58); }
+  .rvhg-stage__seal {
+    position: absolute;
+    z-index: 4;
+    left: -1%;
+    top: 12%;
+    width: 112px;
+    height: 112px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgb(34 5 8 / 0.78);
+    box-shadow: 0 20px 50px rgb(0 0 0 / 0.42);
+    backdrop-filter: blur(10px);
+    transform: translateZ(100px);
+    animation: rvhg-seal-float 5.5s ease-in-out infinite;
+  }
+  .rvhg-stage__seal img { width: 86px; height: 86px; border-radius: 50%; }
+  .rvhg-stage__seal-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgb(240 210 146 / 0.45);
+    border-radius: 50%;
+  }
+  .rvhg-stage__seal-ring::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: calc(50% - 3px);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #f0d292;
+    box-shadow: 0 0 16px #f0d292;
+  }
+  @keyframes rvhg-seal-float { 50% { transform: translateY(10px) rotate(5deg) translateZ(110px); } }
+  .rvhg-stage__product {
+    position: absolute;
+    z-index: 5;
+    right: -2%;
+    bottom: 9%;
+    width: 172px;
+    display: grid;
+    grid-template-columns: 62px 1fr;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.65rem;
+    border: 1px solid rgb(240 210 146 / 0.28);
+    color: #fff8ea;
+    background: rgb(28 3 6 / 0.76);
+    box-shadow: 0 22px 50px rgb(0 0 0 / 0.45);
+    text-decoration: none;
+    backdrop-filter: blur(18px);
+    transform: translateZ(120px);
+    transition: transform 0.4s var(--ease-out-expo, ease), border-color 0.3s ease;
+  }
+  .rvhg-stage__product:hover { transform: translateY(-6px) translateZ(130px); border-color: #f0d292; }
+  .rvhg-stage__product-media {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #f4e7d1;
+  }
+  .rvhg-stage__product-media :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .rvhg-stage__product small,
+  .rvhg-stage__product strong { display: block; }
+  .rvhg-stage__product small { color: rgb(255 248 234 / 0.42); font-size: 0.49rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .rvhg-stage__product strong { margin-top: 0.22rem; font-family: var(--font-display); font-size: 0.9rem; font-weight: 500; line-height: 1.1; }
+  .rvhg-stage__coordinate {
+    position: absolute;
+    left: 9%;
+    bottom: 9%;
+    display: flex;
+    flex-direction: column;
+    color: rgb(240 210 146 / 0.48);
+    font-size: 0.53rem;
+    letter-spacing: 0.12em;
+    transform: translateZ(70px);
+  }
+  .rvhg-hero__foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 2.5rem;
+    color: rgb(255 248 234 / 0.34);
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .rvhg-hero__scroll-line {
+    position: relative;
+    width: min(18vw, 15rem);
+    height: 1px;
+    background: rgb(240 210 146 / 0.18);
+  }
+  .rvhg-hero__scroll-line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 38%;
+    background: #f0d292;
+    animation: rvhg-scroll-line 2.6s ease-in-out infinite;
+  }
+  @keyframes rvhg-scroll-line { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(165%); } }
 
-  /* trust stats strip */
-  .rvhg-hero3d__stats {
+  /* SHARED HEAD */
+  .rvhg-section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.55fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: end;
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  .rvhg-section-head h2 {
+    margin-top: 0.75rem;
+    font-size: clamp(2.6rem, 5vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.96;
+    letter-spacing: -0.05em;
+  }
+  .rvhg-section-head h2 em { color: #8b2026; font-weight: 400; }
+  .rvhg-section-head > div:last-child p { color: var(--color-mute); font-size: 0.9rem; line-height: 1.7; }
+  .rvhg-section-head > div:last-child a { margin-top: 1.1rem; }
+
+  /* MANIFESTO */
+  .rvhg-manifesto { overflow: hidden; }
+  .rvhg-manifesto__intro {
+    display: grid;
+    grid-template-columns: 0.3fr 1.15fr 0.55fr;
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
+    margin-bottom: clamp(4rem, 8vw, 8rem);
+  }
+  .rvhg-manifesto__index {
+    color: #9a7b4a;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .rvhg-manifesto__lead {
+    max-width: 15ch;
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 4.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+  .rvhg-manifesto__lead strong { color: #8b2026; font-weight: 400; font-style: italic; }
+  .rvhg-manifesto__copy { color: var(--color-mute); font-size: 0.92rem; line-height: 1.76; }
+  .rvhg-timeline {
+    position: relative;
     list-style: none;
-    max-width: 46rem;
-    margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
-    padding: 1.6rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .rvhg-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 4.25rem;
+    height: 1px;
+    background: var(--color-line);
+  }
+  .rvhg-timeline li {
+    position: relative;
+    min-height: 17rem;
+    padding: 0 2.2rem 0 0;
+  }
+  .rvhg-timeline__year {
+    display: block;
+    color: #8b2026;
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 4.2rem);
+    line-height: 1;
+  }
+  .rvhg-timeline__node {
+    position: relative;
+    z-index: 1;
+    width: 11px;
+    height: 11px;
+    display: block;
+    margin-block: 1.15rem 2.3rem;
+    border: 3px solid var(--color-paper);
+    border-radius: 50%;
+    background: #b88b46;
+    box-shadow: 0 0 0 1px #b88b46;
+  }
+  .rvhg-timeline h2 { font-size: 1.22rem; }
+  .rvhg-timeline p { max-width: 32ch; margin-top: 0.75rem; color: var(--color-mute); font-size: 0.88rem; line-height: 1.65; }
+
+  /* COLLECTION */
+  .rvhg-collection__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-    border-top: 1px solid color-mix(in srgb, var(--brass) 30%, transparent);
   }
-  .rvhg-hero3d__stats li {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .rvhg-hero3d__stats span {
-    font-family: var(--font-display);
-    font-size: clamp(1.7rem, 3vw, 2.5rem);
-    font-weight: 600;
-    line-height: 1;
-    color: var(--color-brass-300, #d8c29a);
-  }
-  .rvhg-hero3d__stats small {
-    font-size: 0.72rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--color-night-mute, #cbbba0);
-  }
-  @media (max-width: 640px) {
-    .rvhg-hero3d__stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
-  }
-
-  /* ---------- shared section heads ---------- */
-  .rvhg-home-reasons__head,
-  .rvhg-home-feat__head,
-  .rvhg-cats__head,
-  .rvhg-home-logos__head {
-    text-align: center;
-    max-width: 42rem;
-    margin: 0 auto 3rem;
-  }
-  .rvhg-home-reasons__head h2,
-  .rvhg-home-feat__head h2,
-  .rvhg-cats__head h2,
-  .rvhg-home-logos__head h2 {
-    font-size: var(--text-display);
-    margin-top: 0.6rem;
-  }
-  .rvhg-home-reasons__head > p,
-  .rvhg-home-feat__head > p,
-  .rvhg-home-logos__head > p {
-    margin-top: 1rem;
-    color: var(--color-mute);
-  }
-  .rvhg-home-feat__head a { display: inline-block; margin-top: 1rem; }
-
-  /* ---------- 2 · Bí quyết thành công ---------- */
-  .rvhg-home-reasons {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--color-line-soft);
-  }
-  .rvhg-home-reasons li {
-    padding: 2.25rem 1.5rem;
-    border-bottom: 1px solid var(--color-line-soft);
-    border-right: 1px solid var(--color-line-soft);
-  }
-  .rvhg-home-reasons li:nth-child(3n) { border-right: 0; }
-  .rvhg-home-reasons h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    letter-spacing: -0.012em;
-    margin-bottom: 0.6rem;
-  }
-  .rvhg-home-reasons p {
-    color: var(--color-mute);
-    font-size: 0.95rem;
-    line-height: 1.55;
-  }
-  @media (max-width: 900px) {
-    .rvhg-home-reasons { grid-template-columns: repeat(2, 1fr); }
-    .rvhg-home-reasons li:nth-child(3n) { border-right: 1px solid var(--color-line-soft); }
-    .rvhg-home-reasons li:nth-child(2n) { border-right: 0; }
-  }
-  @media (max-width: 560px) {
-    .rvhg-home-reasons { grid-template-columns: 1fr; }
-    .rvhg-home-reasons li,
-    .rvhg-home-reasons li:nth-child(2n),
-    .rvhg-home-reasons li:nth-child(3n) { border-right: 0; }
-  }
-
-  /* ---------- 3 · Sản phẩm cao cấp ---------- */
-  .rvhg-home-feat {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem 1.5rem;
-  }
-  .rvhg-feat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    text-decoration: none;
-    color: inherit;
-  }
-  .rvhg-feat__media {
-    aspect-ratio: 1 / 1;
-    background: var(--color-paper-tint);
-    border-radius: var(--radius-lg, 8px);
-    overflow: hidden;
-  }
-  .rvhg-feat__media :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s var(--ease-refined, ease);
-  }
-  .rvhg-feat:hover .rvhg-feat__media :global(img) { transform: scale(1.04); }
-  .rvhg-feat__name {
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.35;
-    color: var(--color-ink);
-  }
-  @media (max-width: 1024px) { .rvhg-home-feat { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 768px)  { .rvhg-home-feat { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; } }
-
-  /* ---------- 4 · Danh mục sản phẩm — bento ---------- */
-  .rvhg-cats {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.25rem;
-  }
-  .rvhg-cat {
+  .rvhg-product-card {
     position: relative;
-    display: block;
-    grid-column: span 2;
-    aspect-ratio: 4 / 3;
-    border-radius: var(--radius-lg, 8px);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    border: 1px solid rgb(115 79 41 / 0.16);
+    color: var(--color-ink);
+    background: rgb(255 252 246 / 0.78);
+    box-shadow: 0 22px 60px -48px rgb(42 9 11 / 0.55);
     text-decoration: none;
-    background: var(--color-paper-tint);
+    transform-style: preserve-3d;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
   }
-  .rvhg-cat--lg { grid-column: span 3; aspect-ratio: 16 / 10; }
-  .rvhg-cat :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s var(--ease-refined, ease);
+  .rvhg-product-card--hero { grid-column: span 2; grid-row: span 2; }
+  .rvhg-product-card:hover {
+    border-color: rgb(139 32 38 / 0.38);
+    box-shadow: 0 35px 90px -48px rgb(42 9 11 / 0.6);
   }
-  .rvhg-cat:hover :global(img) { transform: scale(1.04); }
-  .rvhg-cat__scrim {
+  .rvhg-product-card__index::before {
+    content: var(--card-index);
+    position: absolute;
+    z-index: 2;
+    left: 1rem;
+    top: 1rem;
+    color: #8b2026;
+    font-size: 0.59rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+  }
+  .rvhg-product-card__media {
+    position: relative;
+    aspect-ratio: 1;
+    display: block;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 50% 45%, rgb(255 255 255 / 0.92), transparent 52%),
+      #efe3d0;
+  }
+  .rvhg-product-card--hero .rvhg-product-card__media { flex: 1; min-height: 31rem; }
+  .rvhg-product-card__media::after {
+    content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(42, 12, 14, 0.8) 0%, rgba(42, 12, 14, 0.25) 34%, transparent 62%);
+    background: linear-gradient(120deg, transparent 30%, rgb(255 255 255 / 0.28), transparent 55%);
+    transform: translateX(-120%);
+    transition: transform 0.8s var(--ease-out-expo, ease);
   }
-  .rvhg-cat__title {
+  .rvhg-product-card:hover .rvhg-product-card__media::after { transform: translateX(120%); }
+  .rvhg-product-card__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.75s var(--ease-out-expo, ease), filter 0.5s ease;
+  }
+  .rvhg-product-card:hover .rvhg-product-card__media :global(img) { transform: scale(1.035); filter: saturate(1.06); }
+  .rvhg-product-card__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 1px solid rgb(115 79 41 / 0.14);
+  }
+  .rvhg-product-card__meta small,
+  .rvhg-product-card__meta strong { display: block; }
+  .rvhg-product-card__meta small { color: #9a7b4a; font-size: 0.54rem; letter-spacing: 0.11em; text-transform: uppercase; }
+  .rvhg-product-card__meta strong { margin-top: 0.2rem; font-size: 0.86rem; font-weight: 600; line-height: 1.3; }
+  .rvhg-product-card--hero .rvhg-product-card__meta strong { font-family: var(--font-display); font-size: 1.15rem; font-weight: 500; }
+  .rvhg-product-card__arrow {
+    width: 30px;
+    height: 30px;
+    flex: none;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--color-line);
+    color: #8b2026;
+    transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  }
+  .rvhg-product-card:hover .rvhg-product-card__arrow { color: #fff; background: #8b2026; transform: rotate(8deg); }
+
+  /* CRAFT */
+  .rvhg-craft__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(3rem, 7vw, 7rem); align-items: center; }
+  .rvhg-craft__media {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgb(240 210 146 / 0.26);
+    box-shadow: 0 40px 100px -50px rgb(0 0 0 / 0.9);
+  }
+  .rvhg-craft__media :global(img) { width: 100%; min-height: 34rem; display: block; object-fit: cover; filter: sepia(0.18) saturate(0.9) contrast(1.06); }
+  .rvhg-craft__media::after {
+    content: '';
     position: absolute;
-    left: 1.5rem;
-    right: 1.5rem;
-    bottom: 1.25rem;
-    margin: 0;
-    color: #fff;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: clamp(1.1rem, 1vw + 0.7rem, 1.6rem);
-    line-height: 1.2;
-    letter-spacing: -0.005em;
-    text-shadow: 0 1px 14px rgba(42, 12, 14, 0.55);
+    inset: 0;
+    background:
+      linear-gradient(to top, rgb(22 2 5 / 0.72), transparent 42%),
+      repeating-linear-gradient(0deg, transparent 0 3px, rgb(255 255 255 / 0.03) 3px 4px);
+    pointer-events: none;
   }
-  @media (max-width: 768px) {
-    .rvhg-cats { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
-    .rvhg-cat, .rvhg-cat--lg { grid-column: span 1; aspect-ratio: 4 / 3; }
-    .rvhg-cat--lg:first-child { grid-column: span 2; aspect-ratio: 16 / 10; }
-    .rvhg-cat__title { left: 1rem; right: 1rem; bottom: 1rem; font-size: 1.05rem; }
+  .rvhg-craft__scan {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: -2px;
+    height: 2px;
+    background: #f0d292;
+    box-shadow: 0 0 24px #f0d292;
+    opacity: 0.7;
+    animation: rvhg-scan 5.5s ease-in-out infinite;
   }
-  @media (max-width: 460px) {
-    .rvhg-cats { grid-template-columns: 1fr; }
-    .rvhg-cat, .rvhg-cat--lg, .rvhg-cat--lg:first-child { grid-column: span 1; aspect-ratio: 3 / 2; }
+  @keyframes rvhg-scan { 50% { top: calc(100% - 2px); } }
+  .rvhg-craft__media-label {
+    position: absolute;
+    z-index: 3;
+    left: 1.3rem;
+    right: 1.3rem;
+    bottom: 1.15rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
   }
+  .rvhg-craft__media-label span { color: rgb(255 248 234 / 0.52); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .rvhg-craft__media-label strong { color: #f0d292; font-family: var(--font-display); font-size: 1.65rem; font-weight: 500; }
+  .rvhg-craft__copy h2 {
+    margin-top: 0.9rem;
+    color: #fff8ea;
+    font-size: clamp(2.6rem, 4.5vw, 5rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+  .rvhg-craft__copy h2 em { color: #e7c986; font-weight: 400; }
+  .rvhg-craft__lede { max-width: 38rem; margin-top: 1.4rem; color: rgb(255 248 234 / 0.56); font-size: 0.93rem; line-height: 1.75; }
+  .rvhg-craft__steps { list-style: none; margin: 2rem 0; padding: 0; border-top: 1px solid rgb(240 210 146 / 0.17); }
+  .rvhg-craft__steps li {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgb(240 210 146 / 0.17);
+  }
+  .rvhg-craft__steps li > span { color: #dfbc74; font-size: 0.61rem; letter-spacing: 0.1em; }
+  .rvhg-craft__steps strong,
+  .rvhg-craft__steps small { display: block; }
+  .rvhg-craft__steps strong { color: #fff8ea; font-size: 0.88rem; }
+  .rvhg-craft__steps small { margin-top: 0.2rem; color: rgb(255 248 234 / 0.42); font-size: 0.76rem; }
 
-  /* ---------- 3.5 · Powder slider ---------- */
-  .rvhg-home-slider__head {
-    text-align: center;
-    max-width: 42rem;
-    margin: 0 auto 3rem;
+  /* POWDER */
+  .rvhg-powder {
+    overflow: hidden;
+    color: #fff8ea;
+    background:
+      radial-gradient(60rem 35rem at 80% 0%, rgb(83 120 76 / 0.2), transparent 72%),
+      #0e1711;
   }
-  .rvhg-home-slider__head h2 { font-size: var(--text-display); margin-top: 0.6rem; }
-  .rvhg-home-slider__head > p { margin-top: 1rem; color: var(--color-mute); }
-
-  .rvhg-slider { position: relative; }
+  .rvhg-section-head--dark h2 { color: #fff8ea; }
+  .rvhg-section-head--dark h2 em { color: #adc395; }
+  .rvhg-section-head--dark .rvhg-eyebrow,
+  .rvhg-section-head--dark a { color: #adc395; }
+  .rvhg-section-head--dark > div:last-child p { color: rgb(245 250 238 / 0.52); }
+  .rvhg-slider { position: relative; padding-inline: 3.5rem; }
   .rvhg-slider__track {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     list-style: none;
     margin: 0;
     padding: 0.5rem 0;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
     scrollbar-width: none;
-    -ms-overflow-style: none;
   }
   .rvhg-slider__track::-webkit-scrollbar { display: none; }
   .rvhg-slide {
-    flex: 0 0 calc((100% - 3rem) / 3);
+    flex: 0 0 calc((100% - 2rem) / 3);
+    min-width: 0;
     scroll-snap-align: start;
-    --pa: var(--brass);
-    --pa-ink: var(--color-brass-700, #7a6234);
   }
   .rvhg-slide > a {
+    position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    text-decoration: none;
-    color: var(--color-ink);
-    background: var(--color-card, #fff);
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-lg, 8px);
+    min-height: 35rem;
     overflow: hidden;
-    transition: box-shadow 0.3s var(--ease-refined, ease), transform 0.3s var(--ease-refined, ease);
+    border: 1px solid rgb(194 219 180 / 0.17);
+    color: #f5faee;
+    background: color-mix(in srgb, var(--pa) 15%, #111c14);
+    text-decoration: none;
+    transition: transform 0.45s var(--ease-out-expo, ease), border-color 0.35s ease;
   }
-  .rvhg-slide > a:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
-  .rvhg-slide__media {
-    aspect-ratio: 4 / 3;
-    background: color-mix(in srgb, var(--pa) 10%, #fff);
+  .rvhg-slide > a::before {
+    content: var(--slide-no);
+    position: absolute;
+    right: 1rem;
+    top: 3rem;
+    color: rgb(245 250 238 / 0.14);
+    font-family: var(--font-display);
+    font-size: 5rem;
+    line-height: 1;
+  }
+  .rvhg-slide > a:hover { transform: translateY(-8px); border-color: color-mix(in srgb, var(--pa) 64%, white); }
+  .rvhg-slide__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid rgb(194 219 180 / 0.14);
+    color: color-mix(in srgb, var(--pa) 72%, white);
+    font-size: 0.57rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .rvhg-slide__top > span:last-child { width: 5px; height: 5px; border-radius: 50%; background: var(--pa); box-shadow: 0 0 12px var(--pa); }
+  .rvhg-slide__media { height: 21rem; display: grid; place-items: center; padding: 1.5rem; }
+  .rvhg-slide__media :global(img) { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 24px 24px rgb(0 0 0 / 0.3)); transition: transform 0.6s var(--ease-out-expo, ease); }
+  .rvhg-slide > a:hover .rvhg-slide__media :global(img) { transform: scale(1.05) rotate(-2deg); }
+  .rvhg-slide__body { margin-top: auto; padding: 1.2rem; border-top: 1px solid rgb(194 219 180 / 0.14); }
+  .rvhg-slide__body small,
+  .rvhg-slide__body strong,
+  .rvhg-slide__body > span { display: block; }
+  .rvhg-slide__body small { color: color-mix(in srgb, var(--pa) 70%, white); font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .rvhg-slide__body strong { margin-top: 0.35rem; font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; }
+  .rvhg-slide__body > span { margin-top: 0.5rem; color: rgb(245 250 238 / 0.46); font-size: 0.75rem; line-height: 1.55; }
+  .rvhg-slider__arrow {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    width: 42px;
+    height: 42px;
     display: grid;
     place-items: center;
-    padding: 1rem;
-    border-bottom: 3px solid var(--pa);
+    border: 1px solid rgb(194 219 180 / 0.24);
+    color: #dbe8ce;
+    background: rgb(14 23 17 / 0.82);
+    cursor: pointer;
+    backdrop-filter: blur(12px);
+    transition: color 0.3s ease, background 0.3s ease;
   }
-  .rvhg-slide__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
-  .rvhg-slide__body { padding: 1.25rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
-  .rvhg-slide__tag { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pa-ink); font-weight: 600; }
-  .rvhg-slide__name { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: -0.01em; line-height: 1.15; }
-  .rvhg-slide__desc { color: var(--color-mute); font-size: 0.9rem; line-height: 1.5; flex: 1; }
-  .rvhg-slide__go { margin-top: 0.5rem; color: var(--pa-ink); font-weight: 500; font-size: 0.9rem; }
+  .rvhg-slider__arrow:hover { color: #111c14; background: #dbe8ce; }
+  .rvhg-slider__arrow--prev { left: 0; }
+  .rvhg-slider__arrow--next { right: 0; }
+  .rvhg-slider__dots { display: flex; justify-content: center; gap: 0.35rem; margin-top: 1.5rem; }
+  .rvhg-slider__dots :global(button) { width: 20px; height: 2px; padding: 0; border: 0; background: rgb(219 232 206 / 0.22); }
+  .rvhg-slider__dots :global(button[aria-current='true']) { background: #adc395; }
 
-  .rvhg-slider__arrow {
-    display: none;
+  /* CATEGORIES */
+  .rvhg-categories__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 16rem;
+    gap: 1rem;
+  }
+  .rvhg-category {
+    position: relative;
+    grid-column: span 4;
+    overflow: hidden;
+    color: #fff8ea;
+    background: #2d090c;
+    text-decoration: none;
+  }
+  .rvhg-category--wide { grid-column: span 8; grid-row: span 2; }
+  .rvhg-category--tall { grid-column: span 4; grid-row: span 2; }
+  .rvhg-category :global(img) {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out-expo, ease), filter 0.6s ease;
+  }
+  .rvhg-category:hover :global(img) { transform: scale(1.055); filter: saturate(1.08); }
+  .rvhg-category__wash {
     position: absolute;
-    top: 33%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 9999px;
-    border: 1px solid var(--color-line);
-    background: var(--color-paper, #fbf8f1);
-    color: var(--color-ink);
-    font-size: 1.6rem;
-    line-height: 1;
-    cursor: pointer;
-    place-items: center;
-    box-shadow: var(--shadow-soft);
-    transition: background 0.2s var(--ease-refined, ease), color 0.2s var(--ease-refined, ease);
+    inset: 0;
+    background: linear-gradient(155deg, transparent 25%, rgb(26 2 5 / 0.84));
   }
-  .rvhg-slider__arrow:hover { background: var(--color-ink); color: #fff; }
-  .rvhg-slider__arrow--prev { left: -1.1rem; }
-  .rvhg-slider__arrow--next { right: -1.1rem; }
-  [data-slider-ready] .rvhg-slider__arrow { display: grid; }
+  .rvhg-category__no::before {
+    content: var(--category-no);
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: rgb(255 248 234 / 0.56);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+  }
+  .rvhg-category__copy {
+    position: absolute;
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 1.2rem;
+  }
+  .rvhg-category__copy small,
+  .rvhg-category__copy strong,
+  .rvhg-category__copy > span { display: block; }
+  .rvhg-category__copy small { color: #e7c986; font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .rvhg-category__copy strong { max-width: 15ch; margin-top: 0.3rem; font-family: var(--font-display); font-size: clamp(1.2rem, 2vw, 2rem); font-weight: 500; line-height: 1.1; }
+  .rvhg-category__copy > span { max-height: 0; margin-top: 0; overflow: hidden; opacity: 0; color: rgb(255 248 234 / 0.72); font-size: 0.67rem; letter-spacing: 0.06em; text-transform: uppercase; transition: max-height 0.35s ease, margin 0.35s ease, opacity 0.35s ease; }
+  .rvhg-category:hover .rvhg-category__copy > span { max-height: 2rem; margin-top: 0.8rem; opacity: 1; }
 
-  .rvhg-slider__dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.75rem; }
-  .rvhg-slider__dots button {
-    width: 0.5rem;
-    height: 0.5rem;
+  /* REASONS */
+  .rvhg-reasons__head {
+    display: grid;
+    grid-template-columns: 0.4fr 1.6fr;
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: clamp(3rem, 6vw, 6rem);
+  }
+  .rvhg-reasons__head h2 { max-width: 15ch; font-size: clamp(2.8rem, 5vw, 5.6rem); font-weight: 500; line-height: 0.98; letter-spacing: -0.05em; }
+  .rvhg-reasons__head h2 em { color: #8b2026; font-weight: 400; }
+  .rvhg-reasons__grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
     padding: 0;
-    border: 0;
-    border-radius: 9999px;
-    background: var(--color-line);
-    cursor: pointer;
-    transition: background 0.2s var(--ease-refined, ease), width 0.2s var(--ease-refined, ease);
+    border-top: 1px solid var(--color-line);
   }
-  .rvhg-slider__dots button[aria-current='true'] { background: var(--color-primary); width: 1.5rem; }
+  .rvhg-reasons__grid li {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    gap: 0.7rem;
+    min-height: 13rem;
+    padding: 1.6rem 1.4rem;
+    border-right: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    transition: color 0.3s ease, background 0.3s ease;
+  }
+  .rvhg-reasons__grid li:nth-child(3n) { border-right: 0; }
+  .rvhg-reasons__grid li:hover { color: #fff8ea; background: #72191f; }
+  .rvhg-reasons__grid li > span { color: #9a7b4a; font-size: 0.58rem; letter-spacing: 0.1em; }
+  .rvhg-reasons__grid li:hover > span { color: #e7c986; }
+  .rvhg-reasons__grid h3 { font-family: var(--font-body); font-size: 0.95rem; letter-spacing: -0.01em; }
+  .rvhg-reasons__grid p { margin-top: 0.7rem; color: var(--color-mute); font-size: 0.79rem; line-height: 1.62; }
+  .rvhg-reasons__grid li:hover p { color: rgb(255 248 234 / 0.62); }
 
-  @media (max-width: 900px) {
-    .rvhg-slide { flex-basis: calc((100% - 1.5rem) / 2); }
-    [data-slider-ready] .rvhg-slider__arrow { display: none; }
+  /* TRUST */
+  .rvhg-trust__intro {
+    display: grid;
+    grid-template-columns: 0.4fr 1.05fr 0.55fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+    margin-bottom: clamp(4rem, 8vw, 7rem);
+  }
+  .rvhg-trust__intro h2 { color: #fff8ea; font-size: clamp(2.4rem, 4.7vw, 5rem); font-weight: 500; line-height: 1; letter-spacing: -0.05em; }
+  .rvhg-trust__intro > p:last-child { color: rgb(255 248 234 / 0.48); font-size: 0.88rem; line-height: 1.72; }
+  .rvhg-trust__block { display: grid; grid-template-columns: 0.35fr 1.65fr; gap: 2rem; padding-block: 1.8rem; border-top: 1px solid rgb(240 210 146 / 0.16); }
+  .rvhg-trust__label { display: flex; align-items: flex-start; gap: 0.8rem; color: rgb(255 248 234 / 0.48); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .rvhg-trust__label span { color: #dfbc74; }
+  .rvhg-trust__label strong { font-weight: 500; }
+  .rvhg-trust__logos {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
+  }
+  .rvhg-trust__logos li {
+    min-height: 76px;
+    display: grid;
+    place-items: center;
+    padding: 0.75rem;
+    border: 1px solid rgb(240 210 146 / 0.12);
+    background: rgb(255 255 255 / 0.035);
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .rvhg-trust__logos li:hover { border-color: rgb(240 210 146 / 0.38); background: rgb(255 255 255 / 0.07); }
+  .rvhg-trust__logos a { width: 100%; height: 100%; display: grid; place-items: center; }
+  .rvhg-trust__logos img { max-width: 100%; max-height: 48px; object-fit: contain; filter: grayscale(1) brightness(1.45); opacity: 0.68; transition: filter 0.3s ease, opacity 0.3s ease; }
+  .rvhg-trust__logos li:hover img { filter: grayscale(0); opacity: 1; }
+
+  @media (max-width: 1080px) {
+    .rvhg-hero { min-height: auto; }
+    .rvhg-hero__grid { grid-template-columns: 0.88fr 1.12fr; gap: 1rem; }
+    .rvhg-hero__visual { min-height: 38rem; }
+    .rvhg-stage__product { right: 1%; }
+    .rvhg-collection__grid { grid-template-columns: repeat(3, 1fr); }
+    .rvhg-product-card--hero { grid-column: span 2; }
+    .rvhg-slide { flex-basis: calc((100% - 1rem) / 2); }
+    .rvhg-trust__logos { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 820px) {
+    .rvhg-hero { min-height: auto; padding-top: 4rem; }
+    .rvhg-hero__grid { grid-template-columns: 1fr; }
+    .rvhg-hero h1 { max-width: 11ch; }
+    .rvhg-hero__visual { min-height: 37rem; margin-top: 1.5rem; }
+    .rvhg-hero__foot { display: none; }
+    .rvhg-manifesto__intro,
+    .rvhg-section-head,
+    .rvhg-craft__grid,
+    .rvhg-trust__intro { grid-template-columns: 1fr; }
+    .rvhg-manifesto__copy { max-width: 34rem; }
+    .rvhg-timeline { grid-template-columns: 1fr; }
+    .rvhg-timeline::before { left: 4.2rem; right: auto; top: 0; bottom: 0; width: 1px; height: auto; }
+    .rvhg-timeline li { min-height: auto; display: grid; grid-template-columns: 3.4rem 1rem 1fr; column-gap: 0.8rem; padding: 0 0 2.5rem; }
+    .rvhg-timeline__year { font-size: 1.4rem; }
+    .rvhg-timeline__node { margin: 0.35rem 0 0; }
+    .rvhg-timeline h2,
+    .rvhg-timeline p { grid-column: 3; }
+    .rvhg-timeline p { margin-top: 0.45rem; }
+    .rvhg-collection__grid { grid-template-columns: repeat(2, 1fr); }
+    .rvhg-product-card--hero { grid-column: span 2; }
+    .rvhg-craft__media { order: 2; }
+    .rvhg-categories__grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 18rem; }
+    .rvhg-category,
+    .rvhg-category--wide,
+    .rvhg-category--tall { grid-column: span 1; grid-row: span 1; }
+    .rvhg-category--wide { grid-column: span 2; }
+    .rvhg-reasons__head { grid-template-columns: 1fr; }
+    .rvhg-reasons__grid { grid-template-columns: repeat(2, 1fr); }
+    .rvhg-reasons__grid li:nth-child(3n) { border-right: 1px solid var(--color-line); }
+    .rvhg-reasons__grid li:nth-child(2n) { border-right: 0; }
+    .rvhg-trust__block { grid-template-columns: 1fr; }
   }
   @media (max-width: 600px) {
-    .rvhg-slider__track { gap: 1rem; }
-    .rvhg-slide { flex-basis: 82%; }
+    .rvhg-hero__status { margin-bottom: 1.2rem; }
+    .rvhg-hero h1 { font-size: clamp(3rem, 15vw, 4.6rem); }
+    .rvhg-hero__lede { font-size: 0.92rem; }
+    .rvhg-hero__actions { align-items: flex-start; flex-direction: column; }
+    .rvhg-hero__metrics span { font-size: 0.51rem; }
+    .rvhg-hero__visual { min-height: 25rem; }
+    .rvhg-stage { width: 110%; margin-left: -5%; }
+    .rvhg-stage__main { inset: 20% 3% 18% 5%; }
+    .rvhg-stage__seal { width: 76px; height: 76px; left: 7%; }
+    .rvhg-stage__seal img { width: 58px; height: 58px; }
+    .rvhg-stage__product { width: 132px; grid-template-columns: 44px 1fr; right: 0; }
+    .rvhg-stage__product strong { font-size: 0.72rem; }
+    .rvhg-stage__coordinate { display: none; }
+    .rvhg-manifesto__lead { font-size: 2.35rem; }
+    .rvhg-collection__grid { gap: 0.65rem; }
+    .rvhg-product-card--hero .rvhg-product-card__media { min-height: 21rem; }
+    .rvhg-product-card__meta { padding: 0.8rem; }
+    .rvhg-product-card__meta small,
+    .rvhg-product-card__arrow { display: none; }
+    .rvhg-product-card__meta strong { font-size: 0.74rem; }
+    .rvhg-craft__media :global(img) { min-height: 23rem; }
+    .rvhg-slider { padding-inline: 0; }
+    .rvhg-slide { flex-basis: 88%; }
+    .rvhg-slider__arrow { display: none; }
+    .rvhg-slide > a { min-height: 31rem; }
+    .rvhg-slide__media { height: 19rem; }
+    .rvhg-categories__grid { grid-template-columns: 1fr; grid-auto-rows: 17rem; }
+    .rvhg-category,
+    .rvhg-category--wide,
+    .rvhg-category--tall { grid-column: span 1; }
+    .rvhg-reasons__grid { grid-template-columns: 1fr; }
+    .rvhg-reasons__grid li,
+    .rvhg-reasons__grid li:nth-child(2n),
+    .rvhg-reasons__grid li:nth-child(3n) { border-right: 0; min-height: auto; }
+    .rvhg-trust__logos { grid-template-columns: repeat(2, 1fr); }
   }
-
-  /* ---------- 5 & 6 · Logo walls ---------- */
-  .rvhg-logos {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    gap: 3rem 2rem;
-  }
-  .rvhg-logos--dist { grid-template-columns: repeat(4, 1fr); }
-  .rvhg-logos--media { grid-template-columns: repeat(5, 1fr); }
-  .rvhg-logos img {
-    max-width: 100%;
-    max-height: 128px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    filter: grayscale(1);
-    opacity: 0.7;
-    transition: filter 0.25s var(--ease-refined, ease), opacity 0.25s var(--ease-refined, ease);
-  }
-  .rvhg-logos li:hover img,
-  .rvhg-logos a:hover img { filter: grayscale(0); opacity: 1; }
-  .rvhg-logos--media img { max-height: 112px; border-radius: 4px; }
-  @media (max-width: 768px) {
-    .rvhg-logos--dist { grid-template-columns: repeat(3, 1fr); }
-    .rvhg-logos--media { grid-template-columns: repeat(4, 1fr); }
-    .rvhg-logos img { max-height: 104px; }
-  }
-  @media (max-width: 460px) {
-    .rvhg-logos--dist { grid-template-columns: repeat(2, 1fr); }
-    .rvhg-logos--media { grid-template-columns: repeat(3, 1fr); }
+  @media (prefers-reduced-motion: reduce) {
+    .rvhg-stage__orbit,
+    .rvhg-stage__main,
+    .rvhg-stage__seal,
+    .rvhg-craft__scan,
+    .rvhg-hero__scroll-line::after,
+    .rvhg-hero__status-pulse { animation: none; }
   }
 </style>

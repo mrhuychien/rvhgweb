@@ -1,6 +1,6 @@
 ---
 import { ClientRouter } from 'astro:transitions';
-import { SITE } from '../data/site';
+import { COMPANY, SITE } from '../data/site';
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -45,7 +45,7 @@ const FB_PIXEL = import.meta.env.PUBLIC_FB_PIXEL ?? '';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#380F11" />
+    <meta name="theme-color" content="#210508" />
 
     <!-- Enables the progressive-enhancement motion layer (scroll-reveal/tilt).
          Runs synchronously before paint so reveal states never flash; on pages
@@ -100,11 +100,31 @@ const FB_PIXEL = import.meta.env.PUBLIC_FB_PIXEL ?? '';
   </head>
   <body>
     <a href="#main" class="rvhg-skip-link">Bỏ qua đến nội dung chính</a>
+    <div class="rvhg-site-ambient" aria-hidden="true">
+      <span class="rvhg-site-ambient__glow"></span>
+      <span class="rvhg-site-ambient__grain"></span>
+    </div>
     <Header />
-    <main id="main">
+    <main id="main" transition:animate="fade">
       <slot />
     </main>
     <Footer />
+
+    <aside class="rvhg-quickdock" aria-label="Liên kết nhanh">
+      <a href={`tel:${COMPANY.phone}`} aria-label="Gọi hotline">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M7.2 3.4 9.8 8 7.9 9.7c1.3 2.9 3.5 5 6.4 6.4l1.7-1.9 4.6 2.6-.8 3.1c-.2.7-.8 1.1-1.5 1.1C10 20.5 3.5 14 3 5.7c0-.7.4-1.3 1.1-1.5l3.1-.8Z"></path>
+        </svg>
+        <span>Hotline</span>
+      </a>
+      <a href="/diem-ban-rong-vang-hoang-gia/" aria-label="Tìm điểm bán">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M12 21s7-6 7-12a7 7 0 1 0-14 0c0 6 7 12 7 12Z"></path>
+          <circle cx="12" cy="9" r="2.5"></circle>
+        </svg>
+        <span>Điểm bán</span>
+      </a>
+    </aside>
 
     <!-- Auto-updates "số năm" numerals ([data-years-since]) to the visitor's
          current year, so the count stays correct even between deploys. The
@@ -124,6 +144,29 @@ const FB_PIXEL = import.meta.env.PUBLIC_FB_PIXEL ?? '';
           window.__rvhgYears = 1;
           document.addEventListener('astro:page-load', updateYears);
         }
+      })();
+    </script>
+
+    <script is:inline>
+      (function () {
+        function initSurface() {
+          if (document.documentElement.dataset.surfaceReady) return;
+          document.documentElement.dataset.surfaceReady = 'true';
+          if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+          var raf = 0, x = innerWidth / 2, y = innerHeight / 2;
+          function paint() {
+            raf = 0;
+            document.documentElement.style.setProperty('--pointer-x', x + 'px');
+            document.documentElement.style.setProperty('--pointer-y', y + 'px');
+          }
+          document.addEventListener('pointermove', function (event) {
+            x = event.clientX;
+            y = event.clientY;
+            if (!raf) raf = requestAnimationFrame(paint);
+          }, { passive: true });
+          paint();
+        }
+        initSurface();
       })();
     </script>
 
