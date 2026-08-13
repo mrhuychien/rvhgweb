@@ -1,0 +1,194 @@
+---
+/**
+ * VideoEmbed — nhúng video YouTube kiểu "facade" (bấm mới tải).
+ *
+ * Vì sao không nhúng <iframe> thẳng: iframe YouTube kéo theo cả MB script ngay
+ * khi tải trang, phá vỡ Core Web Vitals của một site tĩnh vốn rất nhẹ. Ở đây
+ * trang chỉ tải một ảnh poster; iframe (youtube-nocookie — chế độ không lưu
+ * cookie theo dõi) chỉ được tạo khi người dùng thật sự bấm phát.
+ *
+ * Không có JS: phần tử vốn là thẻ <a> trỏ thẳng sang YouTube nên vẫn dùng được.
+ */
+interface Props {
+  /** ID video YouTube (phần sau ?v=). */
+  id: string;
+  /** Tiêu đề video — dùng cho nhãn trợ năng và title của iframe. */
+  title: string;
+  /** Ảnh poster nội bộ (tuỳ chọn). Bỏ trống thì lấy thumbnail của YouTube. */
+  poster?: string;
+  /** Chú thích hiển thị dưới video. */
+  caption?: string;
+  loading?: 'lazy' | 'eager';
+  class?: string;
+}
+
+const { id, title, poster, caption, loading = 'lazy', class: className } = Astro.props;
+
+// maxresdefault không phải video nào cũng có → dự phòng hqdefault (luôn tồn tại).
+const posterSrc = poster ?? `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+const posterFallback = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+const watchUrl = `https://www.youtube.com/watch?v=${id}`;
+---
+
+<figure class:list={['rvhg-video', className]}>
+  <div class="rvhg-video__stage">
+    <a
+      class="rvhg-video__frame"
+      href={watchUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-video-play
+      data-video-id={id}
+      data-video-title={title}
+      aria-label={`Phát video: ${title}`}
+    >
+      <img
+        src={posterSrc}
+        alt=""
+        width="1280"
+        height="720"
+        loading={loading}
+        decoding="async"
+        onerror={`if(!this.dataset.fb){this.dataset.fb='1';this.src='${posterFallback}';}else{this.style.display='none';}`}
+      />
+      <span class="rvhg-video__scrim" aria-hidden="true"></span>
+      <span class="rvhg-video__play" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+          <path d="M8 5.5v13l11-6.5z" />
+        </svg>
+      </span>
+    </a>
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<script is:inline>
+  /* Nâng cấp facade → iframe khi bấm. Uỷ quyền sự kiện ở document nên vẫn chạy
+     sau chuyển trang (view transitions); cờ __rvhgVideo chống gắn trùng. */
+  (function () {
+    if (window.__rvhgVideo) return;
+    window.__rvhgVideo = 1;
+
+    document.addEventListener('click', function (e) {
+      var el = e.target && e.target.closest ? e.target.closest('[data-video-play]') : null;
+      if (!el || !el.parentNode) return;
+
+      var vid = el.getAttribute('data-video-id');
+      if (!vid) return;
+
+      e.preventDefault();
+
+      var iframe = document.createElement('iframe');
+      iframe.className = 'rvhg-video__iframe';
+      iframe.src =
+        'https://www.youtube-nocookie.com/embed/' +
+        encodeURIComponent(vid) +
+        '?autoplay=1&rel=0&modestbranding=1&playsinline=1&hl=vi';
+      iframe.title = el.getAttribute('data-video-title') || 'Video';
+      iframe.setAttribute(
+        'allow',
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share',
+      );
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('frameborder', '0');
+
+      el.parentNode.replaceChild(iframe, el);
+      if (iframe.focus) iframe.focus();
+    });
+  })();
+</script>
+
+<style>
+  .rvhg-video {
+    margin: 0;
+    width: 100%;
+  }
+  .rvhg-video__stage {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--radius-lg, 8px);
+    background: var(--color-night, #380f11);
+    box-shadow: var(--shadow-md);
+  }
+  .rvhg-video__frame,
+  .rvhg-video__stage :global(.rvhg-video__iframe) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  .rvhg-video__frame {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .rvhg-video__frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease-refined, ease);
+  }
+  /* Lớp phủ nhẹ giúp nút phát nổi rõ trên mọi ảnh poster */
+  .rvhg-video__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgb(28 23 20 / 0.1) 0%, rgb(28 23 20 / 0.34) 100%);
+    transition: background 0.35s var(--ease-refined, ease);
+  }
+  .rvhg-video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 4.5rem;
+    height: 4.5rem;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+    color: #fff;
+    background: var(--color-primary, #571a1d);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--color-brass-400, #c5a878) 75%, transparent),
+      0 10px 30px -10px rgb(28 23 20 / 0.55);
+    transition:
+      transform 0.35s var(--ease-refined, ease),
+      background 0.35s var(--ease-refined, ease);
+  }
+  .rvhg-video__play svg {
+    /* căn thị giác: mũi tam giác lệch phải so với tâm hình tròn */
+    margin-left: 0.18rem;
+  }
+  @media (hover: hover) {
+    .rvhg-video__frame:hover img { transform: scale(1.03); }
+    .rvhg-video__frame:hover .rvhg-video__scrim { background: linear-gradient(180deg, rgb(28 23 20 / 0.05) 0%, rgb(28 23 20 / 0.28) 100%); }
+    .rvhg-video__frame:hover .rvhg-video__play { transform: scale(1.06); }
+  }
+  .rvhg-video__frame:focus-visible {
+    outline: 2px solid var(--color-brass-400, #c5a878);
+    outline-offset: 3px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .rvhg-video__frame img,
+    .rvhg-video__play,
+    .rvhg-video__scrim { transition: none; }
+    .rvhg-video__frame:hover img { transform: none; }
+  }
+  @media (max-width: 600px) {
+    .rvhg-video__play { width: 3.5rem; height: 3.5rem; }
+    .rvhg-video__play svg { width: 20px; height: 20px; }
+  }
+
+  .rvhg-video figcaption {
+    margin-top: 0.9rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-mute);
+  }
+  /* Trên nền tối (rvhg-band-night) chú thích phải đọc được */
+  :global(.rvhg-band-night) .rvhg-video figcaption {
+    color: var(--color-night-mute, #cbbba0);
+  }
+</style>

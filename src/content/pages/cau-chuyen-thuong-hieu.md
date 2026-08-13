@@ -6,6 +6,7 @@ oldUrl: 'https://www.rongvanghoanggia.com/cau-chuyen-san-pham-rong-vang-hoang-gi
 route: '/cau-chuyen-san-pham-rong-vang-hoang-gia-2/'
 heroImage: '/images/legacy/cau-chuyen-khai-dinh-1918.jpg'
 ogImage: '/images/legacy/cau-chuyen-khai-dinh-1918.jpg'
+brandVideo: true
 standalone: false
 ---
 

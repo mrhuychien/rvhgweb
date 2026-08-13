@@ -1,7 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
-import { FOUNDED_YEAR, YEARS_EXPERIENCE } from '../../data/site';
+import { BRAND_VIDEO, FOUNDED_YEAR, YEARS_EXPERIENCE } from '../../data/site';
 
 const entry = await getEntry('pages', 'gioi-thieu');
 if (!entry) throw new Error('Missing content: pages/gioi-thieu');
@@ -19,6 +19,13 @@ const d = entry.data;
   eyebrow="Về Rồng Vàng Hoàng Gia"
   headingHtml={`<span data-years-since="${FOUNDED_YEAR}">${YEARS_EXPERIENCE}</span> năm gìn giữ một nghề.`}
   lede="Bánh đậu xanh OCOP 5 sao Quốc gia 2024. Sản xuất theo tiêu chuẩn ISO 22000:2018. Từ Hải Dương ra 6 quốc gia."
+  video={{
+    id: BRAND_VIDEO.id,
+    title: BRAND_VIDEO.title,
+    description: BRAND_VIDEO.description,
+    uploadDate: BRAND_VIDEO.uploadDate,
+    caption: 'Video giới thiệu Rồng Vàng Hoàng Gia — bấm để xem',
+  }}
 >
   <Content />
 </PageLayout>

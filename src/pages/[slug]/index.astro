@@ -5,6 +5,7 @@ import PostLayout from '../../layouts/PostLayout.astro';
 import PolicyLayout from '../../layouts/PolicyLayout.astro';
 import PageLayout from '../../layouts/PageLayout.astro';
 import { postSlug, isPublished } from '../../lib/posts';
+import { BRAND_VIDEO } from '../../data/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', isPublished);
@@ -57,6 +58,13 @@ const slug = Astro.params.slug;
     canonical={(entry as CollectionEntry<'pages'>).data.route}
     image={(entry as CollectionEntry<'pages'>).data.ogImage}
     heroImage={(entry as CollectionEntry<'pages'>).data.heroImage}
+    video={(entry as CollectionEntry<'pages'>).data.brandVideo ? {
+      id: BRAND_VIDEO.id,
+      title: BRAND_VIDEO.title,
+      description: BRAND_VIDEO.description,
+      uploadDate: BRAND_VIDEO.uploadDate,
+      caption: 'Video giới thiệu Rồng Vàng Hoàng Gia — bấm để xem',
+    } : undefined}
     breadcrumbs={[{ name: (entry as CollectionEntry<'pages'>).data.title, url: (entry as CollectionEntry<'pages'>).data.route }]}
   >
     <Content />

@@ -65,6 +65,22 @@ export const COMPANY = {
   ],
 } as const;
 
+/** Video giới thiệu thương hiệu (YouTube) — nguồn dùng chung cho trang chủ,
+ *  trang Giới thiệu và trang Câu chuyện thương hiệu.
+ *  `uploadDate` (YYYY-MM-DD) là tuỳ chọn: điền ngày đăng thật của video để
+ *  đủ điều kiện hiển thị rich result VideoObject trên Google. */
+export const BRAND_VIDEO: {
+  id: string;
+  title: string;
+  description: string;
+  uploadDate?: string;
+} = {
+  id: 'sVFMNxdCKYI',
+  title: 'Video giới thiệu Rồng Vàng Hoàng Gia',
+  description:
+    'Video giới thiệu thương hiệu bánh đậu xanh Rồng Vàng Hoàng Gia — Công ty Cổ phần Hoàng Giang (Hải Dương): câu chuyện nghề truyền thống, quy trình sản xuất đạt ISO 22000:2018 và sản phẩm bánh đậu xanh OCOP 5 sao Quốc gia.',
+};
+
 /** Founding year — single source for the auto-updating "số năm kinh nghiệm". */
 export const FOUNDED_YEAR = 1997;
 /** Years since founding, computed at build time; the client bumps it to the

@@ -123,6 +123,32 @@ export function faqSchema(qa: { q: string; a: string }[]) {
   };
 }
 
+/** VideoObject cho video giới thiệu nhúng từ YouTube.
+ *  `uploadDate` là tuỳ chọn ở đây nhưng Google yêu cầu nó để hiển thị rich
+ *  result video — điền ngày đăng thật trong BRAND_VIDEO khi có. */
+export function videoSchema(opts: {
+  id: string;
+  name: string;
+  description: string;
+  uploadDate?: string;
+  url?: string;
+}) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: opts.name,
+    description: opts.description,
+    thumbnailUrl: [`https://i.ytimg.com/vi/${opts.id}/maxresdefault.jpg`],
+    embedUrl: `https://www.youtube-nocookie.com/embed/${opts.id}`,
+    contentUrl: `https://www.youtube.com/watch?v=${opts.id}`,
+    publisher: { '@id': SITE.url + '#organization' },
+    inLanguage: 'vi',
+  };
+  if (opts.uploadDate) schema.uploadDate = opts.uploadDate;
+  if (opts.url) schema.mainEntityOfPage = { '@type': 'WebPage', '@id': abs(opts.url) };
+  return schema;
+}
+
 export function howToSchema(opts: { name: string; steps: string[]; image?: string }) {
   return {
     '@context': 'https://schema.org',

@@ -13,6 +13,8 @@ const pages = defineCollection({
     ogImage: z.string().optional(),
     heroImage: z.string().optional(),
     updated: z.coerce.date().optional(),
+    /** Bật video giới thiệu thương hiệu (BRAND_VIDEO) trong trang này. */
+    brandVideo: z.boolean().default(false),
     standalone: z.boolean().default(false),
   }),
 });
