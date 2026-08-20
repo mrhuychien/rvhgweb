@@ -1,136 +1,286 @@
 ---
-import { COMPANY, NAV, SITE } from '../data/site';
+import { NAV } from '../data/site';
 
 const path = Astro.url.pathname;
-const isActive = (href: string) => href === '/' ? path === '/' : path === href || path.startsWith(href);
-const primaryNav = NAV.filter((item) => !['/', '/cong-bo/', '/lien-he/'].includes(item.href));
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(href);
+
+// Split the nav into two groups that flank the central emblem (old-site layout).
+const mid = Math.ceil(NAV.length / 2);
+const navLeft = NAV.slice(0, mid);
+const navRight = NAV.slice(mid);
+
+// Languages offered by the Google machine-translation switcher.
 const LANGS = [
-  { code: 'vi', label: 'VI' },
-  { code: 'en', label: 'EN' },
-  { code: 'ja', label: 'JA' },
-  { code: 'ko', label: 'KO' },
+  { code: 'vi', label: 'Tiếng Việt' },
+  { code: 'en', label: 'English' },
+  { code: 'ja', label: '日本語' },
+  { code: 'ko', label: '한국어' },
   { code: 'zh-CN', label: '中文' },
-  { code: 'fr', label: 'FR' },
+  { code: 'fr', label: 'Français' },
 ];
 ---
 
 <header class="rvhg-header" data-rvhg-header>
-  <div class="rvhg-header__notice">
-    <div class="rvhg-header__notice-inner">
-      <p><span aria-hidden="true">✦</span> Bánh đậu xanh đạt OCOP 5 sao Quốc gia</p>
-      <a href={`tel:${COMPANY.phone}`}>Tư vấn: 0934 362 658</a>
-    </div>
-  </div>
-
-  <div class="rvhg-header__main">
-    <a href="/" class="rvhg-header__brand" aria-label={`Trang chủ — ${SITE.name}`}>
-      <img src="/images/legacy/logo-seal.png" alt="" width="512" height="512" decoding="async" fetchpriority="high" />
-      <span>
-        <strong>{SITE.name}</strong>
-        <small>{SITE.tagline}</small>
-      </span>
-    </a>
-
-    <nav class="rvhg-header__nav" aria-label="Điều hướng chính">
+  <div class="rvhg-header__inner">
+    <nav class="rvhg-header__side rvhg-header__side--left" aria-label="Điều hướng (trái)">
       <ul>
-        {primaryNav.map((item) => (
-          <li><a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a></li>
+        {navLeft.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+          </li>
         ))}
       </ul>
     </nav>
 
-    <div class="rvhg-header__actions">
-      <label class="rvhg-header__lang">
-        <span class="sr-only">Ngôn ngữ</span>
-        <select data-rvhg-lang aria-label="Ngôn ngữ / Language">
-          {LANGS.map((lang) => <option value={lang.code}>{lang.label}</option>)}
-        </select>
-      </label>
-      <a class="rvhg-header__store" href="/diem-ban-rong-vang-hoang-gia/">Tìm điểm bán <span aria-hidden="true">↗</span></a>
-    </div>
+    <a href="/" class="rvhg-header__emblem" aria-label="Trang chủ — Rồng Vàng Hoàng Gia">
+      <img
+        src="/images/legacy/logo-seal.png"
+        alt="Rồng Vàng Hoàng Gia — Đặc sản nức tiếng Hải Dương"
+        width="512" height="512"
+        decoding="async" fetchpriority="high"
+      />
+    </a>
 
-    <button type="button" class="rvhg-header__toggle" aria-expanded="false" aria-controls="rvhg-mobile-nav" aria-label="Mở menu" data-rvhg-menu-toggle>
-      <span></span><span></span>
+    <nav class="rvhg-header__side rvhg-header__side--right" aria-label="Điều hướng (phải)">
+      <ul>
+        {navRight.map((item) => (
+          <li>
+            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+          </li>
+        ))}
+        <li class="rvhg-header__lang">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+          </svg>
+          <select class="rvhg-lang-select" data-rvhg-lang aria-label="Ngôn ngữ / Language">
+            {LANGS.map((l) => <option value={l.code}>{l.label}</option>)}
+          </select>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      type="button"
+      class="rvhg-header__toggle"
+      aria-expanded="false"
+      aria-controls="rvhg-mobile-nav"
+      aria-label="Mở menu"
+      data-rvhg-menu-toggle
+    >
+      <svg viewBox="0 0 20 20" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+        <line x1="2" y1="6" x2="18" y2="6" />
+        <line x1="2" y1="12" x2="18" y2="12" />
+      </svg>
     </button>
   </div>
 
-  <nav id="rvhg-mobile-nav" class="rvhg-mobile-nav" aria-label="Điều hướng di động" hidden>
+  <nav id="rvhg-mobile-nav" class="rvhg-mobile-nav" aria-label="Điều hướng (di động)" hidden>
     <ul>
       {NAV.map((item) => (
-        <li><a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}<span aria-hidden="true">↗</span></a></li>
+        <li>
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+        </li>
       ))}
-    </ul>
-    <div class="rvhg-mobile-nav__bottom">
-      <label>
-        <span>Ngôn ngữ</span>
-        <select data-rvhg-lang aria-label="Ngôn ngữ / Language">
-          {LANGS.map((lang) => <option value={lang.code}>{lang.label}</option>)}
+      <li class="rvhg-mobile-nav__lang">
+        <span>Ngôn ngữ / Language</span>
+        <select class="rvhg-lang-select rvhg-lang-select--mobile" data-rvhg-lang aria-label="Ngôn ngữ / Language">
+          {LANGS.map((l) => <option value={l.code}>{l.label}</option>)}
         </select>
-      </label>
-      <a href={`tel:${COMPANY.phone}`}>Hotline 0934 362 658</a>
-    </div>
+      </li>
+    </ul>
   </nav>
 </header>
 
 <style>
-  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-  .rvhg-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, #fbf8f1 94%, transparent); border-bottom: 1px solid rgba(74, 43, 31, 0.12); backdrop-filter: blur(18px); }
-  .rvhg-header__notice { background: #5d1117; color: #fbf7ee; font-size: 0.72rem; letter-spacing: 0.04em; }
-  .rvhg-header__notice-inner { max-width: 1240px; min-height: 30px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-  .rvhg-header__notice p { margin: 0; }
-  .rvhg-header__notice p span { color: #d6b878; margin-right: 0.4rem; }
-  .rvhg-header__notice a { color: inherit; text-decoration: none; opacity: 0.86; }
-  .rvhg-header__main { max-width: 1240px; min-height: 82px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: minmax(230px, 1fr) auto minmax(230px, 1fr); align-items: center; gap: 2rem; transition: min-height 0.25s ease; }
-  .rvhg-header[data-scrolled] .rvhg-header__main { min-height: 68px; }
-  .rvhg-header__brand { display: inline-flex; align-items: center; gap: 0.75rem; justify-self: start; color: #281c17; text-decoration: none; min-width: 0; }
-  .rvhg-header__brand img { width: 50px; height: 50px; flex: 0 0 auto; object-fit: cover; border-radius: 50%; box-shadow: 0 0 0 1px rgba(157, 111, 52, 0.28); transition: width 0.25s ease, height 0.25s ease; }
-  .rvhg-header[data-scrolled] .rvhg-header__brand img { width: 44px; height: 44px; }
-  .rvhg-header__brand span { display: flex; flex-direction: column; line-height: 1.18; min-width: 0; }
-  .rvhg-header__brand strong { font-family: var(--font-display); font-size: 1.03rem; font-weight: 650; letter-spacing: -0.01em; white-space: nowrap; }
-  .rvhg-header__brand small { margin-top: 0.22rem; color: #8b6b43; font-size: 0.64rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
-  .rvhg-header__nav ul { display: flex; align-items: center; gap: 1.85rem; list-style: none; margin: 0; padding: 0; }
-  .rvhg-header__nav a { position: relative; display: block; padding: 1rem 0; color: #3c3029; text-decoration: none; font-size: 0.82rem; font-weight: 550; letter-spacing: 0.015em; white-space: nowrap; }
-  .rvhg-header__nav a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 0.7rem; height: 1px; background: #8b1720; transition: right 0.25s ease; }
-  .rvhg-header__nav a:hover::after, .rvhg-header__nav a[aria-current='page']::after { right: 0; }
-  .rvhg-header__nav a[aria-current='page'] { color: #71141b; }
-  .rvhg-header__actions { justify-self: end; display: flex; align-items: center; gap: 0.85rem; }
-  .rvhg-header__lang select { appearance: none; border: 0; background: transparent; color: #6e625b; font: inherit; font-size: 0.72rem; font-weight: 600; cursor: pointer; padding: 0.6rem 0.25rem; }
-  .rvhg-header__store { display: inline-flex; align-items: center; gap: 0.45rem; min-height: 42px; padding: 0 1rem; background: #68131a; color: #fffaf0; text-decoration: none; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.025em; border: 1px solid #68131a; transition: background 0.2s ease, color 0.2s ease; }
-  .rvhg-header__store:hover { background: transparent; color: #68131a; }
-  .rvhg-header__toggle { display: none; width: 42px; height: 42px; padding: 0; border: 1px solid rgba(77, 53, 39, 0.18); background: transparent; align-items: center; justify-content: center; flex-direction: column; gap: 6px; color: #311f19; }
-  .rvhg-header__toggle span { width: 18px; height: 1px; background: currentColor; transition: transform 0.2s ease; }
-  .rvhg-header__toggle[aria-expanded='true'] span:first-child { transform: translateY(3.5px) rotate(45deg); }
-  .rvhg-header__toggle[aria-expanded='true'] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-  .rvhg-mobile-nav { background: #fbf8f1; border-top: 1px solid rgba(74, 43, 31, 0.12); }
-  .rvhg-mobile-nav ul { list-style: none; margin: 0; padding: 0.7rem 1.25rem; }
-  .rvhg-mobile-nav li + li { border-top: 1px solid rgba(74, 43, 31, 0.1); }
-  .rvhg-mobile-nav a { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; color: #2c211c; text-decoration: none; font-family: var(--font-display); font-size: 1.08rem; }
-  .rvhg-mobile-nav a[aria-current='page'] { color: #7b161e; }
-  .rvhg-mobile-nav__bottom { padding: 1rem 1.25rem 1.35rem; background: #f0e8db; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.78rem; }
-  .rvhg-mobile-nav__bottom label { display: flex; align-items: center; gap: 0.5rem; }
-  .rvhg-mobile-nav__bottom select { border: 0; background: transparent; font: inherit; font-weight: 600; }
-  .rvhg-mobile-nav__bottom a { padding: 0; font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; color: #68131a; }
-  @media (max-width: 1100px) {
-    .rvhg-header__main { grid-template-columns: auto 1fr auto; }
-    .rvhg-header__brand span { display: none; }
-    .rvhg-header__nav ul { gap: 1.25rem; }
+  .rvhg-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    color: var(--color-paper-50, #fbf8f1);
+    background:
+      radial-gradient(120% 145% at 50% -15%, #e03a43 0%, #bd1824 46%, #860b14 100%);
+    border-bottom: 1px solid color-mix(in srgb, var(--brass) 45%, transparent);
   }
-  @media (max-width: 860px) {
-    .rvhg-header__notice-inner { padding-inline: 1.25rem; }
-    .rvhg-header__notice a { display: none; }
-    .rvhg-header__main { min-height: 68px; padding-inline: 1.25rem; display: flex; justify-content: space-between; gap: 1rem; }
-    .rvhg-header__brand span { display: flex; }
-    .rvhg-header__brand strong { font-size: 0.96rem; }
-    .rvhg-header__brand small { font-size: 0.58rem; }
-    .rvhg-header__brand img { width: 44px; height: 44px; }
-    .rvhg-header__nav, .rvhg-header__actions { display: none; }
-    .rvhg-header__toggle { display: inline-flex; flex: 0 0 auto; }
+  /* brass corner brackets — restrained nod to the lacquer frame */
+  .rvhg-header::before,
+  .rvhg-header::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    width: 26px;
+    height: 26px;
+    border-top: 1px solid color-mix(in srgb, var(--color-brass-400, #c5a878) 70%, transparent);
+    pointer-events: none;
   }
-  @media (max-width: 430px) {
-    .rvhg-header__brand img { width: 40px; height: 40px; }
-    .rvhg-header__brand strong { font-size: 0.86rem; }
-    .rvhg-header__brand small { display: none; }
-    .rvhg-header__notice { font-size: 0.64rem; }
+  .rvhg-header::before { left: 12px;  border-left: 1px solid color-mix(in srgb, var(--color-brass-400, #c5a878) 70%, transparent); }
+  .rvhg-header::after  { right: 12px; border-right: 1px solid color-mix(in srgb, var(--color-brass-400, #c5a878) 70%, transparent); }
+
+  .rvhg-header__inner {
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+    min-height: 92px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1.25rem;
+    transition: min-height 0.3s var(--ease-refined, ease);
+  }
+  @media (min-width: 768px) {
+    .rvhg-header__inner { padding-inline: 2.5rem; }
+  }
+  .rvhg-header[data-scrolled] .rvhg-header__inner { min-height: 72px; }
+
+  /* central emblem */
+  .rvhg-header__emblem {
+    display: inline-flex;
+    justify-self: center;
+    line-height: 0;
+  }
+  .rvhg-header__emblem img {
+    width: 76px;
+    height: 76px;
+    border-radius: 9999px;
+    object-fit: cover;
+    display: block;
+    /* hairline brass ring lifts the red seal off the maroon header */
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-brass-400, #c5a878) 55%, transparent);
+    transition: width 0.3s var(--ease-refined, ease), height 0.3s var(--ease-refined, ease);
+  }
+  .rvhg-header[data-scrolled] .rvhg-header__emblem img { width: 60px; height: 60px; }
+
+  /* flanking nav groups */
+  .rvhg-header__side ul {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rvhg-header__side--left ul  { justify-content: flex-end; }
+  .rvhg-header__side--right ul { justify-content: flex-start; }
+  .rvhg-header__side a {
+    display: inline-block;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-paper-50, #fbf8f1);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.18s var(--ease-refined, ease);
+  }
+  .rvhg-header__side a:hover { color: var(--color-brass-300, #d8c29a); }
+  .rvhg-header__side a[aria-current='page'] {
+    color: var(--color-brass-300, #d8c29a);
+  }
+
+  /* language switcher */
+  .rvhg-header__lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0.4rem;
+    padding-left: 0.7rem;
+    border-left: 1px solid color-mix(in srgb, var(--brass) 35%, transparent);
+    color: var(--color-brass-300, #d8c29a);
+  }
+  .rvhg-lang-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    color: var(--color-paper-50, #fbf8f1);
+    font: inherit;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0.3rem 0.2rem;
+  }
+  .rvhg-lang-select:hover { color: var(--color-brass-300, #d8c29a); }
+  .rvhg-lang-select option { color: #1c1714; text-transform: none; }
+
+  /* mobile toggle */
+  .rvhg-header__toggle {
+    display: none;
+    grid-column: 1;
+    justify-self: start;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border: 0;
+    background: transparent;
+    color: var(--color-paper-50, #fbf8f1);
+    cursor: pointer;
+  }
+
+  /* mobile drawer */
+  .rvhg-mobile-nav {
+    background: #860b14;
+    border-top: 1px solid color-mix(in srgb, var(--brass) 30%, transparent);
+  }
+  .rvhg-mobile-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 1.5rem 1.25rem;
+  }
+  .rvhg-mobile-nav a {
+    display: block;
+    padding: 0.9rem 0.25rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-paper-50, #fbf8f1);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--brass) 18%, transparent);
+  }
+  .rvhg-mobile-nav a[aria-current='page'] { color: var(--color-brass-300, #d8c29a); }
+  .rvhg-mobile-nav__lang {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0.25rem 0.25rem;
+  }
+  .rvhg-mobile-nav__lang span {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brass-300, #d8c29a);
+  }
+  .rvhg-lang-select--mobile {
+    border: 1px solid color-mix(in srgb, var(--brass) 35%, transparent);
+    border-radius: var(--radius-sm, 2px);
+    padding: 0.5rem 0.6rem;
+  }
+
+  @media (max-width: 900px) {
+    .rvhg-header__side { display: none; }
+    .rvhg-header::before, .rvhg-header::after { display: none; }
+    .rvhg-header__inner {
+      position: relative;            /* anchor the absolutely-centred emblem */
+      display: flex;
+      align-items: center;
+      min-height: 70px;
+      padding-inline: 1.25rem;
+    }
+    .rvhg-header__toggle { display: inline-flex; }
+    /* dead-centre the emblem regardless of the hamburger width */
+    .rvhg-header__emblem {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .rvhg-header__emblem img { width: 62px; height: 62px; }
+    .rvhg-header[data-scrolled] .rvhg-header__inner { min-height: 60px; }
+    .rvhg-header[data-scrolled] .rvhg-header__emblem img { width: 52px; height: 52px; }
   }
 </style>
 
@@ -140,25 +290,34 @@ const LANGS = [
     const toggle = document.querySelector('[data-rvhg-menu-toggle]') as HTMLButtonElement | null;
     const nav = document.getElementById('rvhg-mobile-nav');
     if (!header || !toggle || !nav) return;
-    const close = () => { toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Mở menu'); nav.hidden = true; };
+
+    const close = () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.hidden = true;
+    };
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!open));
-      toggle.setAttribute('aria-label', open ? 'Mở menu' : 'Đóng menu');
       nav.hidden = open;
     });
-    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', close));
-    const match = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
-    const current = match ? decodeURIComponent(match[1]) : 'vi';
-    document.querySelectorAll('[data-rvhg-lang]').forEach((element) => {
-      const select = element as HTMLSelectElement;
-      select.value = current;
-      select.addEventListener('change', () => {
-        const setLanguage = (window as unknown as { rvhgSetLang?: (language: string) => void }).rvhgSetLang;
-        if (setLanguage) setLanguage(select.value);
+    nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+
+    // language switcher — reflect current language, switch on change
+    const m = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
+    const current = m ? decodeURIComponent(m[1]) : 'vi';
+    document.querySelectorAll('[data-rvhg-lang]').forEach((el) => {
+      const sel = el as HTMLSelectElement;
+      sel.value = current;
+      sel.addEventListener('change', () => {
+        const fn = (window as unknown as { rvhgSetLang?: (l: string) => void }).rvhgSetLang;
+        if (fn) fn(sel.value);
       });
     });
-    const onScroll = () => window.scrollY > 8 ? header.setAttribute('data-scrolled', '') : header.removeAttribute('data-scrolled');
+
+    const onScroll = () => {
+      if (window.scrollY > 8) header.setAttribute('data-scrolled', '');
+      else header.removeAttribute('data-scrolled');
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }

@@ -111,15 +111,15 @@
   --color-ink-900: #1c1714;
 
   /* ---- Lacquer (oxblood — dark surfaces + primary) ---- */
-  --color-lacquer-700: #6e2226;
-  --color-lacquer-800: #571a1d;
-  --color-lacquer-900: #4c1417;
-  --color-lacquer-950: #380f11;
+  --color-lacquer-700: #d52a34;
+  --color-lacquer-800: #bd1824;
+  --color-lacquer-900: #a4101b;
+  --color-lacquer-950: #860b14;
 
   /* ---- Seal (cinnabar — triện + tem only) ---- */
-  --color-seal-400: #c0473b;
-  --color-seal-500: #a8362b;
-  --color-seal-600: #8f2b22;
+  --color-seal-400: #f04b45;
+  --color-seal-500: #da2d32;
+  --color-seal-600: #bb1d27;
 
   /* ---- Brass (antique gold — hairline + emblem + accent) ---- */
   --color-brass-300: #d8c29a;
@@ -146,7 +146,7 @@
   --color-card: #ffffff;
   --color-muted: #f4eee1;
   --color-muted-foreground: #6f5f50;
-  --color-primary: #571a1d;
+  --color-primary: #bd1824;
   --color-primary-foreground: #fbf8f1;
   --color-secondary: #e8decb;
   --color-secondary-foreground: #2e2620;
@@ -205,7 +205,7 @@
    ============================================================================ */
 :root {
   color-scheme: light;
-  scroll-padding-top: 7.25rem; /* clears the two-tier sticky header */
+  scroll-padding-top: 6.5rem; /* clears the centred-emblem header */
 
   /* brand accents (small surfaces only — see §0 rules) */
   --brass: #b08d57;
@@ -214,23 +214,23 @@
   --gold-line: #b08d57; /* applied at 40–50% opacity */
 
   /* --- legacy alias bridge → imperial values --- */
-  --color-paper: #fbf8f1;        /* warm ivory */
-  --color-paper-soft: #f8f3ea;   /* low-contrast editorial band */
-  --color-paper-tint: #f0e8dc;   /* secondary surface */
+  --color-paper: #fbf8f1;        /* was #fff */
+  --color-paper-soft: #fff8f4;   /* warm blush band */
+  --color-paper-tint: #f8e9e3;   /* red-tinted secondary surface */
   --color-ink: #1c1714;
   --color-ink-soft: #2e2620;
   --color-mute: #6f5f50;
   --color-mute-soft: #8c7c6b;
-  --color-line: #ded3c2;         /* warm hairline */
-  --color-line-soft: #e9e0d3;
-  --color-night: #551016;        /* deep lacquer */
-  --color-night-soft: #68131a;
+  --color-line: #e4dac6;         /* warm hairline */
+  --color-line-soft: #ece3d3;
+  --color-night: #860b14;        /* vivid royal red */
+  --color-night-soft: #a4101b;   /* bright lacquer */
   --color-night-text: #fbf8f1;
-  --color-night-mute: #cbbba0;   /* warm taupe on dark */
+  --color-night-mute: #f0c7b7;   /* warm blush on red */
 
   /* primary button = oxblood lacquer (§0 rule 2) */
-  --color-primary: #571a1d;
-  --color-primary-hover: #4c1417;
+  --color-primary: #bd1824;
+  --color-primary-hover: #9f101a;
   --color-primary-foreground: #fbf8f1;
 
   /* brand legacy names kept pointing at correct hues */
@@ -239,7 +239,7 @@
   --color-rvhg-gold-dark: #7a6234;   /* brass-700: passes contrast for small text */
   --color-rvhg-cream: #f4eee1;
   --color-rvhg-green: #7c8a4e;
-  --color-rvhg-red: #a8362b;          /* seal */
+  --color-rvhg-red: #da2d32;          /* vivid seal red */
 
   /* links: ink text + brass underline on hover (NOT gold text — §3.3) */
   --color-link: #1c1714;
@@ -256,7 +256,7 @@
   --text-subtitle: clamp(1.1rem, 0.5vw + 1rem, 1.375rem);
 
   /* radii / shadow legacy aliases */
-  --radius-card: 0px;            /* editorial, architectural surfaces */
+  --radius-card: 8px;            /* §0 rule 5: ≤ 8px, no SaaS pills */
   --radius-pill: 9999px;         /* triện / avatar only */
   --shadow-soft: 0 2px 8px -2px rgb(28 23 20 / 0.06);
   --shadow-lift: 0 8px 28px -8px rgb(28 23 20 / 0.1);
@@ -295,7 +295,7 @@ p { text-wrap: pretty; }
 
 /* §0 rule 2: seal cinnabar reserved for ::selection + triện */
 ::selection {
-  background: #a8362b;
+  background: #da2d32;
   color: #fbf8f1;
 }
 
@@ -357,7 +357,7 @@ img {
    ============================================================================ */
 .rvhg-container {
   width: 100%;
-  max-width: 1240px;
+  max-width: 1180px;
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
@@ -391,13 +391,11 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  min-height: 46px;
-  padding: 0.78rem 1.35rem;
-  border-radius: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md, 4px);
   font-family: var(--font-body);
-  font-size: 0.84rem;
-  font-weight: 600;
-  letter-spacing: 0.015em;
+  font-size: 0.95rem;
+  font-weight: 500;
   text-decoration: none;
   border: 1px solid transparent;
   background: var(--color-primary);
