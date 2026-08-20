@@ -205,7 +205,7 @@
    ============================================================================ */
 :root {
   color-scheme: light;
-  scroll-padding-top: 6.5rem; /* clears the centred-emblem header */
+  scroll-padding-top: 7.25rem; /* clears the two-tier sticky header */
 
   /* brand accents (small surfaces only — see §0 rules) */
   --brass: #b08d57;
@@ -214,17 +214,17 @@
   --gold-line: #b08d57; /* applied at 40–50% opacity */
 
   /* --- legacy alias bridge → imperial values --- */
-  --color-paper: #fbf8f1;        /* was #fff */
-  --color-paper-soft: #f9f5ec;   /* hairline contrast band */
-  --color-paper-tint: #f4eee1;   /* secondary surface (paper-100) */
+  --color-paper: #fbf8f1;        /* warm ivory */
+  --color-paper-soft: #f8f3ea;   /* low-contrast editorial band */
+  --color-paper-tint: #f0e8dc;   /* secondary surface */
   --color-ink: #1c1714;
   --color-ink-soft: #2e2620;
   --color-mute: #6f5f50;
   --color-mute-soft: #8c7c6b;
-  --color-line: #e4dac6;         /* warm hairline */
-  --color-line-soft: #ece3d3;
-  --color-night: #380f11;        /* lacquer-950 (was #000) */
-  --color-night-soft: #4c1417;   /* lacquer-900 */
+  --color-line: #ded3c2;         /* warm hairline */
+  --color-line-soft: #e9e0d3;
+  --color-night: #551016;        /* deep lacquer */
+  --color-night-soft: #68131a;
   --color-night-text: #fbf8f1;
   --color-night-mute: #cbbba0;   /* warm taupe on dark */
 
@@ -256,7 +256,7 @@
   --text-subtitle: clamp(1.1rem, 0.5vw + 1rem, 1.375rem);
 
   /* radii / shadow legacy aliases */
-  --radius-card: 8px;            /* §0 rule 5: ≤ 8px, no SaaS pills */
+  --radius-card: 0px;            /* editorial, architectural surfaces */
   --radius-pill: 9999px;         /* triện / avatar only */
   --shadow-soft: 0 2px 8px -2px rgb(28 23 20 / 0.06);
   --shadow-lift: 0 8px 28px -8px rgb(28 23 20 / 0.1);
@@ -357,7 +357,7 @@ img {
    ============================================================================ */
 .rvhg-container {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1240px;
   margin-inline: auto;
   padding-inline: 1.5rem;
 }
@@ -391,11 +391,13 @@ img {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md, 4px);
+  min-height: 46px;
+  padding: 0.78rem 1.35rem;
+  border-radius: 0;
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.015em;
   text-decoration: none;
   border: 1px solid transparent;
   background: var(--color-primary);

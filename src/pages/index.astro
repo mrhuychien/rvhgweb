@@ -5,30 +5,25 @@ import LegacyImg from '../components/LegacyImg.astro';
 import Motion from '../components/Motion.astro';
 import VideoEmbed from '../components/VideoEmbed.astro';
 import { videoSchema } from '../data/jsonld';
-import { SITE, BRAND_VIDEO, REASONS, FEATURED, DISTRIBUTION_LOGOS, MEDIA_LOGOS, YEARS_EXPERIENCE } from '../data/site';
+import { SITE, BRAND_VIDEO, REASONS, FEATURED, DISTRIBUTION_LOGOS, YEARS_EXPERIENCE } from '../data/site';
 import { POWDERS, POWDER_SINGLES, assetUrl } from '../data/powders';
+import { isPublished, postPath } from '../lib/posts';
 
 const lines = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
-
-// New "bột đậu xanh" drinks for the home-page slider (4 flavours + the no-sugar pair).
+const latestPosts = (await getCollection('posts', isPublished))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
+const fmt = (date: Date) => new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(date);
 const powderSlides = [
-  ...POWDER_SINGLES.map((s) => ({
-    href: `/${s}/`,
-    image: POWDERS[s].image,
-    name: POWDERS[s].name,
-    tag: POWDERS[s].flavor,
-    desc: POWDERS[s].tagline,
-    accent: POWDERS[s].accent,
-    accentInk: POWDERS[s].accentInk,
+  ...POWDER_SINGLES.map((slug) => ({
+    href: `/${slug}/`, image: POWDERS[slug].image, name: POWDERS[slug].name,
+    tag: POWDERS[slug].flavor, desc: POWDERS[slug].tagline,
+    accent: POWDERS[slug].accent, accentInk: POWDERS[slug].accentInk,
   })),
   {
-    href: '/bdx-rauma-khongduong/',
-    image: POWDERS['botdx-rauma-khongduong'].image,
-    name: 'Không thêm đường',
-    tag: 'Plant based',
-    desc: 'Rau má & sữa dừa — thuần thực vật, đạm cao, loại bỏ hoàn toàn đường.',
-    accent: '#3f7d4e',
-    accentInk: '#2c5c39',
+    href: '/bdx-rauma-khongduong/', image: POWDERS['botdx-rauma-khongduong'].image,
+    name: 'Không thêm đường', tag: 'Plant based',
+    desc: 'Rau má và sữa dừa thuần thực vật, giàu đạm.', accent: '#3f7d4e', accentInk: '#2c5c39',
   },
 ];
 ---
@@ -36,217 +31,191 @@ const powderSlides = [
 <BaseLayout
   title="Bánh đậu xanh OCOP 5 sao Quốc gia"
   description={SITE.shortDescription}
-  jsonLd={videoSchema({
-    id: BRAND_VIDEO.id,
-    name: BRAND_VIDEO.title,
-    description: BRAND_VIDEO.description,
-    uploadDate: BRAND_VIDEO.uploadDate,
-    url: '/',
-  })}
+  jsonLd={videoSchema({ id: BRAND_VIDEO.id, name: BRAND_VIDEO.title, description: BRAND_VIDEO.description, uploadDate: BRAND_VIDEO.uploadDate, url: '/' })}
 >
-  <!-- 1 · HERO — dark lacquer band + 3D imperial gold dust -->
-  <section class="rvhg-hero3d rvhg-band-night">
-    <canvas class="rvhg-hero3d__canvas" data-hero-dust aria-hidden="true"></canvas>
-    <span class="rvhg-hero3d__glow" aria-hidden="true"></span>
-
-    <div class="rvhg-container rvhg-hero3d__inner">
-      <p class="rvhg-eyebrow rvhg-hero3d__lead">Rồng Vàng Hoàng Gia · Hải Dương từ 1997</p>
-      <h1 class="rvhg-hero3d__title">
-        Bánh đậu xanh đạt <span class="rvhg-hero3d__hl">OCOP 5 sao Quốc gia</span>
-      </h1>
-      <p class="rvhg-hero3d__sub">Chất lượng đỉnh cao được khẳng định.</p>
-      <div class="gold-rule rvhg-rule--center"></div>
-      <div class="rvhg-hero3d__ctas">
-        <a class="rvhg-btn" href="/san-pham/">Khám phá sản phẩm</a>
-        <a class="rvhg-btn--link" href="/gioi-thieu/">Câu chuyện thương hiệu  ›</a>
-      </div>
-
-      <figure class="rvhg-hero3d__showpiece rvhg-tilt" data-tilt>
-        <LegacyImg
-          src="/images/legacy/hero-home.jpg"
-          alt="Bánh đậu xanh Rồng Vàng Hoàng Gia"
-          width={2400}
-          height={1350}
-          loading="eager"
-          fetchpriority="high"
-        />
-        <figcaption class="rvhg-hero3d__seal">OCOP 5★ Quốc gia</figcaption>
-      </figure>
-
-      <ul class="rvhg-hero3d__stats">
-        <li><span class="rvhg-countup" data-countup={YEARS_EXPERIENCE} data-years-since="1997">{YEARS_EXPERIENCE}</span><small>Năm kinh nghiệm</small></li>
-        <li><span>5★</span><small>OCOP Quốc gia</small></li>
-        <li><span class="rvhg-countup" data-countup="6">6</span><small>Thị trường xuất khẩu</small></li>
-        <li><span>ISO</span><small>22000:2018</small></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 2 · BÍ QUYẾT THÀNH CÔNG -->
-  <section class="rvhg-section rvhg-band-soft">
-    <div class="rvhg-container">
-      <header class="rvhg-home-reasons__head" data-reveal>
-        <p class="rvhg-eyebrow">Bí quyết thành công</p>
-        <h2>Rồng Vàng Hoàng Gia.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Giữa hàng chục thương hiệu bánh đậu xanh trên thị trường, điều gì đã làm nên sự độc đáo và thành công của thương hiệu Rồng Vàng Hoàng Gia.</p>
-      </header>
-      <ul class="rvhg-home-reasons">
-        {REASONS.map((r, i) => (
-          <li data-reveal style={`--reveal-delay:${(i % 3) * 90}ms`}>
-            <h3 set:html={r.title}></h3>
-            <p set:html={r.body}></p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <!-- 2.5 · VIDEO GIỚI THIỆU -->
-  <section class="rvhg-section rvhg-band-night rvhg-home-video">
-    <div class="rvhg-container">
-      <header class="rvhg-home-video__head" data-reveal>
-        <p class="rvhg-eyebrow">Video giới thiệu</p>
-        <h2>Xem câu chuyện của chúng tôi.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Từ hạt đậu xanh lòng vàng Xứ Đông đến viên bánh đạt OCOP 5 sao Quốc gia — hành trình gìn giữ một nghề truyền thống của Rồng Vàng Hoàng Gia.</p>
-      </header>
-      <div class="rvhg-home-video__player" data-reveal>
-        <VideoEmbed id={BRAND_VIDEO.id} title={BRAND_VIDEO.title} loading="lazy" />
-      </div>
-    </div>
-  </section>
-
-  <!-- 3 · SẢN PHẨM CAO CẤP -->
-  <section class="rvhg-section">
-    <div class="rvhg-container">
-      <header class="rvhg-home-feat__head" data-reveal>
-        <p class="rvhg-eyebrow">Sản phẩm cao cấp</p>
-        <h2>Tinh tuý từ Rồng Vàng Hoàng Gia.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Hãy khám phá những sản phẩm cao cấp nhất từ Rồng Vàng Hoàng Gia.</p>
-        <a class="rvhg-btn--link" href="/san-pham/">Xem toàn bộ sản phẩm  ›</a>
-      </header>
-      <div class="rvhg-home-feat">
-        {FEATURED.map((p, i) => (
-          <a class="rvhg-feat rvhg-tilt" href={p.href} data-tilt data-reveal style={`--reveal-delay:${(i % 4) * 80}ms`}>
-            <span class="rvhg-feat__media">
-              <LegacyImg src={p.image} alt={p.name} width={600} height={600} loading={i < 4 ? 'eager' : 'lazy'} />
-            </span>
-            <span class="rvhg-feat__name">{p.name}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 3.5 · BỘT ĐẬU XANH PHA SẴN — slider -->
-  <section class="rvhg-section rvhg-band-soft">
-    <div class="rvhg-container">
-      <header class="rvhg-home-slider__head" data-reveal>
-        <p class="rvhg-eyebrow">Mới ra mắt</p>
-        <h2>Bột đậu xanh — thức uống pha sẵn.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Đậu xanh lòng vàng Hải Dương phối cùng cà rốt, rau má, sữa dừa, matcha — và dòng không thêm đường thuần thực vật.</p>
-      </header>
-
-      <div class="rvhg-slider" data-slider data-reveal>
-        <button class="rvhg-slider__arrow rvhg-slider__arrow--prev" type="button" aria-label="Xem trước" data-slider-prev>‹</button>
-        <ul class="rvhg-slider__track" data-slider-track>
-          {powderSlides.map((s) => (
-            <li class="rvhg-slide" style={`--pa:${s.accent};--pa-ink:${s.accentInk}`}>
-              <a href={s.href}>
-                <span class="rvhg-slide__media">
-                  <LegacyImg src={assetUrl(s.image)} alt={s.name} width={640} height={640} loading="eager" />
-                </span>
-                <span class="rvhg-slide__body">
-                  <span class="rvhg-slide__tag">{s.tag}</span>
-                  <span class="rvhg-slide__name">{s.name}</span>
-                  <span class="rvhg-slide__desc">{s.desc}</span>
-                  <span class="rvhg-slide__go" aria-hidden="true">Xem chi tiết  ›</span>
-                </span>
-              </a>
-            </li>
-          ))}
+  <section class="home-hero">
+    <div class="rvhg-container home-hero__grid">
+      <div class="home-hero__copy" data-reveal>
+        <p class="rvhg-eyebrow">Rồng Vàng Hoàng Gia · Từ năm 1997</p>
+        <h1>Tinh hoa bánh đậu xanh <em>Xứ Đông.</em></h1>
+        <p class="home-hero__lede">
+          Vị bánh truyền thống Hải Dương được gìn giữ qua nhiều thế hệ, nay được công nhận ở cấp cao nhất của chương trình OCOP Quốc gia.
+        </p>
+        <div class="home-hero__actions">
+          <a class="rvhg-btn" href="/san-pham/">Khám phá bộ sưu tập <span aria-hidden="true">↗</span></a>
+          <a class="home-link" href="/cau-chuyen-san-pham-rong-vang-hoang-gia-2/">Câu chuyện thương hiệu <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="home-hero__proof" aria-label="Chứng nhận nổi bật">
+          <li><strong>5★</strong><span>OCOP Quốc gia</span></li>
+          <li><strong>ISO</strong><span>22000:2018</span></li>
+          <li><strong>06</strong><span>Thị trường xuất khẩu</span></li>
         </ul>
-        <button class="rvhg-slider__arrow rvhg-slider__arrow--next" type="button" aria-label="Xem tiếp" data-slider-next>›</button>
-        <div class="rvhg-slider__dots" data-slider-dots aria-hidden="true"></div>
+      </div>
+
+      <figure class="home-hero__visual" data-reveal="zoom">
+        <LegacyImg src="/images/legacy/hero-home.jpg" alt="Bộ bánh đậu xanh cao cấp Rồng Vàng Hoàng Gia" width={2400} height={1350} loading="eager" fetchpriority="high" />
+        <figcaption>
+          <span>Di sản vị Việt</span>
+          <strong>OCOP 5 sao<br/>Quốc gia 2024</strong>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="home-intro">
+    <div class="rvhg-container home-intro__grid">
+      <div class="home-intro__number" data-reveal>
+        <strong data-years-since="1997">{YEARS_EXPERIENCE}</strong><span>Năm giữ nghề</span>
+      </div>
+      <div class="home-intro__copy" data-reveal>
+        <p class="rvhg-eyebrow">Một đặc sản, một di sản</p>
+        <h2>Không chỉ làm bánh.<br/>Chúng tôi gìn giữ một hương vị.</h2>
+      </div>
+      <div class="home-intro__body" data-reveal>
+        <p>Từ hạt đậu xanh lòng vàng, kỹ thuật rang — nghiền — phối trộn đến cách thưởng bánh cùng trà, mỗi chi tiết đều được chăm chút để giữ trọn vị bùi, ngọt thanh và độ tan mịn đặc trưng.</p>
+        <a class="home-link" href="/gioi-thieu/">Tìm hiểu về Hoàng Giang <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- 4 · DANH MỤC SẢN PHẨM -->
-  <section class="rvhg-section rvhg-band-soft">
+  <section class="home-heritage">
+    <div class="rvhg-container home-heritage__grid">
+      <figure class="home-heritage__media" data-reveal="left">
+        <LegacyImg src="/images/legacy/cau-chuyen-khai-dinh-1918.jpg" alt="Câu chuyện bánh đậu xanh tiến vua năm 1918" width={1200} height={900} />
+        <span class="home-heritage__year">1918</span>
+      </figure>
+      <div class="home-heritage__copy" data-reveal="right">
+        <p class="rvhg-eyebrow">Câu chuyện khởi nguồn</p>
+        <h2>Từ món bánh tiến vua đến niềm tự hào Hải Dương.</h2>
+        <p>Bánh đậu xanh gắn với câu chuyện vua Khải Định tuần du Xứ Đông. Rồng Vàng Hoàng Gia tiếp nối tinh thần ấy bằng quy trình sản xuất hiện đại, minh bạch và chuẩn hoá.</p>
+        <blockquote>“Giữ hồn cốt truyền thống, nâng chuẩn chất lượng cho hôm nay.”</blockquote>
+        <a class="rvhg-btn rvhg-btn--ghost" href="/cau-chuyen-san-pham-rong-vang-hoang-gia-2/">Đọc câu chuyện thương hiệu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-products rvhg-section">
     <div class="rvhg-container">
-      <header class="rvhg-cats__head" data-reveal>
-        <p class="rvhg-eyebrow">Danh mục sản phẩm</p>
-        <h2>Năm dòng sản phẩm.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
+      <header class="home-heading home-heading--split" data-reveal>
+        <div>
+          <p class="rvhg-eyebrow">Sản phẩm tiêu biểu</p>
+          <h2>Quà Việt được làm<br/>một cách chỉn chu.</h2>
+        </div>
+        <div>
+          <p>Từ hộp bánh dùng hằng ngày đến quà biếu trang trọng — cùng chung tiêu chuẩn chất lượng và dấu ấn Rồng Vàng Hoàng Gia.</p>
+          <a class="home-link" href="/san-pham/">Xem toàn bộ sản phẩm <span aria-hidden="true">→</span></a>
+        </div>
       </header>
-      <div class="rvhg-cats">
-        {lines.map((line, i) => (
-          <a
-            class={`rvhg-cat rvhg-tilt ${i < 2 ? 'rvhg-cat--lg' : ''}`}
-            href={`/danh-muc-san-pham/${line.id}/`}
-            data-tilt
-            data-reveal={i < 2 ? 'zoom' : true}
-            style={`--reveal-delay:${i * 70}ms`}
-          >
-            <LegacyImg
-              src={line.data.cardImage ?? line.data.heroImage ?? ''}
-              alt={line.data.title}
-              width={1024}
-              height={683}
-              loading={i < 2 ? 'eager' : 'lazy'}
-              style={`object-position: ${line.data.cardImagePos ?? 'center'}`}
-            />
-            <span class="rvhg-cat__scrim" aria-hidden="true"></span>
-            <h3 class="rvhg-cat__title">{line.data.title}</h3>
+      <div class="home-products__grid">
+        {FEATURED.slice(0, 6).map((product, index) => (
+          <a class={`home-product ${index === 0 || index === 3 ? 'home-product--wide' : ''}`} href={product.href} data-reveal style={`--reveal-delay:${(index % 3) * 80}ms`}>
+            <span class="home-product__media">
+              <LegacyImg src={product.image} alt={product.name} width={800} height={800} loading={index < 3 ? 'eager' : 'lazy'} />
+            </span>
+            <span class="home-product__meta"><strong>{product.name}</strong><span aria-hidden="true">↗</span></span>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 5 · HỆ THỐNG PHÂN PHỐI -->
-  <section class="rvhg-section">
-    <div class="rvhg-container">
-      <header class="rvhg-home-logos__head" data-reveal>
-        <p class="rvhg-eyebrow">Hệ thống phân phối</p>
-        <h2>Có mặt khắp toàn quốc.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Sản phẩm Rồng Vàng Hoàng Gia có mặt trên các chuỗi đại siêu thị, cửa hàng tạp hoá, sân bay, khu du lịch, trạm dừng nghỉ… và các sàn thương mại điện tử Shopee, TikTok Shop.</p>
-      </header>
-      <ul class="rvhg-logos rvhg-logos--dist" data-reveal>
-        {DISTRIBUTION_LOGOS.map((d) => (
-          <li><img src={d.image} alt={d.name} loading="lazy" decoding="async" /></li>
+  <section class="home-standards">
+    <div class="rvhg-container home-standards__grid">
+      <div class="home-standards__title" data-reveal>
+        <p class="rvhg-eyebrow">Chất lượng được xác tín</p>
+        <h2>Truyền thống không có nghĩa là cũ.</h2>
+        <p>Giữ công thức cốt lõi, đồng thời chuẩn hoá nguyên liệu, an toàn thực phẩm và năng lực phân phối theo tiêu chuẩn hiện đại.</p>
+        <a class="rvhg-btn" href="/cong-bo/">Xem hồ sơ công bố</a>
+      </div>
+      <ul class="home-standards__list">
+        {REASONS.slice(0, 6).map((reason, index) => (
+          <li data-reveal style={`--reveal-delay:${(index % 2) * 70}ms`}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <div><h3 set:html={reason.title}></h3><p set:html={reason.body}></p></div>
+          </li>
         ))}
       </ul>
     </div>
   </section>
 
-  <!-- 6 · TRÊN TRUYỀN THÔNG -->
-  <section class="rvhg-section rvhg-band-soft">
+  <section class="home-categories rvhg-section">
     <div class="rvhg-container">
-      <header class="rvhg-home-logos__head" data-reveal>
-        <p class="rvhg-eyebrow">Trên truyền thông</p>
-        <h2>Báo chí nói về chúng tôi.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Xem thêm thông tin về Rồng Vàng Hoàng Gia trên các cơ quan thông tấn báo chí chính thống.</p>
+      <header class="home-heading" data-reveal>
+        <p class="rvhg-eyebrow">Bộ sưu tập</p>
+        <h2>Chọn theo từng dịp trao tặng.</h2>
       </header>
-      <ul class="rvhg-logos rvhg-logos--media" data-reveal>
-        {MEDIA_LOGOS.map((m) => (
-          <li>
-            {m.url ? (
-              <a href={m.url} target="_blank" rel="noopener noreferrer" aria-label={m.name}>
-                <img src={m.image} alt={m.name} loading="lazy" decoding="async" />
-              </a>
-            ) : (
-              <img src={m.image} alt={m.name} loading="lazy" decoding="async" />
-            )}
-          </li>
+      <div class="home-categories__grid">
+        {lines.map((line, index) => (
+          <a class={`home-category home-category--${index + 1}`} href={`/danh-muc-san-pham/${line.id}/`} data-reveal={index % 2 ? 'right' : 'left'}>
+            <LegacyImg src={line.data.cardImage ?? line.data.heroImage ?? ''} alt={line.data.title} width={1200} height={900} loading={index < 2 ? 'eager' : 'lazy'} />
+            <span class="home-category__shade"></span>
+            <span class="home-category__copy">
+              <small>{line.data.eyebrow ?? `Dòng ${index + 1}`}</small>
+              <strong>{line.data.title}</strong>
+              <em>{line.data.products.length} sản phẩm <span aria-hidden="true">↗</span></em>
+            </span>
+          </a>
         ))}
-      </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-powder">
+    <div class="rvhg-container">
+      <header class="home-heading home-heading--split" data-reveal>
+        <div><p class="rvhg-eyebrow">Dòng mới</p><h2>Bột đậu xanh.<br/>Dinh dưỡng mỗi ngày.</h2></div>
+        <div><p>Tiện lợi trong một ly nóng hoặc lạnh, phối cùng nguyên liệu tự nhiên và hương vị dễ uống.</p><a class="home-link" href="/danh-muc-san-pham/bot-dau/">Khám phá dòng bột đậu <span aria-hidden="true">→</span></a></div>
+      </header>
+      <div class="home-powder__rail">
+        {powderSlides.map((item) => (
+          <a class="home-powder__card" href={item.href} style={`--powder:${item.accent};--powder-ink:${item.accentInk}`} data-reveal>
+            <span class="home-powder__image"><LegacyImg src={assetUrl(item.image)} alt={item.name} width={640} height={640} /></span>
+            <span class="home-powder__body"><small>{item.tag}</small><strong>{item.name}</strong><p>{item.desc}</p><em>Xem chi tiết <span aria-hidden="true">↗</span></em></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="home-film rvhg-band-night">
+    <div class="rvhg-container home-film__grid">
+      <div class="home-film__copy" data-reveal>
+        <p class="rvhg-eyebrow">Phim thương hiệu</p>
+        <h2>Một hành trình từ hạt đậu đến món quà Việt.</h2>
+        <p>Khám phá cách Rồng Vàng Hoàng Gia kết nối nghề bánh truyền thống với tiêu chuẩn sản xuất hiện đại.</p>
+      </div>
+      <div class="home-film__player" data-reveal="zoom"><VideoEmbed id={BRAND_VIDEO.id} title={BRAND_VIDEO.title} loading="lazy" /></div>
+    </div>
+  </section>
+
+  <section class="home-journal rvhg-section">
+    <div class="rvhg-container">
+      <header class="home-heading home-heading--split" data-reveal>
+        <div><p class="rvhg-eyebrow">Chuyện của vị bánh</p><h2>Tạp chí Rồng Vàng.</h2></div>
+        <div><p>Cẩm nang thưởng thức, câu chuyện văn hoá và những gợi ý quà tặng mang bản sắc Việt.</p><a class="home-link" href="/tin-tuc/">Xem tất cả bài viết <span aria-hidden="true">→</span></a></div>
+      </header>
+      <div class="home-journal__grid">
+        {latestPosts.map((post, index) => (
+          <a class={`home-article ${index === 0 ? 'home-article--feature' : ''}`} href={postPath(post)} data-reveal>
+            <span class="home-article__media">{post.data.cover && <LegacyImg src={post.data.cover} alt={post.data.title} width={1200} height={800} />}</span>
+            <span class="home-article__body"><small>{fmt(post.data.publishDate)}</small><strong>{post.data.title}</strong><p>{post.data.description}</p><em>Đọc bài <span aria-hidden="true">↗</span></em></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="home-distribution">
+    <div class="rvhg-container home-distribution__grid">
+      <div data-reveal><p class="rvhg-eyebrow">Hệ thống phân phối</p><h2>Dễ dàng tìm thấy trên toàn quốc.</h2><p>Tại các hệ thống bán lẻ hiện đại, cửa hàng đặc sản, sân bay và điểm du lịch.</p></div>
+      <ul data-reveal>{DISTRIBUTION_LOGOS.map((logo) => <li><img src={logo.image} alt={logo.name} loading="lazy" decoding="async" /></li>)}</ul>
+    </div>
+  </section>
+
+  <section class="home-cta">
+    <div class="rvhg-container home-cta__inner" data-reveal>
+      <div><p class="rvhg-eyebrow">Món quà từ Hải Dương</p><h2>Trao một hộp bánh.<br/>Gửi một câu chuyện Việt.</h2></div>
+      <div><p>Cần tư vấn quà biếu, đơn hàng doanh nghiệp hoặc tìm điểm bán gần nhất?</p><div><a class="rvhg-btn" href="/lien-he/">Liên hệ tư vấn</a><a class="home-link" href="/diem-ban-rong-vang-hoang-gia/">Tìm điểm bán <span aria-hidden="true">→</span></a></div></div>
     </div>
   </section>
 
@@ -254,419 +223,181 @@ const powderSlides = [
 </BaseLayout>
 
 <style>
-  /* ---------- 1 · Hero — dark lacquer + 3D gold dust ---------- */
-  .rvhg-hero3d {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    text-align: center;
-    /* flows seamlessly out of the oxblood header */
-    background: radial-gradient(135% 130% at 50% -25%, #701a1b 0%, #4c1417 42%, #380f11 100%);
-    padding-block: clamp(3.25rem, 7vw, 6.5rem) clamp(3rem, 6vw, 5.5rem);
-  }
-  .rvhg-hero3d__canvas,
-  .rvhg-hero3d__glow {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-  }
-  /* warm halo behind the headline — also the full fallback when JS/WebGL is off */
-  .rvhg-hero3d__glow {
-    background: radial-gradient(58% 48% at 50% 24%, rgba(176, 141, 87, 0.32), transparent 70%);
-  }
-  .rvhg-hero3d__inner { position: relative; }
+  .home-link { display: inline-flex; align-items: center; gap: 0.5rem; color: inherit; text-decoration: none; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid rgba(77, 42, 24, 0.35); padding-bottom: 0.2rem; }
+  .home-link span { transition: transform 0.2s ease; }
+  .home-link:hover span { transform: translateX(4px); }
+  .home-heading { max-width: 50rem; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+  .home-heading h2 { margin-top: 0.7rem; font-size: clamp(2.25rem, 4.6vw, 4.5rem); line-height: 1.02; }
+  .home-heading--split { max-width: none; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.65fr); align-items: end; gap: 4rem; }
+  .home-heading--split > div:last-child { padding-bottom: 0.35rem; }
+  .home-heading--split > div:last-child p { color: var(--color-mute); max-width: 34rem; margin-bottom: 1.2rem; }
 
-  .rvhg-hero3d__lead { color: var(--color-brass-300, #d8c29a); }
-  .rvhg-hero3d__title {
-    margin: 0.7rem auto 0;
-    max-width: 17ch;
-    font-size: var(--text-headline);
-    color: #fbf8f1;
-  }
-  .rvhg-hero3d__hl { color: var(--color-brass-300, #d8c29a); }
-  .rvhg-hero3d__sub {
-    margin-top: 0.85rem;
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(1.2rem, 1.5vw + 1rem, 1.95rem);
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--color-brass-300, #d8c29a);
-  }
-  .rvhg-hero3d__ctas {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 1rem 1.75rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+  .home-hero { min-height: min(780px, calc(100vh - 112px)); display: flex; align-items: center; position: relative; overflow: hidden; background: #f7f1e7; }
+  .home-hero::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 48%; background: radial-gradient(circle at 20% 30%, rgba(184, 143, 74, 0.13), transparent 50%); pointer-events: none; }
+  .home-hero__grid { display: grid; grid-template-columns: minmax(370px, 0.8fr) minmax(0, 1.25fr); align-items: center; gap: clamp(2.5rem, 6vw, 6rem); padding-block: clamp(4rem, 7vw, 7.5rem); }
+  .home-hero__copy { position: relative; z-index: 1; }
+  .home-hero h1 { margin-top: 1rem; max-width: 9ch; font-size: clamp(3rem, 5.8vw, 6.2rem); font-weight: 620; line-height: 0.96; letter-spacing: -0.045em; }
+  .home-hero h1 em { color: #7a161e; font-weight: 500; }
+  .home-hero__lede { margin-top: 1.6rem; max-width: 34rem; color: #65564d; font-size: clamp(1rem, 0.55vw + 0.9rem, 1.18rem); line-height: 1.75; }
+  .home-hero__actions { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
+  .home-hero__proof { list-style: none; margin: 3rem 0 0; padding: 1.5rem 0 0; border-top: 1px solid rgba(77, 42, 24, 0.16); display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .home-hero__proof li { display: flex; flex-direction: column; gap: 0.15rem; }
+  .home-hero__proof strong { color: #72131b; font-family: var(--font-display); font-size: 1.25rem; line-height: 1; }
+  .home-hero__proof span { color: #81736a; font-size: 0.68rem; letter-spacing: 0.03em; }
+  .home-hero__visual { position: relative; min-height: 560px; margin: 0; overflow: hidden; background: #68131a; box-shadow: 0 32px 80px rgba(72, 31, 22, 0.17); }
+  .home-hero__visual :global(img) { width: 100%; height: 100%; min-height: 560px; object-fit: cover; object-position: 50% 50%; display: block; }
+  .home-hero__visual::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16); pointer-events: none; }
+  .home-hero__visual figcaption { position: absolute; right: 0; bottom: 0; width: 190px; padding: 1.2rem 1.3rem; background: #f8f3e9; color: #3a251d; display: flex; flex-direction: column; gap: 0.35rem; }
+  .home-hero__visual figcaption span { color: #8f6f41; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .home-hero__visual figcaption strong { font-family: var(--font-display); font-size: 1.12rem; line-height: 1.25; }
 
-  /* product showpiece — framed, lifted, brass hairline */
-  .rvhg-hero3d__showpiece {
-    position: relative;
-    margin: clamp(2.5rem, 5vw, 3.75rem) auto 0;
-    max-width: 60rem;
-    border-radius: var(--radius-lg, 8px);
-    overflow: hidden;
-    border: 1px solid color-mix(in srgb, var(--brass) 50%, transparent);
-    box-shadow: 0 32px 80px -34px rgba(0, 0, 0, 0.75);
-  }
-  .rvhg-hero3d__showpiece :global(img) {
-    width: 100%;
-    height: clamp(16rem, 44vw, 30rem);
-    object-fit: cover;
-    display: block;
-  }
-  .rvhg-hero3d__seal {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--color-seal-600, #8f2b22);
-    color: var(--color-paper-50, #fbf8f1);
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 0.4rem 0.7rem;
-    border-radius: var(--radius-sm, 2px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
-  }
+  .home-intro { padding-block: clamp(5rem, 9vw, 9rem); border-bottom: 1px solid var(--color-line); }
+  .home-intro__grid { display: grid; grid-template-columns: 0.42fr 1.15fr 0.85fr; align-items: start; gap: clamp(2rem, 5vw, 5rem); }
+  .home-intro__number { display: flex; flex-direction: column; border-left: 1px solid #ad8144; padding-left: 1.2rem; }
+  .home-intro__number strong { font-family: var(--font-display); font-size: clamp(3.5rem, 6vw, 6rem); font-weight: 500; line-height: 0.9; color: #74151d; }
+  .home-intro__number span { margin-top: 0.6rem; color: var(--color-mute); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .home-intro__copy h2 { margin-top: 0.75rem; font-size: clamp(2.2rem, 3.6vw, 4rem); line-height: 1.05; }
+  .home-intro__body { padding-top: 2rem; }
+  .home-intro__body p { color: var(--color-mute); margin-bottom: 1.5rem; }
 
-  /* trust stats strip */
-  .rvhg-hero3d__stats {
-    list-style: none;
-    max-width: 46rem;
-    margin: clamp(2.5rem, 5vw, 3.5rem) auto 0;
-    padding: 1.6rem 0 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    border-top: 1px solid color-mix(in srgb, var(--brass) 30%, transparent);
-  }
-  .rvhg-hero3d__stats li {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .rvhg-hero3d__stats span {
-    font-family: var(--font-display);
-    font-size: clamp(1.7rem, 3vw, 2.5rem);
-    font-weight: 600;
-    line-height: 1;
-    color: var(--color-brass-300, #d8c29a);
-  }
-  .rvhg-hero3d__stats small {
-    font-size: 0.72rem;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    color: var(--color-night-mute, #cbbba0);
-  }
-  @media (max-width: 640px) {
-    .rvhg-hero3d__stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
-  }
+  .home-heritage { padding-block: clamp(5rem, 9vw, 9rem); background: #eee5d7; }
+  .home-heritage__grid { display: grid; grid-template-columns: 1.12fr 0.88fr; align-items: center; gap: clamp(3rem, 8vw, 8rem); }
+  .home-heritage__media { position: relative; min-height: 540px; margin: 0; overflow: hidden; }
+  .home-heritage__media :global(img) { width: 100%; height: 100%; min-height: 540px; object-fit: cover; filter: saturate(0.82) contrast(1.03); }
+  .home-heritage__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(37,19,14,0.35), transparent 50%); }
+  .home-heritage__year { position: absolute; left: 1.5rem; bottom: 0.4rem; z-index: 1; color: #f8f1e6; font-family: var(--font-display); font-size: clamp(4.5rem, 9vw, 9rem); font-weight: 500; line-height: 1; letter-spacing: -0.06em; }
+  .home-heritage__copy h2 { margin-top: 0.8rem; font-size: clamp(2.4rem, 4.2vw, 4.7rem); line-height: 1.03; }
+  .home-heritage__copy > p:not(.rvhg-eyebrow) { margin-top: 1.6rem; color: var(--color-mute); font-size: 1.04rem; }
+  .home-heritage blockquote { margin: 2rem 0; padding: 1.25rem 0 1.25rem 1.5rem; border-left: 1px solid #a87539; color: #4e352b; font-family: var(--font-display); font-size: 1.35rem; font-style: italic; line-height: 1.5; }
 
-  /* ---------- shared section heads ---------- */
-  .rvhg-home-reasons__head,
-  .rvhg-home-feat__head,
-  .rvhg-cats__head,
-  .rvhg-home-video__head,
-  .rvhg-home-logos__head {
-    text-align: center;
-    max-width: 42rem;
-    margin: 0 auto 3rem;
-  }
-  .rvhg-home-reasons__head h2,
-  .rvhg-home-feat__head h2,
-  .rvhg-cats__head h2,
-  .rvhg-home-video__head h2,
-  .rvhg-home-logos__head h2 {
-    font-size: var(--text-display);
-    margin-top: 0.6rem;
-  }
-  .rvhg-home-reasons__head > p,
-  .rvhg-home-feat__head > p,
-  .rvhg-home-logos__head > p {
-    margin-top: 1rem;
-    color: var(--color-mute);
-  }
-  .rvhg-home-feat__head a { display: inline-block; margin-top: 1rem; }
+  .home-products { background: #fcfaf5; }
+  .home-products__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #dcd1c0; border: 1px solid #dcd1c0; }
+  .home-product { min-width: 0; background: #f5efe4; color: #2e221d; text-decoration: none; overflow: hidden; }
+  .home-product--wide { grid-column: span 2; }
+  .home-product__media { height: 360px; display: grid; place-items: center; overflow: hidden; background: #fffdfa; }
+  .home-product__media :global(img) { width: 100%; height: 100%; object-fit: contain; padding: 1.25rem; transition: transform 0.45s var(--ease-refined); }
+  .home-product:hover .home-product__media :global(img) { transform: scale(1.035); }
+  .home-product__meta { min-height: 76px; padding: 1rem 1.15rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-top: 1px solid #e2d9ca; }
+  .home-product__meta strong { font-family: var(--font-display); font-size: 1rem; line-height: 1.3; }
+  .home-product__meta > span { color: #8a171f; }
 
-  /* ---------- 2.5 · Video giới thiệu (dải nền tối) ---------- */
-  .rvhg-home-video__head > p {
-    margin-top: 1rem;
-    color: var(--color-night-mute, #cbbba0);
-  }
-  .rvhg-home-video__player {
-    max-width: 60rem;
-    margin-inline: auto;
-  }
+  .home-standards { padding-block: clamp(5rem, 9vw, 9rem); background: #551016; color: #f9f3e8; }
+  .home-standards__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; align-items: start; gap: clamp(4rem, 9vw, 9rem); }
+  .home-standards__title { position: sticky; top: 9rem; }
+  .home-standards__title .rvhg-eyebrow { color: #d4b579; }
+  .home-standards__title h2 { margin-top: 0.8rem; font-size: clamp(2.5rem, 4.6vw, 4.8rem); line-height: 1.02; }
+  .home-standards__title > p:not(.rvhg-eyebrow) { margin: 1.5rem 0 2rem; color: #d7c4b5; max-width: 35rem; }
+  .home-standards__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); }
+  .home-standards__list li { min-height: 220px; padding: 1.5rem; border-top: 1px solid rgba(219,190,139,0.28); display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-content: start; }
+  .home-standards__list li:nth-child(odd) { border-right: 1px solid rgba(219,190,139,0.28); }
+  .home-standards__list > li > span { color: #c8a66c; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; }
+  .home-standards__list h3 { font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: #fff9ef; }
+  .home-standards__list p { margin-top: 0.75rem; color: #cdbbae; font-size: 0.83rem; line-height: 1.65; }
 
-  /* ---------- 2 · Bí quyết thành công ---------- */
-  .rvhg-home-reasons {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--color-line-soft);
-  }
-  .rvhg-home-reasons li {
-    padding: 2.25rem 1.5rem;
-    border-bottom: 1px solid var(--color-line-soft);
-    border-right: 1px solid var(--color-line-soft);
-  }
-  .rvhg-home-reasons li:nth-child(3n) { border-right: 0; }
-  .rvhg-home-reasons h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    letter-spacing: -0.012em;
-    margin-bottom: 0.6rem;
-  }
-  .rvhg-home-reasons p {
-    color: var(--color-mute);
-    font-size: 0.95rem;
-    line-height: 1.55;
-  }
-  @media (max-width: 900px) {
-    .rvhg-home-reasons { grid-template-columns: repeat(2, 1fr); }
-    .rvhg-home-reasons li:nth-child(3n) { border-right: 1px solid var(--color-line-soft); }
-    .rvhg-home-reasons li:nth-child(2n) { border-right: 0; }
-  }
-  @media (max-width: 560px) {
-    .rvhg-home-reasons { grid-template-columns: 1fr; }
-    .rvhg-home-reasons li,
-    .rvhg-home-reasons li:nth-child(2n),
-    .rvhg-home-reasons li:nth-child(3n) { border-right: 0; }
-  }
+  .home-categories { background: #f7f2e9; }
+  .home-categories__grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+  .home-category { position: relative; min-height: 390px; overflow: hidden; color: #fff; text-decoration: none; }
+  .home-category--1, .home-category--2 { grid-column: span 6; min-height: 540px; }
+  .home-category--3, .home-category--4, .home-category--5 { grid-column: span 4; }
+  .home-category :global(img) { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; transition: transform 0.6s var(--ease-refined); }
+  .home-category:hover :global(img) { transform: scale(1.035); }
+  .home-category__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(25,13,10,0.78), rgba(25,13,10,0.05) 68%); }
+  .home-category__copy { position: absolute; inset: auto 1.5rem 1.5rem; display: flex; flex-direction: column; align-items: flex-start; }
+  .home-category__copy small { color: #ead4a8; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+  .home-category__copy strong { margin-top: 0.45rem; max-width: 18ch; font-family: var(--font-display); font-size: clamp(1.45rem, 2.1vw, 2.4rem); line-height: 1.05; }
+  .home-category__copy em { margin-top: 1rem; font-family: var(--font-body); font-size: 0.75rem; font-style: normal; border-bottom: 1px solid rgba(255,255,255,0.55); }
 
-  /* ---------- 3 · Sản phẩm cao cấp ---------- */
-  .rvhg-home-feat {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem 1.5rem;
-  }
-  .rvhg-feat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
-    text-decoration: none;
-    color: inherit;
-  }
-  .rvhg-feat__media {
-    aspect-ratio: 1 / 1;
-    background: var(--color-paper-tint);
-    border-radius: var(--radius-lg, 8px);
-    overflow: hidden;
-  }
-  .rvhg-feat__media :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s var(--ease-refined, ease);
-  }
-  .rvhg-feat:hover .rvhg-feat__media :global(img) { transform: scale(1.04); }
-  .rvhg-feat__name {
-    font-size: 0.95rem;
-    font-weight: 500;
-    line-height: 1.35;
-    color: var(--color-ink);
-  }
-  @media (max-width: 1024px) { .rvhg-home-feat { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 768px)  { .rvhg-home-feat { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; } }
+  .home-powder { padding-block: clamp(5rem, 9vw, 9rem); background: #edf0e3; }
+  .home-powder__rail { display: grid; grid-template-columns: repeat(5, minmax(210px, 1fr)); gap: 1rem; overflow-x: auto; padding-bottom: 0.75rem; scroll-snap-type: x mandatory; }
+  .home-powder__card { min-width: 210px; scroll-snap-align: start; background: rgba(255,255,255,0.72); color: #263025; text-decoration: none; border: 1px solid color-mix(in srgb, var(--powder) 22%, #ddd); }
+  .home-powder__image { aspect-ratio: 1 / 1; display: grid; place-items: center; background: color-mix(in srgb, var(--powder) 10%, #fff); overflow: hidden; }
+  .home-powder__image :global(img) { width: 100%; height: 100%; object-fit: contain; padding: 1rem; transition: transform 0.4s ease; }
+  .home-powder__card:hover .home-powder__image :global(img) { transform: scale(1.04); }
+  .home-powder__body { min-height: 230px; padding: 1.25rem; display: flex; flex-direction: column; }
+  .home-powder__body small { color: var(--powder-ink); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .home-powder__body strong { margin-top: 0.55rem; font-family: var(--font-display); font-size: 1.25rem; line-height: 1.2; }
+  .home-powder__body p { margin-top: 0.65rem; color: #657063; font-size: 0.78rem; line-height: 1.6; }
+  .home-powder__body em { margin-top: auto; padding-top: 1rem; color: var(--powder-ink); font-size: 0.75rem; font-weight: 600; font-style: normal; }
 
-  /* ---------- 4 · Danh mục sản phẩm — bento ---------- */
-  .rvhg-cats {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.25rem;
-  }
-  .rvhg-cat {
-    position: relative;
-    display: block;
-    grid-column: span 2;
-    aspect-ratio: 4 / 3;
-    border-radius: var(--radius-lg, 8px);
-    overflow: hidden;
-    text-decoration: none;
-    background: var(--color-paper-tint);
-  }
-  .rvhg-cat--lg { grid-column: span 3; aspect-ratio: 16 / 10; }
-  .rvhg-cat :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s var(--ease-refined, ease);
-  }
-  .rvhg-cat:hover :global(img) { transform: scale(1.04); }
-  .rvhg-cat__scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(42, 12, 14, 0.8) 0%, rgba(42, 12, 14, 0.25) 34%, transparent 62%);
-  }
-  .rvhg-cat__title {
-    position: absolute;
-    left: 1.5rem;
-    right: 1.5rem;
-    bottom: 1.25rem;
-    margin: 0;
-    color: #fff;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: clamp(1.1rem, 1vw + 0.7rem, 1.6rem);
-    line-height: 1.2;
-    letter-spacing: -0.005em;
-    text-shadow: 0 1px 14px rgba(42, 12, 14, 0.55);
-  }
-  @media (max-width: 768px) {
-    .rvhg-cats { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; }
-    .rvhg-cat, .rvhg-cat--lg { grid-column: span 1; aspect-ratio: 4 / 3; }
-    .rvhg-cat--lg:first-child { grid-column: span 2; aspect-ratio: 16 / 10; }
-    .rvhg-cat__title { left: 1rem; right: 1rem; bottom: 1rem; font-size: 1.05rem; }
-  }
-  @media (max-width: 460px) {
-    .rvhg-cats { grid-template-columns: 1fr; }
-    .rvhg-cat, .rvhg-cat--lg, .rvhg-cat--lg:first-child { grid-column: span 1; aspect-ratio: 3 / 2; }
-  }
+  .home-film { padding-block: clamp(5rem, 9vw, 9rem); }
+  .home-film__grid { display: grid; grid-template-columns: 0.58fr 1.42fr; align-items: center; gap: clamp(3rem, 7vw, 7rem); }
+  .home-film__copy .rvhg-eyebrow { color: #d4b579; }
+  .home-film__copy h2 { margin-top: 0.8rem; font-size: clamp(2.35rem, 4vw, 4.2rem); line-height: 1.03; }
+  .home-film__copy > p:not(.rvhg-eyebrow) { margin-top: 1.4rem; color: var(--color-night-mute); }
+  .home-film__player { overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.25); }
 
-  /* ---------- 3.5 · Powder slider ---------- */
-  .rvhg-home-slider__head {
-    text-align: center;
-    max-width: 42rem;
-    margin: 0 auto 3rem;
-  }
-  .rvhg-home-slider__head h2 { font-size: var(--text-display); margin-top: 0.6rem; }
-  .rvhg-home-slider__head > p { margin-top: 1rem; color: var(--color-mute); }
+  .home-journal { background: #fbf8f1; }
+  .home-journal__grid { display: grid; grid-template-columns: 1.3fr 0.85fr 0.85fr; gap: 1.25rem; }
+  .home-article { color: #2b211c; text-decoration: none; }
+  .home-article__media { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: #e9e0d2; }
+  .home-article--feature .home-article__media { aspect-ratio: 5 / 3; }
+  .home-article__media :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease-refined); }
+  .home-article:hover .home-article__media :global(img) { transform: scale(1.03); }
+  .home-article__body { display: flex; flex-direction: column; align-items: flex-start; padding-top: 1rem; }
+  .home-article__body small { color: #8a7568; font-size: 0.7rem; }
+  .home-article__body strong { margin-top: 0.55rem; font-family: var(--font-display); font-size: 1.25rem; line-height: 1.28; }
+  .home-article--feature .home-article__body strong { font-size: clamp(1.5rem, 2vw, 2.25rem); }
+  .home-article__body p { margin-top: 0.65rem; color: var(--color-mute); font-size: 0.84rem; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  .home-article__body em { margin-top: 1rem; color: #7a161e; font-size: 0.75rem; font-weight: 600; font-style: normal; }
 
-  .rvhg-slider { position: relative; }
-  .rvhg-slider__track {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .rvhg-slider__track::-webkit-scrollbar { display: none; }
-  .rvhg-slide {
-    flex: 0 0 calc((100% - 3rem) / 3);
-    scroll-snap-align: start;
-    --pa: var(--brass);
-    --pa-ink: var(--color-brass-700, #7a6234);
-  }
-  .rvhg-slide > a {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    text-decoration: none;
-    color: var(--color-ink);
-    background: var(--color-card, #fff);
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius-lg, 8px);
-    overflow: hidden;
-    transition: box-shadow 0.3s var(--ease-refined, ease), transform 0.3s var(--ease-refined, ease);
-  }
-  .rvhg-slide > a:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
-  .rvhg-slide__media {
-    aspect-ratio: 4 / 3;
-    background: color-mix(in srgb, var(--pa) 10%, #fff);
-    display: grid;
-    place-items: center;
-    padding: 1rem;
-    border-bottom: 3px solid var(--pa);
-  }
-  .rvhg-slide__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
-  .rvhg-slide__body { padding: 1.25rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
-  .rvhg-slide__tag { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pa-ink); font-weight: 600; }
-  .rvhg-slide__name { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: -0.01em; line-height: 1.15; }
-  .rvhg-slide__desc { color: var(--color-mute); font-size: 0.9rem; line-height: 1.5; flex: 1; }
-  .rvhg-slide__go { margin-top: 0.5rem; color: var(--pa-ink); font-weight: 500; font-size: 0.9rem; }
+  .home-distribution { padding-block: 4rem; border-block: 1px solid var(--color-line); background: #f3ece0; }
+  .home-distribution__grid { display: grid; grid-template-columns: 0.55fr 1.45fr; align-items: center; gap: 4rem; }
+  .home-distribution h2 { margin-top: 0.6rem; font-size: clamp(2rem, 3vw, 3.2rem); }
+  .home-distribution__grid > div > p:last-child { margin-top: 1rem; color: var(--color-mute); font-size: 0.86rem; }
+  .home-distribution ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #d9cfc0; border: 1px solid #d9cfc0; }
+  .home-distribution li { min-height: 90px; display: grid; place-items: center; padding: 1rem; background: #fbf8f1; }
+  .home-distribution li img { max-width: 100px; max-height: 45px; object-fit: contain; filter: grayscale(1); opacity: 0.75; transition: filter 0.2s ease, opacity 0.2s ease; }
+  .home-distribution li:hover img { filter: none; opacity: 1; }
 
-  .rvhg-slider__arrow {
-    display: none;
-    position: absolute;
-    top: 33%;
-    transform: translateY(-50%);
-    z-index: 2;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 9999px;
-    border: 1px solid var(--color-line);
-    background: var(--color-paper, #fbf8f1);
-    color: var(--color-ink);
-    font-size: 1.6rem;
-    line-height: 1;
-    cursor: pointer;
-    place-items: center;
-    box-shadow: var(--shadow-soft);
-    transition: background 0.2s var(--ease-refined, ease), color 0.2s var(--ease-refined, ease);
-  }
-  .rvhg-slider__arrow:hover { background: var(--color-ink); color: #fff; }
-  .rvhg-slider__arrow--prev { left: -1.1rem; }
-  .rvhg-slider__arrow--next { right: -1.1rem; }
-  [data-slider-ready] .rvhg-slider__arrow { display: grid; }
+  .home-cta { padding-block: clamp(5rem, 9vw, 8rem); background: #f7f1e7; }
+  .home-cta__inner { display: grid; grid-template-columns: 1.25fr 0.75fr; align-items: end; gap: 5rem; padding-top: 2.5rem; border-top: 1px solid #b88b4e; }
+  .home-cta h2 { margin-top: 0.8rem; font-size: clamp(2.7rem, 5vw, 5.5rem); line-height: 0.98; }
+  .home-cta__inner > div:last-child > p { color: var(--color-mute); margin-bottom: 1.5rem; }
+  .home-cta__inner > div:last-child > div { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
 
-  .rvhg-slider__dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.75rem; }
-  .rvhg-slider__dots button {
-    width: 0.5rem;
-    height: 0.5rem;
-    padding: 0;
-    border: 0;
-    border-radius: 9999px;
-    background: var(--color-line);
-    cursor: pointer;
-    transition: background 0.2s var(--ease-refined, ease), width 0.2s var(--ease-refined, ease);
+  @media (max-width: 980px) {
+    .home-heading--split, .home-intro__grid, .home-standards__grid, .home-film__grid, .home-distribution__grid, .home-cta__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .home-hero { min-height: auto; }
+    .home-hero__grid { grid-template-columns: 1fr; padding-top: 4.5rem; }
+    .home-hero h1 { max-width: 11ch; }
+    .home-hero__visual { min-height: 480px; }
+    .home-hero__visual :global(img) { min-height: 480px; }
+    .home-intro__grid { grid-template-columns: 0.4fr 1.2fr; }
+    .home-intro__body { grid-column: 2; padding-top: 0; }
+    .home-heritage__grid { grid-template-columns: 1fr; gap: 3rem; }
+    .home-heritage__media { min-height: 460px; }
+    .home-heritage__media :global(img) { min-height: 460px; }
+    .home-products__grid { grid-template-columns: repeat(2, 1fr); }
+    .home-product--wide { grid-column: span 1; }
+    .home-standards__title { position: static; }
+    .home-journal__grid { grid-template-columns: 1fr 1fr; }
+    .home-article--feature { grid-column: span 2; }
+    .home-distribution ul { grid-template-columns: repeat(4, 1fr); }
   }
-  .rvhg-slider__dots button[aria-current='true'] { background: var(--color-primary); width: 1.5rem; }
-
-  @media (max-width: 900px) {
-    .rvhg-slide { flex-basis: calc((100% - 1.5rem) / 2); }
-    [data-slider-ready] .rvhg-slider__arrow { display: none; }
-  }
-  @media (max-width: 600px) {
-    .rvhg-slider__track { gap: 1rem; }
-    .rvhg-slide { flex-basis: 82%; }
-  }
-
-  /* ---------- 5 & 6 · Logo walls ---------- */
-  .rvhg-logos {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    gap: 3rem 2rem;
-  }
-  .rvhg-logos--dist { grid-template-columns: repeat(4, 1fr); }
-  .rvhg-logos--media { grid-template-columns: repeat(5, 1fr); }
-  .rvhg-logos img {
-    max-width: 100%;
-    max-height: 128px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    filter: grayscale(1);
-    opacity: 0.7;
-    transition: filter 0.25s var(--ease-refined, ease), opacity 0.25s var(--ease-refined, ease);
-  }
-  .rvhg-logos li:hover img,
-  .rvhg-logos a:hover img { filter: grayscale(0); opacity: 1; }
-  .rvhg-logos--media img { max-height: 112px; border-radius: 4px; }
-  @media (max-width: 768px) {
-    .rvhg-logos--dist { grid-template-columns: repeat(3, 1fr); }
-    .rvhg-logos--media { grid-template-columns: repeat(4, 1fr); }
-    .rvhg-logos img { max-height: 104px; }
-  }
-  @media (max-width: 460px) {
-    .rvhg-logos--dist { grid-template-columns: repeat(2, 1fr); }
-    .rvhg-logos--media { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 700px) {
+    .home-heading--split { gap: 1.5rem; }
+    .home-hero__grid { padding-inline: 0; padding-top: 3.5rem; gap: 3rem; }
+    .home-hero__copy { padding-inline: 1.25rem; }
+    .home-hero h1 { font-size: clamp(3rem, 14vw, 4.4rem); }
+    .home-hero__actions { align-items: flex-start; flex-direction: column; }
+    .home-hero__proof { gap: 0.5rem; }
+    .home-hero__proof span { max-width: 10ch; }
+    .home-hero__visual, .home-hero__visual :global(img) { min-height: 380px; }
+    .home-hero__visual { box-shadow: none; }
+    .home-intro__grid { grid-template-columns: 1fr; }
+    .home-intro__body { grid-column: auto; }
+    .home-intro__number strong { font-size: 4.5rem; }
+    .home-heritage__media, .home-heritage__media :global(img) { min-height: 380px; }
+    .home-products__grid { grid-template-columns: 1fr; }
+    .home-product__media { height: 330px; }
+    .home-standards__list { grid-template-columns: 1fr; }
+    .home-standards__list li, .home-standards__list li:nth-child(odd) { min-height: 0; border-right: 0; }
+    .home-categories__grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.75rem; }
+    .home-category, .home-category--1, .home-category--2, .home-category--3, .home-category--4, .home-category--5 { min-width: 82vw; min-height: 440px; scroll-snap-align: start; }
+    .home-powder__rail { grid-template-columns: repeat(5, 78vw); }
+    .home-journal__grid { grid-template-columns: 1fr; }
+    .home-article--feature { grid-column: auto; }
+    .home-distribution ul { grid-template-columns: repeat(2, 1fr); }
+    .home-cta__inner { gap: 2rem; }
   }
 </style>
