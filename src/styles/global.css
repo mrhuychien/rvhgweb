@@ -111,22 +111,22 @@
   --color-ink-900: #1c1714;
 
   /* ---- Lacquer (oxblood — dark surfaces + primary) ---- */
-  --color-lacquer-700: #d52a34;
-  --color-lacquer-800: #bd1824;
-  --color-lacquer-900: #a4101b;
-  --color-lacquer-950: #860b14;
+  --color-lacquer-700: #b3212c;
+  --color-lacquer-800: #941620;
+  --color-lacquer-900: #780e17;
+  --color-lacquer-950: #59080e;
 
   /* ---- Seal (cinnabar — triện + tem only) ---- */
-  --color-seal-400: #f04b45;
-  --color-seal-500: #da2d32;
-  --color-seal-600: #bb1d27;
+  --color-seal-400: #ca3942;
+  --color-seal-500: #a8202b;
+  --color-seal-600: #86141e;
 
   /* ---- Brass (antique gold — hairline + emblem + accent) ---- */
-  --color-brass-300: #d8c29a;
-  --color-brass-400: #c5a878;
-  --color-brass-500: #b08d57;
-  --color-brass-600: #94733f;
-  --color-brass-700: #7a6234;
+  --color-brass-300: #e5d2a5;
+  --color-brass-400: #d4b978;
+  --color-brass-500: #c39b50;
+  --color-brass-600: #9f7434;
+  --color-brass-700: #7b5527;
 
   /* ---- Bean (mung-bean green — fresh accent) ---- */
   --color-bean-50: #eff1e4;
@@ -146,12 +146,12 @@
   --color-card: #ffffff;
   --color-muted: #f4eee1;
   --color-muted-foreground: #6f5f50;
-  --color-primary: #bd1824;
+  --color-primary: #941620;
   --color-primary-foreground: #fbf8f1;
   --color-secondary: #e8decb;
   --color-secondary-foreground: #2e2620;
   --color-border: #e4dac6;
-  --color-ring: #b08d57;
+  --color-ring: #c39b50;
 
   /* ---- Type families ---- */
   --font-serif: 'Playfair Display', 'Lora', Georgia, 'Times New Roman', serif;
@@ -208,42 +208,42 @@
   scroll-padding-top: 6.5rem; /* clears the centred-emblem header */
 
   /* brand accents (small surfaces only — see §0 rules) */
-  --brass: #b08d57;
-  --seal: #a8362b;
+  --brass: #c39b50;
+  --seal: #a8202b;
   --bean: #7c8a4e;
-  --gold-line: #b08d57; /* applied at 40–50% opacity */
+  --gold-line: #c39b50; /* applied at 40–50% opacity */
 
   /* --- legacy alias bridge → imperial values --- */
   --color-paper: #fbf8f1;        /* was #fff */
-  --color-paper-soft: #fff8f4;   /* warm blush band */
-  --color-paper-tint: #f8e9e3;   /* red-tinted secondary surface */
+  --color-paper-soft: #faf6ef;   /* quiet ivory band */
+  --color-paper-tint: #f3eadf;   /* neutral warm surface */
   --color-ink: #1c1714;
   --color-ink-soft: #2e2620;
   --color-mute: #6f5f50;
   --color-mute-soft: #8c7c6b;
   --color-line: #e4dac6;         /* warm hairline */
   --color-line-soft: #ece3d3;
-  --color-night: #860b14;        /* vivid royal red */
-  --color-night-soft: #a4101b;   /* bright lacquer */
+  --color-night: #59080e;        /* deep ruby lacquer */
+  --color-night-soft: #780e17;   /* layered lacquer */
   --color-night-text: #fbf8f1;
-  --color-night-mute: #f0c7b7;   /* warm blush on red */
+  --color-night-mute: #d9c2ad;   /* warm champagne on ruby */
 
   /* primary button = oxblood lacquer (§0 rule 2) */
-  --color-primary: #bd1824;
-  --color-primary-hover: #9f101a;
+  --color-primary: #941620;
+  --color-primary-hover: #780e17;
   --color-primary-foreground: #fbf8f1;
 
   /* brand legacy names kept pointing at correct hues */
-  --color-rvhg-gold: #b08d57;
-  --color-rvhg-gold-light: #d8c29a;
-  --color-rvhg-gold-dark: #7a6234;   /* brass-700: passes contrast for small text */
+  --color-rvhg-gold: #c39b50;
+  --color-rvhg-gold-light: #e5d2a5;
+  --color-rvhg-gold-dark: #7b5527;   /* brass-700: passes contrast for small text */
   --color-rvhg-cream: #f4eee1;
   --color-rvhg-green: #7c8a4e;
-  --color-rvhg-red: #da2d32;          /* vivid seal red */
+  --color-rvhg-red: #a8202b;          /* cinnabar seal red */
 
   /* links: ink text + brass underline on hover (NOT gold text — §3.3) */
   --color-link: #1c1714;
-  --color-link-underline: #b08d57;
+  --color-link-underline: #c39b50;
 
   /* type families (legacy aliases) */
   --font-display: 'Playfair Display', 'Lora', Georgia, serif;
@@ -295,7 +295,7 @@ p { text-wrap: pretty; }
 
 /* §0 rule 2: seal cinnabar reserved for ::selection + triện */
 ::selection {
-  background: #da2d32;
+  background: #a8202b;
   color: #fbf8f1;
 }
 
