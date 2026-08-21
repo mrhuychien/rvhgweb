@@ -379,7 +379,14 @@ img {
 .rvhg-band-soft  { background: var(--color-paper-soft); }
 .rvhg-band-tint  { background: var(--color-paper-tint); }
 .rvhg-band-fresh { background: var(--color-bean-100); }
-.rvhg-band-night { background: var(--color-night); color: var(--color-night-text); }
+/* Nền tối: màu chủ đạo --color-night + vignette mềm ở rìa tạo chiều sâu sang
+   trọng (mép trên trong suốt nên nối liền mạch với khối phía trước). */
+.rvhg-band-night {
+  background:
+    radial-gradient(120% 135% at 50% 0%, rgb(72 0 0 / 0) 45%, rgb(72 0 0 / 0.45) 100%),
+    var(--color-night);
+  color: var(--color-night-text);
+}
 .rvhg-band-night :is(h1, h2, h3, h4) { color: #fff; }
 .rvhg-band-night a { color: var(--color-night-text); }
 

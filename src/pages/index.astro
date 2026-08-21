@@ -261,7 +261,11 @@ const powderSlides = [
     overflow: hidden;
     text-align: center;
     /* flows seamlessly out of the oxblood header */
-    background: #8b0000;
+    /* #8B0000 + vignette mềm ở rìa/đáy → chiều sâu sang trọng.
+       Vùng trên trong suốt nên nối liền mạch với header. */
+    background:
+      radial-gradient(125% 115% at 50% -10%, rgb(72 0 0 / 0) 38%, rgb(72 0 0 / 0.55) 100%),
+      #8b0000;
     padding-block: clamp(3.25rem, 7vw, 6.5rem) clamp(3rem, 6vw, 5.5rem);
   }
   .rvhg-hero3d__canvas,
