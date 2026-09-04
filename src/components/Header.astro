@@ -1,5 +1,6 @@
 ---
 import { NAV } from '../data/site';
+import LegacyImg from './LegacyImg.astro';
 
 const path = Astro.url.pathname;
 const isActive = (href: string) =>
@@ -34,11 +35,14 @@ const LANGS = [
     </nav>
 
     <a href="/" class="rvhg-header__emblem" aria-label="Trang chủ — Rồng Vàng Hoàng Gia">
-      <img
+      <LegacyImg
         src="/images/legacy/logo-seal.png"
         alt="Rồng Vàng Hoàng Gia — Đặc sản nức tiếng Hải Dương"
-        width="512" height="512"
-        decoding="async" fetchpriority="high"
+        width={512}
+        height={512}
+        sizes="76px"
+        loading="eager"
+        fetchpriority="high"
       />
     </a>
 

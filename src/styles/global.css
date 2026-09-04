@@ -318,6 +318,14 @@ img {
   max-width: 100%;
 }
 
+/* LegacyImg bọc ảnh trong <picture> để phát srcset WebP. `display: contents`
+   xoá phần tử bọc khỏi cây bố cục, nên mọi selector và quy tắc kích thước
+   đang nhắm thẳng vào <img> (width/height 100%, object-fit, flex/grid item)
+   vẫn hoạt động y như khi <img> là con trực tiếp. */
+picture {
+  display: contents;
+}
+
 /* Skip-link for a11y */
 .rvhg-skip-link {
   position: absolute;

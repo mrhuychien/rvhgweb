@@ -51,7 +51,7 @@ const jsonLd = items.map((p) => ({
             {items.map((p) => (
               <figure class="ns-jar rvhg-tilt" data-tilt>
                 <span class="ns-jar__card">
-                  <LegacyImg src={assetUrl(p.image)} alt={p.name} width={800} height={800} loading="eager" fetchpriority="high" />
+                  <LegacyImg src={assetUrl(p.image)} alt={p.name} width={800} height={800} loading="eager" fetchpriority="high" sizes="(max-width: 768px) 100vw, 45vw" />
                 </span>
                 <figcaption>{p.flavor}<small>Không thêm đường · 500 g</small></figcaption>
               </figure>
@@ -102,7 +102,7 @@ const jsonLd = items.map((p) => ({
       <section class={`rvhg-section ns-prod ${idx % 2 ? 'ns-prod--alt' : ''}`} style={`--pa:${p.accent};--pa-ink:${p.accentInk};--pa-soft:${p.accentSoft}`}>
         <div class="rvhg-container ns-prod__grid">
           <div class="ns-prod__media rvhg-tilt" data-tilt data-reveal={idx % 2 ? 'right' : 'left'}>
-            <LegacyImg src={assetUrl(p.image)} alt={p.name} width={800} height={800} loading="lazy" />
+            <LegacyImg src={assetUrl(p.image)} alt={p.name} width={800} height={800} loading="lazy" sizes="(max-width: 600px) 50vw, 30vw" />
           </div>
           <div class="ns-prod__copy" data-reveal={idx % 2 ? 'left' : 'right'}>
             <p class="rvhg-eyebrow ns-eyebrow--ink">{p.flavor} · Không thêm đường</p>
@@ -157,7 +157,7 @@ const jsonLd = items.map((p) => ({
           {singles.map((o, i) => (
             <a class="ns-other rvhg-tilt" href={`/${o.slug}/`} data-tilt data-reveal style={`--reveal-delay:${i * 70}ms;--pa:${o.accent}`}>
               <span class="ns-other__media">
-                <LegacyImg src={assetUrl(o.image)} alt={o.name} width={600} height={600} loading="lazy" />
+                <LegacyImg src={assetUrl(o.image)} alt={o.name} width={600} height={600} sizes="(max-width: 600px) 50vw, 25vw" loading="lazy" />
               </span>
               <span class="ns-other__name">{o.name}</span>
             </a>

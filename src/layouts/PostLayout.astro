@@ -56,7 +56,7 @@ if (howTo) jsonLd.push(howToSchema({ name: howTo.name, steps: howTo.steps, image
 
     {cover && (
       <div class="rvhg-post__cover">
-        <LegacyImg src={cover} alt={title} width={2400} height={1350} loading="eager" fetchpriority="high" />
+        <LegacyImg src={cover} alt={title} width={2400} height={1350} sizes="100vw" loading="eager" fetchpriority="high" />
       </div>
     )}
 

@@ -58,6 +58,7 @@ const powderSlides = [
           alt="Bánh đậu xanh Rồng Vàng Hoàng Gia"
           width={2400}
           height={1350}
+          sizes="(max-width: 1024px) 100vw, 60rem"
           loading="eager"
           fetchpriority="high"
         />
@@ -107,7 +108,7 @@ const powderSlides = [
         {FEATURED.map((p, i) => (
           <a class="rvhg-feat rvhg-tilt" href={p.href} data-tilt data-reveal style={`--reveal-delay:${(i % 4) * 80}ms`}>
             <span class="rvhg-feat__media">
-              <LegacyImg src={p.image} alt={p.name} width={600} height={600} loading={i < 4 ? 'eager' : 'lazy'} />
+              <LegacyImg src={p.image} alt={p.name} width={600} height={600} sizes="(max-width: 768px) 50vw, 25vw" loading={i < 4 ? 'eager' : 'lazy'} />
             </span>
             <span class="rvhg-feat__name">{p.name}</span>
           </a>
@@ -133,7 +134,7 @@ const powderSlides = [
             <li class="rvhg-slide" style={`--pa:${s.accent};--pa-ink:${s.accentInk}`}>
               <a href={s.href}>
                 <span class="rvhg-slide__media">
-                  <LegacyImg src={assetUrl(s.image)} alt={s.name} width={640} height={640} loading="eager" />
+                  <LegacyImg src={assetUrl(s.image)} alt={s.name} width={640} height={640} sizes="(max-width: 600px) 82vw, (max-width: 900px) 45vw, 30vw" loading="eager" />
                 </span>
                 <span class="rvhg-slide__body">
                   <span class="rvhg-slide__tag">{s.tag}</span>
@@ -173,6 +174,7 @@ const powderSlides = [
               alt={line.data.title}
               width={1024}
               height={683}
+              sizes="(max-width: 460px) 100vw, (max-width: 768px) 50vw, 33vw"
               loading={i < 2 ? 'eager' : 'lazy'}
               style={`object-position: ${line.data.cardImagePos ?? 'center'}`}
             />
@@ -195,7 +197,7 @@ const powderSlides = [
       </header>
       <ul class="rvhg-logos rvhg-logos--dist" data-reveal>
         {DISTRIBUTION_LOGOS.map((d) => (
-          <li><img src={d.image} alt={d.name} loading="lazy" decoding="async" /></li>
+          <li><LegacyImg src={d.image} alt={d.name} sizes="128px" loading="lazy" /></li>
         ))}
       </ul>
     </div>
@@ -215,10 +217,10 @@ const powderSlides = [
           <li>
             {m.url ? (
               <a href={m.url} target="_blank" rel="noopener noreferrer" aria-label={m.name}>
-                <img src={m.image} alt={m.name} loading="lazy" decoding="async" />
+                <LegacyImg src={m.image} alt={m.name} sizes="112px" loading="lazy" />
               </a>
             ) : (
-              <img src={m.image} alt={m.name} loading="lazy" decoding="async" />
+              <LegacyImg src={m.image} alt={m.name} sizes="112px" loading="lazy" />
             )}
           </li>
         ))}

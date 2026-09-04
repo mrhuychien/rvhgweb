@@ -23,3 +23,6 @@ pnpm-debug.log*
 workspace/clone/
 workspace/images/
 workspace/scripts/node_modules/
+
+# Biến thể WebP responsive — sinh lại ở bước `prebuild` mỗi lần build
+public/_img/

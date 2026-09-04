@@ -59,7 +59,7 @@ const powderCards = [
         </div>
         {line.data.heroImage && (
           <div class="rvhg-pl-line__media">
-            <LegacyImg src={line.data.cardImage ?? line.data.heroImage} alt={line.data.title} width={1200} height={900} loading={i < 2 ? 'eager' : 'lazy'} />
+            <LegacyImg src={line.data.cardImage ?? line.data.heroImage} alt={line.data.title} width={1200} height={900} sizes="(max-width: 768px) 100vw, 50vw" loading={i < 2 ? 'eager' : 'lazy'} />
           </div>
         )}
       </a>
@@ -79,7 +79,7 @@ const powderCards = [
         {powderCards.map((c) => (
           <a class="rvhg-pw-card" href={c.href} style={`--pa:${c.accent};--pa-ink:${c.accentInk}`}>
             <span class="rvhg-pw-card__media">
-              <LegacyImg src={assetUrl(c.image)} alt={c.name} width={600} height={600} loading="lazy" />
+              <LegacyImg src={assetUrl(c.image)} alt={c.name} width={600} height={600} sizes="(max-width: 600px) 50vw, 25vw" loading="lazy" />
             </span>
             <span class="rvhg-pw-card__tag">{c.tag}</span>
             <span class="rvhg-pw-card__name">{c.name}</span>

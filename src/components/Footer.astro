@@ -1,5 +1,6 @@
 ---
 import { COMPANY, SITE } from '../data/site';
+import LegacyImg from './LegacyImg.astro';
 const year = new Date().getFullYear();
 ---
 
@@ -7,12 +8,14 @@ const year = new Date().getFullYear();
   <div class="rvhg-container">
     <!-- §7 emblem — the single logo in this viewport -->
     <div class="rvhg-footer__seal">
-      <img
+      <LegacyImg
         class="rvhg-footer__logo"
         src="/images/legacy/logo-seal.png"
         alt="Rồng Vàng Hoàng Gia"
-        width="512" height="512"
-        loading="lazy" decoding="async"
+        width={512}
+        height={512}
+        sizes="96px"
+        loading="lazy"
       />
       <p class="rvhg-footer__tagline">{SITE.name}</p>
       <p class="rvhg-footer__sub">{SITE.tagline}</p>

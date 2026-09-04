@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
+import rehypeResponsiveImg from './tools/rehype-responsive-img.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,6 +19,10 @@ export default defineConfig({
     }),
     mdx(),
   ],
+  markdown: {
+    // Ảnh trong bài viết cũng được srcset WebP + width/height + lazy.
+    rehypePlugins: [rehypeResponsiveImg],
+  },
   vite: {
     plugins: [tailwindcss()],
   },

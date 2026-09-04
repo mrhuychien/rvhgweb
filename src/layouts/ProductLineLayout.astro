@@ -51,7 +51,7 @@ if (d.faq.length > 0) jsonLd.push(faqSchema(d.faq));
       </div>
       {d.storyImage && (
         <div class="rvhg-line-intro__media">
-          <LegacyImg src={d.storyImage} alt={d.title} width={1200} height={1500} loading="lazy" />
+          <LegacyImg src={d.storyImage} alt={d.title} width={1200} height={1500} sizes="(max-width: 768px) 100vw, 45vw" loading="lazy" />
         </div>
       )}
     </div>

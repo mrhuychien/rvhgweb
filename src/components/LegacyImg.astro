@@ -1,11 +1,14 @@
 ---
 /**
- * Renders an image mirrored from the original wp-content into /public/images/legacy/.
+ * Ảnh trong /public/images/ kèm srcset WebP.
  *
- * Phase-1 note: these files are currently low-weight placeholders. Once the real
- * assets are mirrored in, swap this component for Astro's <Image /> + ESM imports
- * (move files under src/assets/) to get automatic AVIF/WebP + responsive srcset.
+ * Biến thể WebP do tools/gen-responsive.mjs sinh ở bước `prebuild`. Có
+ * manifest thì phát <picture> (WebP nhiều kích thước + ảnh gốc làm dự
+ * phòng); không có thì phát <img> như cũ. API props giữ nguyên nên không
+ * call site nào phải sửa.
  */
+import { responsive } from '../lib/responsive';
+
 interface Props {
   src: string;
   alt: string;
@@ -20,25 +23,53 @@ interface Props {
 const {
   src,
   alt,
-  width = 1200,
-  height = 900,
+  width,
+  height,
   class: className = '',
   loading = 'lazy',
   fetchpriority = 'auto',
   sizes,
   style,
 } = Astro.props;
+
+const r = responsive(src);
+
+// Ưu tiên kích thước call site truyền vào (tỉ lệ khung mong muốn); nếu không
+// có thì dùng kích thước thật của file để trình duyệt giữ chỗ đúng.
+const w = width ?? r?.width ?? 1200;
+const h = height ?? r?.height ?? 900;
+
+// Không có `sizes` thì srcset không chọn đúng được; mặc định 100vw là an
+// toàn nhất (không bao giờ tải thiếu độ phân giải).
+const sizesAttr = sizes ?? (r ? '100vw' : undefined);
 ---
 
-<img
-  src={src}
-  alt={alt}
-  width={width}
-  height={height}
-  loading={loading}
-  decoding="async"
-  fetchpriority={fetchpriority}
-  sizes={sizes}
-  class={className}
-  style={style}
-/>
+{r ? (
+  <picture>
+    <source type="image/webp" srcset={r.srcset} sizes={sizesAttr} />
+    <img
+      src={src}
+      alt={alt}
+      width={w}
+      height={h}
+      loading={loading}
+      decoding="async"
+      fetchpriority={fetchpriority}
+      class={className}
+      style={style}
+    />
+  </picture>
+) : (
+  <img
+    src={src}
+    alt={alt}
+    width={w}
+    height={h}
+    loading={loading}
+    decoding="async"
+    fetchpriority={fetchpriority}
+    sizes={sizes}
+    class={className}
+    style={style}
+  />
+)}

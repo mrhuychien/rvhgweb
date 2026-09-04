@@ -65,7 +65,7 @@ const chips = [p.weight, 'Không chất bảo quản', 'ISO 22000:2018', 'Made i
             </div>
           </div>
           <div class="pw-hero__media rvhg-tilt" data-tilt>
-            <LegacyImg src={assetUrl(p.image)} alt={p.name} width={900} height={1120} loading="eager" fetchpriority="high" />
+            <LegacyImg src={assetUrl(p.image)} alt={p.name} width={900} height={1120} sizes="(max-width: 768px) 100vw, 45vw" loading="eager" fetchpriority="high" />
           </div>
         </div>
       </div>
@@ -160,7 +160,7 @@ const chips = [p.weight, 'Không chất bảo quản', 'ISO 22000:2018', 'Made i
           {others.map((o, i) => (
             <a class="pw-other rvhg-tilt" href={`/${o.slug}/`} data-tilt data-reveal style={`--reveal-delay:${i * 70}ms;--pa:${o.accent};--pa-ink:${o.accentInk};--pa-soft:${o.accentSoft}`}>
               <span class="pw-other__media">
-                <LegacyImg src={assetUrl(o.image)} alt={o.name} width={600} height={600} loading="lazy" />
+                <LegacyImg src={assetUrl(o.image)} alt={o.name} width={600} height={600} sizes="(max-width: 600px) 50vw, 25vw" loading="lazy" />
               </span>
               <span class="pw-other__name">{o.name}</span>
               <span class="pw-other__go" aria-hidden="true">Xem chi tiết  ›</span>
