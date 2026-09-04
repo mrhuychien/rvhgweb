@@ -34,12 +34,18 @@ const imageUrl = image.startsWith('http') ? image : siteUrl + image;
 
 // Trang chủ: brand + tagline. Ngược lại nối brand vào sau — nhưng KHÔNG lặp
 // nếu tiêu đề đã chứa sẵn tên thương hiệu (tránh "… Rồng Vàng Hoàng Gia | Rồng Vàng Hoàng Gia").
+//
+// Google cắt title ở khoảng 60–65 ký tự trên SERP di động. Đuôi thương hiệu
+// tốn 22 ký tự, nên chỉ nối khi còn chỗ — thà mất phần brand còn hơn mất
+// phần cuối của chính tiêu đề, vốn mới là thứ mang từ khoá.
+const TITLE_MAX = 65;
+const suffix = ` | ${SITE.name}`;
 const fullTitle =
   title === SITE.name
     ? `${SITE.name} — ${SITE.tagline}`
-    : title.includes(SITE.name)
+    : title.includes(SITE.name) || title.length + suffix.length > TITLE_MAX
       ? title
-      : `${title} | ${SITE.name}`;
+      : title + suffix;
 const robots = noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large';
 ---
 

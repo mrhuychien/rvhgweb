@@ -1,5 +1,6 @@
 ---
 title: 'Bột đậu xanh pha sẵn: cà rốt, rau má, sữa dừa, matcha & không đường'
+seoTitle: 'Bột đậu xanh pha sẵn: cà rốt, rau má, sữa dừa, matcha'
 description: 'Cẩm nang trọn bộ bột đậu xanh pha sẵn Rồng Vàng Hoàng Gia — bốn vị cà rốt, rau má, sữa dừa, matcha và dòng không thêm đường: thành phần, dinh dưỡng, cách pha, ai nên dùng.'
 publishDate: 2026-07-05
 author: 'Rồng Vàng Hoàng Gia'

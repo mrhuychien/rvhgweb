@@ -15,7 +15,7 @@ interface Props {
   headings?: MarkdownHeading[];
 }
 const { post, headings = [] } = Astro.props;
-const { title, description, publishDate, updated, author, cover, tags, faq, howTo, relatedProducts } = post.data;
+const { title, seoTitle, description, publishDate, updated, author, cover, tags, faq, howTo, relatedProducts } = post.data;
 const url = postPath(post);
 
 const dateStr = new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(publishDate);
@@ -63,7 +63,7 @@ const absUrl = SITE.url + url;
 ---
 
 <BaseLayout
-  title={title}
+  title={seoTitle ?? title}
   description={description}
   image={ogImage}
   type="article"

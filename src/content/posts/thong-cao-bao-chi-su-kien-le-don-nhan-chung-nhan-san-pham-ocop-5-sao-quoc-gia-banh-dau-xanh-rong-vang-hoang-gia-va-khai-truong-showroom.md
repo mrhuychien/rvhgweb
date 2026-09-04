@@ -1,5 +1,6 @@
 ---
-title: 'Thông cáo báo chí sự kiện ““Lễ đón nhận Chứng nhận sản phẩm OCOP 5 sao quốc gia: Bánh đậu xanh Rồng Vàng Hoàng Gia và khai trương showroom”'
+title: 'Thông cáo báo chí: Lễ đón nhận Chứng nhận sản phẩm OCOP 5 sao quốc gia: Bánh đậu xanh Rồng Vàng Hoàng Gia và khai trương showroom'
+seoTitle: 'Lễ đón nhận OCOP 5 sao & khai trương showroom Rồng Vàng'
 description: 'Thông cáo báo chí: lễ đón nhận chứng nhận OCOP 5 sao Quốc gia cho bánh đậu xanh Rồng Vàng Hoàng Gia và khai trương showroom tại Hải Dương – thương hiệu từ năm 1997.'
 publishDate: 2024-10-01
 author: 'Rồng Vàng Hoàng Gia'

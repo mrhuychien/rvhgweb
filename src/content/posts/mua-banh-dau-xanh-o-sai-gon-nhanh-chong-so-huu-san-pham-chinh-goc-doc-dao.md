@@ -1,5 +1,6 @@
 ---
 title: 'Mua bánh đậu xanh ở Sài Gòn- Nhanh chóng sở hữu sản phẩm chính gốc, độc đáo'
+seoTitle: 'Mua bánh đậu xanh ở Sài Gòn: chọn đúng hàng chính gốc'
 description: 'Mua bánh đậu xanh ở Sài Gòn chính hãng, chính gốc Hải Dương: BigC, Co.opmart, WinMart, AEON. Rồng Vàng Hoàng Gia - OCOP 5 sao Quốc gia, hotline 0934362658.'
 publishDate: 2024-10-01
 author: 'Rồng Vàng Hoàng Gia'

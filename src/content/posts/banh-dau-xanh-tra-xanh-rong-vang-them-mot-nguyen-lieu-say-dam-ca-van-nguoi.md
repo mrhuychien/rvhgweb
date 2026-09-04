@@ -1,5 +1,6 @@
 ---
 title: 'Bánh đậu xanh trà xanh rồng vàng- Thêm một nguyên liệu say đắm cả vạn người'
+seoTitle: 'Bánh đậu xanh trà xanh Rồng Vàng: vị lạ mà quen'
 description: 'Bánh đậu xanh trà xanh Rồng Vàng Hoàng Gia: matcha Nhật Bản, ngọt thanh không gắt, chuẩn quà biếu. Đặc sản Hải Dương OCOP 5 sao, ISO 22000, không chất bảo quản.'
 publishDate: 2024-10-01
 author: 'Rồng Vàng Hoàng Gia'

@@ -37,11 +37,14 @@ const all = [{ name: 'Trang chủ', url: '/' }, ...items];
   .rvhg-breadcrumbs a {
     color: var(--color-mute);
     text-decoration: none;
-    /* Vùng chạm ≥24px — ngưỡng AA của WCAG 2.2 SC 2.5.8. Không kéo lên 44px
-       vì breadcrumb là dải chữ nhỏ, cao 44px sẽ nặng nề trong bố cục. */
+    /* Desktop dùng chuột nên ≥24px (ngưỡng AA của WCAG 2.2) là đủ, giữ dải
+       breadcrumb thanh mảnh. Mobile chạm bằng ngón tay → nâng lên 44px. */
     display: inline-flex;
     align-items: center;
     min-height: 24px;
+  }
+  @media (max-width: 900px) {
+    .rvhg-breadcrumbs a { min-height: 44px; min-width: 44px; justify-content: center; }
   }
   .rvhg-breadcrumbs a:hover { color: var(--color-ink); }
   .rvhg-breadcrumbs [aria-current='page'] { color: var(--color-ink); }

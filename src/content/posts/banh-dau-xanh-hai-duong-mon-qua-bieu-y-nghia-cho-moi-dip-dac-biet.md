@@ -1,5 +1,6 @@
 ---
 title: 'Bánh Đậu Xanh Hải Dương: Món Quà Biếu Ý Nghĩa Cho Mọi Dịp Đặc Biệt'
+seoTitle: 'Bánh đậu xanh Hải Dương: món quà biếu cho mọi dịp'
 description: 'Bánh đậu xanh Hải Dương – món quà biếu ý nghĩa cho Tết và mọi dịp đặc biệt. Chọn hộp quà cao cấp Rồng Vàng Hoàng Gia, đặc sản đạt OCOP 5 sao Quốc gia.'
 publishDate: 2024-10-01
 author: 'Rồng Vàng Hoàng Gia'

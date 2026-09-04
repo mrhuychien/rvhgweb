@@ -1,5 +1,6 @@
 ---
 title: '5 cách độc đáo để thưởng thức bánh đậu xanh, cách thứ 5 bạn có nằm mơ cũng chưa chắc đã nghĩ đến'
+seoTitle: '5 cách thưởng thức bánh đậu xanh độc đáo, ít ai nghĩ tới'
 description: 'Khám phá 5 cách thưởng thức bánh đậu xanh Rồng Vàng Hoàng Gia lạ miệng: kết hợp trà xanh, cà phê, chè, trái cây và sữa chua. Đặc sản Hải Dương đạt OCOP 5 sao.'
 publishDate: 2024-10-01
 author: 'Rồng Vàng Hoàng Gia'

@@ -1,5 +1,6 @@
 ---
 title: 'Bánh đậu xanh Hải Dương tại TPHCM- Đặc sản bắc kỳ làm nức lòng Sài thành'
+seoTitle: 'Bánh đậu xanh Hải Dương tại TPHCM: mua ở đâu chính hãng?'
 description: 'Mua bánh đậu xanh Hải Dương chính hãng tại TP.HCM ở BigC, Co.opmart, WinMart, AEON. Rồng Vàng Hoàng Gia đạt OCOP 5 sao Quốc gia, đặc sản chuẩn vị từ 1997.'
 publishDate: 2024-10-01
 author: 'Rồng Vàng Hoàng Gia'

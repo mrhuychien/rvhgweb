@@ -107,6 +107,11 @@ const posts = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
   schema: z.object({
     title: z.string(),
+    /**
+     * Tiêu đề dùng cho <title>/OG khi tiêu đề bài quá dài (Google cắt ở
+     * khoảng 60–65 ký tự trên di động). H1 trong trang vẫn dùng `title`.
+     */
+    seoTitle: z.string().optional(),
     description: z.string(),
     publishDate: z.coerce.date(),
     updated: z.coerce.date().optional(),
