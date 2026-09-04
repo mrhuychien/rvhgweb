@@ -1,7 +1,9 @@
 /**
  * Sinh biến thể WebP responsive cho ảnh trong public/images/.
  *
- * Chạy tự động trước mỗi build (npm script `prebuild`). Kết quả nằm ở
+ * Chạy tự động ở đầu `pnpm build` (không dùng lifecycle script `prebuild`:
+ * pnpm/npm không thống nhất việc tự chạy pre-script, gọi thẳng trong
+ * `build` là chắc chắn ở mọi package manager). Kết quả nằm ở
  * public/_img/ và KHÔNG commit — build lại là có, nên repo không phình.
  *
  *   public/images/legacy/hero-home.jpg

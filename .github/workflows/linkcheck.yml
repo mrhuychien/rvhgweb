@@ -1,0 +1,41 @@
+name: Soát link chết
+
+# Build thật rồi đối chiếu mọi href/src nội bộ với route + asset có trong
+# dist, cộng redirect trong vercel.json. Chặn ngay kiểu link
+# /san-pham/<slug>/index.html — trông đúng nhưng không khớp redirect nào và
+# cũng không có route Astro, nên trả 404 (đã từng có 29 link như vậy).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: linkcheck-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  linkcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      # `build` tự sinh biến thể ảnh WebP trước khi gọi astro build.
+      - run: pnpm build
+
+      - run: node tools/linkcheck.mjs

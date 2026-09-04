@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "prebuild": "node tools/gen-responsive.mjs",
-    "build": "astro build",
+    "images": "node tools/gen-responsive.mjs",
+    "build": "node tools/gen-responsive.mjs && astro build",
     "preview": "astro preview",
     "linkcheck": "node tools/linkcheck.mjs",
-    "verify": "astro build && node tools/linkcheck.mjs",
+    "verify": "pnpm build && node tools/linkcheck.mjs",
     "astro": "astro"
   },
   "engines": {
