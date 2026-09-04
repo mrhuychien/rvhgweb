@@ -197,7 +197,7 @@ const powderSlides = [
       </header>
       <ul class="rvhg-logos rvhg-logos--dist" data-reveal>
         {DISTRIBUTION_LOGOS.map((d) => (
-          <li><LegacyImg src={d.image} alt={d.name} sizes="128px" loading="lazy" /></li>
+          <li><LegacyImg src={d.image} alt={d.name} sizes="(max-width: 460px) 45vw, (max-width: 768px) 30vw, 260px" loading="lazy" /></li>
         ))}
       </ul>
     </div>
@@ -214,13 +214,13 @@ const powderSlides = [
       </header>
       <ul class="rvhg-logos rvhg-logos--media" data-reveal>
         {MEDIA_LOGOS.map((m) => (
-          <li>
+          <li class={m.wide ? 'is-wide' : undefined}>
             {m.url ? (
               <a href={m.url} target="_blank" rel="noopener noreferrer" aria-label={m.name}>
-                <LegacyImg src={m.image} alt={m.name} sizes="112px" loading="lazy" />
+                <LegacyImg src={m.image} alt={m.name} sizes={m.wide ? "(max-width: 460px) 92vw, (max-width: 768px) 46vw, 420px" : "(max-width: 460px) 30vw, (max-width: 768px) 22vw, 200px"} loading="lazy" />
               </a>
             ) : (
-              <LegacyImg src={m.image} alt={m.name} sizes="112px" loading="lazy" />
+              <LegacyImg src={m.image} alt={m.name} sizes={m.wide ? "(max-width: 460px) 92vw, (max-width: 768px) 46vw, 420px" : "(max-width: 460px) 30vw, (max-width: 768px) 22vw, 200px"} loading="lazy" />
             )}
           </li>
         ))}
@@ -631,6 +631,21 @@ const powderSlides = [
   }
   .rvhg-logos--dist { grid-template-columns: repeat(4, 1fr); }
   .rvhg-logos--media { grid-template-columns: repeat(5, 1fr); }
+  /* Logo dạng chữ nằm ngang cần bề ngang gấp đôi mới cân bằng thị giác với
+     các logo vuông bên cạnh (194×32 thì chữ nhỏ tới mức khó đọc). */
+  .rvhg-logos--media li.is-wide { grid-column: span 2; }
+  /* trần thấp hơn để logo chữ không lấn át các logo vuông bên cạnh */
+  .rvhg-logos--media li.is-wide :global(img) { max-height: 84px; }
+  /* Ô phải chiếm trọn cột: với justify-items:center, <li> co theo nội dung nên
+     `max-width: 100%` của ảnh tham chiếu vòng vào chính nó — logo chữ dài
+     (Bộ NN&MT, Báo ảnh Việt Nam) bị bóp còn 112×18px, không đọc nổi. */
+  .rvhg-logos li {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    place-items: center;
+  }
+  .rvhg-logos a { display: grid; place-items: center; width: 100%; }
   /* :global vì <img> do LegacyImg render — không mang hash scope của file này */
   .rvhg-logos :global(img) {
     max-width: 100%;
@@ -657,5 +672,6 @@ const powderSlides = [
   @media (max-width: 460px) {
     .rvhg-logos--dist { grid-template-columns: repeat(2, 1fr); }
     .rvhg-logos--media { grid-template-columns: repeat(3, 1fr); }
+    .rvhg-logos--media li.is-wide { grid-column: 1 / -1; }
   }
 </style>
