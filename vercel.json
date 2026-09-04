@@ -94,6 +94,7 @@
     { "source": "/san-pham/bot-dau-xanh-dinh-duong/", "destination": "/danh-muc-san-pham/bot-dau/", "permanent": true },
     { "source": "/san-pham/che-dau-den-cot-dua/",     "destination": "/danh-muc-san-pham/bot-dau/", "permanent": true },
 
+    { "source": "/san-pham/:slug/index.html", "destination": "/san-pham/:slug/", "permanent": true },
     { "source": "/san-pham/:slug/", "destination": "/san-pham/", "permanent": true },
     { "source": "/og/product/:slug.png", "destination": "/og-default.png", "permanent": true }
   ]

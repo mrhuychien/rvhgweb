@@ -205,7 +205,9 @@
    ============================================================================ */
 :root {
   color-scheme: light;
-  scroll-padding-top: 6.5rem; /* clears the centred-emblem header */
+  /* Header mobile chỉ cao 60–70px; 6.5rem (104px) sẽ đẩy mục tiêu anchor
+     xuống quá sâu. Dùng 4.5rem cho mobile, nâng lên ở desktop (xem @media). */
+  scroll-padding-top: 4.5rem;
 
   /* brand accents (small surfaces only — see §0 rules) */
   --brass: #b08d57;
@@ -279,6 +281,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip; /* mobile safety net — clip (not hidden) keeps sticky header working */
+}
+
+/* Header desktop cao 92px (72px khi cuộn) → anchor cần khoảng đệm lớn hơn. */
+@media (min-width: 901px) {
+  :root { scroll-padding-top: 6.5rem; }
+}
+
+/* Chừa chỗ cho thanh gọi cố định (MobileCallBar) để nó không che cuối footer. */
+@media (max-width: 900px) {
+  body { padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px)); }
 }
 
 /* §3: all headings serif; balance wrap; restrained display weight */
@@ -421,9 +433,16 @@ img {
   color: #fff;
 }
 .rvhg-btn--link {
+  /* dùng độc lập (không kèm .rvhg-btn) nên phải tự khai báo display */
+  display: inline-flex;
+  align-items: center;
   background: transparent;
   color: var(--color-ink);
-  padding: 0.25rem 0;
+  /* Vùng chạm cao ≥ 44px theo WCAG 2.5.8 mà vẫn giữ dáng "link", nhờ
+     kéo lề âm để chữ không bị đẩy xa khối văn bản xung quanh. */
+  padding: 0.7rem 0;
+  margin-block: -0.45rem;
+  min-height: 44px;
   border-radius: 0;
   font-weight: 500;
   text-underline-offset: 4px;
@@ -517,7 +536,18 @@ img {
   display: none !important;
   visibility: hidden !important;
 }
-body { top: 0 !important; }
+/* Google Translate đẩy <body> xuống bằng inline `top`; ép về 0 — trừ khi đang
+   khoá cuộn cho ngăn kéo menu, lúc đó `top` là công cụ giữ vị trí cuộn. */
+body:not([data-rvhg-locked]) { top: 0 !important; }
+
+/* Khoá cuộn nền khi mở menu di động (Header.astro đặt/xoá data-rvhg-locked). */
+body[data-rvhg-locked] {
+  position: fixed !important;
+  inset-inline: 0;
+  width: 100%;
+  top: var(--rvhg-lock-top, 0px) !important;
+  overflow: hidden;
+}
 #google_translate_element {
   position: absolute !important;
   left: -9999px;

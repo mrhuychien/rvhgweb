@@ -3,9 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
 import Motion from '../components/Motion.astro';
-import VideoEmbed from '../components/VideoEmbed.astro';
-import { videoSchema } from '../data/jsonld';
-import { SITE, BRAND_VIDEO, REASONS, FEATURED, DISTRIBUTION_LOGOS, MEDIA_LOGOS, YEARS_EXPERIENCE } from '../data/site';
+import { SITE, REASONS, FEATURED, DISTRIBUTION_LOGOS, MEDIA_LOGOS, YEARS_EXPERIENCE } from '../data/site';
 import { POWDERS, POWDER_SINGLES, assetUrl } from '../data/powders';
 
 const lines = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
@@ -36,13 +34,6 @@ const powderSlides = [
 <BaseLayout
   title="Bánh đậu xanh OCOP 5 sao Quốc gia"
   description={SITE.shortDescription}
-  jsonLd={videoSchema({
-    id: BRAND_VIDEO.id,
-    name: BRAND_VIDEO.title,
-    description: BRAND_VIDEO.description,
-    uploadDate: BRAND_VIDEO.uploadDate,
-    url: '/',
-  })}
 >
   <!-- 1 · HERO — dark lacquer band + 3D imperial gold dust -->
   <section class="rvhg-hero3d rvhg-band-night">
@@ -99,21 +90,6 @@ const powderSlides = [
           </li>
         ))}
       </ul>
-    </div>
-  </section>
-
-  <!-- 2.5 · VIDEO GIỚI THIỆU -->
-  <section class="rvhg-section rvhg-band-night rvhg-home-video">
-    <div class="rvhg-container">
-      <header class="rvhg-home-video__head" data-reveal>
-        <p class="rvhg-eyebrow">Video giới thiệu</p>
-        <h2>Xem câu chuyện của chúng tôi.</h2>
-        <div class="gold-rule rvhg-rule--center gold-rule--draw"></div>
-        <p>Từ hạt đậu xanh lòng vàng Xứ Đông đến viên bánh đạt OCOP 5 sao Quốc gia — hành trình gìn giữ một nghề truyền thống của Rồng Vàng Hoàng Gia.</p>
-      </header>
-      <div class="rvhg-home-video__player" data-reveal>
-        <VideoEmbed id={BRAND_VIDEO.id} title={BRAND_VIDEO.title} loading="lazy" />
-      </div>
     </div>
   </section>
 
@@ -377,7 +353,6 @@ const powderSlides = [
   .rvhg-home-reasons__head,
   .rvhg-home-feat__head,
   .rvhg-cats__head,
-  .rvhg-home-video__head,
   .rvhg-home-logos__head {
     text-align: center;
     max-width: 42rem;
@@ -386,7 +361,6 @@ const powderSlides = [
   .rvhg-home-reasons__head h2,
   .rvhg-home-feat__head h2,
   .rvhg-cats__head h2,
-  .rvhg-home-video__head h2,
   .rvhg-home-logos__head h2 {
     font-size: var(--text-display);
     margin-top: 0.6rem;
@@ -398,16 +372,6 @@ const powderSlides = [
     color: var(--color-mute);
   }
   .rvhg-home-feat__head a { display: inline-block; margin-top: 1rem; }
-
-  /* ---------- 2.5 · Video giới thiệu (dải nền tối) ---------- */
-  .rvhg-home-video__head > p {
-    margin-top: 1rem;
-    color: var(--color-night-mute, #cbbba0);
-  }
-  .rvhg-home-video__player {
-    max-width: 60rem;
-    margin-inline: auto;
-  }
 
   /* ---------- 2 · Bí quyết thành công ---------- */
   .rvhg-home-reasons {

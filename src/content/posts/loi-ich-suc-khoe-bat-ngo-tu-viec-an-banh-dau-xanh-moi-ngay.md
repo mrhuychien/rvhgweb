@@ -56,9 +56,9 @@ Hàm lượng protein thực vật trong bánh đậu xanh giúp tăng cường 
     
     Bánh đậu xanh Hộp lễ hương vị sen
     
-    ](/san-pham/banh-dau-xanh-hop-le-huong-vi-sen/index.html)
+    ](/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/)
     
-    [Đọc tiếp](/san-pham/banh-dau-xanh-hop-le-huong-vi-sen/index.html)
+    [Đọc tiếp](/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/)
     
 -   [
     
@@ -66,9 +66,9 @@ Hàm lượng protein thực vật trong bánh đậu xanh giúp tăng cường 
     
     Bánh đậu xanh Hộp lễ hương vị khoai môn
     
-    ](/san-pham/banh-dau-xanh-hop-le-huong-vi-khoai-mon/index.html)
+    ](/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/)
     
-    [Đọc tiếp](/san-pham/banh-dau-xanh-hop-le-huong-vi-khoai-mon/index.html)
+    [Đọc tiếp](/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/)
     
 -   [
     
@@ -76,9 +76,9 @@ Hàm lượng protein thực vật trong bánh đậu xanh giúp tăng cường 
     
     Bánh đậu xanh Hộp lễ hương vị cốm
     
-    ](/san-pham/banh-dau-xanh-hop-le-huong-vi-com/index.html)
+    ](/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/)
     
-    [Đọc tiếp](/san-pham/banh-dau-xanh-hop-le-huong-vi-com/index.html)
+    [Đọc tiếp](/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/)
     
 -   [
     
@@ -86,9 +86,9 @@ Hàm lượng protein thực vật trong bánh đậu xanh giúp tăng cường 
     
     Bánh đậu xanh Hộp lễ hương vị dừa
     
-    ](/san-pham/banh-dau-xanh-hop-le-huong-vi-dua/index.html)
+    ](/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/)
     
-    [Đọc tiếp](/san-pham/banh-dau-xanh-hop-le-huong-vi-dua/index.html)
+    [Đọc tiếp](/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/)
     
 -   [
     
@@ -96,9 +96,9 @@ Hàm lượng protein thực vật trong bánh đậu xanh giúp tăng cường 
     
     Bánh đậu xanh Hộp lễ
     
-    ](/san-pham/hop-le-dau-xanh/index.html)
+    ](/danh-muc-san-pham/banh-dau-xanh-truyen-thong/)
     
-    [Đọc tiếp](/san-pham/hop-le-dau-xanh/index.html)
+    [Đọc tiếp](/danh-muc-san-pham/banh-dau-xanh-truyen-thong/)
     
 
 ### Công dụng chống oxy hóa và hỗ trợ tim mạch

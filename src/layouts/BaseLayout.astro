@@ -4,6 +4,7 @@ import { SITE } from '../data/site';
 import SEO from '../components/SEO.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { organizationSchema, websiteSchema } from '../data/jsonld';
 import '../styles/global.css';
@@ -105,6 +106,7 @@ const FB_PIXEL = import.meta.env.PUBLIC_FB_PIXEL ?? '';
       <slot />
     </main>
     <Footer />
+    <MobileCallBar />
 
     <!-- Auto-updates "số năm" numerals ([data-years-since]) to the visitor's
          current year, so the count stays correct even between deploys. The

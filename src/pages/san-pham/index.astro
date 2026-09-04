@@ -158,9 +158,17 @@ const powderCards = [
     transform: scale(1.02);
   }
   @media (max-width: 768px) {
-    .rvhg-pl-line__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-    .rvhg-pl-line:nth-of-type(even) .rvhg-pl-line__inner { grid-template-columns: 1fr; direction: ltr; }
+    /* Phải phủ cả biến thể --alt (2 class → specificity cao hơn), nếu không
+       hàng "đảo chiều" vẫn giữ 2 cột + direction: rtl trên mobile. */
+    .rvhg-pl-line__inner,
+    .rvhg-pl-line--alt .rvhg-pl-line__inner {
+      grid-template-columns: 1fr;
+      direction: ltr;
+      gap: 2rem;
+    }
     .rvhg-pl-line__media { order: -1; }
+    .rvhg-pl-line__tagline,
+    .rvhg-pl-line__lede { max-width: none; }
   }
 
   /* Bột đậu xanh — flavour cards */

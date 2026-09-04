@@ -41,9 +41,9 @@ Trong thị trường quà biếu hiện nay, Rồng Vàng Hoàng Gia nổi bậ
     
     Hộp quà bánh đậu xanh thượng hạng tre cao cấp
     
-    ](/san-pham/hop-qua-thuong-hang-tre-cao-cap/index.html)
+    ](/san-pham/hop-qua-thuong-hang-tre-cao-cap/)
     
-    [Đọc tiếp](/san-pham/hop-qua-thuong-hang-tre-cao-cap/index.html)
+    [Đọc tiếp](/san-pham/hop-qua-thuong-hang-tre-cao-cap/)
     
 -   [
     
@@ -51,9 +51,9 @@ Trong thị trường quà biếu hiện nay, Rồng Vàng Hoàng Gia nổi bậ
     
     Hộp quà Bánh đậu xanh OCOP 5 sao Quốc gia
     
-    ](/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/index.html)
+    ](/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/)
     
-    [Đọc tiếp](/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/index.html)
+    [Đọc tiếp](/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/)
     
 -   [
     
@@ -61,9 +61,9 @@ Trong thị trường quà biếu hiện nay, Rồng Vàng Hoàng Gia nổi bậ
     
     Giỏ quà Tài lộc phú quý
     
-    ](/san-pham/gio-qua-tai-loc-phu-quy/index.html)
+    ](/danh-muc-san-pham/banh-dau-xanh-tet/)
     
-    [Đọc tiếp](/san-pham/gio-qua-tai-loc-phu-quy/index.html)
+    [Đọc tiếp](/danh-muc-san-pham/banh-dau-xanh-tet/)
     
 -   [
     
@@ -71,9 +71,9 @@ Trong thị trường quà biếu hiện nay, Rồng Vàng Hoàng Gia nổi bậ
     
     Giỏ quà Ngũ phúc lâm môn
     
-    ](/san-pham/gio-qua-ngu-phuc-lam-mon/index.html)
+    ](/danh-muc-san-pham/banh-dau-xanh-tet/)
     
-    [Đọc tiếp](/san-pham/gio-qua-ngu-phuc-lam-mon/index.html)
+    [Đọc tiếp](/danh-muc-san-pham/banh-dau-xanh-tet/)
     
 -   [
     
@@ -81,9 +81,9 @@ Trong thị trường quà biếu hiện nay, Rồng Vàng Hoàng Gia nổi bậ
     
     Giỏ quà Long phụng liên hoa
     
-    ](/san-pham/gio-qua-long-phung-lien-hoa/index.html)
+    ](/danh-muc-san-pham/banh-dau-xanh-tet/)
     
-    [Đọc tiếp](/san-pham/gio-qua-long-phung-lien-hoa/index.html)
+    [Đọc tiếp](/danh-muc-san-pham/banh-dau-xanh-tet/)
     
 -   [
     
@@ -91,9 +91,9 @@ Trong thị trường quà biếu hiện nay, Rồng Vàng Hoàng Gia nổi bậ
     
     Bánh đậu trà xanh 900g
     
-    ](/san-pham/banh-dau-tra-xanh-900g/index.html)
+    ](/danh-muc-san-pham/banh-dau-xanh-thuong-hang/)
     
-    [Đọc tiếp](/san-pham/banh-dau-tra-xanh-900g/index.html)
+    [Đọc tiếp](/danh-muc-san-pham/banh-dau-xanh-thuong-hang/)
     
 
 ## Mua Quà Bánh Đậu Xanh Ở Đâu?

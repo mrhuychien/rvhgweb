@@ -59,9 +59,11 @@ export const COMPANY = {
     account: '0341007014720',
     name: 'Vietcombank — Chi nhánh Hải Dương',
   },
+  /** Chưa có URL gian hàng chính thức → dùng trang tìm kiếm theo tên thương
+   *  hiệu; luôn dẫn tới đúng sản phẩm thay vì trang chủ sàn. */
   ecommerce: [
-    { name: 'Shopee', url: 'https://shopee.vn/' },
-    { name: 'TikTok Shop', url: 'https://www.tiktok.com/' },
+    { name: 'Shopee', url: 'https://shopee.vn/search?keyword=R%E1%BB%93ng%20V%C3%A0ng%20Ho%C3%A0ng%20Gia' },
+    { name: 'TikTok Shop', url: 'https://www.tiktok.com/search?q=R%E1%BB%93ng%20V%C3%A0ng%20Ho%C3%A0ng%20Gia' },
   ],
 } as const;
 

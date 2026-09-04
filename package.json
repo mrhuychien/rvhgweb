@@ -8,6 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "linkcheck": "node tools/linkcheck.mjs",
+    "verify": "astro build && node tools/linkcheck.mjs",
     "astro": "astro"
   },
   "engines": {

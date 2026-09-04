@@ -63,9 +63,9 @@ Rồng Vàng Hoàng Gia cam kết cung cấp sản phẩm chất lượng cao, �
     
     Hộp quà bánh đậu xanh thượng hạng tre cao cấp
     
-    ](/san-pham/hop-qua-thuong-hang-tre-cao-cap/index.html)
+    ](/san-pham/hop-qua-thuong-hang-tre-cao-cap/)
     
-    [Đọc tiếp](/san-pham/hop-qua-thuong-hang-tre-cao-cap/index.html)
+    [Đọc tiếp](/san-pham/hop-qua-thuong-hang-tre-cao-cap/)
     
 -   [
     
@@ -73,6 +73,6 @@ Rồng Vàng Hoàng Gia cam kết cung cấp sản phẩm chất lượng cao, �
     
     Hộp quà Bánh đậu xanh OCOP 5 sao Quốc gia
     
-    ](/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/index.html)
+    ](/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/)
     
-    [Đọc tiếp](/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/index.html)
+    [Đọc tiếp](/san-pham/hop-qua-banh-dau-xanh-ocop-5-sao-quoc-gia/)
