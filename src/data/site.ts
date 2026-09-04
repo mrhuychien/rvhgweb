@@ -119,6 +119,7 @@ export const MEDIA_MENTIONS: { name: string; url: string }[] = [
   { name: 'Báo Pháp Luật Việt Nam', url: 'https://baophapluat.vn/banh-dau-xanh-hoang-gia-la-san-pham-dau-tien-cua-hai-duong-duoc-trao-chung-nhan-ocop-5-sao-post528437.html' },
   { name: 'Báo Nhân Dân', url: 'https://nhandan.vn/ocop/banh-dau-xanh-rong-vang-hoang-gia-prod728.html' },
   { name: 'VOV — Đài Tiếng nói Việt Nam', url: 'https://vov.vn/kinh-te/co-them-4-san-pham-ocop-duoc-danh-gia-dat-5-sao-post1103705.vov' },
+  { name: 'Báo Hải Phòng', url: 'https://baohaiphong.vn/can-canh-san-xuat-banh-dau-xanh-ocop-5-sao-dau-tien-o-hai-duong-390799.html' },
   { name: 'Báo ảnh Việt Nam — Thông tấn xã Việt Nam', url: 'https://vietnam.vnanet.vn/vietnamese/long-form/rong-vang-hoang-gia-tinh-hoa-xu-dong-vuon-bien-lon-430491.html' },
   { name: 'Báo Dân Trí', url: 'https://dantri.com.vn/doi-song/vi-tham-phan-xin-chu-tich-nuoc-cho-nghi-viec-lap-cong-ty-doanh-thu-70-ty-20250306161625199.htm' },
   { name: 'CafeF', url: 'https://cafef.vn/tham-phan-nghi-viec-mo-cong-ty-banh-tien-vua-cuoc-cach-mang-tinh-gon-bo-may-se-tao-ra-nhieu-ty-phu-moi-18825040407111006.chn' },
@@ -191,12 +192,13 @@ export const DISTRIBUTION_LOGOS: { name: string; image: string }[] = [
 /** "Trên truyền thông" — press/media logos (mirror order). url optional. */
 /** `wide`: logo dạng chữ nằm ngang (tỉ lệ > 3:1) — trên màn hẹp cho chiếm
  *  trọn hàng, nếu không ô 93px sẽ bóp nó xuống còn 15px, không đọc được. */
-export const MEDIA_LOGOS: { name: string; image: string; url?: string; wide?: boolean }[] = [
+export const MEDIA_LOGOS: { name: string; image: string; url?: string; wide?: boolean; solidBg?: boolean }[] = [
   { name: 'Báo Chính phủ', image: '/images/legacy/bao-chinh-phu-150x150.jpg', url: 'https://baochinhphu.vn/them-4-san-pham-duoc-cong-nhan-ocop-5-sao-102240625172136981.htm' },
   { name: 'Bộ Nông nghiệp và Môi trường', wide: true, image: '/images/bao-chi/bo-nong-nghiep-moi-truong.png', url: 'https://mae.gov.vn/tuyet-vang-xu-ong-thanh-san-vat-quoc-gia-21476.htm' },
   { name: 'VTV — Đài Truyền hình Việt Nam', image: '/images/legacy/Dai-truyen-hinh-Viet-Nam-VTV-150x150.jpg', url: 'https://www.youtube.com/watch?v=49EjYQaYTl4' },
   { name: 'Đài PT-TH Hải Dương', image: '/images/legacy/lich-phat-song-thhd-150x150.png', url: 'http://www.haiduongtv.com.vn/media/trang-3.html?view=39246' },
   { name: 'HTV — Đài Truyền hình TP. Hồ Chí Minh', image: '/images/legacy/Dai-Truyen-hinh-TP-Ho-Chi-Minh-HTV-150x150.png', url: 'https://www.youtube.com/watch?v=SFmEYYRiATw' },
+  { name: 'Báo Hải Phòng', wide: true, solidBg: true, image: '/images/bao-chi/bao-hai-phong.png', url: 'https://baohaiphong.vn/can-canh-san-xuat-banh-dau-xanh-ocop-5-sao-dau-tien-o-hai-duong-390799.html' },
   { name: 'Báo Nhân Dân', image: '/images/legacy/Logo-NhanDan-150x150.png', url: 'https://nhandan.vn/ocop/banh-dau-xanh-rong-vang-hoang-gia-prod728.html' },
   { name: 'Báo Pháp Luật Việt Nam', image: '/images/legacy/Logo_bao_phap_luat_Viet_Nam-150x150.png', url: 'https://baophapluat.vn/banh-dau-xanh-hoang-gia-la-san-pham-dau-tien-cua-hai-duong-duoc-trao-chung-nhan-ocop-5-sao-post528437.html' },
   { name: 'VOV — Đài Tiếng nói Việt Nam', image: '/images/legacy/vov-tai-xuong-150x150.png', url: 'https://vov.vn/kinh-te/co-them-4-san-pham-ocop-duoc-danh-gia-dat-5-sao-post1103705.vov' },
