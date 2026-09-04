@@ -617,7 +617,8 @@ const powderSlides = [
   }
   .rvhg-logos--dist { grid-template-columns: repeat(4, 1fr); }
   .rvhg-logos--media { grid-template-columns: repeat(5, 1fr); }
-  .rvhg-logos img {
+  /* :global vì <img> do LegacyImg render — không mang hash scope của file này */
+  .rvhg-logos :global(img) {
     max-width: 100%;
     max-height: 128px;
     width: auto;
@@ -630,14 +631,14 @@ const powderSlides = [
   /* Chỉ logo có link mới sáng lên khi rê chuột. Trước đây `li:hover` làm
      sáng cả logo không bấm được (Nhân Dân, VOV, Dân Trí… chưa có URL bài
      viết) → trông như link nhưng bấm không ra gì. */
-  .rvhg-logos a:hover img,
-  .rvhg-logos a:focus-visible img { filter: grayscale(0); opacity: 1; }
-  .rvhg-logos--dist li:hover img { filter: grayscale(0); opacity: 1; }
-  .rvhg-logos--media img { max-height: 112px; border-radius: 4px; }
+  .rvhg-logos a:hover :global(img),
+  .rvhg-logos a:focus-visible :global(img) { filter: grayscale(0); opacity: 1; }
+  .rvhg-logos--dist li:hover :global(img) { filter: grayscale(0); opacity: 1; }
+  .rvhg-logos--media :global(img) { max-height: 112px; border-radius: 4px; }
   @media (max-width: 768px) {
     .rvhg-logos--dist { grid-template-columns: repeat(3, 1fr); }
     .rvhg-logos--media { grid-template-columns: repeat(4, 1fr); }
-    .rvhg-logos img { max-height: 104px; }
+    .rvhg-logos :global(img) { max-height: 104px; }
   }
   @media (max-width: 460px) {
     .rvhg-logos--dist { grid-template-columns: repeat(2, 1fr); }

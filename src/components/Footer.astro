@@ -106,7 +106,8 @@ const year = new Date().getFullYear();
   .rvhg-footer__seal :global(.rvhg-seal) {
     margin: 0 auto 1.1rem;
   }
-  .rvhg-footer__logo {
+  /* :global vì <img> do LegacyImg render — không mang hash scope của file này */
+  :global(.rvhg-footer__logo) {
     width: 84px;
     height: 84px;
     margin: 0 auto 1.1rem;

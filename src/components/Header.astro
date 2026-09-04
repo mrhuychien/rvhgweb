@@ -153,7 +153,8 @@ const LANGS = [
     justify-self: center;
     line-height: 0;
   }
-  .rvhg-header__emblem img {
+  /* :global vì <img> do LegacyImg render — không mang hash scope của file này */
+  .rvhg-header__emblem :global(img) {
     width: 76px;
     height: 76px;
     border-radius: 9999px;
@@ -163,7 +164,7 @@ const LANGS = [
     box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-brass-400, #c5a878) 55%, transparent);
     transition: width 0.3s var(--ease-refined, ease), height 0.3s var(--ease-refined, ease);
   }
-  .rvhg-header[data-scrolled] .rvhg-header__emblem img { width: 60px; height: 60px; }
+  .rvhg-header[data-scrolled] .rvhg-header__emblem :global(img) { width: 60px; height: 60px; }
 
   /* flanking nav groups */
   .rvhg-header__side ul {
@@ -321,9 +322,9 @@ const LANGS = [
       top: 50%;
       transform: translate(-50%, -50%);
     }
-    .rvhg-header__emblem img { width: 62px; height: 62px; }
+    .rvhg-header__emblem :global(img) { width: 62px; height: 62px; }
     .rvhg-header[data-scrolled] .rvhg-header__inner { min-height: 60px; }
-    .rvhg-header[data-scrolled] .rvhg-header__emblem img { width: 52px; height: 52px; }
+    .rvhg-header[data-scrolled] .rvhg-header__emblem :global(img) { width: 52px; height: 52px; }
   }
 </style>
 
