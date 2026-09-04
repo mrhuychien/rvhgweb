@@ -2,10 +2,21 @@
 /**
  * Ảnh trong /public/images/ kèm srcset WebP.
  *
- * Biến thể WebP do tools/gen-responsive.mjs sinh ở bước `prebuild`. Có
- * manifest thì phát <picture> (WebP nhiều kích thước + ảnh gốc làm dự
- * phòng); không có thì phát <img> như cũ. API props giữ nguyên nên không
- * call site nào phải sửa.
+ * Biến thể WebP do tools/gen-responsive.mjs sinh ở đầu bước `build`. Có
+ * manifest thì gắn `srcset`; không có thì phát <img> trơn. API props giữ
+ * nguyên nên không call site nào phải sửa.
+ *
+ * KHÔNG bọc <picture>. Bản đầu dùng <picture><source type="image/webp">
+ * cộng `picture { display: contents }` để CSS cũ (đang nhắm thẳng vào <img>)
+ * vẫn ăn. Chrome chạy đúng, nhưng WebKit thì không: với `display: contents`,
+ * `height: 100%` trên <img> không phân giải được nên ảnh nở ra theo kích
+ * thước nội tại — đo trên iPhone 13, một slide phình từ 320px thành 836px,
+ * ảnh 1350×1001px, cả dải sản phẩm vỡ. Gắn srcset thẳng lên <img> giữ đúng
+ * hình dạng DOM mà CSS vốn được viết cho, nên không có rủi ro bố cục.
+ *
+ * Đánh đổi: srcset chỉ chứa WebP nên trình duyệt hiểu srcset mà không hiểu
+ * WebP sẽ hỏng — thực tế là Safari ≤13 (2019). Mọi trình duyệt từ 2020 trở
+ * đi đều hỗ trợ WebP; đây cũng chính là cách <Image> của Astro làm.
  */
 import { responsive } from '../lib/responsive';
 
@@ -41,35 +52,19 @@ const h = height ?? r?.height ?? 900;
 
 // Không có `sizes` thì srcset không chọn đúng được; mặc định 100vw là an
 // toàn nhất (không bao giờ tải thiếu độ phân giải).
-const sizesAttr = sizes ?? (r ? '100vw' : undefined);
+const sizesAttr = r ? (sizes ?? '100vw') : sizes;
 ---
 
-{r ? (
-  <picture>
-    <source type="image/webp" srcset={r.srcset} sizes={sizesAttr} />
-    <img
-      src={src}
-      alt={alt}
-      width={w}
-      height={h}
-      loading={loading}
-      decoding="async"
-      fetchpriority={fetchpriority}
-      class={className}
-      style={style}
-    />
-  </picture>
-) : (
-  <img
-    src={src}
-    alt={alt}
-    width={w}
-    height={h}
-    loading={loading}
-    decoding="async"
-    fetchpriority={fetchpriority}
-    sizes={sizes}
-    class={className}
-    style={style}
-  />
-)}
+<img
+  src={src}
+  srcset={r?.srcset}
+  sizes={sizesAttr}
+  alt={alt}
+  width={w}
+  height={h}
+  loading={loading}
+  decoding="async"
+  fetchpriority={fetchpriority}
+  class={className}
+  style={style}
+/>

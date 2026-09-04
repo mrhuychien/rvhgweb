@@ -527,6 +527,9 @@ const powderSlides = [
   .rvhg-slider__track::-webkit-scrollbar { display: none; }
   .rvhg-slide {
     flex: 0 0 calc((100% - 3rem) / 3);
+    /* Không có min-width:0 thì kích thước tối thiểu tự động của flex item là
+       min-content — nội dung phình là item phình theo, flex-basis vô hiệu. */
+    min-width: 0;
     scroll-snap-align: start;
     --pa: var(--brass);
     --pa-ink: var(--color-brass-700, #7a6234);
@@ -546,13 +549,24 @@ const powderSlides = [
   .rvhg-slide > a:hover { box-shadow: var(--shadow-lift); transform: translateY(-3px); }
   .rvhg-slide__media {
     aspect-ratio: 4 / 3;
+    min-width: 0;
     background: color-mix(in srgb, var(--pa) 10%, #fff);
     display: grid;
     place-items: center;
     padding: 1rem;
     border-bottom: 3px solid var(--pa);
   }
-  .rvhg-slide__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
+  /* max-* chứ không width/height 100%: chiều cao khung do aspect-ratio quyết
+     định, nên `height: 100%` trên ảnh là tham chiếu vòng. Chrome tự chặn,
+     WebKit thì phân giải bằng tỉ lệ nội tại của ảnh và cho ảnh nở ra —
+     đo trên iPhone 13: ảnh 1219px trong khung đáng lẽ 280px. */
+  .rvhg-slide__media :global(img) {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
   .rvhg-slide__body { padding: 1.25rem 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.4rem; flex: 1; }
   .rvhg-slide__tag { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pa-ink); font-weight: 600; }
   .rvhg-slide__name { font-family: var(--font-display); font-size: 1.3rem; letter-spacing: -0.01em; line-height: 1.15; }

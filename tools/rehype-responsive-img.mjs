@@ -1,5 +1,5 @@
 /**
- * Rehype plugin: bọc ảnh nội dung (markdown/MDX) trong <picture> kèm srcset WebP.
+ * Rehype plugin: gắn srcset WebP cho ảnh trong nội dung (markdown/MDX).
  *
  * Dùng cùng manifest với LegacyImg.astro (public/_img/manifest.json, do
  * tools/gen-responsive.mjs sinh ở bước prebuild). Ảnh không có trong manifest
@@ -33,20 +33,11 @@ export default function rehypeResponsiveImg() {
     const m = load();
 
     const walk = (node) => {
-      const kids = node.children;
-      if (!Array.isArray(kids)) return;
+      if (!Array.isArray(node.children)) return;
 
-      for (let i = 0; i < kids.length; i++) {
-        const child = kids[i];
+      for (const child of node.children) {
         if (child.type !== 'element') continue;
-
-        // Đã bọc rồi thì không bọc lại (chạy lại plugin, hoặc <picture> viết tay).
-        if (child.tagName === 'picture') continue;
-
-        if (child.tagName !== 'img') {
-          walk(child);
-          continue;
-        }
+        if (child.tagName !== 'img') { walk(child); continue; }
 
         const src = child.properties?.src;
         if (typeof src !== 'string' || !src.startsWith('/images/')) continue;
@@ -64,17 +55,10 @@ export default function rehypeResponsiveImg() {
         if (!entry.v?.length) continue;
 
         const base = '/_img/' + key.replace(/^\/images\//, '').replace(/\.(jpe?g|png)$/i, '');
-        const srcSet = entry.v.map((w) => `${base}-${w}.webp ${w}w`).join(', ');
-
-        kids[i] = {
-          type: 'element',
-          tagName: 'picture',
-          properties: {},
-          children: [
-            { type: 'element', tagName: 'source', properties: { type: 'image/webp', srcSet, sizes: CONTENT_SIZES }, children: [] },
-            child,
-          ],
-        };
+        // Gắn thẳng lên <img>, không bọc <picture> — xem ghi chú trong
+        // src/components/LegacyImg.astro về lỗi bố cục trên WebKit.
+        child.properties.srcSet ??= entry.v.map((w) => `${base}-${w}.webp ${w}w`).join(', ');
+        child.properties.sizes ??= CONTENT_SIZES;
       }
     };
 

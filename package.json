@@ -12,7 +12,8 @@
     "linkcheck": "node tools/linkcheck.mjs",
     "verify": "pnpm build && node tools/linkcheck.mjs",
     "astro": "astro",
-    "imgcheck": "node tools/imgcheck.mjs && node tools/imgcheck.mjs --width 390 --dpr 2 --ratio 2"
+    "imgcheck": "node tools/imgcheck.mjs && node tools/imgcheck.mjs --width 390 --dpr 2 --ratio 2",
+    "wkcheck": "node tools/wkcheck.mjs"
   },
   "engines": {
     "node": ">=22"

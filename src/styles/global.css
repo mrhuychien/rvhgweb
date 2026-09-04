@@ -318,14 +318,6 @@ img {
   max-width: 100%;
 }
 
-/* LegacyImg bọc ảnh trong <picture> để phát srcset WebP. `display: contents`
-   xoá phần tử bọc khỏi cây bố cục, nên mọi selector và quy tắc kích thước
-   đang nhắm thẳng vào <img> (width/height 100%, object-fit, flex/grid item)
-   vẫn hoạt động y như khi <img> là con trực tiếp. */
-picture {
-  display: contents;
-}
-
 /* Skip-link for a11y */
 .rvhg-skip-link {
   position: absolute;
@@ -564,11 +556,23 @@ picture {
   line-height: 1.5;
 }
 .rvhg-prose img { border-radius: var(--radius-lg, 8px); }
+/* Bảng rộng cuộn ngang trong khung của chính nó, không đẩy tràn cả trang. */
+.rvhg-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  margin-block: 1.5rem;
+}
+.rvhg-table-scroll > table { margin-block: 0; }
+
 .rvhg-prose table {
   width: 100%;
   border-collapse: collapse;
   font-size: var(--text-caption);
 }
+/* Trong khung cuộn, để bảng giữ bề ngang tối thiểu đọc được thay vì bị bóp
+   thành các cột 1–2 ký tự. */
+.rvhg-table-scroll > table { min-width: 32rem; }
 .rvhg-prose th, .rvhg-prose td {
   border: 1px solid var(--color-line);
   padding: 0.55rem 0.75rem;

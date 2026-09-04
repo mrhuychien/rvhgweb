@@ -271,8 +271,14 @@ const absUrl = SITE.url + url;
   .rvhg-post__body {
     padding-block: 4rem 6rem;
     display: grid;
-    place-items: center;
+    /* minmax(0,…) chứ không để 1fr trần: grid item mặc định min-width:auto,
+       một cái bảng rộng bên trong sẽ kéo cả cột chữ phình quá bề ngang màn
+       hình — đo trên iPhone 13: cột chữ 476px trong viewport 390px. */
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    align-content: start;
   }
+  .rvhg-post__body > * { max-width: 100%; }
 
   /* ---------- Mục lục ---------- */
   .rvhg-toc {
