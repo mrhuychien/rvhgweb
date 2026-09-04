@@ -627,8 +627,12 @@ const powderSlides = [
     opacity: 0.7;
     transition: filter 0.25s var(--ease-refined, ease), opacity 0.25s var(--ease-refined, ease);
   }
-  .rvhg-logos li:hover img,
-  .rvhg-logos a:hover img { filter: grayscale(0); opacity: 1; }
+  /* Chỉ logo có link mới sáng lên khi rê chuột. Trước đây `li:hover` làm
+     sáng cả logo không bấm được (Nhân Dân, VOV, Dân Trí… chưa có URL bài
+     viết) → trông như link nhưng bấm không ra gì. */
+  .rvhg-logos a:hover img,
+  .rvhg-logos a:focus-visible img { filter: grayscale(0); opacity: 1; }
+  .rvhg-logos--dist li:hover img { filter: grayscale(0); opacity: 1; }
   .rvhg-logos--media img { max-height: 112px; border-radius: 4px; }
   @media (max-width: 768px) {
     .rvhg-logos--dist { grid-template-columns: repeat(3, 1fr); }
