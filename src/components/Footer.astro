@@ -204,6 +204,19 @@ const year = new Date().getFullYear();
 
   @media (max-width: 900px) {
     .rvhg-footer__cols { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+
+    /* Vùng chạm ≥44px (WCAG 2.5.8): link footer cao 15–16px, cách nhau 10px
+       — gần như không bấm trúng bằng ngón tay. Bỏ gap, chuyển khoảng cách
+       vào padding của chính thẻ <a> để cả dải trở thành vùng bấm. */
+    .rvhg-footer__col ul { gap: 0; }
+    .rvhg-footer__col a,
+    .rvhg-footer__bar a {
+      display: flex;
+      align-items: center;
+      min-height: 44px;
+      padding-block: 0.6rem;
+    }
+    .rvhg-footer__bar ul { gap: 0 1.25rem; }
   }
   @media (max-width: 560px) {
     .rvhg-footer__cols { grid-template-columns: 1fr; }

@@ -23,8 +23,8 @@ Sản phẩm của Rồng Vàng Hoàng Gia có mặt trong các chuỗi đại s
 
 Rồng Vàng Hoàng Gia có 2 showroom giới thiệu sản phẩm tại Hải Dương — tại đây quý khách có thể tìm mua những mẫu mã mới nhất của công ty:
 
-- [**209C Tuệ Tĩnh**, TP Hải Dương](https://www.google.com/maps/search/?api=1&query=209C%20Tu%E1%BB%87%20T%C4%A9nh%20H%E1%BA%A3i%20D%C6%B0%C6%A1ng) — xem chỉ đường
-- [**9 Bạch Đằng**, TP Hải Dương](https://www.google.com/maps/search/?api=1&query=9%20B%E1%BA%A1ch%20%C4%90%E1%BA%B1ng%20H%E1%BA%A3i%20D%C6%B0%C6%A1ng) — xem chỉ đường
+- [**209C Tuệ Tĩnh**, TP Hải Dương](https://www.google.com/maps/search/?api=1&query=209C%20Tu%E1%BB%87%20T%C4%A9nh%20H%E1%BA%A3i%20D%C6%B0%C6%A1ng)
+- [**9 Bạch Đằng**, TP Hải Dương](https://www.google.com/maps/search/?api=1&query=9%20B%E1%BA%A1ch%20%C4%90%E1%BA%B1ng%20H%E1%BA%A3i%20D%C6%B0%C6%A1ng)
 
 Cần tư vấn trước khi tới showroom? Gọi hotline [**0934 362 658**](tel:0934362658).
 

@@ -505,6 +505,50 @@ picture {
   text-decoration-thickness: 1px;
 }
 .rvhg-prose a:hover { text-decoration-thickness: 2px; }
+
+/* Dung lượng file gắn cạnh link PDF (rehype-file-size) */
+.rvhg-filesize {
+  color: var(--color-mute);
+  font-size: 0.86em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Số điện thoại / Zalo / bản đồ trong nội dung là lối chuyển đổi chính trên
+   di động — cho hẳn dáng nút để ngón tay bấm trúng, thay vì một dòng chữ
+   gạch chân cao 20px. */
+.rvhg-prose a[href^='tel:'],
+.rvhg-prose a[href^='https://zalo.me'],
+.rvhg-prose a[href*='google.com/maps'] {
+  /* inline-block chứ không inline-flex: link địa chỉ khá dài, cần xuống dòng
+     được, nếu không sẽ đẩy tràn ngang trên màn hình hẹp. */
+  display: inline-block;
+  min-height: 40px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm, 2px);
+  background: var(--color-paper-soft);
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.rvhg-prose a[href^='tel:']:hover,
+.rvhg-prose a[href^='https://zalo.me']:hover,
+.rvhg-prose a[href*='google.com/maps']:hover {
+  background: var(--color-ink);
+  color: #fff;
+  border-color: var(--color-ink);
+}
+/* trong đoạn văn thì để nguyên dáng link, tránh phá nhịp đọc */
+.rvhg-prose p > a[href^='tel:'],
+.rvhg-prose p > a[href*='google.com/maps'] {
+  display: inline;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-decoration: underline;
+}
 .rvhg-prose ul, .rvhg-prose ol { padding-left: 1.4em; }
 .rvhg-prose ul { list-style: disc; }
 .rvhg-prose ol { list-style: decimal; }

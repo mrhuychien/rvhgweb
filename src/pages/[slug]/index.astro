@@ -28,12 +28,12 @@ type Props =
   | { kind: 'page'; entry: CollectionEntry<'pages'> };
 
 const { kind, entry } = Astro.props as Props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 const slug = Astro.params.slug;
 ---
 
 {kind === 'post' && (
-  <PostLayout post={entry as CollectionEntry<'posts'>}>
+  <PostLayout post={entry as CollectionEntry<'posts'>} headings={headings}>
     <Content />
   </PostLayout>
 )}

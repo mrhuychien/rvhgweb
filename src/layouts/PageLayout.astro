@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import VideoEmbed from '../components/VideoEmbed.astro';
 import { videoSchema } from '../data/jsonld';
 
@@ -34,6 +35,7 @@ const {
   eyebrow,
   lede,
   video,
+  breadcrumbs,
   jsonLd,
 } = Astro.props;
 
@@ -62,6 +64,9 @@ if (video) {
   <article class="rvhg-page">
     <header class="rvhg-page__hero">
       <div class="rvhg-container">
+        {breadcrumbs && breadcrumbs.length > 0 && (
+          <div class="rvhg-page__crumbs"><Breadcrumbs items={breadcrumbs} /></div>
+        )}
         {eyebrow && <p class="rvhg-eyebrow">{eyebrow}</p>}
         {headingHtml ? <h1 set:html={headingHtml}></h1> : <h1>{heading ?? title}</h1>}
         {lede && <p class="rvhg-page__lede">{lede}</p>}
@@ -105,6 +110,13 @@ if (video) {
   .rvhg-page__hero h1 {
     margin-top: 0.6rem;
     font-size: var(--text-headline);
+  }
+  /* hero canh giữa, nên breadcrumb cũng canh giữa cho khớp */
+  .rvhg-page__crumbs {
+    margin-bottom: 1.5rem;
+  }
+  .rvhg-page__crumbs :global(ol) {
+    justify-content: center;
   }
   .rvhg-page__lede {
     margin: 1.25rem auto 0;

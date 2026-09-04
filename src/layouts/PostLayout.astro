@@ -1,15 +1,21 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import type { MarkdownHeading } from 'astro';
+import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import LegacyImg from '../components/LegacyImg.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { articleSchema, faqSchema, howToSchema } from '../data/jsonld';
-import { postPath } from '../lib/posts';
+import { postPath, isPublished } from '../lib/posts';
+import { SITE } from '../data/site';
 
 interface Props {
   post: CollectionEntry<'posts'>;
+  /** Tiêu đề trong bài, do render() trả về — dùng dựng mục lục. */
+  headings?: MarkdownHeading[];
 }
-const { post } = Astro.props;
-const { title, description, publishDate, updated, author, cover, tags, faq, howTo } = post.data;
+const { post, headings = [] } = Astro.props;
+const { title, description, publishDate, updated, author, cover, tags, faq, howTo, relatedProducts } = post.data;
 const url = postPath(post);
 
 const dateStr = new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(publishDate);
@@ -29,6 +35,31 @@ const jsonLd: Record<string, unknown>[] = [
 ];
 if (faq.length > 0) jsonLd.push(faqSchema(faq));
 if (howTo) jsonLd.push(howToSchema({ name: howTo.name, steps: howTo.steps, image: cover }));
+
+// ---- Mục lục: chỉ dựng khi bài đủ dài để cần điều hướng ----
+const toc = headings.filter((h) => h.depth === 2 && h.slug);
+const showToc = toc.length >= 4;
+
+// ---- Bài liên quan + bài trước/sau ----
+const all = (await getCollection('posts', isPublished)).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+const idx = all.findIndex((p) => p.id === post.id);
+const newer = idx > 0 ? all[idx - 1] : undefined;   // mảng xếp mới → cũ
+const older = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : undefined;
+
+const others = all.filter((p) => p.id !== post.id);
+const scored = others
+  .map((p) => ({ p, shared: p.data.tags.filter((t) => tags.includes(t)).length }))
+  .sort((a, b) => b.shared - a.shared || b.p.data.publishDate.valueOf() - a.p.data.publishDate.valueOf());
+const related = scored.slice(0, 3).map((s) => s.p);
+
+// ---- CTA sản phẩm: chỉ giữ slug có thật, tránh sinh link chết ----
+const products = await getCollection('products');
+const byId = new Map(products.map((p) => [p.id, p]));
+const ctaProducts = relatedProducts.map((id) => byId.get(id)).filter((p) => p !== undefined).slice(0, 3);
+
+const absUrl = SITE.url + url;
 ---
 
 <BaseLayout
@@ -43,6 +74,9 @@ if (howTo) jsonLd.push(howToSchema({ name: howTo.name, steps: howTo.steps, image
   <article class="rvhg-post">
     <header class="rvhg-post__head">
       <div class="rvhg-container rvhg-container--narrow">
+        <div class="rvhg-post__crumbs">
+          <Breadcrumbs items={[{ name: 'Tin tức', url: '/tin-tuc/' }, { name: title, url }]} />
+        </div>
         <p class="rvhg-eyebrow">Tin tức · {dateStr}</p>
         <h1>{title}</h1>
         <p class="rvhg-post__byline">
@@ -62,11 +96,134 @@ if (howTo) jsonLd.push(howToSchema({ name: howTo.name, steps: howTo.steps, image
 
     <div class="rvhg-container rvhg-post__body">
       <div class="rvhg-prose">
+        {showToc && (
+          <details class="rvhg-toc" open data-rvhg-toc>
+            <summary>Nội dung bài viết</summary>
+            <ol>
+              {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+            </ol>
+          </details>
+        )}
+
         <slot />
+
+        <!-- Chia sẻ -->
+        <div class="rvhg-post__share" data-rvhg-share={absUrl}>
+          <span class="rvhg-post__share-label">Chia sẻ bài viết</span>
+          <div class="rvhg-post__share-btns">
+            <a
+              class="rvhg-post__share-btn"
+              href={`https://sp.zalo.me/plugins/share?url=${encodeURIComponent(absUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >Zalo</a>
+            <a
+              class="rvhg-post__share-btn"
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(absUrl)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >Facebook</a>
+            <button class="rvhg-post__share-btn" type="button" data-rvhg-copy>Sao chép liên kết</button>
+          </div>
+        </div>
       </div>
+
+      {ctaProducts.length > 0 && (
+        <aside class="rvhg-post__cta" aria-label="Sản phẩm liên quan">
+          <p class="rvhg-eyebrow">Sản phẩm nhắc tới trong bài</p>
+          <ul class="rvhg-post__cta-list">
+            {ctaProducts.map((p) => (
+              <li>
+                <a href={`/danh-muc-san-pham/${p.data.category}/`}>
+                  <span class="rvhg-post__cta-media">
+                    <LegacyImg src={p.data.images[0]} alt={p.data.title} width={600} height={600} sizes="(max-width: 600px) 33vw, 180px" loading="lazy" />
+                  </span>
+                  <span class="rvhg-post__cta-name">{p.data.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a class="rvhg-btn" href="/san-pham/">Xem toàn bộ sản phẩm</a>
+        </aside>
+      )}
+
+      {(newer || older) && (
+        <nav class="rvhg-post__pager" aria-label="Bài trước / bài sau">
+          {older ? (
+            <a class="rvhg-post__pager-link" href={postPath(older)}>
+              <span>‹ Bài trước</span>
+              <strong>{older.data.title}</strong>
+            </a>
+          ) : <span></span>}
+          {newer && (
+            <a class="rvhg-post__pager-link rvhg-post__pager-link--next" href={postPath(newer)}>
+              <span>Bài sau ›</span>
+              <strong>{newer.data.title}</strong>
+            </a>
+          )}
+        </nav>
+      )}
+
+      {related.length > 0 && (
+        <aside class="rvhg-post__related" aria-label="Bài viết liên quan">
+          <h2>Đọc tiếp</h2>
+          <ul>
+            {related.map((r) => (
+              <li>
+                <a href={postPath(r)}>
+                  {r.data.cover && (
+                    <span class="rvhg-post__related-media">
+                      <LegacyImg src={r.data.cover} alt={r.data.title} width={800} height={600} sizes="(max-width: 600px) 100vw, 320px" loading="lazy" />
+                    </span>
+                  )}
+                  <span class="rvhg-post__related-title">{r.data.title}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
     </div>
   </article>
 </BaseLayout>
+
+<script>
+  function initPost() {
+    // Mục lục mở sẵn trên desktop, thu gọn trên mobile để không đẩy bài xuống.
+    const toc = document.querySelector('[data-rvhg-toc]') as HTMLDetailsElement | null;
+    if (toc) toc.open = window.matchMedia('(min-width: 769px)').matches;
+
+    const box = document.querySelector('[data-rvhg-share]') as HTMLElement | null;
+    const copy = document.querySelector('[data-rvhg-copy]') as HTMLButtonElement | null;
+    if (box && copy) {
+      copy.addEventListener('click', async () => {
+        const link = box.dataset.rvhgShare ?? location.href;
+        const done = () => {
+          const before = copy.textContent;
+          copy.textContent = 'Đã sao chép ✓';
+          setTimeout(() => { copy.textContent = before; }, 1800);
+        };
+        try {
+          await navigator.clipboard.writeText(link);
+          done();
+        } catch {
+          // Clipboard API cần ngữ cảnh bảo mật; lui về cách cũ.
+          const ta = document.createElement('textarea');
+          ta.value = link;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); done(); } catch {}
+          ta.remove();
+        }
+      });
+    }
+  }
+  initPost();
+  document.addEventListener('astro:page-load', initPost);
+</script>
 
 <style>
   .rvhg-post__head {
@@ -74,6 +231,8 @@ if (howTo) jsonLd.push(howToSchema({ name: howTo.name, steps: howTo.steps, image
     padding-top: 3rem;
   }
   @media (min-width: 768px) { .rvhg-post__head { padding-top: 6.5rem; } }
+  .rvhg-post__crumbs { margin-bottom: 1.5rem; }
+  .rvhg-post__crumbs :global(ol) { justify-content: center; }
   .rvhg-post__head h1 {
     margin-top: 0.6rem;
     font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
@@ -113,5 +272,189 @@ if (howTo) jsonLd.push(howToSchema({ name: howTo.name, steps: howTo.steps, image
     padding-block: 4rem 6rem;
     display: grid;
     place-items: center;
+  }
+
+  /* ---------- Mục lục ---------- */
+  .rvhg-toc {
+    margin: 0 0 2.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-line);
+    border-left: 3px solid var(--brass);
+    border-radius: var(--radius-sm, 2px);
+    background: var(--color-paper-soft);
+  }
+  .rvhg-toc > summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-mute);
+    /* vùng chạm ≥44px trên mobile */
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .rvhg-toc ol {
+    margin: 0.85rem 0 0;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .rvhg-toc li { margin: 0; }
+  .rvhg-toc a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 0.4rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .rvhg-toc a:hover { color: var(--color-link); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---------- Chia sẻ ---------- */
+  .rvhg-post__share {
+    margin-top: 3rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-line-soft);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+  }
+  .rvhg-post__share-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-mute);
+  }
+  .rvhg-post__share-btns { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .rvhg-post__share-btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 1rem;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm, 2px);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.18s var(--ease-refined, ease), color 0.18s var(--ease-refined, ease);
+  }
+  .rvhg-post__share-btn:hover { background: var(--color-ink); color: #fff; border-color: var(--color-ink); }
+
+  /* ---------- CTA sản phẩm ---------- */
+  .rvhg-post__cta {
+    width: min(100%, 46rem);
+    margin-top: 3.5rem;
+    padding: 2rem 1.75rem;
+    background: var(--color-paper-tint);
+    border-radius: var(--radius-card);
+    text-align: center;
+  }
+  .rvhg-post__cta-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .rvhg-post__cta-list a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .rvhg-post__cta-media {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-sm, 2px);
+    overflow: hidden;
+    background: #fff;
+  }
+  .rvhg-post__cta-media :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .rvhg-post__cta-name { font-size: 0.85rem; font-weight: 500; line-height: 1.35; }
+  @media (max-width: 520px) {
+    .rvhg-post__cta { padding: 1.5rem 1.1rem; }
+    .rvhg-post__cta-list { gap: 0.75rem; }
+    .rvhg-post__cta-name { font-size: 0.78rem; }
+  }
+
+  /* ---------- Bài trước / bài sau ---------- */
+  .rvhg-post__pager {
+    width: min(100%, 46rem);
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .rvhg-post__pager-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.15rem;
+    min-height: 44px;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm, 2px);
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: border-color 0.18s var(--ease-refined, ease);
+  }
+  .rvhg-post__pager-link:hover { border-color: var(--brass); }
+  .rvhg-post__pager-link--next { text-align: right; }
+  .rvhg-post__pager-link span {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-mute);
+  }
+  .rvhg-post__pager-link strong { font-weight: 500; font-size: 0.92rem; line-height: 1.4; }
+  @media (max-width: 560px) {
+    .rvhg-post__pager { grid-template-columns: 1fr; }
+    .rvhg-post__pager-link--next { text-align: left; }
+  }
+
+  /* ---------- Bài liên quan ---------- */
+  .rvhg-post__related { width: min(100%, 46rem); margin-top: 3.5rem; }
+  .rvhg-post__related h2 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+  .rvhg-post__related ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 1.25rem;
+  }
+  .rvhg-post__related a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .rvhg-post__related-media {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-sm, 2px);
+    overflow: hidden;
+    background: var(--color-paper-tint);
+  }
+  .rvhg-post__related-media :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .rvhg-post__related-title { font-size: 0.92rem; font-weight: 500; line-height: 1.4; }
+  .rvhg-post__related a:hover .rvhg-post__related-title {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (max-width: 640px) {
+    .rvhg-post__related ul { grid-template-columns: 1fr; gap: 1.25rem; }
+    .rvhg-post__related a { flex-direction: row; align-items: center; gap: 1rem; }
+    .rvhg-post__related-media { flex: 0 0 7.5rem; }
   }
 </style>

@@ -298,7 +298,8 @@ const LANGS = [
   .rvhg-lang-select--mobile {
     border: 1px solid color-mix(in srgb, var(--brass) 35%, transparent);
     border-radius: var(--radius-sm, 2px);
-    padding: 0.5rem 0.6rem;
+    padding: 0.5rem 0.75rem;
+    min-height: 44px; /* WCAG 2.5.8 — trước đây chỉ cao 17px */
   }
 
   @media (max-width: 900px) {

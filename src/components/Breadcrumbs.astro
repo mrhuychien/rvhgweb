@@ -34,7 +34,15 @@ const all = [{ name: 'Trang chủ', url: '/' }, ...items];
     color: var(--color-mute);
   }
   .rvhg-breadcrumbs li { display: flex; align-items: center; gap: 0.4rem; }
-  .rvhg-breadcrumbs a { color: var(--color-mute); text-decoration: none; }
+  .rvhg-breadcrumbs a {
+    color: var(--color-mute);
+    text-decoration: none;
+    /* Vùng chạm ≥24px — ngưỡng AA của WCAG 2.2 SC 2.5.8. Không kéo lên 44px
+       vì breadcrumb là dải chữ nhỏ, cao 44px sẽ nặng nề trong bố cục. */
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+  }
   .rvhg-breadcrumbs a:hover { color: var(--color-ink); }
   .rvhg-breadcrumbs [aria-current='page'] { color: var(--color-ink); }
   .rvhg-breadcrumbs__sep { opacity: 0.5; }

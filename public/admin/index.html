@@ -7,7 +7,14 @@
     <title>Quản trị nội dung — Rồng Vàng Hoàng Gia</title>
   </head>
   <body>
-    <!-- Sveltia CMS — Git-based admin. Reads ./config.yml. -->
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+    <!--
+      Sveltia CMS — Git-based admin. Reads ./config.yml.
+
+      Ghim version cụ thể: không ghim thì mỗi bản phát hành mới của Sveltia
+      đổi hành vi trang quản trị mà không báo trước. Muốn nâng cấp thì đổi
+      số version ở đây (kiểm tra changelog trước), đừng quay lại dạng
+      `@sveltia/cms` không có version.
+    -->
+    <script src="https://unpkg.com/@sveltia/cms@0.205.3/dist/sveltia-cms.js" type="module"></script>
   </body>
 </html>

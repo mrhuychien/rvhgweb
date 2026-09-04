@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 interface Props {
   title: string;
@@ -8,7 +9,7 @@ interface Props {
   effectiveDate?: Date;
   breadcrumbs?: { name: string; url: string }[];
 }
-const { title, description, canonical, effectiveDate } = Astro.props;
+const { title, description, canonical, effectiveDate, breadcrumbs } = Astro.props;
 const dateStr = effectiveDate
   ? new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(effectiveDate)
   : null;
@@ -17,6 +18,9 @@ const dateStr = effectiveDate
 <BaseLayout title={title} description={description} canonical={canonical} noindex={true}>
   <article class="rvhg-policy">
     <header class="rvhg-container rvhg-container--narrow rvhg-policy__head">
+      {breadcrumbs && breadcrumbs.length > 0 && (
+        <div class="rvhg-policy__crumbs"><Breadcrumbs items={breadcrumbs} /></div>
+      )}
       <p class="rvhg-eyebrow">Văn bản công bố</p>
       <h1>{title}</h1>
       {dateStr && <p class="rvhg-policy__date">Hiệu lực từ: {dateStr}</p>}
@@ -35,6 +39,8 @@ const dateStr = effectiveDate
     padding-top: 3rem;
   }
   @media (min-width: 768px) { .rvhg-policy__head { padding-top: 6.5rem; } }
+  .rvhg-policy__crumbs { margin-bottom: 1.5rem; }
+  .rvhg-policy__crumbs :global(ol) { justify-content: center; }
   .rvhg-policy__head h1 {
     margin-top: 0.6rem;
     font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
