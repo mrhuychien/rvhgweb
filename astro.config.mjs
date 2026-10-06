@@ -9,7 +9,7 @@ import rehypeTableScroll from './tools/rehype-table-scroll.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.rongvanghoanggia.com',
+  site: 'https://rongvanghoanggia.com',
   trailingSlash: 'always', // CRITICAL: giữ nguyên URL cũ của WordPress
   build: { format: 'directory' }, // /gioi-thieu/index.html
   integrations: [

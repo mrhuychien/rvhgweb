@@ -1,0 +1,37 @@
+# Preserve Vercel response policy on Cloudflare Pages.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# All pages.dev hosts, including the production alias, are test URLs.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:branch.:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+# One matching Cache-Control rule per asset: Pages joins duplicate values.
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+/*.avif
+  Cache-Control: public, max-age=31536000, immutable
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/_astro/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/_astro/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/cong-bo/*.pdf
+  Cache-Control: public, max-age=2592000
+  Content-Disposition: inline

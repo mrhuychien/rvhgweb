@@ -26,7 +26,7 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 10
+          version: 10.34.6
 
       - uses: actions/setup-node@v4
         with:
@@ -39,3 +39,20 @@ jobs:
       - run: pnpm build
 
       - run: node tools/linkcheck.mjs
+
+      - run: node tools/linkcheck.mjs --platform vercel
+
+      - run: node tools/pages-check.mjs
+
+      - name: Verify Cloudflare Pages HTTP behavior
+        env:
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          pnpm pages:preview > /tmp/rvhg-pages-preview.log 2>&1 &
+          pages_pid=$!
+          trap 'kill "$pages_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl --silent --fail http://127.0.0.1:8788/ > /dev/null; then break; fi
+            sleep 1
+          done
+          pnpm pages:smoke

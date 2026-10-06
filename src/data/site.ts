@@ -1,7 +1,7 @@
 /** Single source of truth for company / brand data used across components, SEO and llms.txt. */
 
 export const SITE = {
-  url: 'https://www.rongvanghoanggia.com',
+  url: 'https://rongvanghoanggia.com',
   name: 'Rồng Vàng Hoàng Gia',
   legalName: 'Công ty Cổ phần Hoàng Giang',
   tagline: 'Đặc sản nức tiếng Hải Dương',

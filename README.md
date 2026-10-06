@@ -11,7 +11,7 @@ Schema.org JSON-LD). Tagline: **"Đặc sản nức tiếng Hải Dương"**.
 - **Tailwind CSS 4** via `@tailwindcss/vite` (no config file; theme tokens in `src/styles/global.css`).
 - **Markdown / MDX** content; **sharp** for image processing.
 - Self-hosted fonts: **Be Vietnam Pro** (body) + **Fraunces** (display), subset Latin + Vietnamese, WOFF2 — `public/fonts/`.
-- Deploy target: **Vercel** (Hobby), config in `vercel.json`. Node 22.
+- Deploy target: **Cloudflare Pages** (static `dist/`); Vercel remains available for rollback. Node 22, pnpm 10.34.6. See [migration and cutover guide](docs/CLOUDFLARE-MIGRATION.md).
 
 ## Commands
 
@@ -103,3 +103,7 @@ cp -r skills/rvhg-content ~/.claude/skills/rvhg-content
 Then ask Claude to "viết blog post RVHG về …" and it loads the brand voice,
 brand-story anchors and the right content template, and writes a `.md` into
 `src/content/posts/`. Commit + push → Vercel auto-deploys (~60s).
+
+## Cloudflare Pages
+
+Run `pnpm verify`, then `pnpm pages:preview` and `pnpm pages:smoke` to validate the Pages build. See [CLOUDFLARE-MIGRATION.md](docs/CLOUDFLARE-MIGRATION.md) for preview upload, Git integration, scheduled publishing, domain cutover and rollback.

@@ -3,14 +3,19 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@10.34.6",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "images": "node tools/gen-responsive.mjs",
-    "build": "node tools/gen-responsive.mjs && astro build",
+    "build": "node tools/sync-pages-redirects.mjs --check && node tools/gen-responsive.mjs && astro build",
     "preview": "astro preview",
     "linkcheck": "node tools/linkcheck.mjs",
-    "verify": "pnpm build && node tools/linkcheck.mjs",
+    "verify": "pnpm build && node tools/linkcheck.mjs && node tools/linkcheck.mjs --platform vercel && node tools/pages-check.mjs",
+    "redirects:sync": "node tools/sync-pages-redirects.mjs",
+    "pages:check": "node tools/pages-check.mjs",
+    "pages:preview": "wrangler pages dev dist --ip 127.0.0.1 --port 8788",
+    "pages:smoke": "node tools/pages-smoke.mjs",
     "astro": "astro",
     "imgcheck": "node tools/imgcheck.mjs && node tools/imgcheck.mjs --width 390 --dpr 2 --ratio 2",
     "wkcheck": "node tools/wkcheck.mjs"
@@ -26,12 +31,14 @@
   "devDependencies": {
     "@tailwindcss/vite": "^4.1.0",
     "sharp": "^0.34.0",
-    "tailwindcss": "^4.1.0"
+    "tailwindcss": "^4.1.0",
+    "wrangler": "4.147.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
       "sharp",
+      "workerd",
       "@tailwindcss/oxide"
     ]
   }

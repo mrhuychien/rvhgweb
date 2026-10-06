@@ -28,8 +28,16 @@ for (const f of files) {
 }
 
 // Redirect trong vercel.json: tách loại tĩnh và loại có :param
-const vercel = JSON.parse(fs.readFileSync('vercel.json', 'utf8'));
-const redirects = vercel.redirects ?? [];
+const platformArg = process.argv.indexOf('--platform');
+const platform = platformArg === -1 ? 'pages' : process.argv[platformArg + 1];
+if (!['pages', 'vercel'].includes(platform)) throw new Error('Use --platform pages or --platform vercel');
+// Check each host independently; Vercel-only rules must not hide a Pages 404.
+const redirects = platform === 'vercel'
+  ? JSON.parse(fs.readFileSync('vercel.json', 'utf8')).redirects ?? []
+  : fs.readFileSync(path.join(DIST, '_redirects'), 'utf8').split(/\r?\n/)
+    .map((line) => line.trim()).filter((line) => line && !line.startsWith('#'))
+    .map((line) => { const [source, destination] = line.split(/\s+/); return { source, destination }; });
+console.log(`Checking internal links using ${platform} redirects.`);
 const redirStatic = new Set(redirects.filter((r) => !r.source.includes(':')).map((r) => r.source));
 const redirPattern = redirects
   .filter((r) => r.source.includes(':'))

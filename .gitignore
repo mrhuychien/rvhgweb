@@ -19,6 +19,10 @@ pnpm-debug.log*
 .idea/
 # vercel
 .vercel
+# Cloudflare local state and local secrets
+.wrangler/
+.dev.vars*
+.env.*
 # Phase 1 raw clone scratch (large, regenerated)
 workspace/clone/
 workspace/images/

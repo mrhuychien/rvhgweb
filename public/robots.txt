@@ -6,8 +6,8 @@ Disallow: /admin/
 # Chúng tôi CHỦ ĐỘNG chào đón bot AI để nội dung được trích dẫn trong
 # câu trả lời của ChatGPT, Perplexity, Gemini, Copilot, Claude…
 # Bản tóm tắt dành cho AI:
-#   llms.txt:      https://www.rongvanghoanggia.com/llms.txt
-#   llms-full.txt: https://www.rongvanghoanggia.com/llms-full.txt
+#   llms.txt:      https://rongvanghoanggia.com/llms.txt
+#   llms-full.txt: https://rongvanghoanggia.com/llms-full.txt
 
 # OpenAI (ChatGPT / SearchGPT)
 User-agent: GPTBot
@@ -53,4 +53,4 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-Sitemap: https://www.rongvanghoanggia.com/sitemap-index.xml
+Sitemap: https://rongvanghoanggia.com/sitemap-index.xml

@@ -1,21 +1,14 @@
 name: Đăng bài theo lịch
 
-# Build lại website mỗi ngày để "mở khoá" các bài viết có publishDate đã tới
-# (cơ chế đăng bài hẹn giờ — xem src/lib/posts.ts::isPublished).
-#
-# Cần 1 secret: VERCEL_DEPLOY_HOOK
-#   Lấy tại: Vercel → Project rvhgweb → Settings → Git → Deploy Hooks
-#   → tạo hook (branch production) → copy URL → GitHub repo → Settings →
-#     Secrets and variables → Actions → New repository secret:
-#     Name = VERCEL_DEPLOY_HOOK, Value = <URL vừa copy>
-#
-# Lưu ý: lịch (schedule) chỉ chạy khi workflow này đã nằm trên nhánh mặc định
-# (main). Nếu chưa cấu hình secret, job sẽ bỏ qua êm (không báo lỗi đỏ).
-
+# Rebuild to publish posts whose publishDate has arrived (src/lib/posts.ts).
+# Add CLOUDFLARE_PAGES_DEPLOY_HOOK after the Pages project is connected to Git.
+# Keep VERCEL_DEPLOY_HOOK during migration so the rollback site stays current.
+# Hook URLs are credentials: enter them directly in GitHub Actions secrets.
+# Scheduled runs only use the workflow on the default branch.
 on:
   schedule:
-    - cron: '0 0 * * *' # 00:00 UTC = 07:00 giờ Việt Nam, mỗi ngày
-  workflow_dispatch: {} # cho phép bấm chạy tay từ tab Actions
+    - cron: '0 0 * * *' # 00:00 UTC = 07:00 Vietnam time
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -27,19 +20,35 @@ concurrency:
 jobs:
   trigger-rebuild:
     runs-on: ubuntu-latest
+    timeout-minutes: 3
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - provider: Cloudflare Pages
+            secret: CLOUDFLARE_PAGES_DEPLOY_HOOK
+          - provider: Vercel
+            secret: VERCEL_DEPLOY_HOOK
+    name: Rebuild ${{ matrix.provider }}
     steps:
-      - name: Kích hoạt build lại trên Vercel
+      - name: Trigger configured deploy hook
         env:
-          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+          HOOK: ${{ secrets[matrix.secret] }}
+          PROVIDER: ${{ matrix.provider }}
+          SECRET_NAME: ${{ matrix.secret }}
+        shell: bash
         run: |
           if [ -z "$HOOK" ]; then
-            echo "::warning::Chưa cấu hình secret VERCEL_DEPLOY_HOOK — bỏ qua build theo lịch."
+            echo "::warning::$SECRET_NAME is not configured; skipping $PROVIDER rebuild."
             exit 0
           fi
-          echo "Gọi Vercel Deploy Hook để build lại…"
-          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST "$HOOK")
-          echo "Deploy hook trả về HTTP $code"
+          # Do not print the hook URL, response body, or curl error text.
+          if ! code=$(curl --silent --output /dev/null --write-out '%{http_code}' \
+            --connect-timeout 15 --max-time 60 --request POST "$HOOK"); then
+            echo "::error::$PROVIDER deploy hook request failed."
+            exit 1
+          fi
           case "$code" in
-            2*) echo "OK — Vercel đang build lại; bài tới hạn sẽ được đăng." ;;
-            *)  echo "::error::Deploy hook thất bại (HTTP $code)"; exit 1 ;;
+            2*) echo "$PROVIDER rebuild requested (HTTP $code). Check the deployment result in its dashboard." ;;
+            *) echo "::error::$PROVIDER deploy hook failed (HTTP $code)."; exit 1 ;;
           esac
