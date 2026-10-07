@@ -62,13 +62,16 @@ const renderFavicon = (size) =>
     .toBuffer();
 for (const s of [16, 32]) await write(`public/favicon-${s}x${s}.png`, await renderFavicon(s));
 
-// ---- apple-touch-icon: iOS tự bo góc, nên dùng ô vuông đặc + mark thụt vào ----
+// ---- apple-touch-icon ----
+// Dùng chính con dấu tự chứa (logo-seal.svg) để đồng bộ với header/footer và
+// favicon — trước đây lấy biến thể vàng đơn sắc nên ra đĩa vàng rồng đỏ,
+// ngược tông với website. Nền oxblood lấp bốn góc; đĩa tràn sát mép vì iOS
+// bo góc, góc bo không cắt vào hình tròn nội tiếp.
 const TOUCH = 180;
-const inset = Math.round(TOUCH * 0.12);
 await write(
   'public/apple-touch-icon.png',
   await sharp({ create: { width: TOUCH, height: TOUCH, channels: 4, background: OXBLOOD } })
-    .composite([{ input: await render('logo-seal-vang.svg', TOUCH - inset * 2), left: inset, top: inset }])
+    .composite([{ input: await render('logo-seal.svg', TOUCH), left: 0, top: 0 }])
     .png({ compressionLevel: 9 })
     .toBuffer(),
 );
