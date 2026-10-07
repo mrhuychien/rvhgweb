@@ -14,6 +14,8 @@
  * thị ở chỗ đáng lẽ 76px). Không có gì báo lỗi — build vẫn xanh, link vẫn
  * sống, chỉ giao diện vỡ.
  *
+ * Chỉ xét ảnh raster — ảnh SVG được bỏ qua (xem ghi chú ở bộ lọc).
+ *
  * Cách đo: naturalWidth / (chiều rộng hiển thị × DPR). Vượt ngưỡng nghĩa là
  * đang tải thừa độ phân giải — hoặc do thiếu `sizes`, hoặc do CSS không ăn.
  *
@@ -81,6 +83,10 @@ const measure = async (page, url) => {
     const dpr = devicePixelRatio;
     return [...document.images]
       .filter((i) => i.naturalWidth > 0)
+      // Bỏ qua ảnh vector: naturalWidth của SVG chỉ là đơn vị viewBox, không
+      // phải pixel đã tải. File nặng như nhau ở mọi cỡ hiển thị nên tỉ lệ
+      // "thừa" ở đây vô nghĩa — logo 1268 đơn vị hiển thị 76px vẫn là 23 KB.
+      .filter((i) => !/\.svgx?$/i.test(new URL(i.currentSrc, location.href).pathname))
       .map((i) => {
         const w = i.getBoundingClientRect().width;
         return { w: Math.round(w), nat: i.naturalWidth, r: +(i.naturalWidth / (w * dpr)).toFixed(1), src: i.currentSrc.split('/').pop() };

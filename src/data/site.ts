@@ -89,13 +89,13 @@ export const FOUNDED_YEAR = 1997;
  *  visitor's current year (see the [data-years-since] updater in BaseLayout). */
 export const YEARS_EXPERIENCE = Math.max(0, new Date().getFullYear() - FOUNDED_YEAR);
 
-/** Brand assets — mirrored from the original wp-content into /images/legacy/ in Phase 1.
- * If a file is missing it falls back to the inline SVG mark in Header/Footer. */
+/** Brand assets. Con dấu là vector — nguồn gốc ở public/images/brand/logo-seal.svg;
+ *  các bản PNG dưới đây do tools/gen-brand.mjs sinh ra từ chính file SVG đó. */
 export const ASSETS = {
-  logo: '/images/legacy/logo-web-120x120.png',
-  logoLarge: '/images/legacy/cropped-logo-web-270x270.png',
+  /** JSON-LD Organization.logo — Google muốn ảnh raster, không dùng SVG. */
+  logo: '/images/brand/logo-512.png',
   ogDefault: '/og-default.png',
-  favicon: '/favicon.ico',
+  favicon: '/favicon.svg',
 } as const;
 
 export const NAV: { label: string; href: string }[] = [
