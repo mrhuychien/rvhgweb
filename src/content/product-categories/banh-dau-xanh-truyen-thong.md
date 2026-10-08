@@ -3,10 +3,10 @@ title: 'Bánh đậu xanh truyền thống'
 eyebrow: 'Hương vị nguyên bản'
 tagline: 'Công thức bí truyền giữ nguyên gần một thế kỷ.'
 description: 'Dòng truyền thống Rồng Vàng Hoàng Gia — bánh đậu xanh nguyên bản theo công thức nghệ nhân Hải Dương, hộp giấy mộc mạc, giá tiệm cận mọi gia đình.'
-quickAnswer: 'Bánh đậu xanh là đặc sản Hải Dương làm từ đậu xanh lòng vàng, đường, dầu thực vật và tinh dầu hoa bưởi, ép thành bánh khô nhỏ ngọt thanh, tan mềm trong miệng, thường ăn kèm trà. Dòng truyền thống Rồng Vàng Hoàng Gia giữ nguyên công thức nghệ nhân Hải Dương gần một thế kỷ, sản xuất trên dây chuyền ISO 22000:2018, mang hương vị OCOP 5 sao với mức giá cho mọi gia đình.'
+quickAnswer: 'Bánh đậu xanh là đặc sản Hải Dương, ép thành bánh khô nhỏ ngọt thanh, tan mềm trong miệng, thường ăn kèm trà. Bánh đậu xanh Rồng Vàng Hoàng Gia công bố thành phần gồm bột đậu xanh (35%), đường, dầu thực vật và hương liệu vani tổng hợp. Dòng truyền thống Rồng Vàng Hoàng Gia giữ nguyên công thức nghệ nhân Hải Dương gần một thế kỷ, sản xuất trên dây chuyền ISO 22000:2018, mang hương vị OCOP 5 sao với mức giá cho mọi gia đình.'
 faq:
   - q: 'Bánh đậu xanh làm từ gì?'
-    a: 'Bánh đậu xanh truyền thống làm từ đậu xanh lòng vàng đãi vỏ, đường, dầu thực vật và một chút tinh dầu hoa bưởi. Đậu được rang, xay mịn rồi ép khuôn thành bánh khô, không dùng chất bảo quản.'
+    a: 'Đậu xanh lòng vàng đãi vỏ được rang, xay mịn rồi ép khuôn thành bánh khô. Theo bản tự công bố số 01/2023 của Rồng Vàng Hoàng Gia, thành phần gồm bột đậu xanh (35%), đường, dầu thực vật và hương liệu vani tổng hợp — không chất bảo quản. (Bánh đậu xanh Hải Dương xưa thường được ướp hương hoa bưởi; đây là nét văn hoá của món bánh, không phải thành phần trong hồ sơ hiện hành.)'
   - q: 'Vì sao bánh đậu xanh Hải Dương nổi tiếng?'
     a: 'Hải Dương là cái nôi của nghề bánh đậu xanh, gắn với sắc phong "Bánh Ngon" vua Khải Định ban năm 1918. Vùng đất, công thức nghệ nhân và bí quyết ép bánh giòn rỗ, ngọt thanh làm nên hương vị đặc trưng khó lẫn.'
   - q: 'Bánh đậu xanh ăn với gì ngon?'
@@ -33,6 +33,10 @@ certifications:
 selfDeclarations:
   - label: 'Bản tự công bố 01 — Bánh đậu xanh (PDF)'
     href: 'https://drive.google.com/file/d/1I6mVj6dZ2xZl2SA_ScMIpMEvVhfwsS8G/view?usp=sharing'
+  - label: 'Bản tự công bố 06 — Hương vị dừa (PDF)'
+    href: 'https://drive.google.com/file/d/1qba3D6UZnPUiLTeSpSMg35sjW9-oIlLl/view?usp=sharing'
+  - label: 'Bản tự công bố 08 — Hương vị cốm (PDF)'
+    href: 'https://drive.google.com/file/d/1eao1MPMDtIz2oB6b6CHNpPdubvQdoP-F/view?usp=sharing'
 products:
   - name: 'Bánh đậu xanh H15'
     image: '/images/legacy/h15-web-1-300x300.jpg'

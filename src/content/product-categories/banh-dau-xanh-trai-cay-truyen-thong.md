@@ -3,14 +3,14 @@ title: 'Bánh đậu xanh hương vị trái cây'
 eyebrow: 'Biến tấu trái cây'
 tagline: 'Cốm, dừa, khoai môn, sen — bốn lát hương xếp cạnh đậu xanh.'
 description: 'Dòng hương vị trái cây Rồng Vàng Hoàng Gia — đậu xanh kết hợp cốm, dừa, khoai môn, sen và trái cây truyền thống. Sản phẩm có bản tự công bố đầy đủ.'
-quickAnswer: 'Dòng bánh đậu xanh hương vị trái cây là biến tấu của bánh đậu xanh truyền thống — đậu xanh kết hợp cốm, dừa, khoai môn, sen và các hương vị trái cây. Trong đó bánh đậu trà xanh và bánh đậu sầu riêng đã đạt OCOP 5 sao Quốc gia 2024, làm từ nguyên liệu tự nhiên, không phẩm màu và hương liệu nhân tạo ngoài danh mục cho phép.'
+quickAnswer: 'Dòng bánh đậu xanh hương vị trái cây là biến tấu của bánh đậu xanh truyền thống — đậu xanh kết hợp cốm, dừa, khoai môn, sen và các hương vị trái cây. Trong đó bánh đậu trà xanh và bánh đậu sầu riêng đã đạt OCOP 5 sao Quốc gia 2024, có bột trà xanh và bột sầu riêng trong thành phần, không chất bảo quản. Phụ gia tạo hương, tạo màu đều thuộc danh mục Bộ Y tế cho phép và được ghi rõ trong bản tự công bố của từng hương vị.'
 faq:
   - q: 'Bánh đậu xanh hương vị trái cây có những vị nào?'
     a: 'Gồm các vị cốm, dừa, khoai môn, sen và hương vị trái cây truyền thống, bên cạnh bánh đậu trà xanh và bánh đậu sầu riêng. Mỗi hương vị đều có bản tự công bố sản phẩm gửi cơ quan quản lý.'
   - q: 'Bánh đậu trà xanh và sầu riêng có đạt OCOP 5 sao không?'
     a: 'Có. Bánh đậu trà xanh và bánh đậu sầu riêng Rồng Vàng Hoàng Gia nằm trong nhóm sản phẩm đạt OCOP 5 sao Quốc gia 2024 — phân hạng cao nhất của chương trình Mỗi xã một sản phẩm.'
   - q: 'Bánh đậu xanh hương vị có dùng phẩm màu hay hương liệu nhân tạo không?'
-    a: 'Không. Hương và màu đến từ nguyên liệu tự nhiên — cốm tươi, nước cốt dừa, khoai môn nguyên củ, tâm sen, trà xanh — không dùng phẩm màu và hương liệu nhân tạo ngoài danh mục cho phép, không chất bảo quản.'
+    a: 'Có, và được công bố công khai. Hương vị tạo bằng hương liệu tổng hợp; riêng ba hương vị trái cây, khoai môn và cốm còn dùng phẩm màu tổng hợp Allura red AC (INS 129), Brilliant blue FCF (INS 133) hoặc Sunset yellow FCF (INS 110) — đều thuộc danh mục phụ gia Bộ Y tế cho phép theo Thông tư 24/2019/TT-BYT. Hai hương vị sen và dừa không dùng phẩm màu. Không hương vị nào dùng chất bảo quản. Thành phần đầy đủ ghi trong bản tự công bố của từng vị, tải được ngay trên trang này.'
   - q: 'Bánh đậu xanh hương vị trái cây có hợp làm quà không?'
     a: 'Rất hợp. Các hộp lễ nhiều hương vị tạo sự phong phú, thích hợp làm quà biếu và thưởng thức cùng gia đình; cũng có thể phối trong các giỏ quà Tết cao cấp.'
   - q: 'Mua bánh đậu xanh hương vị trái cây ở đâu?'
@@ -23,11 +23,11 @@ accent: '#E3C884'
 oldUrl: 'https://www.rongvanghoanggia.com/danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/'
 certifications:
   - title: 'ISO 22000:2018'
-    body: 'Toàn bộ quy trình pha chế hương vị và đóng gói tuân thủ ISO 22000:2018 — không phẩm màu, không hương liệu nhân tạo ngoài danh mục cho phép.'
+    body: 'Toàn bộ quy trình pha chế hương vị và đóng gói tuân thủ ISO 22000:2018. Phụ gia tạo hương, tạo màu đều nằm trong danh mục Bộ Y tế cho phép và không dùng chất bảo quản.'
   - title: '5 bản tự công bố hương vị'
-    body: 'Mỗi hương vị (sen, dừa, cốm, khoai môn, trái cây) đều có bản tự công bố sản phẩm gửi Chi cục An toàn vệ sinh thực phẩm Hải Dương.'
-  - title: 'Nguyên liệu tự nhiên'
-    body: 'Cốm tươi, nước cốt dừa, khoai môn nguyên củ và tâm sen — không thêm chất bảo quản, hương liệu nhân tạo ngoài danh mục cho phép.'
+    body: 'Mỗi hương vị (sen, dừa, cốm, khoai môn, trái cây) đều có bản tự công bố sản phẩm, nộp năm 2023 tại Chi cục An toàn vệ sinh thực phẩm tỉnh Hải Dương; sau sắp xếp đơn vị hành chính, hồ sơ đính chính năm 2026 được gửi cơ quan quản lý thành phố Hải Phòng.'
+  - title: 'Thành phần theo bản tự công bố'
+    body: 'Cốt bánh gồm bột đậu xanh (35%), đường và dầu thực vật; hương vị tạo bằng hương liệu tổng hợp, ba vị có thêm phẩm màu tổng hợp thuộc danh mục cho phép. Không chất bảo quản.'
 selfDeclarations:
   - label: 'Bản tự công bố 04 — Hương vị trái cây (PDF)'
     href: 'https://drive.google.com/file/d/1rk9xX7z0MSE4Fh-MGP8VC1_czNIOb8ma/view?usp=sharing'
@@ -68,6 +68,6 @@ products:
     image: '/images/legacy/TCT-300x300.jpg'
 ---
 
-Dòng **hương vị trái cây** giữ nguyên cốt bánh đậu xanh truyền thống nhưng thêm vào những lát hương quen thuộc của người Việt — cốm tươi của làng Vòng, nước cốt dừa Bến Tre, khoai môn Lục Yên và tâm sen hồ Tây.
+Dòng **hương vị trái cây** giữ nguyên cốt bánh đậu xanh truyền thống — bột đậu xanh 35%, đường, dầu thực vật — rồi thêm vào những lát hương quen thuộc của người Việt: cốm, dừa, khoai môn, sen.
 
-Mỗi hương vị đều có bản tự công bố sản phẩm riêng — minh bạch về nguyên liệu, không phẩm màu nhân tạo, không hương liệu ngoài danh mục được Bộ Y tế cho phép.
+Mỗi hương vị đều có bản tự công bố sản phẩm riêng, ghi đầy đủ hương liệu và phẩm màu sử dụng — tất cả đều thuộc danh mục Bộ Y tế cho phép, và không hương vị nào dùng chất bảo quản.

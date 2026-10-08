@@ -27,8 +27,10 @@ oldUrl: 'https://www.rongvanghoanggia.com/danh-muc-san-pham/bot-dau/'
 certifications:
   - title: 'ISO 22000:2018'
     body: 'Sản xuất trên cùng dây chuyền đạt ISO 22000:2018 — kiểm soát mọi điểm trong quy trình từ đậu thô đến bột đóng gói.'
-  - title: 'Bản tự công bố 2021'
-    body: 'Bột đậu xanh dinh dưỡng và chè đậu đen cốt dừa đã có bản tự công bố sản phẩm số 09 và 10 năm 2021.'
+  - title: 'Bản tự công bố 2021 &amp; 2026'
+    body: 'Bột đậu xanh dinh dưỡng và chè đậu đen cốt dừa có bản tự công bố số 09 và 10 năm 2021; sáu vị bột đậu xanh pha sẵn có bản tự công bố số 01–06/HOANGGIANG/2026.'
+  - title: 'Tiêu chuẩn cơ sở TCCS 01 &amp; 02:2026'
+    body: 'Căn cứ kỹ thuật tại Mục IV của các bản tự công bố: TCCS 01:2026/RVHG cho dòng bột đậu có đường (bản soát xét lần 1 theo Quyết định 11/QĐ-HGC ngày 10/08/2026, mở rộng phạm vi sang bột đậu đen và chè đậu đen cốt dừa) và TCCS 02:2026/RVHG cho dòng không thêm đường (Quyết định 09/QĐ-HGC ngày 17/03/2026).'
   - title: 'Đậu nguyên hạt'
     body: 'Đậu xanh và đậu đen được lựa từ vùng nguyên liệu Hải Dương, rang chín ở nhiệt độ kiểm soát rồi xay nhuyễn — không pha trộn bột gạo độn.'
 selfDeclarations:
