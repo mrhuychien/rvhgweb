@@ -8,7 +8,7 @@ tags: ['bột đậu xanh', 'bột đậu xanh có tác dụng gì', 'dinh dư�
 oldUrl: 'https://www.rongvanghoanggia.com/bot-dau-xanh-co-tac-dung-gi/'
 faq:
   - q: 'Bột đậu xanh có tác dụng gì?'
-    a: 'Bột đậu xanh bổ sung đạm thực vật, chất xơ và năng lượng cho bữa sáng hoặc bữa phụ; hỗ trợ cảm giác no và tiêu hoá nhờ chất xơ. Theo quan niệm dân gian, đậu xanh có tính mát, giúp thanh nhiệt, giải khát trong ngày nóng. Dòng không thêm đường có đạm tới 22,2 g trên 100 g, phù hợp người kiểm soát đường.'
+    a: 'Bột đậu xanh bổ sung đạm thực vật, chất xơ và năng lượng cho bữa sáng hoặc bữa phụ; hỗ trợ cảm giác no và tiêu hoá nhờ chất xơ. Theo quan niệm dân gian, đậu xanh có tính mát, giúp thanh nhiệt, giải khát trong ngày nóng. Dòng không thêm đường có đạm tới 20,9 g trên 100 g, phù hợp người kiểm soát đường.'
   - q: 'Uống bột đậu xanh có béo không?'
     a: 'Một gói 40 g các vị có đường cung cấp khoảng 146–162 kcal — tương đương một bữa phụ nhẹ, nên bản thân bột đậu xanh không gây béo nếu dùng đúng khẩu phần. Nếu cần kiểm soát cân nặng, hãy chọn dòng không thêm đường (đạm cao, đường thấp) và không lạm dụng.'
   - q: 'Bột đậu xanh có giúp giảm cân không?'
@@ -18,7 +18,7 @@ faq:
   - q: 'Trẻ em và người lớn tuổi uống bột đậu xanh được không?'
     a: 'Được, với khẩu phần phù hợp. Vị cà rốt và sữa dừa thường hợp khẩu vị trẻ; với trẻ nhỏ nên pha loãng hơn. Người lớn tuổi có thể chọn dòng không thêm đường để kiểm soát lượng đường. Người có bệnh lý nên tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng.'
   - q: 'Bột đậu xanh không thêm đường tốt hơn ở điểm nào?'
-    a: 'Dòng không thêm đường có đường tổng thấp hơn hẳn (17,8–24,1 g trên 100 g, phần lớn đến tự nhiên từ nguyên liệu) và đạm cao (19,8–22,2 g trên 100 g), thuần thực vật. Phù hợp người ăn kiêng, ăn chay, tập luyện và người muốn kiểm soát đường huyết.'
+    a: 'Dòng không thêm đường có đường tổng thấp hơn hẳn (18,0–24,1 g trên 100 g, phần lớn đến tự nhiên từ nguyên liệu) và đạm cao (19,8–20,9 g trên 100 g), thuần thực vật. Phù hợp người ăn kiêng, ăn chay, tập luyện và người muốn kiểm soát đường huyết.'
   - q: 'Uống bột đậu xanh mỗi ngày có sao không?'
     a: 'Dùng điều độ với khẩu phần hợp lý thì bột đậu xanh là một lựa chọn lành mạnh cho bữa phụ. Nên đa dạng thực phẩm trong ngày thay vì chỉ dựa vào một loại; người có bệnh lý nền cần kiểm soát đường hoặc đạm nên hỏi ý kiến chuyên gia.'
 howTo:
@@ -44,7 +44,7 @@ Cần nói rõ ngay: bột đậu xanh là **thực phẩm bổ dưỡng, không
 
 Giá trị của bột đậu xanh nằm chủ yếu ở **đạm thực vật và chất xơ** từ hạt đậu. Đậu xanh là một trong những loại đậu giàu đạm, đồng thời cung cấp chất xơ, một số vitamin nhóm B và khoáng chất. Khi được làm từ đậu nguyên hạt rang chín (thay vì độn bột gạo), sản phẩm giữ được phần lớn giá trị này.
 
-Con số cụ thể phụ thuộc vào từng dòng. Với **dòng bột đậu xanh không thêm đường** của Rồng Vàng Hoàng Gia, bảng dinh dưỡng cho thấy **đạm đạt tới 22,2 g trên 100 g** và **đường tổng chỉ khoảng 17,8–24,1 g trên 100 g** — phần lớn lượng đường này đến tự nhiên từ nguyên liệu chứ không phải đường thêm vào. Đây là tỷ lệ đáng chú ý với người quan tâm đến đạm cao, đường thấp.
+Con số cụ thể phụ thuộc vào từng dòng. Với **dòng bột đậu xanh không thêm đường** của Rồng Vàng Hoàng Gia, bảng dinh dưỡng cho thấy **đạm đạt tới 20,9 g trên 100 g** và **đường tổng chỉ khoảng 18,0–24,1 g trên 100 g** — phần lớn lượng đường này đến tự nhiên từ nguyên liệu chứ không phải đường thêm vào. Đây là tỷ lệ đáng chú ý với người quan tâm đến đạm cao, đường thấp.
 
 Với các vị pha sẵn có đường (cà rốt, rau má, sữa dừa, matcha), **một gói 40 g cung cấp khoảng 146–162 kcal** — tương đương một bữa phụ nhẹ. Đây là mức năng lượng vừa phải, phù hợp để thay thế một món ăn vặt hoặc bổ sung giữa buổi. Bạn có thể xem chi tiết thành phần từng vị trong bài [cẩm nang bột đậu xanh pha sẵn](/bot-dau-xanh-pha-san-cac-vi-moi/).
 
@@ -66,7 +66,7 @@ Nói cách khác, hãy xem bột đậu xanh như một **công cụ hỗ trợ 
 
 ## Bột đậu xanh không thêm đường khác gì?
 
-Điểm khác biệt lớn nhất nằm ở **lượng đường và tỷ lệ đạm**. Dòng không thêm đường của Rồng Vàng Hoàng Gia được làm thuần thực vật (plant-based), với đường tổng chỉ 17,8–24,1 g trên 100 g — phần lớn đến tự nhiên từ nguyên liệu — trong khi đạm lên tới 19,8–22,2 g trên 100 g. So với các vị có thêm đường, đây là lựa chọn "nạc" hơn về mặt dinh dưỡng.
+Điểm khác biệt lớn nhất nằm ở **lượng đường và tỷ lệ đạm**. Dòng không thêm đường của Rồng Vàng Hoàng Gia được làm thuần thực vật (plant-based), với đường tổng chỉ 18,0–24,1 g trên 100 g — phần lớn đến tự nhiên từ nguyên liệu — trong khi đạm lên tới 19,8–20,9 g trên 100 g. So với các vị có thêm đường, đây là lựa chọn "nạc" hơn về mặt dinh dưỡng.
 
 Dòng này hướng đến **người ăn kiêng, người kiểm soát đường huyết, người tập luyện và người theo lối sống xanh**. Nó đóng hũ 500 g, dùng thìa định lượng, phù hợp với người dùng đều đặn mỗi ngày và muốn chủ động điều chỉnh độ đặc, độ ngọt. Nếu thích ngọt hơn, bạn có thể tự thêm một chút mật ong hoặc chất tạo ngọt theo khẩu vị.
 

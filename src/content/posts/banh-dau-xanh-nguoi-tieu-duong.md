@@ -12,7 +12,7 @@ faq:
   - q: 'Bánh đậu xanh có nhiều đường không?'
     a: 'Có. Bánh đậu xanh truyền thống được làm từ đậu xanh lòng vàng, đường, dầu thực vật và tinh dầu hoa bưởi — trong đó đường là thành phần chính tạo vị ngọt. Ngoài đường thêm vào, đậu xanh còn chứa tinh bột, khi tiêu hoá cũng chuyển thành đường trong máu, nên không thể xem đây là món ít đường.'
   - q: 'Có loại bánh hoặc bột đậu xanh ít, không thêm đường không?'
-    a: 'Có dòng bột đậu xanh không thêm đường. Theo thông tin công bố, dòng này có đường tổng chỉ 17,8–24,1 g và đạm tới 22,2 g trên 100 g, phần đường phần lớn đến tự nhiên từ nguyên liệu. Dù vậy sản phẩm vẫn chứa tinh bột và cung cấp năng lượng, không phải thuốc; người tiểu đường nên hỏi chuyên gia trước khi dùng đều.'
+    a: 'Có dòng bột đậu xanh không thêm đường. Theo thông tin công bố, dòng này có đường tổng chỉ 18,0–24,1 g và đạm tới 20,9 g trên 100 g, phần đường phần lớn đến tự nhiên từ nguyên liệu. Dù vậy sản phẩm vẫn chứa tinh bột và cung cấp năng lượng, không phải thuốc; người tiểu đường nên hỏi chuyên gia trước khi dùng đều.'
   - q: 'Người tiểu đường ăn bao nhiêu bánh đậu xanh là hợp lý?'
     a: 'Không có con số chung cho tất cả vì còn tuỳ tình trạng bệnh và phác đồ điều trị. Nguyên tắc an toàn là càng ít càng tốt, chỉ một miếng nhỏ trong dịp đặc biệt và tính vào tổng lượng carbohydrate cho phép trong ngày. Khẩu phần cụ thể nên do bác sĩ hoặc chuyên gia dinh dưỡng của bạn quyết định.'
   - q: 'Bánh đậu xanh có chữa được tiểu đường không?'
@@ -49,7 +49,7 @@ Thứ hai là cách ăn. Ăn kèm hoặc sau một bữa có chất xơ và đ�
 
 Có một lựa chọn dễ chịu hơn cho người cần kiểm soát đường: **dòng bột đậu xanh không thêm đường**. Khác với bánh đậu xanh truyền thống, dòng này không cho thêm đường trong quá trình chế biến, nên lượng đường thấp hơn đáng kể.
 
-Theo thông tin công bố, dòng [bột đậu xanh rau má không thêm đường](/bdx-rauma-khongduong/) có **đường tổng chỉ 17,8–24,1 g trên 100 g** — phần lớn đến tự nhiên từ nguyên liệu — và **đạm tới 22,2 g trên 100 g**. Đây là tỷ lệ đạm cao, đường thấp mà người quan tâm dinh dưỡng thường tìm. Dù vậy, cần nói thẳng: ít đường không có nghĩa là không đường hay không calo; sản phẩm vẫn chứa tinh bột và cung cấp năng lượng. Nó không phải thuốc và không tự nó kiểm soát đường huyết thay bạn. Muốn hiểu thêm giá trị của đậu xanh, bạn có thể đọc [bột đậu xanh có tác dụng gì](/bot-dau-xanh-co-tac-dung-gi/). Người tiểu đường vẫn nên hỏi chuyên gia trước khi dùng đều đặn.
+Theo thông tin công bố, dòng [bột đậu xanh rau má không thêm đường](/bdx-rauma-khongduong/) có **đường tổng chỉ 18,0–24,1 g trên 100 g** — phần lớn đến tự nhiên từ nguyên liệu — và **đạm tới 20,9 g trên 100 g**. Đây là tỷ lệ đạm cao, đường thấp mà người quan tâm dinh dưỡng thường tìm. Dù vậy, cần nói thẳng: ít đường không có nghĩa là không đường hay không calo; sản phẩm vẫn chứa tinh bột và cung cấp năng lượng. Nó không phải thuốc và không tự nó kiểm soát đường huyết thay bạn. Muốn hiểu thêm giá trị của đậu xanh, bạn có thể đọc [bột đậu xanh có tác dụng gì](/bot-dau-xanh-co-tac-dung-gi/). Người tiểu đường vẫn nên hỏi chuyên gia trước khi dùng đều đặn.
 
 ## Người tiểu đường ăn bao nhiêu bánh đậu xanh là hợp lý?
 

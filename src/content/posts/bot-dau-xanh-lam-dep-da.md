@@ -80,7 +80,7 @@ Cũng nên nhớ, mặt nạ tự pha không được kiểm nghiệm như mỹ 
 
 Đây là lưu ý thực tế mà nhiều người bỏ qua. **Bột dùng cho mặt nạ nên là bột đậu xanh nguyên chất, không thêm đường và hương liệu; còn bột đậu xanh pha sẵn để uống thường đã có đường, sữa hoặc hương vị, phù hợp để thưởng thức chứ không phải để đắp lên da.**
 
-Nếu bạn định làm đẹp da, hãy chọn loại bột đậu xanh thuần từ đậu, không phụ gia — chẳng hạn dòng bột đậu xanh không thêm đường làm từ đậu nguyên hạt rang chín xay mịn, với đạm tới 22,2 g trên 100 g khi dùng như thực phẩm. Ngược lại, các vị pha sẵn như cà rốt, sữa dừa, matcha được tạo ra để uống, ngon miệng nhờ đường và hương liệu — không nên dùng làm mặt nạ.
+Nếu bạn định làm đẹp da, hãy chọn loại bột đậu xanh thuần từ đậu, không phụ gia — chẳng hạn dòng bột đậu xanh không thêm đường làm từ đậu nguyên hạt rang chín xay mịn, với đạm tới 20,9 g trên 100 g khi dùng như thực phẩm. Ngược lại, các vị pha sẵn như cà rốt, sữa dừa, matcha được tạo ra để uống, ngon miệng nhờ đường và hương liệu — không nên dùng làm mặt nạ.
 
 Muốn tìm hiểu công dụng của bột đậu xanh khi dùng như thức uống bổ dưỡng, bạn có thể đọc thêm [bột đậu xanh có tác dụng gì](/bot-dau-xanh-co-tac-dung-gi/), và xem [các dòng bột đậu xanh](/danh-muc-san-pham/bot-dau/) để chọn đúng loại cho nhu cầu của mình.
 

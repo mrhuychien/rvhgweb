@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { pdfSize } from '../../lib/filesize';
+import { DRIVE_FOLDER } from '../../data/declarations';
 import LegacyImg from '../../components/LegacyImg.astro';
 
 const policies = (await getCollection('policies')).sort((a, b) => a.data.title.localeCompare(b.data.title, 'vi'));
@@ -32,8 +33,8 @@ const policies = (await getCollection('policies')).sort((a, b) => a.data.title.l
         </article>
         <article>
           <h2>Phiếu kiểm nghiệm định kỳ</h2>
-          <p>Kết quả kiểm nghiệm định kỳ các sản phẩm của Rồng Vàng Hoàng Gia tại các đơn vị kiểm nghiệm được chỉ định.</p>
-          <a class="rvhg-btn--link" href="mailto:info@rongvanghoanggia.com">Yêu cầu bản sao  ›</a>
+          <p>Phiếu kết quả kiểm nghiệm của Eurofins Sắc Ký Hải Đăng và VinaCert nằm ngay trong từng bản tự công bố — đã công khai, không phải xin riêng.</p>
+          <a class="rvhg-btn--link" href={DRIVE_FOLDER} target="_blank" rel="noopener noreferrer">Mở thư mục hồ sơ gốc  ›</a>
         </article>
         <article>
           <h2>Thư viện hình ảnh, video</h2>

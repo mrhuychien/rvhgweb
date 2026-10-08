@@ -1,6 +1,6 @@
 ---
 title: 'Bột đậu xanh không đường: ai nên dùng và khác gì loại thường?'
-description: 'Bột đậu xanh không đường là gì, ai nên dùng và khác gì loại có đường? Đạm tới 22,2g/100g, thuần thực vật, hợp người ăn kiêng, tập gym và kiểm soát đường.'
+description: 'Bột đậu xanh không đường là gì, ai nên dùng và khác gì loại có đường? Đạm tới 20,9g/100g, thuần thực vật, hợp người ăn kiêng, tập gym và kiểm soát đường.'
 publishDate: 2026-07-14
 author: 'Rồng Vàng Hoàng Gia'
 cover: '/images/bot/bot-dau-xanh-rau-ma-khong-duong.jpg'
@@ -10,15 +10,15 @@ faq:
   - q: 'Bột đậu xanh không đường có vị nhạt không?'
     a: 'Không nhạt vô vị mà ngọt nhẹ tự nhiên: vị ngọt đến từ chính hạt đậu xanh cùng nét béo của sữa dừa hoặc nét thanh của rau má. Nếu thích ngọt hơn, bạn có thể tự thêm chút mật ong hay chất tạo ngọt tuỳ khẩu vị.'
   - q: 'Người tiểu đường dùng bột đậu xanh không đường được không?'
-    a: 'Dòng không thêm đường có đường tổng thấp hơn (17,8–24,1 g trên 100 g, phần lớn tự nhiên từ nguyên liệu) nên dễ chịu hơn với người kiểm soát đường. Tuy vậy đây là thực phẩm, không phải thuốc, và vẫn có tinh bột; người tiểu đường nên hỏi ý kiến bác sĩ hoặc chuyên gia dinh dưỡng.'
+    a: 'Dòng không thêm đường có đường tổng thấp hơn (18,0–24,1 g trên 100 g, phần lớn tự nhiên từ nguyên liệu) nên dễ chịu hơn với người kiểm soát đường. Tuy vậy đây là thực phẩm, không phải thuốc, và vẫn có tinh bột; người tiểu đường nên hỏi ý kiến bác sĩ hoặc chuyên gia dinh dưỡng.'
   - q: 'Bột đậu xanh không đường khác gì loại có đường?'
-    a: 'Khác ở lượng đường (không thêm đường, đường tổng chỉ 17,8–24,1 g/100 g), tỷ lệ đạm cao (19,8–22,2 g/100 g), cách đóng gói (hũ 500 g dùng thìa định lượng thay vì hộp 400 g chia 10 gói 40 g) và đối tượng hướng tới là người ăn kiêng, kiểm soát đường.'
+    a: 'Khác ở lượng đường (không thêm đường, đường tổng chỉ 18,0–24,1 g/100 g), tỷ lệ đạm cao (19,8–20,9 g/100 g), cách đóng gói (hũ 500 g dùng thìa định lượng thay vì hộp 400 g chia 10 gói 40 g) và đối tượng hướng tới là người ăn kiêng, kiểm soát đường.'
   - q: 'Pha bột đậu xanh không đường thế nào?'
     a: 'Cho khoảng một thìa định lượng (~40 g) vào ly, rót chừng 150 ml nước sôi, khuấy đều đến khi bột tan mịn. Muốn uống lạnh thì thêm đá; thích ngọt hơn có thể thêm chút mật ong.'
   - q: 'Người ăn chay và người tập gym dùng được không?'
-    a: 'Được. Dòng không thêm đường thuần thực vật (plant-based) nên hợp người ăn chay; đạm thực vật 19,8–22,2 g/100 g cũng là nguồn bổ sung nhẹ tiện lợi cho người tập gym quanh buổi tập hoặc trong bữa phụ.'
+    a: 'Được. Dòng không thêm đường thuần thực vật (plant-based) nên hợp người ăn chay; đạm thực vật 19,8–20,9 g/100 g cũng là nguồn bổ sung nhẹ tiện lợi cho người tập gym quanh buổi tập hoặc trong bữa phụ.'
   - q: 'Bột đậu xanh không đường có bao nhiêu đạm và đường?'
-    a: 'Theo thông tin công bố, dòng không thêm đường có đạm 19,8–22,2 g và đường tổng 17,8–24,1 g trên mỗi 100 g sản phẩm, thuần thực vật. Lưu ý "không thêm đường" không đồng nghĩa với "không calo".'
+    a: 'Theo thông tin công bố, dòng không thêm đường có đạm 19,8–20,9 g và đường tổng 18,0–24,1 g trên mỗi 100 g sản phẩm, thuần thực vật. Lưu ý "không thêm đường" không đồng nghĩa với "không calo".'
 howTo:
   name: 'Cách pha bột đậu xanh không đường'
   steps:
@@ -34,7 +34,7 @@ Bột đậu xanh pha sẵn ngày càng quen thuộc trên kệ bếp của ngư
 
 **Bột đậu xanh không đường là dòng bột làm từ đậu xanh nguyên hạt rang chín, xay mịn và không cho thêm đường trong quá trình chế biến.** Nó khác hẳn kiểu bột độn: không pha thêm bột gạo cho đầy, cũng không mượn đường để tạo vị. Ở Rồng Vàng Hoàng Gia, dòng này có hai vị — rau má và sữa dừa — được làm thuần thực vật (plant-based) và đóng hũ 500 g dùng kèm thìa định lượng.
 
-Điều đáng chú ý nằm ở bảng dinh dưỡng. Dòng không thêm đường có **đạm đạt 19,8–22,2 g trên 100 g** và **đường tổng chỉ 17,8–24,1 g trên 100 g** — phần lớn lượng đường ít ỏi ấy đến tự nhiên từ chính hạt đậu và nguyên liệu, chứ không phải đường thêm vào. Đây là tỷ lệ "đạm cao, đường thấp" mà người quan tâm dinh dưỡng thường tìm.
+Điều đáng chú ý nằm ở bảng dinh dưỡng. Dòng không thêm đường có **đạm đạt 19,8–20,9 g trên 100 g** và **đường tổng chỉ 18,0–24,1 g trên 100 g** — phần lớn lượng đường ít ỏi ấy đến tự nhiên từ chính hạt đậu và nguyên liệu, chứ không phải đường thêm vào. Đây là tỷ lệ "đạm cao, đường thấp" mà người quan tâm dinh dưỡng thường tìm.
 
 Cần nói ngay một điều dễ hiểu lầm: "không thêm đường" không có nghĩa là "không calo". Sản phẩm vẫn cung cấp năng lượng từ đạm và tinh bột tự nhiên của đậu xanh. Bạn có thể xem chi tiết ở trang [bột đậu xanh rau má không đường](/bdx-rauma-khongduong/).
 
@@ -50,7 +50,7 @@ Khác biệt thứ ba là **đối tượng hướng tới**. Vị có đường
 
 Lý do cốt lõi là bạn **chủ động kiểm soát lượng đường nạp vào**. Khẩu phần hằng ngày của nhiều người vốn đã dư đường từ nước ngọt, bánh kẹo; chọn một thức uống bữa phụ ít đường vì thế là thay đổi nhỏ nhưng đúng hướng.
 
-Lý do thứ hai là **tỷ lệ dinh dưỡng gọn gàng hơn**. Với đạm tới 22,2 g trên 100 g và đường tổng giữ ở mức thấp, mỗi ly bột cho bạn nhiều đạm thực vật hơn trên cùng một lượng đường. Đậu xanh vốn giàu đạm thực vật và chất xơ, lại được dân gian xem là có tính mát, hợp để thanh nhiệt, giải khát ngày nóng.
+Lý do thứ hai là **tỷ lệ dinh dưỡng gọn gàng hơn**. Với đạm tới 20,9 g trên 100 g và đường tổng giữ ở mức thấp, mỗi ly bột cho bạn nhiều đạm thực vật hơn trên cùng một lượng đường. Đậu xanh vốn giàu đạm thực vật và chất xơ, lại được dân gian xem là có tính mát, hợp để thanh nhiệt, giải khát ngày nóng.
 
 Lý do thứ ba là **tính linh hoạt**. Không mặc định một độ ngọt cố định, bạn được tự do: uống mộc, thêm chút mật ong, hay pha đặc hơn tuỳ bữa. Đây là kiểu sản phẩm "nền" để bạn xây khẩu vị của riêng mình thay vì chấp nhận một công thức có sẵn.
 
@@ -84,4 +84,4 @@ Với **người tiểu đường hoặc người cần kiểm soát đường h
 
 Vì vậy, lời khuyên thẳng thắn: người có bệnh lý nền — tiểu đường, bệnh thận hay chế độ ăn đặc biệt — nên **hỏi ý kiến bác sĩ hoặc chuyên gia dinh dưỡng** trước khi đưa bột đậu xanh vào khẩu phần thường xuyên. Người dị ứng đậu thì nên tránh.
 
-Tóm lại, bột đậu xanh không đường là dòng bột đậu xanh thuần thực vật, giữ đạm cao (tới 22,2 g/100 g) và đường thấp, hợp với người ăn kiêng, kiểm soát đường, tập gym và ăn chay. Nó không ngọt sẵn, đổi lại cho bạn quyền chủ động và một khẩu phần "nạc" hơn về dinh dưỡng. Xem trọn bộ [các vị bột đậu xanh](/danh-muc-san-pham/bot-dau/) để chọn loại hợp gu, hoặc liên hệ hotline/Zalo **0934362658** để được tư vấn tận tình.
+Tóm lại, bột đậu xanh không đường là dòng bột đậu xanh thuần thực vật, giữ đạm cao (tới 20,9 g/100 g) và đường thấp, hợp với người ăn kiêng, kiểm soát đường, tập gym và ăn chay. Nó không ngọt sẵn, đổi lại cho bạn quyền chủ động và một khẩu phần "nạc" hơn về dinh dưỡng. Xem trọn bộ [các vị bột đậu xanh](/danh-muc-san-pham/bot-dau/) để chọn loại hợp gu, hoặc liên hệ hotline/Zalo **0934362658** để được tư vấn tận tình.

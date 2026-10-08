@@ -22,7 +22,7 @@ faq:
   - q: 'Bảo quản bột đậu xanh thế nào?'
     a: 'Bảo quản nơi khô ráo, thoáng mát, tránh ánh nắng trực tiếp; dùng trong hạn in trên bao bì và đóng kín sau khi mở (với hũ 500 g).'
   - q: 'Người cần kiêng đường dùng bột đậu xanh được không?'
-    a: 'Dòng không thêm đường có lượng đường tổng thấp hơn hẳn (17,8–24,1 g trên 100 g, phần lớn đến tự nhiên từ nguyên liệu). Người có bệnh lý cần kiểm soát đường huyết nên tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng.'
+    a: 'Dòng không thêm đường có lượng đường tổng thấp hơn hẳn (18,0–24,1 g trên 100 g, phần lớn đến tự nhiên từ nguyên liệu). Người có bệnh lý cần kiểm soát đường huyết nên tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng.'
 howTo:
   name: 'Cách pha bột đậu xanh pha sẵn Rồng Vàng Hoàng Gia'
   steps:
@@ -93,7 +93,7 @@ Rau má là loại rau dân dã của người Việt, gắn với ký ức nh�
 
 **Thành phần:** đường (đường kính trắng, đường gluco), bột đậu xanh (40%), bột rau má (10%), sữa bột, hương liệu vani tổng hợp. Tỷ lệ rau má 10% là mức được cân nhắc kỹ: đủ để vị thanh mát hiện rõ, nhưng vẫn để đậu xanh giữ vai trò nền, tránh cái hăng nếu rau má quá tay.
 
-**Giá trị dinh dưỡng (trong 100 g):** năng lượng 365 kcal, chất đạm 11,3 g, carbohydrat 75,6 g, chất béo 1,89 g, natri 88,3 mg, đường tổng 55,9 g. Trong nhóm bốn vị có đường, rau má có mức năng lượng thấp nhất — hợp với người muốn một lựa chọn nhẹ nhàng.
+**Giá trị dinh dưỡng (trong 100 g):** năng lượng 372 kcal, chất đạm 11,9 g, carbohydrat 77,0 g, chất béo 1,85 g, natri 134 mg, đường tổng 54,4 g. Trong nhóm bốn vị có đường, rau má có mức năng lượng thấp nhất — hợp với người muốn một lựa chọn nhẹ nhàng.
 
 **Vị và cảm giác:** ly rau má pha ra có sắc xanh cốm dịu, mùi thơm thảo mộc thanh nhã, vị ngọt vừa với hậu mát rất dễ chịu. Đây là vị "giải nhiệt" tinh thần — hợp những ngày oi bức hay những buổi chiều cần một ly gì đó nhẹ và mát.
 
@@ -135,13 +135,13 @@ Có một nhóm người dùng ngày càng đông: họ đọc kỹ nhãn, để
 
 Dòng này có hai vị, đều đóng hũ 500 g và mang nhãn "plant based" — thuần thực vật.
 
-**Bột đậu xanh Rau Má — không thêm đường.** Thành phần: bột đậu xanh (80%), bột sữa dừa, bột rau má (8%), bột matcha trà xanh. Tỷ lệ đậu xanh lên tới 80% — rất cao — nên đây gần như là "đậu xanh nguyên bản" được điểm thêm hương rau má và trà xanh. Giá trị dinh dưỡng trong 100 g: năng lượng 391 kcal, chất đạm 22,2 g, carbohydrat 65,9 g, chất béo 4,27 g, natri 17,5 mg, đường tổng chỉ 17,8 g. Con số 22,2 g đạm và 17,8 g đường nói lên tất cả: đạm cao, đường thấp.
+**Bột đậu xanh Rau Má — không thêm đường.** Thành phần: bột đậu xanh (80%), bột sữa dừa, bột rau má (8%), bột matcha trà xanh. Tỷ lệ đậu xanh lên tới 80% — rất cao — nên đây gần như là "đậu xanh nguyên bản" được điểm thêm hương rau má và trà xanh. Giá trị dinh dưỡng trong 100 g: năng lượng 371 kcal, chất đạm 20,9 g, carbohydrat 61,7 g, chất béo 4,52 g, natri 141 mg, đường tổng chỉ 18,0 g. Con số 20,9 g đạm và 18,0 g đường nói lên tất cả: đạm cao, đường thấp.
 
 **Bột đậu xanh Sữa Dừa — không thêm đường.** Thành phần: bột đậu xanh (74%), bột sữa dừa (20%), bột cà rốt, bột nghệ. Giá trị dinh dưỡng trong 100 g: năng lượng 381 kcal, chất đạm 19,8 g, carbohydrat 62,0 g, chất béo 6,04 g, natri 27,4 mg, đường tổng 24,1 g. Vị này béo thơm hơn nhờ sữa dừa, đạm vẫn ở mức cao gần 20 g.
 
 Để dễ hình dung: các vị có đường có lượng đường tổng dao động 54–64 g trên 100 g, còn dòng không thêm đường chỉ 18–24 g — phần lớn đến tự nhiên từ nguyên liệu. Đồng thời lượng đạm nhảy vọt từ khoảng 8–12 g lên gần 20–22 g. Đây là lựa chọn hợp lý cho người tập luyện, người ăn kiêng có kiểm soát, hoặc đơn giản là người muốn cắt giảm đường mà không muốn từ bỏ thói quen uống một ly bột ấm.
 
-> Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (mã HA 394/4.26.CIV, do Quacert cấp ngày 08/08/2026). Và năm 2024, bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt chứng nhận OCOP 5 sao Quốc gia — một nền tảng chất lượng mà dòng bột đậu pha sẵn được kế thừa.
+> Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (mã HA 394/4.26.CIV, do Quacert cấp, hiệu lực từ 08/08/2026 đến 07/08/2029). Và năm 2024, bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt chứng nhận OCOP 5 sao Quốc gia — một nền tảng chất lượng mà dòng bột đậu pha sẵn được kế thừa.
 
 ## So sánh dinh dưỡng sáu vị
 
@@ -150,10 +150,10 @@ Bảng dưới đây tổng hợp giá trị dinh dưỡng của cả sáu vị,
 | Vị | Năng lượng | Đạm | Carbohydrat | Béo | Đường tổng | Đậu xanh |
 |---|---|---|---|---|---|---|
 | Cà Rốt (400 g) | 382 kcal | 12,3 g | 79,4 g | 1,7 g | 56,9 g | 40% |
-| Rau Má (400 g) | 365 kcal | 11,3 g | 75,6 g | 1,89 g | 55,9 g | 40% |
+| Rau Má (400 g) | 372 kcal | 11,9 g | 77,0 g | 1,85 g | 54,4 g | 40% |
 | Sữa Dừa (400 g) | 404 kcal | 8,08 g | 79,1 g | 6,12 g | 64,4 g | 30% |
 | Matcha (400 g) | 381 kcal | 11,7 g | 79,6 g | 1,78 g | 54,7 g | 45% |
-| Rau Má – không đường (500 g) | 391 kcal | 22,2 g | 65,9 g | 4,27 g | 17,8 g | 80% |
+| Rau Má – không đường (500 g) | 371 kcal | 20,9 g | 61,7 g | 4,52 g | 18,0 g | 80% |
 | Sữa Dừa – không đường (500 g) | 381 kcal | 19,8 g | 62,0 g | 6,04 g | 24,1 g | 74% |
 
 Vài điều rút ra từ bảng trên. Nếu quý khách ưu tiên **ít đường và giàu đạm**, dòng không thêm đường là lựa chọn rõ ràng. Nếu quý khách muốn **vị béo tròn**, sữa dừa dẫn đầu về chất béo và năng lượng. Nếu cần **năng lượng vừa phải, béo thấp**, rau má và matcha là hai cái tên nên cân nhắc. Còn nếu tìm một vị **dễ uống cho cả nhà**, cà rốt là điểm khởi đầu an toàn.
@@ -235,7 +235,7 @@ Một sản phẩm uống hằng ngày thì chất lượng và an toàn phải 
 
 Nguyên liệu chính là đậu xanh lòng vàng tuyển chọn, có nguồn gốc rõ ràng. Các nguyên liệu phối — cà rốt, rau má, sữa dừa, matcha — đều là nguyên liệu tự nhiên, được chọn theo tiêu chí hương vị và độ ổn định. Một chi tiết nhỏ nhưng thể hiện quan điểm làm nghề: trong thành phần đường của các vị có đường, chúng tôi dùng cả đường gluco bên cạnh đường kính, để vị ngọt dịu và hài hoà hơn.
 
-Về hệ thống quản lý, toàn bộ quy trình sản xuất đạt chứng nhận **ISO 22000:2018** — hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế, mã HA 394/4.26.CIV, do Quacert cấp ngày 08/08/2026. Đây là cùng một dây chuyền, cùng một chuẩn kiểm soát mà những sản phẩm bánh đậu xanh của chúng tôi đang áp dụng.
+Về hệ thống quản lý, toàn bộ quy trình sản xuất đạt chứng nhận **ISO 22000:2018** — hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế, mã HA 394/4.26.CIV, do Quacert cấp, hiệu lực từ 08/08/2026 đến 07/08/2029. Đây là cùng một dây chuyền, cùng một chuẩn kiểm soát mà những sản phẩm bánh đậu xanh của chúng tôi đang áp dụng.
 
 Về pháp lý và minh bạch, cả sáu vị bột đậu pha sẵn đều đã hoàn tất **tự công bố sản phẩm** năm 2026 theo quy định. Quý khách có thể tra cứu và tải bản tự công bố của từng sản phẩm trên trang [Bản tự công bố sản phẩm](/ban-tu-cong-bo-rong-vang-hoang-gia/) hoặc ngay tại trang [dòng bột đậu các loại](/danh-muc-san-pham/bot-dau/). Việc công khai này không chỉ là thủ tục — đó là cách chúng tôi để quý khách yên tâm về thứ mình uống mỗi ngày.
 
@@ -257,7 +257,7 @@ Cuối cùng, sản phẩm không sử dụng chất bảo quản. Thay vì kéo
 
 **Bột đậu xanh pha sẵn có phải là thực phẩm chức năng không?** Không. Đây là thực phẩm — một thức uống pha sẵn từ đậu xanh và nguyên liệu tự nhiên, dùng cho bữa phụ hoặc bữa sáng nhẹ. Sản phẩm không thay thế thuốc và không có công dụng chữa bệnh.
 
-**Người cần kiêng đường dùng được không?** Dòng không thêm đường có lượng đường tổng thấp hơn hẳn (17,8–24,1 g trên 100 g, phần lớn đến tự nhiên từ nguyên liệu) nên phù hợp hơn với người cần hạn chế đường. Tuy vậy, với người có bệnh lý cần kiểm soát đường huyết, quý khách nên tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng và tính vào tổng khẩu phần trong ngày.
+**Người cần kiêng đường dùng được không?** Dòng không thêm đường có lượng đường tổng thấp hơn hẳn (18,0–24,1 g trên 100 g, phần lớn đến tự nhiên từ nguyên liệu) nên phù hợp hơn với người cần hạn chế đường. Tuy vậy, với người có bệnh lý cần kiểm soát đường huyết, quý khách nên tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng và tính vào tổng khẩu phần trong ngày.
 
 **Mua ở đâu để đúng hàng chính hãng?** Xem mục dưới đây.
 

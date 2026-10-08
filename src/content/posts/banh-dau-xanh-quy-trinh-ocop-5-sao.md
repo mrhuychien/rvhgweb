@@ -43,7 +43,7 @@ Chính sự nhất quán này tạo nên khác biệt. Một hộ làm thủ cô
 
 ISO 22000:2018 là **tiêu chuẩn quốc tế về hệ thống quản lý an toàn thực phẩm**, còn HACCP là phương pháp phân tích mối nguy và kiểm soát tại các điểm tới hạn trong quá trình sản xuất. Nói gọn, cả hai cùng trả lời một câu hỏi: làm thế nào để phòng ngừa rủi ro mất an toàn thực phẩm ngay từ trong quy trình, thay vì chỉ kiểm tra thành phẩm ở khâu cuối.
 
-RVHG áp dụng HACCP và được cấp chứng nhận ISO 22000:2018 (số HA 394/4.26.CIV, do Quacert cấp ngày 08/08/2026). Đây không phải tấm giấy để trưng bày: nó đồng nghĩa với việc từng lô đậu, từng công đoạn, từng thông số đều được giám sát theo một hệ thống được đánh giá độc lập. Với người mua, chứng nhận này là bảo chứng rằng độ an toàn của hộp bánh không phụ thuộc vào may rủi, mà vào một quy trình đã được chuẩn hoá.
+RVHG áp dụng HACCP và được cấp chứng nhận ISO 22000:2018 (số HA 394/4.26.CIV, do Quacert cấp, hiệu lực từ 08/08/2026 đến 07/08/2029). Đây không phải tấm giấy để trưng bày: nó đồng nghĩa với việc từng lô đậu, từng công đoạn, từng thông số đều được giám sát theo một hệ thống được đánh giá độc lập. Với người mua, chứng nhận này là bảo chứng rằng độ an toàn của hộp bánh không phụ thuộc vào may rủi, mà vào một quy trình đã được chuẩn hoá.
 
 ## Vì sao "không chất bảo quản" lại là một tiêu chí khắt khe?
 

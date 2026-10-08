@@ -14,7 +14,7 @@ faq:
   - q: 'Đậu xanh có thanh nhiệt không?'
     a: 'Theo quan niệm dân gian, đậu xanh có tính mát, thường được dùng để thanh nhiệt, giải khát trong ngày nóng, tiêu biểu là món chè đậu xanh. Đây là cách diễn đạt dân gian về cảm giác mát dễ chịu, không phải tác dụng điều trị y khoa, và không thay thế việc uống đủ nước.'
   - q: 'Đậu xanh có bao nhiêu đạm?'
-    a: 'Đậu xanh thuộc nhóm đậu giàu đạm thực vật. Với dòng bột đậu xanh không thêm đường của Rồng Vàng Hoàng Gia, làm từ đậu nguyên hạt rang chín xay mịn, đạm đạt tới 22,2 g trên 100 g. Con số cụ thể thay đổi theo cách chế biến và tỷ lệ nguyên liệu.'
+    a: 'Đậu xanh thuộc nhóm đậu giàu đạm thực vật. Với dòng bột đậu xanh không thêm đường của Rồng Vàng Hoàng Gia, làm từ đậu nguyên hạt rang chín xay mịn, đạm đạt tới 20,9 g trên 100 g. Con số cụ thể thay đổi theo cách chế biến và tỷ lệ nguyên liệu.'
   - q: 'Ai không nên ăn nhiều đậu xanh?'
     a: 'Người dị ứng với các loại đậu nên tránh. Người có hệ tiêu hoá nhạy cảm, hay đầy hơi, hoặc thể trạng hay lạnh bụng theo dân gian nên ăn lượng vừa phải. Người đang dùng thuốc hoặc có bệnh lý nền nên tham khảo ý kiến bác sĩ hoặc chuyên gia dinh dưỡng trước khi dùng thường xuyên.'
   - q: 'Nên dùng đậu xanh theo cách nào?'
@@ -35,7 +35,7 @@ Tuy vậy, cần hiểu đúng: đậu xanh là **thực phẩm, không phải t
 
 Giá trị của đậu xanh nằm chủ yếu ở **đạm thực vật và chất xơ**. Đậu xanh là một trong những loại đậu giàu đạm, đồng thời cung cấp chất xơ hỗ trợ tiêu hoá, một số vitamin nhóm B và khoáng chất như sắt, magie, kali ở mức đáng kể trong nhóm thực phẩm thực vật.
 
-Khi được chế biến từ hạt nguyên, phần lớn dưỡng chất này được giữ lại. Ví dụ, **dòng bột đậu xanh không thêm đường** của Rồng Vàng Hoàng Gia — làm từ đậu nguyên hạt rang chín xay mịn — có **đạm đạt tới 22,2 g trên 100 g**, một tỷ lệ đáng chú ý với người quan tâm đến nguồn đạm thực vật. Chi tiết bạn có thể đọc trong bài [bột đậu xanh có tác dụng gì](/bot-dau-xanh-co-tac-dung-gi/).
+Khi được chế biến từ hạt nguyên, phần lớn dưỡng chất này được giữ lại. Ví dụ, **dòng bột đậu xanh không thêm đường** của Rồng Vàng Hoàng Gia — làm từ đậu nguyên hạt rang chín xay mịn — có **đạm đạt tới 20,9 g trên 100 g**, một tỷ lệ đáng chú ý với người quan tâm đến nguồn đạm thực vật. Chi tiết bạn có thể đọc trong bài [bột đậu xanh có tác dụng gì](/bot-dau-xanh-co-tac-dung-gi/).
 
 Dĩ nhiên, con số cụ thể thay đổi theo cách chế biến và tỷ lệ nguyên liệu. Điều quan trọng là chọn sản phẩm làm từ đậu thật, ít độn, để giữ trọn giá trị dinh dưỡng vốn có của hạt đậu.
 

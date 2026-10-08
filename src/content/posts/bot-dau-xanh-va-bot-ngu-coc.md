@@ -1,6 +1,6 @@
 ---
 title: 'Bột đậu xanh và bột ngũ cốc: nên chọn loại nào?'
-description: 'So sánh bột đậu xanh và bột ngũ cốc: loại nào nhiều đạm hơn, hợp bữa sáng và mục đích nào? Bột đậu xanh từ đậu nguyên hạt, không độn bột gạo, đạm 22,2g/100g.'
+description: 'So sánh bột đậu xanh và bột ngũ cốc: loại nào nhiều đạm hơn, hợp bữa sáng và mục đích nào? Bột đậu xanh từ đậu nguyên hạt, không độn bột gạo, đạm 20,9g/100g.'
 publishDate: 2026-07-17
 author: 'Rồng Vàng Hoàng Gia'
 cover: '/images/bot/bot-tong-hop.jpg'
@@ -10,13 +10,13 @@ faq:
   - q: 'Bột đậu xanh có phải là bột ngũ cốc không?'
     a: 'Không hẳn. Bột đậu xanh làm từ một nguyên liệu duy nhất là đậu xanh nguyên hạt rang chín xay mịn, trong khi bột ngũ cốc là hỗn hợp nhiều loại hạt (gạo lứt, các loại đậu, mè, yến mạch…). Đậu xanh là cây họ đậu, thường xếp cùng nhóm hạt dinh dưỡng nhưng không phải "ngũ cốc" theo nghĩa hỗn hợp.'
   - q: 'Bột đậu xanh hay bột ngũ cốc nhiều đạm hơn?'
-    a: 'Đậu xanh là cây họ đậu nên thường giàu đạm thực vật; dòng bột đậu xanh không thêm đường của Rồng Vàng Hoàng Gia có đạm 19,8–22,2 g/100 g. Bột ngũ cốc thì tuỳ công thức phối trộn, hàm lượng đạm dao động theo tỷ lệ các loại hạt.'
+    a: 'Đậu xanh là cây họ đậu nên thường giàu đạm thực vật; dòng bột đậu xanh không thêm đường của Rồng Vàng Hoàng Gia có đạm 19,8–20,9 g/100 g. Bột ngũ cốc thì tuỳ công thức phối trộn, hàm lượng đạm dao động theo tỷ lệ các loại hạt.'
   - q: 'Buổi sáng nên uống bột đậu xanh hay bột ngũ cốc?'
     a: 'Cả hai đều hợp bữa sáng. Chọn bột đậu xanh nếu muốn đạm thực vật cao, vị bùi thanh và cảm giác mát theo dân gian; chọn bột ngũ cốc nếu muốn đa dạng nhiều loại hạt trong một ly. Có thể luân phiên để bữa sáng phong phú hơn.'
   - q: 'Bột đậu xanh Rồng Vàng Hoàng Gia có độn bột gạo không?'
     a: 'Không. Bột đậu xanh Rồng Vàng Hoàng Gia làm từ đậu xanh nguyên hạt rang chín xay mịn, không độn bột gạo để lấy số lượng. Nhờ vậy tỷ lệ đậu cao, giữ được vị bùi đặc trưng và lượng đạm thực vật.'
   - q: 'Nên chọn loại nào để kiểm soát đường?'
-    a: 'Nếu ưu tiên kiểm soát đường, dòng bột đậu xanh không thêm đường có đường tổng thấp (17,8–24,1 g/100 g, phần lớn tự nhiên) là lựa chọn đáng cân nhắc. Với bột ngũ cốc, nên đọc kỹ nhãn vì nhiều loại có thêm đường. Người có bệnh lý nên hỏi chuyên gia dinh dưỡng.'
+    a: 'Nếu ưu tiên kiểm soát đường, dòng bột đậu xanh không thêm đường có đường tổng thấp (18,0–24,1 g/100 g, phần lớn tự nhiên) là lựa chọn đáng cân nhắc. Với bột ngũ cốc, nên đọc kỹ nhãn vì nhiều loại có thêm đường. Người có bệnh lý nên hỏi chuyên gia dinh dưỡng.'
 ---
 
 Trên kệ đồ uống dinh dưỡng, hai cái tên hay được đặt cạnh nhau là bột đậu xanh và bột ngũ cốc. Nhìn qua chúng khá giống — đều là bột pha nước nóng, đều được xem là "healthy" — nhưng bản chất, thành phần và mục đích dùng lại khác nhau. Vậy giữa **bột đậu xanh** và **bột ngũ cốc**, nên chọn loại nào? Bài viết so sánh thẳng để bạn chọn đúng theo nhu cầu.
@@ -44,18 +44,18 @@ Nói cách khác, bột đậu xanh có thể xem như một "thành viên" già
 | Tiêu chí | Bột đậu xanh | Bột ngũ cốc |
 | --- | --- | --- |
 | Nguyên liệu | Đậu xanh nguyên hạt rang chín, xay mịn | Hỗn hợp nhiều hạt (gạo lứt, đậu, mè, yến mạch…) |
-| Đạm | Cao — 19,8–22,2 g/100 g (dòng không đường) | Tuỳ công thức, dao động theo tỷ lệ hạt |
+| Đạm | Cao — 19,8–20,9 g/100 g (dòng không đường) | Tuỳ công thức, dao động theo tỷ lệ hạt |
 | Chất xơ | Có, từ hạt đậu | Có, thường đa dạng nguồn |
 | Vị | Bùi, thanh, tập trung một gu | Pha trộn, tuỳ thương hiệu |
 | Độn bột gạo | Không (đậu là chính) | Có thể có, cần đọc nhãn |
-| Đường | Có dòng không thêm đường (17,8–24,1 g/100 g) | Nhiều loại có thêm đường, cần đọc nhãn |
+| Đường | Có dòng không thêm đường (18,0–24,1 g/100 g) | Nhiều loại có thêm đường, cần đọc nhãn |
 | Hợp mục đích | Đạm thực vật cao, kiểm soát đường, ăn chay | Đa dạng dưỡng chất trong một ly |
 
 Lưu ý: số liệu bột đậu xanh lấy theo công bố trên bao bì; bột ngũ cốc thay đổi theo từng nhà sản xuất, nên bạn hãy đọc kỹ nhãn dinh dưỡng khi mua để so sánh cho đúng.
 
 ## Loại nào nhiều đạm, nhiều chất xơ hơn?
 
-Về đạm, lợi thế thường nghiêng về **bột đậu xanh**, đơn giản vì đậu xanh là cây họ đậu — nhóm nổi tiếng giàu đạm thực vật. Dòng bột đậu xanh không thêm đường của Rồng Vàng Hoàng Gia có **đạm 19,8–22,2 g trên 100 g**, một con số cao so với mặt bằng đồ uống dạng bột. Bột ngũ cốc cũng có đạm, nhưng vì là hỗn hợp nên hàm lượng phụ thuộc tỷ lệ đậu trong công thức.
+Về đạm, lợi thế thường nghiêng về **bột đậu xanh**, đơn giản vì đậu xanh là cây họ đậu — nhóm nổi tiếng giàu đạm thực vật. Dòng bột đậu xanh không thêm đường của Rồng Vàng Hoàng Gia có **đạm 19,8–20,9 g trên 100 g**, một con số cao so với mặt bằng đồ uống dạng bột. Bột ngũ cốc cũng có đạm, nhưng vì là hỗn hợp nên hàm lượng phụ thuộc tỷ lệ đậu trong công thức.
 
 Về chất xơ, cả hai đều cung cấp, và ở đây bột ngũ cốc có thể nhỉnh hơn về **sự đa dạng nguồn** — nhiều loại hạt mang lại nhiều kiểu xơ khác nhau. Bù lại, bột đậu xanh cho lượng xơ ổn định từ chính hạt đậu, đi kèm đạm cao và vị bùi rõ.
 
@@ -73,7 +73,7 @@ Dù chọn loại nào, hãy nhớ bữa sáng cân đối không chỉ có mộ
 
 Đây là điểm định vị quan trọng: **bột đậu xanh Rồng Vàng Hoàng Gia làm từ đậu xanh nguyên hạt rang chín, xay mịn, không độn bột gạo để lấy số lượng**. Với nhiều loại bột trên thị trường, độn tinh bột giá rẻ là cách hạ giá thành — nhưng đổi lại, tỷ lệ đậu giảm, đạm giảm và vị bùi cũng nhạt đi.
 
-Chúng tôi chọn hướng ngược lại: giữ đậu xanh làm nguyên liệu chính để bảo toàn vị bùi thanh và lượng đạm thực vật. Đây cũng là lý do dòng không thêm đường đạt được mức đạm 19,8–22,2 g trên 100 g. Sản phẩm được làm theo tiêu chuẩn ISO 22000:2018 và không dùng chất bảo quản.
+Chúng tôi chọn hướng ngược lại: giữ đậu xanh làm nguyên liệu chính để bảo toàn vị bùi thanh và lượng đạm thực vật. Đây cũng là lý do dòng không thêm đường đạt được mức đạm 19,8–20,9 g trên 100 g. Sản phẩm được làm theo tiêu chuẩn ISO 22000:2018 và không dùng chất bảo quản.
 
 Thương hiệu đứng sau là Công ty CP Hoàng Giang, gắn với nghề bánh đậu xanh Hải Dương từ năm 1997 — cũng chính là đơn vị có bánh đậu xanh đầu tiên và duy nhất cả nước đạt OCOP 5 sao Quốc gia 2024. Tinh thần "đậu là chính" đi xuyên suốt từ viên bánh đến ly bột.
 

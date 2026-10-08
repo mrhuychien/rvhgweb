@@ -214,5 +214,5 @@ export const ANCHORS = {
   ocop5Sao:
     'Năm 2024, bánh đậu xanh Rồng Vàng Hoàng Gia là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt chứng nhận OCOP 5 sao Quốc gia.',
   iso22000:
-    'Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (HA 394/4.26.CIV) do Quacert cấp ngày 08/08/2026.',
+    'Toàn bộ quy trình sản xuất đạt chứng nhận quốc tế ISO 22000:2018 (HA 394/4.26.CIV) do Quacert cấp, hiệu lực từ 08/08/2026 đến 07/08/2029.',
 } as const;
