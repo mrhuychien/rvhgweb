@@ -1,11 +1,14 @@
 /**
  * Content for the "Bột đậu xanh" (mung-bean powder drink) product line.
  * Every field is transcribed from the official product labels (public/images/nhan/*)
- * and self-declaration dossiers (public/cong-bo/TCB2026/*). Nutrition is per 100 g.
+ * and self-declaration dossiers (bản gốc trên Drive, xem src/data/declarations.ts).
+ * Nutrition is per 100 g.
  *
  * These feed the flat landing pages: /botdx-carot/, /botdx-rauma/, /botdx-suadua/,
  * /botdx-matcha/ (single) and /bdx-rauma-khongduong/ (the two no-sugar SKUs).
  */
+
+import { declUrl } from './declarations';
 
 export interface Nutrition {
   energy: string;  // kcal / 100g
@@ -33,7 +36,7 @@ export interface Powder {
   weight: string;
   usage: string[];
   sku: string;             // barcode / GTIN
-  declHref: string;        // self-declaration PDF (raw path, encoded at render)
+  declHref: string;        // self-declaration — link Drive, xem src/data/declarations.ts
   noSugar?: boolean;
 }
 
@@ -75,7 +78,7 @@ export const POWDERS: Record<string, Powder> = {
     weight: '400 g (10 gói × 40 g)',
     usage: USE_SACHET,
     sku: '8936110893077',
-    declHref: '/cong-bo/TCB2026/01. Bột đậu xanh cà rốt RVHG.pdf',
+    declHref: declUrl('bot-carot'),
   },
 
   'botdx-rauma': {
@@ -101,7 +104,7 @@ export const POWDERS: Record<string, Powder> = {
     weight: '400 g (10 gói × 40 g)',
     usage: USE_SACHET,
     sku: '8936110893091',
-    declHref: '/cong-bo/TCB2026/03. Bột đậu xanh rau má RVHG.pdf',
+    declHref: declUrl('bot-rauma'),
   },
 
   'botdx-suadua': {
@@ -127,7 +130,7 @@ export const POWDERS: Record<string, Powder> = {
     weight: '400 g (10 gói × 40 g)',
     usage: USE_SACHET,
     sku: '8936110893084',
-    declHref: '/cong-bo/TCB2026/02. Bột đậu xanh sữa dừa RVHG.pdf',
+    declHref: declUrl('bot-suadua'),
   },
 
   'botdx-matcha': {
@@ -153,7 +156,7 @@ export const POWDERS: Record<string, Powder> = {
     weight: '400 g (10 gói × 40 g)',
     usage: USE_SACHET,
     sku: '8936110893107',
-    declHref: '/cong-bo/TCB2026/04. Bột đậu xanh matcha RVHG.pdf',
+    declHref: declUrl('bot-matcha'),
   },
 
   'botdx-rauma-khongduong': {
@@ -178,7 +181,7 @@ export const POWDERS: Record<string, Powder> = {
     weight: '500 g',
     usage: USE_JAR,
     sku: '8936110893121',
-    declHref: '/cong-bo/TCB2026/06. Bột đậu xanh rau má không thêm đường RVHG.pdf',
+    declHref: declUrl('bot-rauma-khongduong'),
     noSugar: true,
   },
 
@@ -204,7 +207,7 @@ export const POWDERS: Record<string, Powder> = {
     weight: '500 g',
     usage: USE_JAR,
     sku: '8936110893114',
-    declHref: '/cong-bo/TCB2026/05. Bột đậu xanh sữa dừa không thêm đường RVHG.pdf',
+    declHref: declUrl('bot-suadua-khongduong'),
     noSugar: true,
   },
 };

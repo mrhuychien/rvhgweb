@@ -32,7 +32,7 @@ certifications:
     body: 'Truyền thống được khai sinh từ năm 1918 khi vua Khải Định ban sắc phong "Bánh Ngon" cùng ấn chỉ Rồng Vàng cho nghề bánh đậu xanh Hải Dương.'
 selfDeclarations:
   - label: 'Bản tự công bố 01 — Bánh đậu xanh (PDF)'
-    href: '/cong-bo/01-banh-dau-xanh.pdf'
+    href: 'https://drive.google.com/file/d/1I6mVj6dZ2xZl2SA_ScMIpMEvVhfwsS8G/view?usp=sharing'
 products:
   - name: 'Bánh đậu xanh H15'
     image: '/images/legacy/h15-web-1-300x300.jpg'

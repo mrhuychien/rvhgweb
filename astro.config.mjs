@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 import rehypeResponsiveImg from './tools/rehype-responsive-img.mjs';
 import rehypeFileSize from './tools/rehype-file-size.mjs';
 import rehypeTableScroll from './tools/rehype-table-scroll.mjs';
+import rehypeDriveLinks from './tools/rehype-drive-links.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,7 +24,7 @@ export default defineConfig({
   ],
   markdown: {
     // Ảnh trong bài viết cũng được srcset WebP + width/height + lazy.
-    rehypePlugins: [rehypeResponsiveImg, rehypeFileSize, rehypeTableScroll],
+    rehypePlugins: [rehypeResponsiveImg, rehypeFileSize, rehypeTableScroll, rehypeDriveLinks],
   },
   vite: {
     plugins: [tailwindcss()],

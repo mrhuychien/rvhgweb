@@ -1,56 +1,72 @@
 ---
 title: 'Bản tự công bố sản phẩm — Rồng Vàng Hoàng Gia'
-description: 'Hồ sơ tự công bố các sản phẩm bánh đậu xanh, bột đậu xanh, chè đậu đen của Công ty Cổ phần Hoàng Giang theo Nghị định 15/2018/NĐ-CP. Bản PDF công khai cho từng SKU.'
+description: 'Hồ sơ tự công bố sản phẩm bánh đậu xanh, bột đậu xanh và chè đậu đen của Công ty Cổ phần Hoàng Giang theo Nghị định 15/2018/NĐ-CP — bản gốc từng số hiệu, ba tiêu chuẩn cơ sở và công văn gửi cơ quan quản lý.'
 effectiveDate: 2023-07-01
 oldUrl: 'https://www.rongvanghoanggia.com/ban-tu-cong-bo-rong-vang-hoang-gia/'
 ---
 
 ## Tự công bố sản phẩm
 
-Theo quy định tại **Nghị định 15/2018/NĐ-CP** về an toàn thực phẩm, Công ty Cổ phần Hoàng Giang thực hiện **tự công bố** đối với các sản phẩm bánh đậu xanh, bột đậu xanh và chè đậu đen mang thương hiệu Rồng Vàng Hoàng Gia.
+Theo quy định tại **Nghị định 15/2018/NĐ-CP** về an toàn thực phẩm, Công ty Cổ phần Hoàng Giang thực hiện **tự công bố** đối với các sản phẩm bánh đậu xanh, bột đậu xanh và chè đậu đen mang thương hiệu Rồng Vàng Hoàng Gia. Hồ sơ đã nộp tại cơ quan quản lý nhà nước có thẩm quyền — Chi cục An toàn vệ sinh thực phẩm (trước sáp nhập: tỉnh Hải Dương; hiện nay: thành phố Hải Phòng).
 
-**Cập nhật:** hồ sơ gốc ngày 01/07/2023; bổ sung tự công bố dòng **bột đậu các loại** năm 2026 (xem mục bên dưới).
+**Mỗi bản tự công bố dưới đây đã kèm phiếu kết quả kiểm nghiệm** của phòng thử nghiệm được chỉ định — Eurofins Sắc Ký Hải Đăng và VinaCert — nằm ngay trong văn bản, không phải xin riêng.
 
-## Bản tự công bố các sản phẩm đang lưu hành
+**Bản gốc:** toàn bộ văn bản lưu công khai tại [thư mục hồ sơ tự công bố trên Google Drive](https://drive.google.com/drive/folders/1hwasJijp95Oev3_4UBZsSl46N99mc0GF). Mỗi link dưới đây mở trực tiếp bản scan có chữ ký và dấu.
 
-- [Bản tự công bố 01 — Bánh đậu xanh Rồng Vàng Hoàng Gia (PDF)](/cong-bo/01-banh-dau-xanh.pdf) · 2023
-- [Bản tự công bố 02 — Bánh đậu trà xanh Rồng Vàng Hoàng Gia (PDF)](/cong-bo/02-banh-dau-tra-xanh.pdf) · 2023
-- [Bản tự công bố 03 — Bánh đậu sầu riêng Rồng Vàng Hoàng Gia (PDF)](/cong-bo/03-banh-dau-sau-rieng.pdf) · 2023
-- [Bản tự công bố 04 — Bánh đậu xanh hương vị trái cây (PDF)](/cong-bo/04-banh-dau-xanh-huong-vi-trai-cay.pdf) · 2023
-- [Bản tự công bố 05 — Bánh đậu xanh hương vị sen (PDF)](/cong-bo/05-banh-dau-xanh-huong-vi-sen.pdf) · 2023
-- [Bản tự công bố 06 — Bánh đậu xanh hương vị dừa (PDF)](/cong-bo/06-banh-dau-xanh-huong-vi-dua.pdf) · 2023
-- [Bản tự công bố 07 — Bánh đậu xanh hương vị khoai môn (PDF)](/cong-bo/07-banh-dau-xanh-huong-vi-khoai-mon.pdf) · 2023
-- [Bản tự công bố 08 — Bánh đậu xanh hương vị cốm (PDF)](/cong-bo/08-banh-dau-xanh-huong-vi-com.pdf) · 2023
-- [Bản tự công bố 09 — Bột đậu xanh dinh dưỡng (PDF)](/cong-bo/09-bot-dau-xanh-dinh-duong.pdf) · 2021
-- [Bản tự công bố 10 — Chè đậu đen cốt dừa (PDF)](/cong-bo/10-che-dau-den-cot-dua.pdf) · 2021
-- [Bản tự công bố — Bột đậu xanh nguyên chất (PDF)](/cong-bo/11-bot-dau-xanh-nguyen-chat.pdf) · 2019
+### Bánh đậu xanh — 8 bản, ký ngày 01/07/2023
 
-### Bột đậu các loại — cập nhật 2026
+Số hiệu theo mẫu `NN/Công ty cổ phần Hoàng Giang/Năm 2023`. Hạn sử dụng 09 tháng kể từ ngày sản xuất.
 
-Dòng bột đậu xanh pha sẵn (cà rốt, rau má, sữa dừa, matcha) và dòng không thêm đường (plant-based) đã hoàn tất tự công bố năm 2026:
+- [01 — Bánh đậu xanh Rồng Vàng Hoàng Gia](https://drive.google.com/file/d/1I6mVj6dZ2xZl2SA_ScMIpMEvVhfwsS8G/view?usp=sharing)
+- [02 — Bánh đậu trà xanh Rồng Vàng Hoàng Gia](https://drive.google.com/file/d/1biFw1WzVQzdOqD5SM2Nr0DqXm7boxYw2/view?usp=sharing)
+- [03 — Bánh đậu sầu riêng Rồng Vàng Hoàng Gia](https://drive.google.com/file/d/1SxMOgYfGV6DDVeSDb42jgjBBSYHRuK5u/view?usp=sharing)
+- [04 — Bánh đậu xanh hương vị trái cây](https://drive.google.com/file/d/1rk9xX7z0MSE4Fh-MGP8VC1_czNIOb8ma/view?usp=sharing)
+- [05 — Bánh đậu xanh hương vị sen](https://drive.google.com/file/d/1ks3qqKVgSb-_hCzPHpU81KOm56S2QdcO/view?usp=sharing)
+- [06 — Bánh đậu xanh hương vị dừa](https://drive.google.com/file/d/1qba3D6UZnPUiLTeSpSMg35sjW9-oIlLl/view?usp=sharing)
+- [07 — Bánh đậu xanh hương vị khoai môn](https://drive.google.com/file/d/1Bm_Z58S3J69oJWD9OCSkpd2DH5hfDOTI/view?usp=sharing)
+- [08 — Bánh đậu xanh hương vị cốm](https://drive.google.com/file/d/1eao1MPMDtIz2oB6b6CHNpPdubvQdoP-F/view?usp=sharing)
 
-- [Bản tự công bố — Bột đậu xanh Cà Rốt (PDF)](/cong-bo/TCB2026/01.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20c%C3%A0%20r%E1%BB%91t%20RVHG.pdf) · 2026
-- [Bản tự công bố — Bột đậu xanh Sữa Dừa (PDF)](/cong-bo/TCB2026/02.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20s%E1%BB%AFa%20d%E1%BB%ABa%20RVHG.pdf) · 2026
-- [Bản tự công bố — Bột đậu xanh Rau Má (PDF)](/cong-bo/TCB2026/03.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20rau%20m%C3%A1%20RVHG.pdf) · 2026
-- [Bản tự công bố — Bột đậu xanh Matcha (PDF)](/cong-bo/TCB2026/04.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20matcha%20RVHG.pdf) · 2026
-- [Bản tự công bố — Bột đậu xanh Sữa Dừa, không thêm đường (PDF)](/cong-bo/TCB2026/05.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20s%E1%BB%AFa%20d%E1%BB%ABa%20kh%C3%B4ng%20th%C3%AAm%20%C4%91%C6%B0%E1%BB%9Dng%20RVHG.pdf) · 2026
-- [Bản tự công bố — Bột đậu xanh Rau Má, không thêm đường (PDF)](/cong-bo/TCB2026/06.%20B%E1%BB%99t%20%C4%91%E1%BA%ADu%20xanh%20rau%20m%C3%A1%20kh%C3%B4ng%20th%C3%AAm%20%C4%91%C6%B0%E1%BB%9Dng%20RVHG.pdf) · 2026
+### Bột đậu &amp; chè — 2 bản, ký ngày 01/06/2021
 
-Kèm theo tiêu chuẩn cơ sở áp dụng cho dòng bột đậu: [TCCS 01:2026 (PDF)](/cong-bo/TCB2026/TCCS%2001%202026.pdf) · [TCCS 02:2026 (PDF)](/cong-bo/TCB2026/TCCS%2002%202026.pdf).
+- [09 — Bột đậu xanh dinh dưỡng](https://drive.google.com/file/d/1gbJNuJ5Pc5RRjar2RLYt3SiHE13srrnC/view?usp=sharing)
+- [10 — Chè đậu đen cốt dừa](https://drive.google.com/file/d/1Ni3o_9vuVKNsnoEbl2c2eZho7lg9dKKl/view?usp=sharing)
+- [Bột đậu xanh nguyên chất (PDF)](/cong-bo/11-bot-dau-xanh-nguyen-chat.pdf) · 2019
 
-Các bản tự công bố sản phẩm đầy đủ (bao gồm phiếu kết quả kiểm nghiệm trong thời hạn quy định) được lưu tại doanh nghiệp và đã nộp tại **Chi cục An toàn vệ sinh thực phẩm Hải Dương**.
+### Bột đậu xanh pha sẵn — 6 bản năm 2026
+
+Số hiệu theo mẫu `0N/HOANGGIANG/2026`. Hạn sử dụng 12 tháng kể từ ngày sản xuất.
+
+- [01 — Bột đậu xanh Cà Rốt](https://drive.google.com/file/d/18TjQP5dI3MAniWv5LvgHc6SNBnO0atSX/view?usp=sharing) · ký 09/06/2026
+- [02 — Bột đậu xanh Sữa Dừa](https://drive.google.com/file/d/1Jh8_ruJnYJP4NFZs6VQFp3G5XhTXPA_4/view?usp=sharing) · ký 09/06/2026
+- [03 — Bột đậu xanh Rau Má](https://drive.google.com/file/d/1iGM9Zuu026Vd8eOdscKneojL9dfH02u8/view?usp=sharing) · ký 29/06/2026
+- [04 — Bột đậu xanh Matcha](https://drive.google.com/file/d/1R8Ebe_XZKt1WikBlYRIvhYBs5d5dnrCM/view?usp=sharing) · ký 09/06/2026
+- [05 — Bột đậu xanh Sữa Dừa, không thêm đường](https://drive.google.com/file/d/1J3iH4j62Si3mklthW9pw21XwANm2eGJj/view?usp=sharing) · ký 09/06/2026
+- [06 — Bột đậu xanh Rau Má, không thêm đường](https://drive.google.com/file/d/1Q9yy4lg8bM182poDjPj-SCh7LH4VR-D6/view?usp=sharing) · ký 09/06/2026
+
+## Tiêu chuẩn cơ sở
+
+Tiêu chuẩn cơ sở do công ty ban hành là căn cứ kỹ thuật cho các chỉ tiêu cảm quan, lý — hoá, vi sinh, kim loại nặng và độc tố vi nấm của từng dòng sản phẩm.
+
+- [TCCS 01:2026/RVHG — Bột đậu có đường](https://drive.google.com/file/d/1fRUgclhAFLxHKHdYncZkjg5WhlQ4L8Gi/view?usp=sharing) · **soát xét lần 1**, ban hành kèm Quyết định 11/QĐ-HGC ngày 10/08/2026, thay bản ban hành kèm Quyết định 08/QĐ-HGC ngày 17/03/2026.
+- [TCCS 02:2026/RVHG — Bột đậu không thêm đường](https://drive.google.com/file/d/1u1XGTjGRgMbUrXvGFMMteX_5lhTVNxDp/view?usp=sharing) · ban hành kèm Quyết định 09/QĐ-HGC ngày 17/03/2026.
+- [TCCS 03:2026/RVHG — Bánh đậu xanh](https://drive.google.com/file/d/1dW0UIu0cJZDB2W_3MVEhqGNsesR6g9BH/view?usp=sharing) · **soát xét lần 1**, ban hành kèm Quyết định 12/QĐ-HGC ngày 15/08/2026, thay bản ban hành kèm Quyết định 10/QĐ-HGC ngày 03/08/2026. Áp dụng cho bánh truyền thống và bánh bổ sung hương vị trà xanh, sầu riêng, sen, dừa, cốm, khoai môn, đào, dứa.
 
 ## Văn bản gửi cơ quan quản lý
 
-- [Công văn đính chính hồ sơ tự công bố — gửi Chi cục Vệ sinh an toàn thực phẩm Hải Dương (PDF)](/cong-bo/cong-van-dinh-chinh-thanh-phan-nguyen-lieu.pdf) · 10/2024 — về việc đính chính thành phần nguyên liệu.
-- [Công văn tự công bố dòng bột đậu các loại (PDF)](/cong-bo/TCB2026/CV%20nhan%20tu%20cong%20bo.pdf) · 2026
+- [Công văn đính chính, bổ sung hồ sơ tự công bố](https://drive.google.com/file/d/1U5VwTou6LPyFswzqYWkmbwyDJ0DVIGxF/view?usp=sharing) · 2026 — gửi Sở Công Thương và Chi cục An toàn vệ sinh thực phẩm thành phố Hải Phòng: cập nhật địa chỉ tổ chức, chỉnh cụm từ thành phần và thay Quyết định 46/2007/QĐ-BYT bằng TCCS 01:2026/RVHG và TCCS 03:2026/RVHG cho cả 10 bản tự công bố số 01–08 (năm 2023) và số 09, 10 (năm 2021). Các quy chuẩn QCVN 8-1:2011/BYT, QCVN 8-2:2011/BYT giữ nguyên.
+- [Thông báo 10/TB-HGC](https://drive.google.com/file/d/1d8SYL9s2K4p50K-vpEkjrIvPkv9dHsFa/view?usp=sharing) · 29/06/2026 — gửi Sở Công Thương thành phố Hải Phòng, nộp hồ sơ tự công bố 6 sản phẩm bột đậu xanh, kèm bản sao Giấy chứng nhận đăng ký kinh doanh, Giấy chứng nhận ISO 22000:2018, quyết định ban hành và TCCS 01:2026/RVHG, TCCS 02:2026/RVHG.
+- [Công văn đính chính thành phần nguyên liệu (PDF)](/cong-bo/cong-van-dinh-chinh-thanh-phan-nguyen-lieu.pdf) · 10/2024 — gửi Chi cục Vệ sinh an toàn thực phẩm Hải Dương.
+
+## Vì sao địa chỉ trên văn bản cũ khác hiện nay
+
+Các bản tự công bố năm 2021 và 2023 ghi địa chỉ **Cụm công nghiệp Cẩm Thượng, Khu 4, phường Cẩm Thượng, thành phố Hải Dương, tỉnh Hải Dương** — đúng địa giới hành chính tại thời điểm ký. Nhà máy không chuyển địa điểm; sau khi sắp xếp lại đơn vị hành chính, cùng vị trí đó nay mang địa chỉ **Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, thành phố Hải Phòng**. Công văn đính chính năm 2026 nêu trên chính là văn bản cập nhật nội dung này cho cả 10 bản tự công bố cũ.
 
 ## Thông tin tổ chức
 
 - Tên: **Công ty Cổ phần Hoàng Giang**
-- Mã số thuế: **0800280839**
-- Địa chỉ sản xuất: Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, TP Hải Phòng
-- Hệ thống quản lý an toàn thực phẩm: **ISO 22000:2018** — số HA 394/4.26.CIV, Quacert cấp ngày **08/08/2026**
+- Mã số doanh nghiệp / mã số thuế: **0800280839**
+- Địa chỉ sản xuất: Đường An Lưu, Cụm Công nghiệp Cẩm Thượng, phường Thành Đông, thành phố Hải Phòng
+- Hệ thống quản lý an toàn thực phẩm: **ISO 22000:2018** — số HA 394/4.26.CIV, Trung tâm Chứng nhận Phù hợp (QUACERT) cấp, hiệu lực từ **08/08/2026** đến **07/08/2029**. [Tải giấy chứng nhận ISO (PDF)](/cong-bo/giay-chung-nhan-iso-22000-2026.pdf) · [Tải giấy đăng ký kinh doanh (PDF)](/cong-bo/giay-chung-nhan-dang-ky-kinh-doanh-2026.pdf)
 
 ## Yêu cầu bản sao
 

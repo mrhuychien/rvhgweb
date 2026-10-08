@@ -1,5 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { DECL_URLS } from './data/declarations';
 
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pages' }),
@@ -35,7 +36,14 @@ const certification = z.object({
 
 const declarationLink = z.object({
   label: z.string(),
-  href: z.string(),
+  /** PDF nội bộ, hoặc link Drive — link Drive phải trùng một mục trong sổ đăng ký.
+   *  Markdown không import được TS nên URL bị viết tay ở đây; ràng buộc này chặn
+   *  việc frontmatter trỏ tới file ID không còn tồn tại. */
+  href: z
+    .string()
+    .refine((h) => !h.includes('drive.google.com') || DECL_URLS.has(h), {
+      message: 'link Drive không khớp mục nào trong src/data/declarations.ts',
+    }),
 });
 
 /** A "product line" page — replaces the old per-SKU detail pages.

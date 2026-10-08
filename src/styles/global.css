@@ -498,6 +498,18 @@ img {
 }
 .rvhg-prose a:hover { text-decoration-thickness: 2px; }
 
+/* Link văn bản gốc trên Drive (rehype-drive-links).
+   Trang tự công bố có 21 link xếp thành danh sách — đây là danh mục để bấm,
+   không phải link nằm trong câu, nên không áp dụng ngoại lệ "inline" của WCAG
+   2.5.8. Trên di động cho mỗi dòng cao ≥44px để ngón tay bấm trúng. */
+@media (max-width: 768px) {
+  .rvhg-prose li > a.rvhg-drivelink:first-child {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
 /* Dung lượng file gắn cạnh link PDF (rehype-file-size) */
 .rvhg-filesize {
   color: var(--color-mute);

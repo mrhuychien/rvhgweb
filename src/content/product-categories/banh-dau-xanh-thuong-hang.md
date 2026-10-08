@@ -30,11 +30,11 @@ certifications:
     body: 'Hiện diện trên kệ Nhật Bản, Hoa Kỳ, Anh, Hàn Quốc và Canada — đáp ứng tiêu chuẩn an toàn thực phẩm khắt khe nhất.'
 selfDeclarations:
   - label: 'Bản tự công bố 01 — Bánh đậu xanh (PDF)'
-    href: '/cong-bo/01-banh-dau-xanh.pdf'
+    href: 'https://drive.google.com/file/d/1I6mVj6dZ2xZl2SA_ScMIpMEvVhfwsS8G/view?usp=sharing'
   - label: 'Bản tự công bố 02 — Bánh đậu trà xanh (PDF)'
-    href: '/cong-bo/02-banh-dau-tra-xanh.pdf'
+    href: 'https://drive.google.com/file/d/1biFw1WzVQzdOqD5SM2Nr0DqXm7boxYw2/view?usp=sharing'
   - label: 'Bản tự công bố 03 — Bánh đậu sầu riêng (PDF)'
-    href: '/cong-bo/03-banh-dau-sau-rieng.pdf'
+    href: 'https://drive.google.com/file/d/1SxMOgYfGV6DDVeSDb42jgjBBSYHRuK5u/view?usp=sharing'
 products:
   - name: 'Hộp quà OCOP 5 sao Quốc gia'
     image: '/images/legacy/hop-5-sao-web.jpg'
