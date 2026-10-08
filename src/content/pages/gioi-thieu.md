@@ -32,7 +32,7 @@ Từ những bước khởi đầu khiêm tốn, ba anh em đã dồn hết tâm
 ## Bí quyết làm bánh ngon
 
 ### Nguồn nguyên liệu tuyển chọn
-Chúng tôi chỉ sử dụng nguồn nguyên liệu có nguồn gốc rõ ràng, chất lượng cao — đậu xanh lòng vàng tuyển chọn, dầu thực vật tự nhiên thượng hạng, đường gluco thay cho đường kính.
+Chúng tôi chỉ sử dụng nguồn nguyên liệu có nguồn gốc rõ ràng, chất lượng cao — đậu xanh lòng vàng tuyển chọn, dầu thực vật tự nhiên thượng hạng, đường kính trắng và đường gluco đạt tiêu chuẩn thực phẩm, có CO/CA của nhà cung cấp.
 
 ### Công thức bí truyền dâng vua
 Công thức bí truyền cổ xưa được kế thừa từ những nghệ nhân làm bánh dâng Vua Khải Định năm 1918 — sắc phong "Bánh Ngon" cùng ấn chỉ Rồng Vàng của Hoàng Gia.
