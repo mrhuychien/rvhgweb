@@ -1,8 +1,9 @@
 /**
  * Sổ đăng ký hồ sơ tự công bố sản phẩm — nguồn duy nhất cho mọi link văn bản.
  *
- * Bản gốc 21 văn bản nằm trên Google Drive của công ty (thư mục công khai
- * "Tu Cong Bo Chuan"), không host trong repo: mỗi bản tự công bố là ảnh scan
+ * Bản gốc 21 văn bản nằm trên Google Drive của công ty — thư mục công khai
+ * "Tu Cong Bo Chuan", https://drive.google.com/drive/folders/1hwasJijp95Oev3_4UBZsSl46N99mc0GF
+ * — không host trong repo: mỗi bản tự công bố là ảnh scan
  * 0,7–5 MB, cộng lại 24 MB — tải thẳng từ host thì tốn băng thông mà bản gốc
  * vẫn do công ty giữ. File PDF cũ vẫn còn trong public/cong-bo/ làm bản dự
  * phòng nhưng KHÔNG còn được dẫn tới (tools/drivecheck.mjs canh việc này).
@@ -16,9 +17,6 @@
  * Toàn bộ file đã kiểm quyền chia sẻ: "anyone with the link → reader". Thêm
  * văn bản mới thì phải kiểm lại quyền này bằng tay — drivecheck không gọi mạng.
  */
-
-export const DRIVE_FOLDER =
-  'https://drive.google.com/drive/folders/1hwasJijp95Oev3_4UBZsSl46N99mc0GF';
 
 /** Dạng /file/d/<id>/view là dạng duy nhất mở được bản xem trước trên di động. */
 export const driveUrl = (id: string): string => `https://drive.google.com/file/d/${id}/view?usp=sharing`;

@@ -11,8 +11,6 @@ Theo quy định tại **Nghị định 15/2018/NĐ-CP** về an toàn thực ph
 
 **Mỗi bản tự công bố dưới đây đã kèm phiếu kết quả kiểm nghiệm** của phòng thử nghiệm được chỉ định — Eurofins Sắc Ký Hải Đăng và VinaCert — nằm ngay trong văn bản, không phải xin riêng.
 
-**Bản gốc:** toàn bộ văn bản lưu công khai tại [thư mục hồ sơ tự công bố trên Google Drive](https://drive.google.com/drive/folders/1hwasJijp95Oev3_4UBZsSl46N99mc0GF). Mỗi link dưới đây mở trực tiếp bản scan có chữ ký và dấu.
-
 ### Bánh đậu xanh — 8 bản, ký ngày 01/07/2023
 
 Số hiệu theo mẫu `NN/Công ty cổ phần Hoàng Giang/Năm 2023`. Hạn sử dụng 09 tháng kể từ ngày sản xuất.
@@ -30,7 +28,6 @@ Số hiệu theo mẫu `NN/Công ty cổ phần Hoàng Giang/Năm 2023`. Hạn s
 
 - [09 — Bột đậu xanh dinh dưỡng](https://drive.google.com/file/d/1gbJNuJ5Pc5RRjar2RLYt3SiHE13srrnC/view?usp=sharing)
 - [10 — Chè đậu đen cốt dừa](https://drive.google.com/file/d/1Ni3o_9vuVKNsnoEbl2c2eZho7lg9dKKl/view?usp=sharing)
-- [Bột đậu xanh nguyên chất (PDF)](/cong-bo/11-bot-dau-xanh-nguyen-chat.pdf) · 2019
 
 ### Bột đậu xanh pha sẵn — 6 bản năm 2026
 
@@ -55,7 +52,6 @@ Tiêu chuẩn cơ sở do công ty ban hành là căn cứ kỹ thuật cho các
 
 - [Công văn đính chính, bổ sung hồ sơ tự công bố](https://drive.google.com/file/d/1U5VwTou6LPyFswzqYWkmbwyDJ0DVIGxF/view?usp=sharing) · 2026 — gửi Sở Công Thương và Chi cục An toàn vệ sinh thực phẩm thành phố Hải Phòng: cập nhật địa chỉ tổ chức, chỉnh cụm từ thành phần và thay Quyết định 46/2007/QĐ-BYT bằng TCCS 01:2026/RVHG và TCCS 03:2026/RVHG cho cả 10 bản tự công bố số 01–08 (năm 2023) và số 09, 10 (năm 2021). Các quy chuẩn QCVN 8-1:2011/BYT, QCVN 8-2:2011/BYT giữ nguyên.
 - [Thông báo 10/TB-HGC](https://drive.google.com/file/d/1d8SYL9s2K4p50K-vpEkjrIvPkv9dHsFa/view?usp=sharing) · 29/06/2026 — gửi Sở Công Thương thành phố Hải Phòng, nộp hồ sơ tự công bố 6 sản phẩm bột đậu xanh, kèm bản sao Giấy chứng nhận đăng ký kinh doanh, Giấy chứng nhận ISO 22000:2018, quyết định ban hành và TCCS 01:2026/RVHG, TCCS 02:2026/RVHG.
-- [Công văn đính chính thành phần nguyên liệu (PDF)](/cong-bo/cong-van-dinh-chinh-thanh-phan-nguyen-lieu.pdf) · 10/2024 — gửi Chi cục Vệ sinh an toàn thực phẩm Hải Dương.
 
 ## Vì sao địa chỉ trên văn bản cũ khác hiện nay
 

@@ -38,8 +38,6 @@ selfDeclarations:
     href: 'https://drive.google.com/file/d/1gbJNuJ5Pc5RRjar2RLYt3SiHE13srrnC/view?usp=sharing'
   - label: 'Bản tự công bố 10 — Chè đậu đen cốt dừa (PDF)'
     href: 'https://drive.google.com/file/d/1Ni3o_9vuVKNsnoEbl2c2eZho7lg9dKKl/view?usp=sharing'
-  - label: 'Bản tự công bố — Bột đậu xanh nguyên chất (PDF)'
-    href: '/cong-bo/11-bot-dau-xanh-nguyen-chat.pdf'
   - label: 'Bột đậu xanh Cà Rốt (2026, PDF)'
     href: 'https://drive.google.com/file/d/18TjQP5dI3MAniWv5LvgHc6SNBnO0atSX/view?usp=sharing'
   - label: 'Bột đậu xanh Sữa Dừa (2026, PDF)'
