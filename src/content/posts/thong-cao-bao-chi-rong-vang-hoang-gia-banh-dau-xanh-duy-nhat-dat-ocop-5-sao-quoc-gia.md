@@ -1,61 +1,50 @@
 ---
-title: 'Thông cáo báo chí: Rồng Vàng Hoàng Gia – Bánh đậu xanh duy nhất đạt OCOP 5 sao quốc gia'
-seoTitle: 'Bánh đậu xanh duy nhất đạt OCOP 5 sao Quốc gia'
-description: 'Thông cáo báo chí: bánh đậu xanh Rồng Vàng Hoàng Gia (Công ty CP Hoàng Giang, Hải Dương) là sản phẩm đầu tiên và duy nhất cả nước đạt OCOP 5 sao Quốc gia năm 2024.'
+title: 'Bánh đậu xanh Rồng Vàng Hoàng Gia: dấu mốc OCOP 2024'
+seoTitle: 'Bánh đậu xanh Rồng Vàng Hoàng Gia: dấu mốc OCOP 2024'
+description: Thông cáo lưu trữ về bánh đậu xanh Rồng Vàng Hoàng Gia đạt OCOP 5 sao năm 2024, kèm đính chính mốc quyết định và phạm vi sản phẩm được công nhận.
 publishDate: 2024-10-01
-author: 'Rồng Vàng Hoàng Gia'
+author: Rồng Vàng Hoàng Gia
 tags: []
-oldUrl: 'https://www.rongvanghoanggia.com/thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia/'
+oldUrl: https://www.rongvanghoanggia.com/thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia/
 relatedProducts: []
-updated: 2026-07-05
+updated: 2026-10-15
 faq:
-  - q: 'Bánh đậu xanh Rồng Vàng Hoàng Gia đạt chứng nhận gì?'
-    a: 'Sản phẩm bánh đậu xanh Rồng Vàng Hoàng Gia của Công ty Cổ phần Hoàng Giang được công nhận đạt OCOP 5 sao cấp quốc gia năm 2024. Đây là chứng nhận cao quý và uy tín trong ngành thực phẩm Việt Nam.'
-  - q: 'Chứng nhận OCOP 5 sao Quốc gia có ý nghĩa gì?'
-    a: 'OCOP 5 sao là thứ hạng cao nhất của Chương trình Mỗi xã một sản phẩm, khẳng định chất lượng và uy tín được công nhận trên toàn quốc. Bánh đậu xanh Rồng Vàng Hoàng Gia là một trong 4 sản phẩm cả nước đạt hạng này trong đợt đánh giá năm 2024.'
-  - q: 'Có phải Rồng Vàng Hoàng Gia là bánh đậu xanh duy nhất đạt OCOP 5 sao?'
-    a: 'Đúng vậy, đây là sản phẩm bánh đậu xanh đầu tiên và duy nhất cả nước đạt OCOP 5 sao Quốc gia tính đến thời điểm hiện tại, đồng thời là sản phẩm đầu tiên của tỉnh Hải Dương đạt thứ hạng này.'
+- q: Bánh đậu xanh Rồng Vàng Hoàng Gia được công nhận vào ngày nào?
+  a: Danh sách do Báo điện tử Chính phủ công bố ghi Quyết định 2171/QĐ-BNN-VPĐP ngày 04/7/2024.
+- q: Vì sao thông cáo có đính chính?
+  a: Bản cũ đề ngày 27/6/2024 nhưng diễn đạt như đã có quyết định công nhận. Bản cập nhật phân biệt thời điểm đánh giá với ngày quyết định.
+- q: Chứng nhận có áp dụng cho mọi sản phẩm của thương hiệu không?
+  a: Không nên suy rộng. Cần đối chiếu đúng tên sản phẩm và hồ sơ công nhận tương ứng.
+cover: /images/legacy/HG20-web-300x300.jpg
+coverAlt: Mẫu hộp bánh đậu xanh màu vàng trong tư liệu Rồng Vàng Hoàng Gia
+coverFit: contain
+coverCaption: Ảnh bao bì từ tư liệu thương hiệu; không phải ảnh lễ công nhận OCOP năm 2024 và không tự xác nhận phạm vi chứng nhận của từng sản phẩm.
 ---
 
-**Thông Cáo Báo Chí**
+Bánh đậu xanh Rồng Vàng Hoàng Gia của Công ty Cổ phần Hoàng Giang được công nhận OCOP 5 sao năm 2024. Thông cáo lưu trữ này ghi lại dấu mốc ấy, đồng thời làm rõ sự khác nhau giữa thông tin đánh giá và quyết định công nhận.
 
-**Công ty cổ phần Hoàng Giang – Thương Hiệu Rồng Vàng Hoàng Gia**
+**Đính chính ngày 15/10/2026:** Bản thông cáo trước đây đề ngày 27/6/2024 và dùng cách diễn đạt đã chính thức được công nhận. Mốc quyết định công nhận được đối chiếu lại là ngày 04/7/2024; ngày họp đánh giá và ngày ban hành quyết định không phải cùng một mốc. Ngày đăng lưu trữ của bài được giữ nguyên.
 
-**Hải Dương, Ngày 27 Tháng 6 Năm 2024**
+## Dấu mốc công nhận năm 2024
 
-**BÁNH ĐẬU XANH RỒNG VÀNG HOÀNG GIA ĐẠT CHUẨN OCOP 5 SAO QUỐC GIA**
+Theo [danh sách sản phẩm OCOP 5 sao do Báo điện tử Chính phủ công bố](https://xaydungchinhsach.chinhphu.vn/danh-sach-san-pham-ocop-5-sao-119260408171050959.htm), sản phẩm bánh đậu xanh Rồng Vàng Hoàng Gia được ghi nhận theo Quyết định số 2171/QĐ-BNN-VPĐP ngày 04/7/2024.
 
-**Công ty cổ phần Hoàng Giang** tự hào thông báo rằng sản phẩm **bánh đậu xanh Rồng Vàng Hoàng Gia** đã chính thức được công nhận đạt chuẩn OCOP 5 sao quốc gia – một chứng nhận cao quý và uy tín trong ngành thực phẩm Việt Nam.
+Thông tin này cần gắn với đúng tên sản phẩm và chủ thể. Không nên chuyển thành lời khẳng định mọi dòng bánh, mọi hộp quà hoặc toàn bộ danh mục của doanh nghiệp đều có cùng chứng nhận.
 
-Sáng ngày 25/6/2024, tại Hà Nội, Thứ trưởng Bộ Nông nghiệp và Phát triển nông thôn Trần Thanh Nam chủ trì buổi họp Hội đồng đánh giá, phân hạng sản phẩm Chương trình mỗi xã một sản phẩm cấp trung ương năm 2024. Trong tổng số 55 sản phẩm được các địa phương gửi lên, có 4 sản phẩm được công nhận đạt sản phẩm OCOP cấp quốc gia. Trong đó có bánh đậu xanh Rồng Vàng Hoàng Gia của công ty cổ phần Hoàng Giang (Hải Dương). Đây cũng là sản phẩm đầu tiên và duy nhất đạt OCOP 5 sao của tỉnh Hải Dương đến thời điểm hiện tại.
+## Ý nghĩa với một nghề làm bánh quen thuộc
 
-**Sứ Mệnh Và Cam Kết**
+Với Công ty Cổ phần Hoàng Giang, dấu mốc OCOP là một phần trong hành trình giới thiệu bánh đậu xanh Hải Dương tới người tiêu dùng. Miếng bánh vốn được nhớ bằng vị bùi và nếp thưởng trà nay có thêm một thông tin chính thức để người mua tra cứu, thay vì chỉ dựa vào lời truyền miệng.
 
-Với sứ mệnh bảo tồn và phát triển hương vị truyền thống, chúng tôi đã không ngừng nỗ lực trong việc cải tiến quy trình sản xuất và nâng cao chất lượng sản phẩm. Bánh đậu xanh Rồng Vàng Hoàng Gia không chỉ là sản phẩm ẩm thực mà còn là sự kết tinh của tình yêu, đam mê và sự tận tâm của từng công nhân viên tại Hoàng Giang. Chúng tôi cam kết mang đến cho người tiêu dùng những sản phẩm an toàn, chất lượng và mang đậm hương vị quê nhà.
+Nhưng một chứng nhận không thay cho mọi thông tin về sản phẩm. Thành phần, quy cách, hạn sử dụng và hướng dẫn bảo quản vẫn cần được công bố rõ trên đúng hộp bánh. Người mua làm quà cũng cần biết người nhận thích vị nào, dùng vào dịp nào, có yêu cầu riêng về nguyên liệu hay không.
 
-**Đặc Điểm Nổi Bật Của Sản Phẩm**
+Đó là cách một thành quả được nối với đời sống: từ văn bản công nhận đến chiếc hộp trên bàn nước, từ sự ghi nhận của chương trình đến trải nghiệm của người mở bánh.
 
--   **Chất lượng vượt trội:** Bánh đậu xanh Rồng Vàng Hoàng Gia được làm từ những hạt đậu xanh chọn lọc kỹ lưỡng, không chứa chất bảo quản, đảm bảo an toàn cho sức khỏe. Đủ tiêu chuẩn để xuất khẩu tới những thị trường khó tính nhất như Nhật Bản, Mỹ, EU…
--   **Hương vị độc đáo:** Sản phẩm có hương vị thanh mát, ít ngọt, phù hợp với khẩu vị của người Việt Nam.
--   **Đạt chuẩn OCOP 5 sao:** Chứng nhận OCOP 5 sao quốc gia là minh chứng cho chất lượng và uy tín của sản phẩm, được công nhận trên toàn quốc.
+## Trân trọng khách hàng và người làm nghề
 
-**Hành Trình Đạt Chuẩn OCOP 5 Sao**
+Rồng Vàng Hoàng Gia trân trọng sự đồng hành của khách hàng, đối tác và tập thể người lao động. Đằng sau một dấu mốc là công việc được làm qua nhiều ngày: chăm chút sản phẩm, tiếp nhận phản hồi và giữ cho thông tin giới thiệu nhất quán với thực tế.
 
-Hành trình đạt chuẩn OCOP 5 sao quốc gia là một quá trình dài đầy thử thách và nỗ lực không ngừng của toàn thể công ty. Từ việc chọn lựa nguyên liệu, cải tiến quy trình sản xuất đến việc kiểm định chất lượng, chúng tôi luôn tuân thủ những tiêu chuẩn khắt khe nhất để đảm bảo sản phẩm đạt chất lượng cao nhất.
+“Đặc sản nức tiếng Hải Dương” là lời nhắc về quê hương của món bánh, cũng là điều chúng tôi muốn gìn giữ trong cách phục vụ. Quý khách có thể tìm hiểu [sản phẩm Rồng Vàng Hoàng Gia](/san-pham/) và đối chiếu thông tin của từng dòng khi lựa chọn.
 
-**Lời Cảm Ơn**
+## Về Rồng Vàng Hoàng Gia
 
-Chúng tôi xin chân thành cảm ơn sự tin tưởng và ủng hộ của quý khách hàng, đối tác và toàn thể công nhân viên. Thành công này là một minh chứng cho sự đoàn kết và nỗ lực không ngừng của chúng tôi trong việc mang lại những sản phẩm tốt nhất cho người tiêu dùng.
-
-**Thông Tin Liên Hệ**
-
-**Công ty cổ phần Hoàng Giang**  
-Địa chỉ: Cụm công nghiệp Cẩm Thượng, khu 4 phường Cẩm Thượng, thành phố Hải Dương, tỉnh Hải Dương  
-Điện thoại: 02203 848 559 – 0934 362658 Email: info@rongvanghoanggia.com  
-Website: rongvanghoanggia.com
-
-Để biết thêm thông tin chi tiết về sản phẩm bánh đậu xanh Rồng Vàng Hoàng Gia và các hoạt động của công ty, vui lòng liên hệ chúng tôi qua thông tin trên.
-
-**Trân trọng,**
-
-**Công ty cổ phần Hoàng Giang.**
+Rồng Vàng Hoàng Gia là thương hiệu của Công ty Cổ phần Hoàng Giang, gắn với bánh đậu xanh và các sản phẩm từ đậu tại Hải Dương. Thông cáo này được lưu lại để tham khảo dấu mốc năm 2024; thông tin mua hàng hiện hành cần xác nhận qua [trang liên hệ](/lien-he/).

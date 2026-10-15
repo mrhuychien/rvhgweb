@@ -1,0 +1,210 @@
+{
+  "base": "387e72887d6bcfccaa0bfdee2ddf1aa7dada776b",
+  "as_of": "2026-10-15",
+  "total": 72,
+  "scheduled": [
+    {
+      "file": "banh-dau-xanh-qua-tet-hon-viet.md",
+      "publishDate": "2026-12-08"
+    },
+    {
+      "file": "banh-dau-xanh-quy-trinh-ocop-5-sao.md",
+      "publishDate": "2026-10-16"
+    },
+    {
+      "file": "banh-dau-xanh-van-hoa-tet.md",
+      "publishDate": "2026-11-17"
+    },
+    {
+      "file": "bot-dau-xanh-mua-lanh.md",
+      "publishDate": "2026-11-20"
+    },
+    {
+      "file": "cach-bao-quan-bot-dau-xanh.md",
+      "publishDate": "2026-10-23"
+    },
+    {
+      "file": "cach-chon-hop-qua-tet.md",
+      "publishDate": "2026-12-11"
+    },
+    {
+      "file": "dau-xanh-trong-am-thuc-viet.md",
+      "publishDate": "2026-10-30"
+    },
+    {
+      "file": "gio-qua-tet-doanh-nghiep.md",
+      "publishDate": "2026-12-04"
+    },
+    {
+      "file": "hop-qua-tet-banh-dau-xanh.md",
+      "publishDate": "2026-11-10"
+    },
+    {
+      "file": "mua-banh-dau-xanh-tet.md",
+      "publishDate": "2026-12-15"
+    },
+    {
+      "file": "qua-20-11-thay-co.md",
+      "publishDate": "2026-11-06"
+    },
+    {
+      "file": "qua-bieu-suc-khoe.md",
+      "publishDate": "2026-10-20"
+    },
+    {
+      "file": "qua-tet-2027-dac-san.md",
+      "publishDate": "2026-12-01"
+    },
+    {
+      "file": "qua-tet-2027-dat-som.md",
+      "publishDate": "2026-11-03"
+    },
+    {
+      "file": "qua-tet-doi-tac-nuoc-ngoai.md",
+      "publishDate": "2026-11-27"
+    },
+    {
+      "file": "qua-tet-gia-dinh.md",
+      "publishDate": "2026-12-22"
+    },
+    {
+      "file": "qua-tet-ocop-5-sao.md",
+      "publishDate": "2026-12-29"
+    }
+  ],
+  "before": {
+    "missing": [
+      "Bánh đậu xanh có béo không ? Đập tan nỗi ám ảnh",
+      "Bánh đậu xanh Hải Dương tại TPHCM- Đặc sản bắc kỳ làm nức lòng Sài thành",
+      "Bánh đậu xanh ngon- Không phải cứ về đến Hải Dương là mua được",
+      "Bánh đậu xanh ở Hà Nội",
+      "Bánh đậu xanh rồng vàng- Tiết lộ câu chuyện lịch sử",
+      "Bánh đậu xanh Tết Tân Sửu 2021 – Rồng Vàng Hoàng Gia",
+      "Bánh đậu xanh trà xanh rồng vàng- Thêm một nguyên liệu say đắm cả vạn người",
+      "Giá 1 hộp bánh đậu xanh là bao nhiêu? Mua ở đâu thì uy tín?",
+      "Làm bánh đậu xanh Hải Dương – Công thức cổ truyền xưa",
+      "Mua bánh đậu xanh ở Sài Gòn- Nhanh chóng sở hữu sản phẩm chính gốc, độc đáo",
+      "Thông cáo báo chí: Rồng Vàng Hoàng Gia – Bánh đậu xanh duy nhất đạt OCOP 5 sao quốc gia",
+      "Thông cáo báo chí: Lễ đón nhận Chứng nhận sản phẩm OCOP 5 sao quốc gia: Bánh đậu xanh Rồng Vàng Hoàng Gia và khai trương showroom"
+    ],
+    "repeated_paths": [
+      [
+        "5 cách độc đáo để thưởng thức bánh đậu xanh, cách thứ 5 bạn có nằm mơ cũng chưa chắc đã nghĩ đến",
+        "Trà và bánh đậu xanh: nghệ thuật thưởng thức của người Việt"
+      ],
+      [
+        "Bà bầu và trẻ nhỏ dùng bột, bánh đậu xanh: lưu ý gì?",
+        "Bột đậu xanh có làm đẹp da không? Sự thật và cách dùng"
+      ],
+      [
+        "Bánh đậu trà xanh & sầu riêng RVHG đạt OCOP 5 sao Quốc gia",
+        "OCOP 5 sao Quốc gia là gì và vì sao quan trọng?"
+      ],
+      [
+        "Bánh đậu trà xanh — câu chuyện sản phẩm",
+        "Bánh đậu trà xanh — một khúc biến tấu của hương sắc và trầm tư"
+      ],
+      [
+        "Bánh đậu trà xanh Hoàng Gia",
+        "Quà tặng người lớn tuổi: vì sao bánh đậu xanh là lựa chọn tinh tế"
+      ],
+      [
+        "Bánh đậu xanh bao nhiêu calo? Ăn sao để không lo tăng cân",
+        "Bánh đậu xanh có tốt cho người tiểu đường không?"
+      ],
+      [
+        "Bánh đậu xanh Hải Dương – Hương vị truyền thống vượt thời gian",
+        "Bánh đậu xanh là gì? Nguồn gốc, cách chọn và cách thưởng thức",
+        "Cách bảo quản bánh đậu xanh đúng cách, để được bao lâu?",
+        "Đặc sản Hải Dương: khám phá tinh hoa vùng đất Xứ Đông"
+      ],
+      [
+        "Bánh Đậu Xanh Hải Dương: Món Quà Biếu Ý Nghĩa Cho Mọi Dịp Đặc Biệt",
+        "Vì sao bánh đậu xanh RVHG đạt OCOP 5 sao? Bên trong quy trình"
+      ],
+      [
+        "Bột đậu xanh có tác dụng gì? Dinh dưỡng, lợi ích và cách dùng",
+        "Bột đậu xanh pha sẵn: cà rốt, rau má, sữa dừa, matcha & không đường",
+        "Bột đậu xanh và bột ngũ cốc: nên chọn loại nào?"
+      ],
+      [
+        "Đặc sản Hải Dương làm quà biếu: chọn gì cho sang và ý nghĩa?",
+        "Đặc sản miền Bắc làm quà biếu: gợi ý ngoài bánh đậu xanh",
+        "Cách phân biệt bánh đậu xanh chính hãng và hàng kém chất lượng"
+      ],
+      [
+        "Đậu xanh có tác dụng gì với sức khoẻ?",
+        "Lợi ích sức khỏe bất ngờ từ việc ăn bánh đậu xanh mỗi ngày"
+      ],
+      [
+        "Quà biếu đối tác, doanh nghiệp: chọn đặc sản sao cho tinh tế",
+        "Quà Trung Thu cho doanh nghiệp, đối tác: chọn sao cho tinh tế"
+      ]
+    ],
+    "identical_bytes": [
+      [
+        "5 cách độc đáo để thưởng thức bánh đậu xanh, cách thứ 5 bạn có nằm mơ cũng chưa chắc đã nghĩ đến",
+        "Trà và bánh đậu xanh: nghệ thuật thưởng thức của người Việt"
+      ],
+      [
+        "Bà bầu và trẻ nhỏ dùng bột, bánh đậu xanh: lưu ý gì?",
+        "Bột đậu xanh có làm đẹp da không? Sự thật và cách dùng",
+        "Các món ngon từ đậu xanh: từ chè, bánh đến thức uống"
+      ],
+      [
+        "Bánh đậu trà xanh & sầu riêng RVHG đạt OCOP 5 sao Quốc gia",
+        "OCOP 5 sao Quốc gia là gì và vì sao quan trọng?"
+      ],
+      [
+        "Bánh đậu trà xanh — câu chuyện sản phẩm",
+        "Bánh đậu trà xanh — một khúc biến tấu của hương sắc và trầm tư"
+      ],
+      [
+        "Bánh đậu trà xanh Hoàng Gia",
+        "Quà tặng người lớn tuổi: vì sao bánh đậu xanh là lựa chọn tinh tế"
+      ],
+      [
+        "Bánh đậu xanh bao nhiêu calo? Ăn sao để không lo tăng cân",
+        "Bánh đậu xanh có tốt cho người tiểu đường không?"
+      ],
+      [
+        "Bánh đậu xanh Hải Dương – Hương vị truyền thống vượt thời gian",
+        "Bánh đậu xanh là gì? Nguồn gốc, cách chọn và cách thưởng thức",
+        "Cách bảo quản bánh đậu xanh đúng cách, để được bao lâu?",
+        "Đặc sản Hải Dương: khám phá tinh hoa vùng đất Xứ Đông"
+      ],
+      [
+        "Bánh Đậu Xanh Hải Dương: Món Quà Biếu Ý Nghĩa Cho Mọi Dịp Đặc Biệt",
+        "Vì sao bánh đậu xanh RVHG đạt OCOP 5 sao? Bên trong quy trình"
+      ],
+      [
+        "Bánh đậu xanh trong văn hoá biếu Tết của người Việt",
+        "Lên kế hoạch quà Tết 2027 sớm: vì sao nên đặt từ bây giờ"
+      ],
+      [
+        "Bột đậu xanh có tác dụng gì? Dinh dưỡng, lợi ích và cách dùng",
+        "Bột đậu xanh pha sẵn: cà rốt, rau má, sữa dừa, matcha & không đường",
+        "Bột đậu xanh và bột ngũ cốc: nên chọn loại nào?"
+      ],
+      [
+        "Đặc sản Hải Dương làm quà biếu: chọn gì cho sang và ý nghĩa?",
+        "Đặc sản miền Bắc làm quà biếu: gợi ý ngoài bánh đậu xanh",
+        "Cách phân biệt bánh đậu xanh chính hãng và hàng kém chất lượng"
+      ],
+      [
+        "Đậu xanh có tác dụng gì với sức khoẻ?",
+        "Lợi ích sức khỏe bất ngờ từ việc ăn bánh đậu xanh mỗi ngày"
+      ],
+      [
+        "Quà biếu đối tác, doanh nghiệp: chọn đặc sản sao cho tinh tế",
+        "Quà Trung Thu cho doanh nghiệp, đối tác: chọn sao cho tinh tế"
+      ]
+    ]
+  },
+  "after": {
+    "missing": [],
+    "repeated_paths": [],
+    "identical_bytes": []
+  },
+  "errors": []
+}

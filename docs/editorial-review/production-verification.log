@@ -1,0 +1,242 @@
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.onlyBuiltDependencies". See https://pnpm.io/settings for the new home of each setting.
+$ pnpm build && node tools/linkcheck.mjs && node tools/linkcheck.mjs --platform vercel && node tools/pages-check.mjs && node tools/drivecheck.mjs
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.onlyBuiltDependencies". See https://pnpm.io/settings for the new home of each setting.
+$ node tools/sync-pages-redirects.mjs --check && node tools/gen-responsive.mjs && astro build
+Pages redirects OK: 60 legacy rules, 118 path variants.
+responsive images: 15 ảnh xử lý, 124 bỏ qua (đã có), 140 mục trong manifest.
+16:11:12 [vite] Re-optimizing dependencies because vite config has changed
+16:11:13 [content] Syncing content
+16:11:13 [WARN] [glob-loader] Duplicate id "ba-bau-tre-nho-dung-bot-banh-dau-xanh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/ba-bau-tre-nho-dung-bot-banh-dau-xanh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-bao-nhieu-calo" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-bao-nhieu-calo.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-co-beo-khong-dap-tan-noi-am-anh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-co-beo-khong-dap-tan-noi-am-anh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-hai-duong-mon-qua-bieu-y-nghia-cho-moi-dip-dac-biet" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-hai-duong-mon-qua-bieu-y-nghia-cho-moi-dip-dac-biet.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-hai-duong-tai-tphcm-dac-san-bac-ky-lam-nuc-long-sai-thanh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-hai-duong-tai-tphcm-dac-san-bac-ky-lam-nuc-long-sai-thanh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-la-gi" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-la-gi.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-loai-nao-ngon" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-loai-nao-ngon.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-nguoi-tieu-duong" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-nguoi-tieu-duong.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-o-ha-noi" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-o-ha-noi.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-qua-trung-thu" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-qua-trung-thu.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-quy-trinh-ocop-5-sao" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-quy-trinh-ocop-5-sao.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-tet-tan-suu-2021-rong-vang-hoang-gia" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-tet-tan-suu-2021-rong-vang-hoang-gia.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "banh-dau-xanh-tra-xanh-rong-vang-them-mot-nguyen-lieu-say-dam-ca-van-nguoi" found in /workspace/shared/rvhgweb-editorial/src/content/posts/banh-dau-xanh-tra-xanh-rong-vang-them-mot-nguyen-lieu-say-dam-ca-van-nguoi.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "bot-dau-xanh-co-tac-dung-gi" found in /workspace/shared/rvhgweb-editorial/src/content/posts/bot-dau-xanh-co-tac-dung-gi.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "bot-dau-xanh-khong-duong" found in /workspace/shared/rvhgweb-editorial/src/content/posts/bot-dau-xanh-khong-duong.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "bot-dau-xanh-lam-dep-da" found in /workspace/shared/rvhgweb-editorial/src/content/posts/bot-dau-xanh-lam-dep-da.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "bot-dau-xanh-pha-san-cac-vi-moi" found in /workspace/shared/rvhgweb-editorial/src/content/posts/bot-dau-xanh-pha-san-cac-vi-moi.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "bot-dau-xanh-mua-lanh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/bot-dau-xanh-mua-lanh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "bot-dau-xanh-mua-thu" found in /workspace/shared/rvhgweb-editorial/src/content/posts/bot-dau-xanh-mua-thu.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "bot-dau-xanh-va-bot-ngu-coc" found in /workspace/shared/rvhgweb-editorial/src/content/posts/bot-dau-xanh-va-bot-ngu-coc.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "cac-mon-ngon-tu-dau-xanh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/cac-mon-ngon-tu-dau-xanh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "cach-bao-quan-banh-dau-xanh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/cach-bao-quan-banh-dau-xanh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "cach-nau-che-dau-xanh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/cach-nau-che-dau-xanh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "cach-bao-quan-bot-dau-xanh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/cach-bao-quan-bot-dau-xanh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "cach-pha-bot-dau-xanh-giai-nhiet-mua-he" found in /workspace/shared/rvhgweb-editorial/src/content/posts/cach-pha-bot-dau-xanh-giai-nhiet-mua-he.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "dac-san-hai-duong-lam-qua-bieu" found in /workspace/shared/rvhgweb-editorial/src/content/posts/dac-san-hai-duong-lam-qua-bieu.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "dac-san-hai-duong-xu-dong" found in /workspace/shared/rvhgweb-editorial/src/content/posts/dac-san-hai-duong-xu-dong.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "dac-san-mien-bac-lam-qua-bieu" found in /workspace/shared/rvhgweb-editorial/src/content/posts/dac-san-mien-bac-lam-qua-bieu.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "dau-xanh-co-tac-dung-gi" found in /workspace/shared/rvhgweb-editorial/src/content/posts/dau-xanh-co-tac-dung-gi.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "dau-xanh-trong-am-thuc-viet" found in /workspace/shared/rvhgweb-editorial/src/content/posts/dau-xanh-trong-am-thuc-viet.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "gia-1-hop-banh-dau-xanh-la-bao-nhieu-mua-o-dau-thi-uy-tin" found in /workspace/shared/rvhgweb-editorial/src/content/posts/gia-1-hop-banh-dau-xanh-la-bao-nhieu-mua-o-dau-thi-uy-tin.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "lam-banh-dau-xanh-hai-duong-cong-thuc-bi-truyen-bat-mi-boi-nghe-nhan" found in /workspace/shared/rvhgweb-editorial/src/content/posts/lam-banh-dau-xanh-hai-duong-cong-thuc-bi-truyen-bat-mi-boi-nghe-nhan.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "lich-su-banh-dau-xanh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/lich-su-banh-dau-xanh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "loi-ich-suc-khoe-bat-ngo-tu-viec-an-banh-dau-xanh-moi-ngay" found in /workspace/shared/rvhgweb-editorial/src/content/posts/loi-ich-suc-khoe-bat-ngo-tu-viec-an-banh-dau-xanh-moi-ngay.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "mam-co-trung-thu" found in /workspace/shared/rvhgweb-editorial/src/content/posts/mam-co-trung-thu.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "ocop-5-sao-quoc-gia-la-gi" found in /workspace/shared/rvhgweb-editorial/src/content/posts/ocop-5-sao-quoc-gia-la-gi.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "phan-biet-banh-dau-xanh-chinh-hang" found in /workspace/shared/rvhgweb-editorial/src/content/posts/phan-biet-banh-dau-xanh-chinh-hang.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-20-10" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-20-10.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-bieu-doanh-nghiep-dac-san" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-bieu-doanh-nghiep-dac-san.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-tang-nguoi-lon-tuoi" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-tang-nguoi-lon-tuoi.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-tet-2027-dac-san" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-tet-2027-dac-san.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-tet-2027-dat-som" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-tet-2027-dat-som.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-tet-doi-tac-nuoc-ngoai" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-tet-doi-tac-nuoc-ngoai.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-tet-gia-dinh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-tet-gia-dinh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-tet-ocop-5-sao" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-tet-ocop-5-sao.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-trung-thu-doanh-nghiep" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-trung-thu-doanh-nghiep.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "qua-trung-thu-y-nghia" found in /workspace/shared/rvhgweb-editorial/src/content/posts/qua-trung-thu-y-nghia.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia" found in /workspace/shared/rvhgweb-editorial/src/content/posts/thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "tra-va-banh-dau-xanh" found in /workspace/shared/rvhgweb-editorial/src/content/posts/tra-va-banh-dau-xanh.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [WARN] [glob-loader] Duplicate id "uong-bot-dau-xanh-buoi-sang" found in /workspace/shared/rvhgweb-editorial/src/content/posts/uong-bot-dau-xanh-buoi-sang.md. Later items with the same id will overwrite earlier ones.
+16:11:13 [content] Synced content
+16:11:13 [types] Generated 1.03s
+16:11:13 [build] output: "static"
+16:11:13 [build] mode: "static"
+16:11:13 [build] directory: /workspace/shared/rvhgweb-editorial/dist/
+16:11:13 [build] Collecting build info...
+16:11:13 [build] ✓ Completed in 1.07s.
+16:11:13 [build] Building static entrypoints...
+16:11:15 [vite] ✓ built in 1.77s
+16:11:15 [build] ✓ Completed in 1.80s.
+
+ building client (vite) 
+16:11:15 [vite] transforming...
+16:11:15 [vite] ✓ 15 modules transformed.
+16:11:15 [vite] rendering chunks...
+16:11:15 [vite] computing gzip size...
+16:11:15 [vite] dist/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CDGfc0hd.js  15.36 kB │ gzip: 5.28 kB
+16:11:15 [vite] ✓ built in 55ms
+
+ generating static routes 
+16:11:15 ▶ src/pages/404.astro
+16:11:15   └─ /404.html (+11ms) 
+16:11:15 ▶ src/pages/bdx-rauma-khongduong/index.astro
+16:11:15   └─ /bdx-rauma-khongduong/index.html (+4ms) 
+16:11:15 ▶ src/pages/botdx-carot/index.astro
+16:11:15   └─ /botdx-carot/index.html (+3ms) 
+16:11:15 ▶ src/pages/botdx-matcha/index.astro
+16:11:15   └─ /botdx-matcha/index.html (+2ms) 
+16:11:15 ▶ src/pages/botdx-rauma/index.astro
+16:11:15   └─ /botdx-rauma/index.html (+2ms) 
+16:11:15 ▶ src/pages/botdx-suadua/index.astro
+16:11:15   └─ /botdx-suadua/index.html (+2ms) 
+16:11:15 ▶ src/pages/cong-bo/index.astro
+16:11:15   └─ /cong-bo/index.html (+20ms) 
+16:11:15 ▶ src/pages/danh-muc-san-pham/[slug]/index.astro
+16:11:15   ├─ /danh-muc-san-pham/banh-dau-xanh-tet/index.html (+8ms) 
+16:11:15   ├─ /danh-muc-san-pham/banh-dau-xanh-thuong-hang/index.html (+5ms) 
+16:11:15   ├─ /danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/index.html (+4ms) 
+16:11:15   ├─ /danh-muc-san-pham/banh-dau-xanh-truyen-thong/index.html (+2ms) 
+16:11:15   └─ /danh-muc-san-pham/bot-dau/index.html (+2ms) 
+16:11:15 ▶ src/pages/diem-ban-rong-vang-hoang-gia/index.astro
+16:11:15   └─ /diem-ban-rong-vang-hoang-gia/index.html (+2ms) 
+16:11:15 ▶ src/pages/gioi-thieu/index.astro
+16:11:15   └─ /gioi-thieu/index.html (+3ms) 
+16:11:15 ▶ src/pages/lien-he/index.astro
+16:11:15   └─ /lien-he/index.html (+1ms) 
+16:11:15 λ src/pages/llms-full.txt.ts
+16:11:15   └─ /llms-full.txt (+7ms) 
+16:11:15 λ src/pages/og/post/[slug].png.ts
+16:11:15   ├─ /og/post/5-cach-doc-dao-de-thuong-thuc-banh-dau-xanh-cach-thu-5-ban-co-nam-mo-cung-chua-chac-da-nghi-den.png/ (+369ms) 
+16:11:16   ├─ /og/post/banh-dau-tra-xanh-banh-dau-sau-rieng-rong-vang-hoang-gia-dat-ocop-5-sao-quoc-gia.png/ (+60ms) 
+16:11:16   ├─ /og/post/banh-dau-tra-xanh-hoang-gia.png/ (+51ms) 
+16:11:16   ├─ /og/post/ba-bau-tre-nho-dung-bot-banh-dau-xanh.png/ (+61ms) 
+16:11:16   ├─ /og/post/banh-dau-tra-xanh-cau-chuyen-san-pham.png/ (+42ms) 
+16:11:16   ├─ /og/post/banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu.png/ (+37ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-bao-nhieu-calo.png/ (+41ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-co-beo-khong-dap-tan-noi-am-anh.png/ (+41ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-hai-duong-huong-vi-truyen-thong-vuot-thoi-gian.png/ (+45ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-hai-duong-dac-san-van-hoa-noi-tieng.png/ (+50ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-hai-duong-mon-qua-bieu-y-nghia-cho-moi-dip-dac-biet.png/ (+40ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-hai-duong-tai-tphcm-dac-san-bac-ky-lam-nuc-long-sai-thanh.png/ (+45ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-la-gi.png/ (+43ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-loai-nao-ngon.png/ (+41ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-ngon-khong-phai-cu-ve-den-hai-duong-la-mua-duoc.png/ (+39ms) 
+16:11:16   ├─ /og/post/banh-dau-xanh-nguoi-tieu-duong.png/ (+49ms) 
+16:11:17   ├─ /og/post/banh-dau-xanh-o-ha-noi.png/ (+42ms) 
+16:11:17   ├─ /og/post/banh-dau-xanh-qua-trung-thu.png/ (+40ms) 
+16:11:17   ├─ /og/post/banh-dau-xanh-rong-vang-tiet-lo-cau-chuyen-lich-su.png/ (+42ms) 
+16:11:17   ├─ /og/post/banh-dau-xanh-tet-tan-suu-2021-rong-vang-hoang-gia.png/ (+43ms) 
+16:11:17   ├─ /og/post/banh-dau-xanh-tra-xanh-rong-vang-them-mot-nguyen-lieu-say-dam-ca-van-nguoi.png/ (+41ms) 
+16:11:17   ├─ /og/post/bot-dau-xanh-co-tac-dung-gi.png/ (+41ms) 
+16:11:17   ├─ /og/post/bot-dau-xanh-khong-duong.png/ (+41ms) 
+16:11:17   ├─ /og/post/bot-dau-xanh-lam-dep-da.png/ (+39ms) 
+16:11:17   ├─ /og/post/bot-dau-xanh-mua-thu.png/ (+39ms) 
+16:11:17   ├─ /og/post/bot-dau-xanh-pha-san-cac-vi-moi.png/ (+42ms) 
+16:11:17   ├─ /og/post/bot-dau-xanh-va-bot-ngu-coc.png/ (+40ms) 
+16:11:17   ├─ /og/post/cac-mon-ngon-tu-dau-xanh.png/ (+42ms) 
+16:11:17   ├─ /og/post/cach-bao-quan-banh-dau-xanh.png/ (+43ms) 
+16:11:17   ├─ /og/post/cach-nau-che-dau-xanh.png/ (+38ms) 
+16:11:17   ├─ /og/post/cach-pha-bot-dau-xanh-giai-nhiet-mua-he.png/ (+40ms) 
+16:11:17   ├─ /og/post/cau-chuyen-san-pham-banh-dau-sau-rieng-bang-hinh-anh.png/ (+37ms) 
+16:11:17   ├─ /og/post/cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh.png/ (+38ms) 
+16:11:17   ├─ /og/post/dac-san-hai-duong-lam-qua-bieu.png/ (+41ms) 
+16:11:17   ├─ /og/post/dac-san-hai-duong-xu-dong.png/ (+41ms) 
+16:11:17   ├─ /og/post/dac-san-mien-bac-lam-qua-bieu.png/ (+49ms) 
+16:11:17   ├─ /og/post/dau-xanh-co-tac-dung-gi.png/ (+46ms) 
+16:11:17   ├─ /og/post/gia-1-hop-banh-dau-xanh-la-bao-nhieu-mua-o-dau-thi-uy-tin.png/ (+47ms) 
+16:11:17   ├─ /og/post/dac-san-mien-bac.png/ (+43ms) 
+16:11:17   ├─ /og/post/lam-banh-dau-xanh-hai-duong-cong-thuc-bi-truyen-bat-mi-boi-nghe-nhan.png/ (+51ms) 
+16:11:18   ├─ /og/post/lich-su-banh-dau-xanh.png/ (+42ms) 
+16:11:18   ├─ /og/post/loi-ich-suc-khoe-bat-ngo-tu-viec-an-banh-dau-xanh-moi-ngay.png/ (+45ms) 
+16:11:18   ├─ /og/post/mam-co-trung-thu.png/ (+44ms) 
+16:11:18   ├─ /og/post/mua-banh-dau-xanh-o-sai-gon-nhanh-chong-so-huu-san-pham-chinh-goc-doc-dao.png/ (+40ms) 
+16:11:18   ├─ /og/post/ocop-5-sao-quoc-gia-la-gi.png/ (+42ms) 
+16:11:18   ├─ /og/post/qua-20-10.png/ (+43ms) 
+16:11:18   ├─ /og/post/phan-biet-banh-dau-xanh-chinh-hang.png/ (+48ms) 
+16:11:18   ├─ /og/post/qua-bieu-doanh-nghiep-dac-san.png/ (+52ms) 
+16:11:18   ├─ /og/post/qua-tang-nguoi-lon-tuoi.png/ (+40ms) 
+16:11:18   ├─ /og/post/qua-trung-thu-y-nghia.png/ (+40ms) 
+16:11:18   ├─ /og/post/qua-trung-thu-doanh-nghiep.png/ (+39ms) 
+16:11:18   ├─ /og/post/thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia.png/ (+42ms) 
+16:11:18   ├─ /og/post/thong-cao-bao-chi-su-kien-le-don-nhan-chung-nhan-san-pham-ocop-5-sao-quoc-gia-banh-dau-xanh-rong-vang-hoang-gia-va-khai-truong-showroom.png/ (+40ms) 
+16:11:18   ├─ /og/post/tra-va-banh-dau-xanh.png/ (+43ms) 
+16:11:18   └─ /og/post/uong-bot-dau-xanh-buoi-sang.png/ (+41ms) 
+16:11:18 ▶ src/pages/san-pham/index.astro
+16:11:18   └─ /san-pham/index.html (+3ms) 
+16:11:18 ▶ src/pages/tin-tuc/index.astro
+16:11:18   └─ /tin-tuc/index.html (+11ms) 
+16:11:18 ▶ src/pages/[slug]/index.astro
+16:11:18   ├─ /5-cach-doc-dao-de-thuong-thuc-banh-dau-xanh-cach-thu-5-ban-co-nam-mo-cung-chua-chac-da-nghi-den/index.html (+5ms) 
+16:11:18   ├─ /banh-dau-tra-xanh-banh-dau-sau-rieng-rong-vang-hoang-gia-dat-ocop-5-sao-quoc-gia/index.html (+4ms) 
+16:11:18   ├─ /banh-dau-tra-xanh-hoang-gia/index.html (+4ms) 
+16:11:18   ├─ /ba-bau-tre-nho-dung-bot-banh-dau-xanh/index.html (+4ms) 
+16:11:18   ├─ /banh-dau-tra-xanh-cau-chuyen-san-pham/index.html (+4ms) 
+16:11:18   ├─ /banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-bao-nhieu-calo/index.html (+4ms) 
+16:11:18   ├─ /banh-dau-xanh-co-beo-khong-dap-tan-noi-am-anh/index.html (+6ms) 
+16:11:18   ├─ /banh-dau-xanh-hai-duong-huong-vi-truyen-thong-vuot-thoi-gian/index.html (+7ms) 
+16:11:18   ├─ /banh-dau-xanh-hai-duong-dac-san-van-hoa-noi-tieng/index.html (+4ms) 
+16:11:18   ├─ /banh-dau-xanh-hai-duong-mon-qua-bieu-y-nghia-cho-moi-dip-dac-biet/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-hai-duong-tai-tphcm-dac-san-bac-ky-lam-nuc-long-sai-thanh/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-la-gi/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-loai-nao-ngon/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-ngon-khong-phai-cu-ve-den-hai-duong-la-mua-duoc/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-nguoi-tieu-duong/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-o-ha-noi/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-qua-trung-thu/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-rong-vang-tiet-lo-cau-chuyen-lich-su/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-tet-tan-suu-2021-rong-vang-hoang-gia/index.html (+3ms) 
+16:11:18   ├─ /banh-dau-xanh-tra-xanh-rong-vang-them-mot-nguyen-lieu-say-dam-ca-van-nguoi/index.html (+3ms) 
+16:11:18   ├─ /bot-dau-xanh-co-tac-dung-gi/index.html (+3ms) 
+16:11:18   ├─ /bot-dau-xanh-khong-duong/index.html (+6ms) 
+16:11:18   ├─ /bot-dau-xanh-lam-dep-da/index.html (+5ms) 
+16:11:18   ├─ /bot-dau-xanh-mua-thu/index.html (+3ms) 
+16:11:18   ├─ /bot-dau-xanh-pha-san-cac-vi-moi/index.html (+3ms) 
+16:11:18   ├─ /bot-dau-xanh-va-bot-ngu-coc/index.html (+4ms) 
+16:11:18   ├─ /cac-mon-ngon-tu-dau-xanh/index.html (+3ms) 
+16:11:18   ├─ /cach-bao-quan-banh-dau-xanh/index.html (+3ms) 
+16:11:18   ├─ /cach-nau-che-dau-xanh/index.html (+3ms) 
+16:11:18   ├─ /cach-pha-bot-dau-xanh-giai-nhiet-mua-he/index.html (+3ms) 
+16:11:18   ├─ /cau-chuyen-san-pham-banh-dau-sau-rieng-bang-hinh-anh/index.html (+3ms) 
+16:11:18   ├─ /cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh/index.html (+6ms) 
+16:11:18   ├─ /dac-san-hai-duong-lam-qua-bieu/index.html (+3ms) 
+16:11:18   ├─ /dac-san-hai-duong-xu-dong/index.html (+3ms) 
+16:11:18   ├─ /dac-san-mien-bac-lam-qua-bieu/index.html (+3ms) 
+16:11:18   ├─ /dau-xanh-co-tac-dung-gi/index.html (+4ms) 
+16:11:18   ├─ /gia-1-hop-banh-dau-xanh-la-bao-nhieu-mua-o-dau-thi-uy-tin/index.html (+3ms) 
+16:11:18   ├─ /dac-san-mien-bac/index.html (+4ms) 
+16:11:18   ├─ /lam-banh-dau-xanh-hai-duong-cong-thuc-bi-truyen-bat-mi-boi-nghe-nhan/index.html (+4ms) 
+16:11:18   ├─ /lich-su-banh-dau-xanh/index.html (+3ms) 
+16:11:18   ├─ /loi-ich-suc-khoe-bat-ngo-tu-viec-an-banh-dau-xanh-moi-ngay/index.html (+3ms) 
+16:11:18   ├─ /mam-co-trung-thu/index.html (+3ms) 
+16:11:18   ├─ /mua-banh-dau-xanh-o-sai-gon-nhanh-chong-so-huu-san-pham-chinh-goc-doc-dao/index.html (+3ms) 
+16:11:18   ├─ /ocop-5-sao-quoc-gia-la-gi/index.html (+2ms) 
+16:11:18   ├─ /qua-20-10/index.html (+3ms) 
+16:11:18   ├─ /phan-biet-banh-dau-xanh-chinh-hang/index.html (+3ms) 
+16:11:18   ├─ /qua-bieu-doanh-nghiep-dac-san/index.html (+2ms) 
+16:11:18   ├─ /qua-tang-nguoi-lon-tuoi/index.html (+3ms) 
+16:11:18   ├─ /qua-trung-thu-y-nghia/index.html (+3ms) 
+16:11:18   ├─ /qua-trung-thu-doanh-nghiep/index.html (+2ms) 
+16:11:18   ├─ /thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia/index.html (+5ms) 
+16:11:18   ├─ /thong-cao-bao-chi-su-kien-le-don-nhan-chung-nhan-san-pham-ocop-5-sao-quoc-gia-banh-dau-xanh-rong-vang-hoang-gia-va-khai-truong-showroom/index.html (+3ms) 
+16:11:18   ├─ /tra-va-banh-dau-xanh/index.html (+3ms) 
+16:11:18   ├─ /uong-bot-dau-xanh-buoi-sang/index.html (+3ms) 
+16:11:18   ├─ /ban-tu-cong-bo-rong-vang-hoang-gia/index.html (+3ms) 
+16:11:18   ├─ /chinh-sach-bao-hanh-doi-tra/index.html (+1ms) 
+16:11:18   ├─ /chinh-sach-bao-mat/index.html (+1ms) 
+16:11:18   ├─ /chinh-sach-va-quy-dinh-chung/index.html (+1ms) 
+16:11:18   ├─ /chinh-sach-van-chuyen/index.html (+1ms) 
+16:11:18   └─ /cau-chuyen-san-pham-rong-vang-hoang-gia-2/index.html (+1ms) 
+16:11:18 ▶ src/pages/index.astro
+16:11:18   └─ /index.html (+3ms) 
+16:11:18 ✓ Completed in 3.07s.
+
+16:11:18 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+16:11:18 [build] 79 page(s) built in 6.04s
+16:11:18 [build] Complete!
+Checking internal links using pages redirects.
+link check OK — 80 trang, 0 dead link.
+Checking internal links using vercel redirects.
+link check OK — 80 trang, 0 dead link.
+Pages output OK: 997 files, 80 HTML pages, largest 4.74 MiB; 17 unpublished posts excluded; apex SEO verified.
+drive check OK — 21 văn bản trên Drive, 141 file đã soát.

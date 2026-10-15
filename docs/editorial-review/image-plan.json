@@ -1,0 +1,335 @@
+{
+  "banh-dau-tra-xanh-cau-chuyen-san-pham.md": {
+    "cover": "/images/legacy/tx300-web.jpg",
+    "coverAlt": "Hộp bánh đậu trà xanh Rồng Vàng Hoàng Gia",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "banh-dau-tra-xanh-hoang-gia.md": {
+    "cover": "/images/legacy/tx170-WEB-300x300.jpg",
+    "coverAlt": "Hộp bánh đậu trà xanh quy cách nhỏ của Rồng Vàng Hoàng Gia",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu.md": {
+    "cover": "/images/editorial/tea.jpg",
+    "coverAlt": "Chén trà xanh với lá trà trong nước",
+    "coverFit": "cover",
+    "coverCaption": "Ảnh minh họa trà xanh, không phải đồ uống hay sản phẩm của Rồng Vàng Hoàng Gia.",
+    "coverCredit": {
+      "author": "motograf",
+      "source": "https://commons.wikimedia.org/wiki/File:Cup_of_green_tea.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY 2.0."
+    }
+  },
+  "banh-dau-xanh-co-beo-khong-dap-tan-noi-am-anh.md": {
+    "cover": "/images/legacy/th170-web-300x300.jpg",
+    "coverAlt": "Hộp bánh đậu xanh thượng hạng quy cách nhỏ",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "banh-dau-xanh-hai-duong-dac-san-van-hoa-noi-tieng.md": {
+    "cover": "/images/legacy/th300-2-web-300x300.jpg",
+    "coverAlt": "Hộp bánh đậu xanh thượng hạng màu đỏ",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "banh-dau-xanh-hai-duong-tai-tphcm-dac-san-bac-ky-lam-nuc-long-sai-thanh.md": {
+    "cover": "/images/editorial/saigon.jpg",
+    "coverAlt": "Đường chân trời Thành phố Hồ Chí Minh nhìn qua sông về đêm",
+    "coverFit": "cover",
+    "coverCaption": "Thành phố Hồ Chí Minh, ảnh chụp năm 2011; minh họa địa danh, không phải điểm bán.",
+    "coverCredit": {
+      "author": "Tri Nguyen",
+      "source": "https://commons.wikimedia.org/wiki/File:Ho_Chi_Minh_City_skyline.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY 2.0."
+    }
+  },
+  "banh-dau-xanh-la-gi.md": {
+    "cover": "/images/legacy/cat-truyen-thong.jpg",
+    "coverAlt": "Hộp bánh đậu xanh truyền thống Rồng Vàng Hoàng Gia",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "banh-dau-xanh-ngon-khong-phai-cu-ve-den-hai-duong-la-mua-duoc.md": {
+    "cover": "/images/legacy/h15-web-1-300x300.jpg",
+    "coverAlt": "Hộp bánh đậu xanh màu đỏ với biểu trưng thương hiệu",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "banh-dau-xanh-nguoi-tieu-duong.md": {
+    "cover": "/images/legacy/h24-x-web-1-300x300.jpg",
+    "coverAlt": "Bao bì bánh đậu xanh truyền thống với thông tin thương hiệu",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "banh-dau-xanh-o-ha-noi.md": {
+    "cover": "/images/editorial/hanoi.jpg",
+    "coverAlt": "Cầu Thê Húc bên hồ Hoàn Kiếm ở Hà Nội",
+    "coverFit": "cover",
+    "coverCaption": "Hồ Hoàn Kiếm, Hà Nội, ảnh chụp năm 2015; minh họa địa danh, không phải điểm bán.",
+    "coverCredit": {
+      "author": "katiebordner",
+      "source": "https://commons.wikimedia.org/wiki/File:Hoan_Kiem_Lake_in_Hanoi,_Vietnam_(26312972785).jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY 2.0."
+    }
+  },
+  "banh-dau-xanh-quy-trinh-ocop-5-sao.md": {
+    "cover": "/images/chung-nhan/iso-22000-2026.jpg",
+    "coverAlt": "Chứng chỉ hệ thống quản lý an toàn thực phẩm ISO 22000 của Công ty Cổ phần Hoàng Giang",
+    "coverFit": "contain",
+    "coverCaption": "Chứng chỉ ISO 22000 hiện hành trong hồ sơ doanh nghiệp. Đây là chứng chỉ hệ thống, khác với quyết định phân hạng sản phẩm OCOP."
+  },
+  "banh-dau-xanh-rong-vang-tiet-lo-cau-chuyen-lich-su.md": {
+    "cover": "/images/legacy/cau-chuyen-khai-dinh-1918.jpg",
+    "coverAlt": "Bảng kể chuyện thương hiệu với hình Rồng Vàng",
+    "coverFit": "contain",
+    "coverCaption": "Tư liệu kể chuyện thương hiệu; hình ảnh không phải sắc phong gốc hay chứng cứ lịch sử cho giai thoại năm 1918."
+  },
+  "banh-dau-xanh-tet-tan-suu-2021-rong-vang-hoang-gia.md": {
+    "cover": "/images/legacy/BCD-web-300x300.jpg",
+    "coverAlt": "Mẫu hộp bánh màu vàng trong tư liệu sản phẩm",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh mẫu bao bì trong kho tư liệu thương hiệu, không xác nhận đây là mẫu thuộc mùa Tết 2021 hoặc đang được bán."
+  },
+  "banh-dau-xanh-tra-xanh-rong-vang-them-mot-nguyen-lieu-say-dam-ca-van-nguoi.md": {
+    "cover": "/images/editorial/tealeaves.jpg",
+    "coverAlt": "Búp trà xanh dưới nắng",
+    "coverFit": "cover",
+    "coverCaption": "Búp trà được chụp tại Ooty, Ấn Độ; ảnh minh họa thực vật, không xác định nguồn nguyên liệu của sản phẩm.",
+    "coverCredit": {
+      "author": "Sathish (Knpbs)",
+      "source": "https://commons.wikimedia.org/wiki/File:Tea_Leaves.jpg",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY 3.0."
+    }
+  },
+  "bot-dau-xanh-co-tac-dung-gi.md": {
+    "cover": "/images/editorial/mung.jpg",
+    "coverAlt": "Hạt đậu xanh nguyên vỏ",
+    "coverFit": "cover",
+    "coverCaption": "Ảnh minh họa nguyên liệu đậu xanh; không phải ảnh vùng nguyên liệu của doanh nghiệp.",
+    "coverCredit": {
+      "author": "Lucianne",
+      "source": "https://commons.wikimedia.org/wiki/File:Mung_beans_raw.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY-SA 3.0."
+    }
+  },
+  "bot-dau-xanh-lam-dep-da.md": {
+    "cover": "/images/bot/bot-dau-xanh-sua-dua-khong-duong.jpg",
+    "coverAlt": "Gói bột đậu xanh sữa dừa không thêm đường",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh thực phẩm pha uống của thương hiệu; không minh họa công dụng chăm sóc da."
+  },
+  "bot-dau-xanh-va-bot-ngu-coc.md": {
+    "cover": "/images/editorial/rice.jpg",
+    "coverAlt": "Bông lúa với những hạt đang chín",
+    "coverFit": "cover",
+    "coverCaption": "Lúa là một loại ngũ cốc. Ảnh minh họa sự khác biệt giữa nhóm hạt ngũ cốc và đậu.",
+    "coverCredit": {
+      "author": "Ashok Menon",
+      "source": "https://commons.wikimedia.org/wiki/File:Rice_Grains.jpg",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY 2.0."
+    }
+  },
+  "cach-bao-quan-banh-dau-xanh.md": {
+    "cover": "/images/legacy/banh-dau-xanh-h25-hg-300x300.jpg",
+    "coverAlt": "Hộp bánh đậu xanh đóng kín trong bao bì sản phẩm",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "cach-nau-che-dau-xanh.md": {
+    "cover": "/images/editorial/che.jpg",
+    "coverAlt": "Bát chè đậu xanh trên mặt bàn gỗ",
+    "coverFit": "cover",
+    "coverCaption": "Ảnh minh họa chè đậu xanh trong ẩm thực Việt; không phải sản phẩm đóng gói của thương hiệu.",
+    "coverCredit": {
+      "author": "Hoangkid",
+      "source": "https://commons.wikimedia.org/wiki/File:Chè_đỗ_xanh.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY-SA 4.0."
+    }
+  },
+  "cau-chuyen-san-pham-banh-dau-sau-rieng-bang-hinh-anh.md": {
+    "cover": "/images/legacy/sr300-web.jpg",
+    "coverAlt": "Hộp bánh đậu sầu riêng màu vàng của Rồng Vàng Hoàng Gia",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh.md": {
+    "cover": "/images/legacy/tx300-WEB-1-300x300.jpg",
+    "coverAlt": "Hộp bánh đậu trà xanh màu xanh lá",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "dac-san-hai-duong-xu-dong.md": {
+    "cover": "/images/editorial/conson.jpg",
+    "coverAlt": "Lối bậc đá và kiến trúc giữa cây xanh tại khu Côn Sơn Kiếp Bạc",
+    "coverFit": "contain",
+    "coverCaption": "Phong cảnh được người đăng ảnh ghi là khu Côn Sơn – Kiếp Bạc, năm 2022; chưa xác minh độc lập danh tính công trình trong ảnh.",
+    "coverCredit": {
+      "author": "haiduongtours (Effhaiphong)",
+      "source": "https://commons.wikimedia.org/wiki/File:Con_Son_Kiep_Bac_Haiduong.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY-SA 4.0."
+    }
+  },
+  "dac-san-mien-bac-lam-qua-bieu.md": {
+    "cover": "/images/legacy/DTL-web-300x300.jpg",
+    "coverAlt": "Hộp bánh kiểu đồng tiền màu vàng",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "gia-1-hop-banh-dau-xanh-la-bao-nhieu-mua-o-dau-thi-uy-tin.md": {
+    "cover": "/images/legacy/DTN-300x300.jpg",
+    "coverAlt": "Hộp bánh kiểu đồng tiền quy cách nhỏ",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "lam-banh-dau-xanh-hai-duong-cong-thuc-bi-truyen-bat-mi-boi-nghe-nhan.md": {
+    "cover": "/images/editorial/mungplant.jpg",
+    "coverAlt": "Những hạt đậu xanh trên nền sáng",
+    "coverFit": "cover",
+    "coverCaption": "Ảnh minh họa hạt đậu xanh; không phải ảnh quy trình sản xuất của Rồng Vàng Hoàng Gia.",
+    "coverCredit": {
+      "author": "Carl Davies / CSIRO",
+      "source": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_3717_Mung_beans.jpg",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY 3.0."
+    }
+  },
+  "lich-su-banh-dau-xanh.md": {
+    "cover": "/images/editorial/chuvanan.jpg",
+    "coverAlt": "Đền thờ Chu Văn An trên núi Phượng Hoàng, Chí Linh",
+    "coverFit": "cover",
+    "coverCaption": "Đền thờ Chu Văn An tại Chí Linh, thuộc Hải Dương khi chụp năm 2012. Ảnh minh họa không gian văn hóa xứ Đông, không phải chứng cứ về nguồn gốc bánh hay giai thoại năm 1918.",
+    "coverCredit": {
+      "author": "Hoangkid",
+      "source": "https://commons.wikimedia.org/wiki/File:Chu_Van_An_Temple.jpg",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY 3.0."
+    }
+  },
+  "mua-banh-dau-xanh-o-sai-gon-nhanh-chong-so-huu-san-pham-chinh-goc-doc-dao.md": {
+    "cover": "/images/legacy/h24d-web-300x300.jpg",
+    "coverAlt": "Hộp bánh đậu xanh màu vàng, đỏ trong tư liệu sản phẩm",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "ocop-5-sao-quoc-gia-la-gi.md": {
+    "cover": "/images/legacy/cat-thuong-hang.jpg",
+    "coverAlt": "Hộp bánh đậu xanh thượng hạng màu đỏ trong tư liệu thương hiệu",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "phan-biet-banh-dau-xanh-chinh-hang.md": {
+    "cover": "/images/legacy/catalogue24-15-4-300x300.png",
+    "coverAlt": "Bao bì bánh đậu xanh với tên và biểu trưng Rồng Vàng Hoàng Gia",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "qua-trung-thu-doanh-nghiep.md": {
+    "cover": "/images/legacy/hero-home.jpg",
+    "coverAlt": "Hộp quà bánh và trà trên nền đỏ trong tư liệu thương hiệu",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh sản phẩm từ tư liệu Rồng Vàng Hoàng Gia; quy cách đang bán cần đối chiếu tại thời điểm đặt hàng."
+  },
+  "thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia.md": {
+    "cover": "/images/legacy/HG20-web-300x300.jpg",
+    "coverAlt": "Mẫu hộp bánh đậu xanh màu vàng trong tư liệu Rồng Vàng Hoàng Gia",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh bao bì từ tư liệu thương hiệu; không phải ảnh lễ công nhận OCOP năm 2024 và không tự xác nhận phạm vi chứng nhận của từng sản phẩm."
+  },
+  "thong-cao-bao-chi-su-kien-le-don-nhan-chung-nhan-san-pham-ocop-5-sao-quoc-gia-banh-dau-xanh-rong-vang-hoang-gia-va-khai-truong-showroom.md": {
+    "cover": "/images/legacy/su-phat-trien-cua-banh-dau-xanh-rong-vang-hoang-gia.jpg",
+    "coverAlt": "Không gian kệ trưng bày sản phẩm của thương hiệu",
+    "coverFit": "contain",
+    "coverCaption": "Ảnh không gian trưng bày từ kho tư liệu thương hiệu; không xác nhận thời điểm chụp là lễ khai trương nêu trong bài."
+  },
+  "tra-va-banh-dau-xanh.md": {
+    "cover": "/images/editorial/viettea.jpg",
+    "coverAlt": "Bát nước chè xanh trong chiếc bát sứ",
+    "coverFit": "cover",
+    "coverCaption": "Nước chè xanh trong sinh hoạt Việt; ảnh minh họa cách thưởng trà.",
+    "coverCredit": {
+      "author": "DXLINH",
+      "source": "https://commons.wikimedia.org/wiki/File:Fresh_green_tea_bowl_Vietnam.jpg",
+      "license": "Phạm vi công cộng",
+      "licenseUrl": "https://commons.wikimedia.org/wiki/File:Fresh_green_tea_bowl_Vietnam.jpg",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh."
+    }
+  },
+  "dau-xanh-co-tac-dung-gi.md": {
+    "cover": "/images/editorial/mungflower.jpg",
+    "coverAlt": "Cận cảnh hoa màu vàng của cây đậu xanh (Vigna radiata)",
+    "coverFit": "cover",
+    "coverCaption": "Hoa cây đậu xanh (Vigna radiata), ảnh chụp năm 2010. Minh họa nhận diện thực vật; không phải phần thực phẩm được phân tích dinh dưỡng trong bài hay vùng nguyên liệu của doanh nghiệp.",
+    "coverCredit": {
+      "author": "Dinesh Valke",
+      "source": "https://commons.wikimedia.org/wiki/File:Vigna_radiata_(5001246044).jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY-SA 2.0."
+    }
+  },
+  "qua-tet-2027-dat-som.md": {
+    "cover": "/images/legacy/TCT-300x300.jpg",
+    "coverAlt": "Mẫu hộp bánh tròn màu xanh và tím trong tư liệu thương hiệu",
+    "coverFit": "contain",
+    "coverCaption": "Mẫu hộp từ tư liệu thương hiệu để minh họa việc chọn quà; không xác nhận đây là bộ sưu tập Tết 2027 hoặc mẫu đang bán."
+  },
+  "cac-mon-ngon-tu-dau-xanh.md": {
+    "cover": "/images/editorial/xoivo.jpg",
+    "coverAlt": "Đĩa xôi vò với lớp đậu xanh vàng nhạt quanh hạt nếp",
+    "coverFit": "contain",
+    "coverCaption": "Xôi vò trong ẩm thực Việt, ảnh của Nguyen Thi Quynh Tram (Tram’s kochen); minh họa món ăn từ đậu xanh, không phải sản phẩm của Rồng Vàng Hoàng Gia.",
+    "coverCredit": {
+      "author": "Nguyen Thi Quynh Tram",
+      "source": "https://commons.wikimedia.org/wiki/File:Xoi_vo_-dung.jpg",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+      "changes": "Thu nhỏ, nén JPEG; giữ nguyên dấu nguồn trên ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY 3.0."
+    }
+  },
+  "dau-xanh-trong-am-thuc-viet.md": {
+    "cover": "/images/editorial/xoixeo.jpg",
+    "coverAlt": "Xôi xéo với đậu xanh và hành phi trên lá chuối",
+    "coverFit": "cover",
+    "coverCaption": "Xôi xéo với đậu xanh và hành phi, ảnh chụp năm 2015; minh họa vai trò của đậu xanh trong ẩm thực Việt, không phải sản phẩm của thương hiệu.",
+    "coverCredit": {
+      "author": "Viethavvh",
+      "source": "https://commons.wikimedia.org/wiki/File:Xôi_xéo.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY-SA 4.0."
+    }
+  },
+  "qua-tet-2027-dac-san.md": {
+    "cover": "/images/editorial/tetpeach.jpg",
+    "coverAlt": "Hoa đào hồng trong dịp Tết",
+    "coverFit": "cover",
+    "coverCaption": "Hoa đào dịp Tết năm 2017; ảnh minh họa không khí mùa xuân, không phải ảnh sản phẩm hay bộ sưu tập quà Tết 2027.",
+    "coverCredit": {
+      "author": "Louis Anderson",
+      "source": "https://commons.wikimedia.org/wiki/File:Peach_Flower_Lunar_New_Year.jpg",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "changes": "Thu nhỏ, nén JPEG; khung hiển thị có thể cắt ảnh. Bản ảnh chỉnh sửa được chia sẻ theo giấy phép CC BY 4.0."
+    }
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "baseline": {
+    "postCount": 72,
+    "missingFileCount": 12,
+    "missing": [
+      {
+        "post": "banh-dau-xanh-co-beo-khong-dap-tan-noi-am-anh.md",
+        "path": ""
+      },
+      {
+        "post": "banh-dau-xanh-hai-duong-tai-tphcm-dac-san-bac-ky-lam-nuc-long-sai-thanh.md",
+        "path": ""
+      },
+      {
+        "post": "banh-dau-xanh-ngon-khong-phai-cu-ve-den-hai-duong-la-mua-duoc.md",
+        "path": ""
+      },
+      {
+        "post": "banh-dau-xanh-o-ha-noi.md",
+        "path": ""
+      },
+      {
+        "post": "banh-dau-xanh-rong-vang-tiet-lo-cau-chuyen-lich-su.md",
+        "path": ""
+      },
+      {
+        "post": "banh-dau-xanh-tet-tan-suu-2021-rong-vang-hoang-gia.md",
+        "path": ""
+      },
+      {
+        "post": "banh-dau-xanh-tra-xanh-rong-vang-them-mot-nguyen-lieu-say-dam-ca-van-nguoi.md",
+        "path": ""
+      },
+      {
+        "post": "gia-1-hop-banh-dau-xanh-la-bao-nhieu-mua-o-dau-thi-uy-tin.md",
+        "path": ""
+      },
+      {
+        "post": "lam-banh-dau-xanh-hai-duong-cong-thuc-bi-truyen-bat-mi-boi-nghe-nhan.md",
+        "path": ""
+      },
+      {
+        "post": "mua-banh-dau-xanh-o-sai-gon-nhanh-chong-so-huu-san-pham-chinh-goc-doc-dao.md",
+        "path": ""
+      },
+      {
+        "post": "thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia.md",
+        "path": ""
+      },
+      {
+        "post": "thong-cao-bao-chi-su-kien-le-don-nhan-chung-nhan-san-pham-ocop-5-sao-quoc-gia-banh-dau-xanh-rong-vang-hoang-gia-va-khai-truong-showroom.md",
+        "path": ""
+      }
+    ],
+    "normalizedPathDuplicateGroupCount": 12,
+    "normalizedPathDuplicatePostCount": 28,
+    "normalizedPathDuplicateGroups": [
+      {
+        "path": "/images/legacy/cach-thuong-thuc-banh-dau-xanh-1.jpg",
+        "posts": [
+          "5-cach-doc-dao-de-thuong-thuc-banh-dau-xanh-cach-thu-5-ban-co-nam-mo-cung-chua-chac-da-nghi-den.md",
+          "tra-va-banh-dau-xanh.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/bx-web.jpg",
+        "posts": [
+          "ba-bau-tre-nho-dung-bot-banh-dau-xanh.md",
+          "bot-dau-xanh-lam-dep-da.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/post-tra-xanh-ocop.jpg",
+        "posts": [
+          "banh-dau-tra-xanh-banh-dau-sau-rieng-rong-vang-hoang-gia-dat-ocop-5-sao-quoc-gia.md",
+          "ocop-5-sao-quoc-gia-la-gi.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/post-tra-xanh-bien-tau.jpg",
+        "posts": [
+          "banh-dau-tra-xanh-cau-chuyen-san-pham.md",
+          "banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/banh-dau-xanh-mon-qua-gan-ket-tuoi-tho-bao-the-he-01-1024x683.jpg",
+        "posts": [
+          "banh-dau-tra-xanh-hoang-gia.md",
+          "qua-tang-nguoi-lon-tuoi.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/tac-dung-cua-banh-dau-xanh-banh-dau-xanh-co-tot-khong.jpg",
+        "posts": [
+          "banh-dau-xanh-bao-nhieu-calo.md",
+          "banh-dau-xanh-nguoi-tieu-duong.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/banh-dau-xanh-hai-duong-huong-vi-dac-san-mang-dam-net-truyen-thong.jpg",
+        "posts": [
+          "banh-dau-xanh-hai-duong-huong-vi-truyen-thong-vuot-thoi-gian.md",
+          "banh-dau-xanh-la-gi.md",
+          "cach-bao-quan-banh-dau-xanh.md",
+          "dac-san-hai-duong-xu-dong.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/DSC07485.jpg",
+        "posts": [
+          "banh-dau-xanh-hai-duong-mon-qua-bieu-y-nghia-cho-moi-dip-dac-biet.md",
+          "banh-dau-xanh-quy-trinh-ocop-5-sao.md"
+        ]
+      },
+      {
+        "path": "/images/bot/bot-tong-hop.jpg",
+        "posts": [
+          "bot-dau-xanh-co-tac-dung-gi.md",
+          "bot-dau-xanh-pha-san-cac-vi-moi.md",
+          "bot-dau-xanh-va-bot-ngu-coc.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/hop-5-sao-web.jpg",
+        "posts": [
+          "dac-san-hai-duong-lam-qua-bieu.md",
+          "dac-san-mien-bac-lam-qua-bieu.md",
+          "phan-biet-banh-dau-xanh-chinh-hang.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/Loi-ich-suc-khoe-tu-banh-dau-xanh.jpg",
+        "posts": [
+          "dau-xanh-co-tac-dung-gi.md",
+          "loi-ich-suc-khoe-bat-ngo-tu-viec-an-banh-dau-xanh-moi-ngay.md"
+        ]
+      },
+      {
+        "path": "/images/legacy/banh-dau-xanh-hop-tre-cao-cap-rong-vang-hoang-gia.jpg",
+        "posts": [
+          "qua-bieu-doanh-nghiep-dac-san.md",
+          "qua-trung-thu-doanh-nghiep.md"
+        ]
+      }
+    ],
+    "sha256DuplicateGroupCount": 13,
+    "sha256DuplicatePostCount": 31,
+    "sha256DuplicateGroups": [
+      {
+        "sha256": "206939814087cf55ef7933d0e2c8c8deb1685c54f706252b0e6091fb1eab7dcd",
+        "posts": [
+          "5-cach-doc-dao-de-thuong-thuc-banh-dau-xanh-cach-thu-5-ban-co-nam-mo-cung-chua-chac-da-nghi-den.md",
+          "tra-va-banh-dau-xanh.md"
+        ]
+      },
+      {
+        "sha256": "c81359373eb9605926724605b220f702649bd77dd1c87d704fc94aeb413592de",
+        "posts": [
+          "ba-bau-tre-nho-dung-bot-banh-dau-xanh.md",
+          "bot-dau-xanh-lam-dep-da.md",
+          "cac-mon-ngon-tu-dau-xanh.md"
+        ]
+      },
+      {
+        "sha256": "853edcc1760b7c36296b9d9e5e31b39405fc621d407bd8c896df3d8e4f821fbb",
+        "posts": [
+          "banh-dau-tra-xanh-banh-dau-sau-rieng-rong-vang-hoang-gia-dat-ocop-5-sao-quoc-gia.md",
+          "ocop-5-sao-quoc-gia-la-gi.md"
+        ]
+      },
+      {
+        "sha256": "540b9439dc50b613098f9400eb8ff575cc962d30d6a358858ba5c7a7a1819b60",
+        "posts": [
+          "banh-dau-tra-xanh-cau-chuyen-san-pham.md",
+          "banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu.md"
+        ]
+      },
+      {
+        "sha256": "d1f55bab60a18fdad0c3e63564fd5469281324825afa0d1e0388172b783e666a",
+        "posts": [
+          "banh-dau-tra-xanh-hoang-gia.md",
+          "qua-tang-nguoi-lon-tuoi.md"
+        ]
+      },
+      {
+        "sha256": "6ccec61c0b07c6022277ac0745c34b52df3579b5d8e9c8cd677cb33bb0ce9e1f",
+        "posts": [
+          "banh-dau-xanh-bao-nhieu-calo.md",
+          "banh-dau-xanh-nguoi-tieu-duong.md"
+        ]
+      },
+      {
+        "sha256": "68856005edcc33ee9481467b8ad4bda51ddc415a9c955e09f94c46e9304091e8",
+        "posts": [
+          "banh-dau-xanh-hai-duong-huong-vi-truyen-thong-vuot-thoi-gian.md",
+          "banh-dau-xanh-la-gi.md",
+          "cach-bao-quan-banh-dau-xanh.md",
+          "dac-san-hai-duong-xu-dong.md"
+        ]
+      },
+      {
+        "sha256": "ca29d3e7ca03b1ece739ea81840a15253f76b25dbf0c51d0cde477c92bc6b6a6",
+        "posts": [
+          "banh-dau-xanh-hai-duong-mon-qua-bieu-y-nghia-cho-moi-dip-dac-biet.md",
+          "banh-dau-xanh-quy-trinh-ocop-5-sao.md"
+        ]
+      },
+      {
+        "sha256": "edaf4a5c605708c0c50f0d6ab76f2ab006918233a621f4d3cb3ea5ab29c33792",
+        "posts": [
+          "banh-dau-xanh-van-hoa-tet.md",
+          "qua-tet-2027-dat-som.md"
+        ]
+      },
+      {
+        "sha256": "b272207844f9b018f3ef3ad584265b1c3794a1f7b4bbb482116db6aaeda05fe4",
+        "posts": [
+          "bot-dau-xanh-co-tac-dung-gi.md",
+          "bot-dau-xanh-pha-san-cac-vi-moi.md",
+          "bot-dau-xanh-va-bot-ngu-coc.md"
+        ]
+      },
+      {
+        "sha256": "d78ab9138843f4c0e21d87bfcfc5e86cf747cbbf619b713551ba58b9e4ccdb23",
+        "posts": [
+          "dac-san-hai-duong-lam-qua-bieu.md",
+          "dac-san-mien-bac-lam-qua-bieu.md",
+          "phan-biet-banh-dau-xanh-chinh-hang.md"
+        ]
+      },
+      {
+        "sha256": "305b4c4b2f1a1c45bcdac6700859f134f5e281812e845ff0d1006be144b27f82",
+        "posts": [
+          "dau-xanh-co-tac-dung-gi.md",
+          "loi-ich-suc-khoe-bat-ngo-tu-viec-an-banh-dau-xanh-moi-ngay.md"
+        ]
+      },
+      {
+        "sha256": "bdd86d8f643f988a237ad77f7e4cf6225626878e2a78fdaa00d05d8d341a7127",
+        "posts": [
+          "qua-bieu-doanh-nghiep-dac-san.md",
+          "qua-trung-thu-doanh-nghiep.md"
+        ]
+      }
+    ]
+  },
+  "plannedAfter": {
+    "postCount": 72,
+    "missingFileCount": 0,
+    "missing": [],
+    "normalizedPathDuplicateGroupCount": 0,
+    "normalizedPathDuplicatePostCount": 0,
+    "normalizedPathDuplicateGroups": [],
+    "sha256DuplicateGroupCount": 0,
+    "sha256DuplicatePostCount": 0,
+    "sha256DuplicateGroups": []
+  },
+  "scope": "Cover images only across 72 baseline posts. SHA-256 counts only locally present files. Normalization strips YAML quoting, URL query/fragment, URL-decodes, and normalizes path components. Exact-byte uniqueness does not prove perceptual uniqueness."
+}

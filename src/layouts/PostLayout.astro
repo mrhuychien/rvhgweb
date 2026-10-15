@@ -15,7 +15,7 @@ interface Props {
   headings?: MarkdownHeading[];
 }
 const { post, headings = [] } = Astro.props;
-const { title, seoTitle, description, publishDate, updated, author, cover, tags, faq, howTo, relatedProducts } = post.data;
+const { title, seoTitle, description, publishDate, updated, author, cover, coverAlt, coverCaption, coverCredit, tags, faq, howTo, relatedProducts } = post.data;
 const url = postPath(post);
 
 const dateStr = new Intl.DateTimeFormat('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(publishDate);
@@ -89,9 +89,15 @@ const absUrl = SITE.url + url;
     </header>
 
     {cover && (
-      <div class="rvhg-post__cover">
-        <LegacyImg src={cover} alt={title} width={2400} height={1350} sizes="100vw" loading="eager" fetchpriority="high" />
+      <div class:list={['rvhg-post__cover', { 'rvhg-post__cover--contain': post.data.coverFit === 'contain' }]}>
+        <LegacyImg src={cover} alt={coverAlt ?? title} width={2400} height={1350} sizes="100vw" loading="eager" fetchpriority="high" />
       </div>
+    )}
+    {cover && (coverCaption || coverCredit) && (
+      <p class="rvhg-container rvhg-container--narrow" style="font-size:0.85rem;line-height:1.6;margin-block:1rem;color:var(--color-ink-muted,#62584f)">
+        {coverCaption}
+        {coverCredit && <span> Ảnh: <a href={coverCredit.source} target="_blank" rel="noopener noreferrer">{coverCredit.author}</a> · <a href={coverCredit.licenseUrl} target="_blank" rel="noopener noreferrer">{coverCredit.license}</a>{coverCredit.changes && ` · ${coverCredit.changes}`}</span>}
+      </p>
     )}
 
     <div class="rvhg-container rvhg-post__body">
@@ -267,6 +273,11 @@ const absUrl = SITE.url + url;
     height: clamp(18rem, 50vw, 32rem);
     object-fit: cover;
     display: block;
+  }
+  .rvhg-post__cover--contain :global(img) {
+    object-fit: contain;
+    background: #faf8f2;
+    height: clamp(16rem, 38vw, 28rem);
   }
   .rvhg-post__body {
     padding-block: 4rem 6rem;

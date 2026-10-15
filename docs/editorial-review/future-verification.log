@@ -1,0 +1,224 @@
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.onlyBuiltDependencies". See https://pnpm.io/settings for the new home of each setting.
+$ pnpm build && node tools/linkcheck.mjs && node tools/linkcheck.mjs --platform vercel && node tools/pages-check.mjs && node tools/drivecheck.mjs
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.onlyBuiltDependencies". See https://pnpm.io/settings for the new home of each setting.
+$ node tools/sync-pages-redirects.mjs --check && node tools/gen-responsive.mjs && astro build
+Pages redirects OK: 60 legacy rules, 118 path variants.
+responsive images: 0 ảnh xử lý, 139 bỏ qua (đã có), 140 mục trong manifest.
+16:11:55 [content] Syncing content
+16:11:55 [content] Synced content
+16:11:55 [types] Generated 506ms
+16:11:55 [build] output: "static"
+16:11:55 [build] mode: "static"
+16:11:55 [build] directory: /workspace/shared/rvhgweb-editorial/dist/
+16:11:55 [build] Collecting build info...
+16:11:55 [build] ✓ Completed in 539ms.
+16:11:56 [build] Building static entrypoints...
+16:11:57 [vite] ✓ built in 1.61s
+16:11:57 [build] ✓ Completed in 1.66s.
+
+ building client (vite) 
+16:11:57 [vite] transforming...
+16:11:57 [vite] ✓ 15 modules transformed.
+16:11:57 [vite] rendering chunks...
+16:11:57 [vite] computing gzip size...
+16:11:57 [vite] dist/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CDGfc0hd.js  15.36 kB │ gzip: 5.28 kB
+16:11:57 [vite] ✓ built in 56ms
+
+ generating static routes 
+16:11:57 ▶ src/pages/404.astro
+16:11:57   └─ /404.html (+10ms) 
+16:11:57 ▶ src/pages/bdx-rauma-khongduong/index.astro
+16:11:57   └─ /bdx-rauma-khongduong/index.html (+4ms) 
+16:11:57 ▶ src/pages/botdx-carot/index.astro
+16:11:57   └─ /botdx-carot/index.html (+2ms) 
+16:11:57 ▶ src/pages/botdx-matcha/index.astro
+16:11:57   └─ /botdx-matcha/index.html (+2ms) 
+16:11:57 ▶ src/pages/botdx-rauma/index.astro
+16:11:57   └─ /botdx-rauma/index.html (+2ms) 
+16:11:57 ▶ src/pages/botdx-suadua/index.astro
+16:11:57   └─ /botdx-suadua/index.html (+2ms) 
+16:11:57 ▶ src/pages/cong-bo/index.astro
+16:11:57   └─ /cong-bo/index.html (+16ms) 
+16:11:57 ▶ src/pages/danh-muc-san-pham/[slug]/index.astro
+16:11:57   ├─ /danh-muc-san-pham/banh-dau-xanh-tet/index.html (+6ms) 
+16:11:57   ├─ /danh-muc-san-pham/banh-dau-xanh-thuong-hang/index.html (+2ms) 
+16:11:57   ├─ /danh-muc-san-pham/banh-dau-xanh-trai-cay-truyen-thong/index.html (+2ms) 
+16:11:57   ├─ /danh-muc-san-pham/banh-dau-xanh-truyen-thong/index.html (+2ms) 
+16:11:57   └─ /danh-muc-san-pham/bot-dau/index.html (+2ms) 
+16:11:57 ▶ src/pages/diem-ban-rong-vang-hoang-gia/index.astro
+16:11:57   └─ /diem-ban-rong-vang-hoang-gia/index.html (+2ms) 
+16:11:57 ▶ src/pages/gioi-thieu/index.astro
+16:11:57   └─ /gioi-thieu/index.html (+2ms) 
+16:11:57 ▶ src/pages/lien-he/index.astro
+16:11:57   └─ /lien-he/index.html (+1ms) 
+16:11:57 λ src/pages/llms-full.txt.ts
+16:11:57   └─ /llms-full.txt (+9ms) 
+16:11:57 λ src/pages/og/post/[slug].png.ts
+16:11:57   ├─ /og/post/5-cach-doc-dao-de-thuong-thuc-banh-dau-xanh-cach-thu-5-ban-co-nam-mo-cung-chua-chac-da-nghi-den.png/ (+60ms) 
+16:11:57   ├─ /og/post/banh-dau-tra-xanh-banh-dau-sau-rieng-rong-vang-hoang-gia-dat-ocop-5-sao-quoc-gia.png/ (+54ms) 
+16:11:57   ├─ /og/post/banh-dau-tra-xanh-hoang-gia.png/ (+52ms) 
+16:11:58   ├─ /og/post/ba-bau-tre-nho-dung-bot-banh-dau-xanh.png/ (+43ms) 
+16:11:58   ├─ /og/post/banh-dau-tra-xanh-cau-chuyen-san-pham.png/ (+43ms) 
+16:11:58   ├─ /og/post/banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu.png/ (+37ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-bao-nhieu-calo.png/ (+44ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-co-beo-khong-dap-tan-noi-am-anh.png/ (+42ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-hai-duong-huong-vi-truyen-thong-vuot-thoi-gian.png/ (+46ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-hai-duong-dac-san-van-hoa-noi-tieng.png/ (+42ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-hai-duong-mon-qua-bieu-y-nghia-cho-moi-dip-dac-biet.png/ (+39ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-hai-duong-tai-tphcm-dac-san-bac-ky-lam-nuc-long-sai-thanh.png/ (+40ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-la-gi.png/ (+37ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-loai-nao-ngon.png/ (+38ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-ngon-khong-phai-cu-ve-den-hai-duong-la-mua-duoc.png/ (+39ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-nguoi-tieu-duong.png/ (+42ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-qua-tet-hon-viet.png/ (+41ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-o-ha-noi.png/ (+39ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-qua-trung-thu.png/ (+39ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-quy-trinh-ocop-5-sao.png/ (+44ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-rong-vang-tiet-lo-cau-chuyen-lich-su.png/ (+39ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-van-hoa-tet.png/ (+40ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-tet-tan-suu-2021-rong-vang-hoang-gia.png/ (+40ms) 
+16:11:58   ├─ /og/post/banh-dau-xanh-tra-xanh-rong-vang-them-mot-nguyen-lieu-say-dam-ca-van-nguoi.png/ (+40ms) 
+16:11:58   ├─ /og/post/bot-dau-xanh-co-tac-dung-gi.png/ (+42ms) 
+16:11:58   ├─ /og/post/bot-dau-xanh-khong-duong.png/ (+39ms) 
+16:11:58   ├─ /og/post/bot-dau-xanh-lam-dep-da.png/ (+39ms) 
+16:11:58   ├─ /og/post/bot-dau-xanh-mua-lanh.png/ (+37ms) 
+16:11:59   ├─ /og/post/bot-dau-xanh-mua-thu.png/ (+43ms) 
+16:11:59   ├─ /og/post/bot-dau-xanh-pha-san-cac-vi-moi.png/ (+39ms) 
+16:11:59   ├─ /og/post/bot-dau-xanh-va-bot-ngu-coc.png/ (+38ms) 
+16:11:59   ├─ /og/post/cach-bao-quan-bot-dau-xanh.png/ (+41ms) 
+16:11:59   ├─ /og/post/cac-mon-ngon-tu-dau-xanh.png/ (+40ms) 
+16:11:59   ├─ /og/post/cach-bao-quan-banh-dau-xanh.png/ (+40ms) 
+16:11:59   ├─ /og/post/cach-chon-hop-qua-tet.png/ (+41ms) 
+16:11:59   ├─ /og/post/cach-nau-che-dau-xanh.png/ (+37ms) 
+16:11:59   ├─ /og/post/cach-pha-bot-dau-xanh-giai-nhiet-mua-he.png/ (+41ms) 
+16:11:59   ├─ /og/post/cau-chuyen-san-pham-banh-dau-sau-rieng-bang-hinh-anh.png/ (+41ms) 
+16:11:59   ├─ /og/post/cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh.png/ (+36ms) 
+16:11:59   ├─ /og/post/dac-san-hai-duong-lam-qua-bieu.png/ (+44ms) 
+16:11:59   ├─ /og/post/dac-san-hai-duong-xu-dong.png/ (+56ms) 
+16:11:59   ├─ /og/post/dac-san-mien-bac-lam-qua-bieu.png/ (+43ms) 
+16:11:59   ├─ /og/post/dau-xanh-trong-am-thuc-viet.png/ (+44ms) 
+16:11:59   ├─ /og/post/dau-xanh-co-tac-dung-gi.png/ (+41ms) 
+16:11:59   ├─ /og/post/gia-1-hop-banh-dau-xanh-la-bao-nhieu-mua-o-dau-thi-uy-tin.png/ (+39ms) 
+16:11:59   ├─ /og/post/dac-san-mien-bac.png/ (+40ms) 
+16:11:59   ├─ /og/post/gio-qua-tet-doanh-nghiep.png/ (+43ms) 
+16:11:59   ├─ /og/post/hop-qua-tet-banh-dau-xanh.png/ (+38ms) 
+16:11:59   ├─ /og/post/lam-banh-dau-xanh-hai-duong-cong-thuc-bi-truyen-bat-mi-boi-nghe-nhan.png/ (+37ms) 
+16:11:59   ├─ /og/post/lich-su-banh-dau-xanh.png/ (+41ms) 
+16:11:59   ├─ /og/post/loi-ich-suc-khoe-bat-ngo-tu-viec-an-banh-dau-xanh-moi-ngay.png/ (+44ms) 
+16:11:59   ├─ /og/post/mam-co-trung-thu.png/ (+44ms) 
+16:12:00   ├─ /og/post/mua-banh-dau-xanh-o-sai-gon-nhanh-chong-so-huu-san-pham-chinh-goc-doc-dao.png/ (+44ms) 
+16:12:00   ├─ /og/post/mua-banh-dau-xanh-tet.png/ (+44ms) 
+16:12:00   ├─ /og/post/ocop-5-sao-quoc-gia-la-gi.png/ (+44ms) 
+16:12:00   ├─ /og/post/qua-20-10.png/ (+41ms) 
+16:12:00   ├─ /og/post/phan-biet-banh-dau-xanh-chinh-hang.png/ (+38ms) 
+16:12:00   ├─ /og/post/qua-20-11-thay-co.png/ (+39ms) 
+16:12:00   ├─ /og/post/qua-bieu-doanh-nghiep-dac-san.png/ (+46ms) 
+16:12:00   ├─ /og/post/qua-bieu-suc-khoe.png/ (+40ms) 
+16:12:00   ├─ /og/post/qua-tang-nguoi-lon-tuoi.png/ (+43ms) 
+16:12:00   ├─ /og/post/qua-tet-2027-dac-san.png/ (+44ms) 
+16:12:00   ├─ /og/post/qua-tet-2027-dat-som.png/ (+45ms) 
+16:12:00   ├─ /og/post/qua-tet-doi-tac-nuoc-ngoai.png/ (+42ms) 
+16:12:00   ├─ /og/post/qua-tet-gia-dinh.png/ (+40ms) 
+16:12:00   ├─ /og/post/qua-tet-ocop-5-sao.png/ (+46ms) 
+16:12:00   ├─ /og/post/qua-trung-thu-y-nghia.png/ (+42ms) 
+16:12:00   ├─ /og/post/qua-trung-thu-doanh-nghiep.png/ (+41ms) 
+16:12:00   ├─ /og/post/thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia.png/ (+43ms) 
+16:12:00   ├─ /og/post/thong-cao-bao-chi-su-kien-le-don-nhan-chung-nhan-san-pham-ocop-5-sao-quoc-gia-banh-dau-xanh-rong-vang-hoang-gia-va-khai-truong-showroom.png/ (+40ms) 
+16:12:00   ├─ /og/post/tra-va-banh-dau-xanh.png/ (+39ms) 
+16:12:00   └─ /og/post/uong-bot-dau-xanh-buoi-sang.png/ (+40ms) 
+16:12:00 ▶ src/pages/san-pham/index.astro
+16:12:00   └─ /san-pham/index.html (+3ms) 
+16:12:00 ▶ src/pages/tin-tuc/index.astro
+16:12:00   └─ /tin-tuc/index.html (+10ms) 
+16:12:00 ▶ src/pages/[slug]/index.astro
+16:12:00   ├─ /5-cach-doc-dao-de-thuong-thuc-banh-dau-xanh-cach-thu-5-ban-co-nam-mo-cung-chua-chac-da-nghi-den/index.html (+7ms) 
+16:12:00   ├─ /banh-dau-tra-xanh-banh-dau-sau-rieng-rong-vang-hoang-gia-dat-ocop-5-sao-quoc-gia/index.html (+4ms) 
+16:12:00   ├─ /banh-dau-tra-xanh-hoang-gia/index.html (+3ms) 
+16:12:00   ├─ /ba-bau-tre-nho-dung-bot-banh-dau-xanh/index.html (+4ms) 
+16:12:00   ├─ /banh-dau-tra-xanh-cau-chuyen-san-pham/index.html (+5ms) 
+16:12:00   ├─ /banh-dau-tra-xanh-mot-khuc-bien-tau-cua-huong-sac-va-tram-tu/index.html (+3ms) 
+16:12:00   ├─ /banh-dau-xanh-bao-nhieu-calo/index.html (+5ms) 
+16:12:00   ├─ /banh-dau-xanh-co-beo-khong-dap-tan-noi-am-anh/index.html (+12ms) 
+16:12:00   ├─ /banh-dau-xanh-hai-duong-huong-vi-truyen-thong-vuot-thoi-gian/index.html (+7ms) 
+16:12:00   ├─ /banh-dau-xanh-hai-duong-dac-san-van-hoa-noi-tieng/index.html (+6ms) 
+16:12:00   ├─ /banh-dau-xanh-hai-duong-mon-qua-bieu-y-nghia-cho-moi-dip-dac-biet/index.html (+6ms) 
+16:12:00   ├─ /banh-dau-xanh-hai-duong-tai-tphcm-dac-san-bac-ky-lam-nuc-long-sai-thanh/index.html (+6ms) 
+16:12:00   ├─ /banh-dau-xanh-la-gi/index.html (+5ms) 
+16:12:00   ├─ /banh-dau-xanh-loai-nao-ngon/index.html (+5ms) 
+16:12:00   ├─ /banh-dau-xanh-ngon-khong-phai-cu-ve-den-hai-duong-la-mua-duoc/index.html (+6ms) 
+16:12:00   ├─ /banh-dau-xanh-nguoi-tieu-duong/index.html (+18ms) 
+16:12:00   ├─ /banh-dau-xanh-qua-tet-hon-viet/index.html (+7ms) 
+16:12:00   ├─ /banh-dau-xanh-o-ha-noi/index.html (+5ms) 
+16:12:01   ├─ /banh-dau-xanh-qua-trung-thu/index.html (+5ms) 
+16:12:01   ├─ /banh-dau-xanh-quy-trinh-ocop-5-sao/index.html (+5ms) 
+16:12:01   ├─ /banh-dau-xanh-rong-vang-tiet-lo-cau-chuyen-lich-su/index.html (+3ms) 
+16:12:01   ├─ /banh-dau-xanh-van-hoa-tet/index.html (+3ms) 
+16:12:01   ├─ /banh-dau-xanh-tet-tan-suu-2021-rong-vang-hoang-gia/index.html (+4ms) 
+16:12:01   ├─ /banh-dau-xanh-tra-xanh-rong-vang-them-mot-nguyen-lieu-say-dam-ca-van-nguoi/index.html (+3ms) 
+16:12:01   ├─ /bot-dau-xanh-co-tac-dung-gi/index.html (+4ms) 
+16:12:01   ├─ /bot-dau-xanh-khong-duong/index.html (+4ms) 
+16:12:01   ├─ /bot-dau-xanh-lam-dep-da/index.html (+4ms) 
+16:12:01   ├─ /bot-dau-xanh-mua-lanh/index.html (+3ms) 
+16:12:01   ├─ /bot-dau-xanh-mua-thu/index.html (+3ms) 
+16:12:01   ├─ /bot-dau-xanh-pha-san-cac-vi-moi/index.html (+6ms) 
+16:12:01   ├─ /bot-dau-xanh-va-bot-ngu-coc/index.html (+3ms) 
+16:12:01   ├─ /cach-bao-quan-bot-dau-xanh/index.html (+3ms) 
+16:12:01   ├─ /cac-mon-ngon-tu-dau-xanh/index.html (+3ms) 
+16:12:01   ├─ /cach-bao-quan-banh-dau-xanh/index.html (+3ms) 
+16:12:01   ├─ /cach-chon-hop-qua-tet/index.html (+4ms) 
+16:12:01   ├─ /cach-nau-che-dau-xanh/index.html (+3ms) 
+16:12:01   ├─ /cach-pha-bot-dau-xanh-giai-nhiet-mua-he/index.html (+3ms) 
+16:12:01   ├─ /cau-chuyen-san-pham-banh-dau-sau-rieng-bang-hinh-anh/index.html (+3ms) 
+16:12:01   ├─ /cau-chuyen-san-pham-banh-dau-tra-xanh-bang-hinh-anh/index.html (+3ms) 
+16:12:01   ├─ /dac-san-hai-duong-lam-qua-bieu/index.html (+3ms) 
+16:12:01   ├─ /dac-san-hai-duong-xu-dong/index.html (+3ms) 
+16:12:01   ├─ /dac-san-mien-bac-lam-qua-bieu/index.html (+5ms) 
+16:12:01   ├─ /dau-xanh-trong-am-thuc-viet/index.html (+4ms) 
+16:12:01   ├─ /dau-xanh-co-tac-dung-gi/index.html (+7ms) 
+16:12:01   ├─ /gia-1-hop-banh-dau-xanh-la-bao-nhieu-mua-o-dau-thi-uy-tin/index.html (+3ms) 
+16:12:01   ├─ /dac-san-mien-bac/index.html (+3ms) 
+16:12:01   ├─ /gio-qua-tet-doanh-nghiep/index.html (+3ms) 
+16:12:01   ├─ /hop-qua-tet-banh-dau-xanh/index.html (+3ms) 
+16:12:01   ├─ /lam-banh-dau-xanh-hai-duong-cong-thuc-bi-truyen-bat-mi-boi-nghe-nhan/index.html (+3ms) 
+16:12:01   ├─ /lich-su-banh-dau-xanh/index.html (+3ms) 
+16:12:01   ├─ /loi-ich-suc-khoe-bat-ngo-tu-viec-an-banh-dau-xanh-moi-ngay/index.html (+3ms) 
+16:12:01   ├─ /mam-co-trung-thu/index.html (+3ms) 
+16:12:01   ├─ /mua-banh-dau-xanh-o-sai-gon-nhanh-chong-so-huu-san-pham-chinh-goc-doc-dao/index.html (+3ms) 
+16:12:01   ├─ /mua-banh-dau-xanh-tet/index.html (+3ms) 
+16:12:01   ├─ /ocop-5-sao-quoc-gia-la-gi/index.html (+2ms) 
+16:12:01   ├─ /qua-20-10/index.html (+3ms) 
+16:12:01   ├─ /phan-biet-banh-dau-xanh-chinh-hang/index.html (+3ms) 
+16:12:01   ├─ /qua-20-11-thay-co/index.html (+5ms) 
+16:12:01   ├─ /qua-bieu-doanh-nghiep-dac-san/index.html (+4ms) 
+16:12:01   ├─ /qua-bieu-suc-khoe/index.html (+4ms) 
+16:12:01   ├─ /qua-tang-nguoi-lon-tuoi/index.html (+3ms) 
+16:12:01   ├─ /qua-tet-2027-dac-san/index.html (+3ms) 
+16:12:01   ├─ /qua-tet-2027-dat-som/index.html (+2ms) 
+16:12:01   ├─ /qua-tet-doi-tac-nuoc-ngoai/index.html (+3ms) 
+16:12:01   ├─ /qua-tet-gia-dinh/index.html (+3ms) 
+16:12:01   ├─ /qua-tet-ocop-5-sao/index.html (+2ms) 
+16:12:01   ├─ /qua-trung-thu-y-nghia/index.html (+3ms) 
+16:12:01   ├─ /qua-trung-thu-doanh-nghiep/index.html (+2ms) 
+16:12:01   ├─ /thong-cao-bao-chi-rong-vang-hoang-gia-banh-dau-xanh-duy-nhat-dat-ocop-5-sao-quoc-gia/index.html (+2ms) 
+16:12:01   ├─ /thong-cao-bao-chi-su-kien-le-don-nhan-chung-nhan-san-pham-ocop-5-sao-quoc-gia-banh-dau-xanh-rong-vang-hoang-gia-va-khai-truong-showroom/index.html (+3ms) 
+16:12:01   ├─ /tra-va-banh-dau-xanh/index.html (+3ms) 
+16:12:01   ├─ /uong-bot-dau-xanh-buoi-sang/index.html (+5ms) 
+16:12:01   ├─ /ban-tu-cong-bo-rong-vang-hoang-gia/index.html (+1ms) 
+16:12:01   ├─ /chinh-sach-bao-hanh-doi-tra/index.html (+1ms) 
+16:12:01   ├─ /chinh-sach-bao-mat/index.html (+1ms) 
+16:12:01   ├─ /chinh-sach-va-quy-dinh-chung/index.html (+1ms) 
+16:12:01   ├─ /chinh-sach-van-chuyen/index.html (+1ms) 
+16:12:01   └─ /cau-chuyen-san-pham-rong-vang-hoang-gia-2/index.html (+1ms) 
+16:12:01 ▶ src/pages/index.astro
+16:12:01   └─ /index.html (+3ms) 
+16:12:01 ✓ Completed in 3.47s.
+
+16:12:01 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+16:12:01 [build] 96 page(s) built in 5.77s
+16:12:01 [build] Complete!
+Checking internal links using pages redirects.
+link check OK — 97 trang, 0 dead link.
+Checking internal links using vercel redirects.
+link check OK — 97 trang, 0 dead link.
+Pages output OK: 1031 files, 97 HTML pages, largest 4.74 MiB; 0 unpublished posts excluded; apex SEO verified.
+drive check OK — 21 văn bản trên Drive, 141 file đã soát.

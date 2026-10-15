@@ -1,0 +1,122 @@
+{
+  "mung": {
+    "originalFile": "Mung_beans_raw.jpg",
+    "author": "Lucianne",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "alt": "Hạt đậu xanh nguyên vỏ",
+    "caption": "Ảnh minh họa nguyên liệu đậu xanh; không phải ảnh vùng nguyên liệu của doanh nghiệp."
+  },
+  "mungplant": {
+    "originalFile": "CSIRO_ScienceImage_3717_Mung_beans.jpg",
+    "author": "Carl Davies / CSIRO",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "alt": "Những hạt đậu xanh trên nền sáng",
+    "caption": "Ảnh minh họa hạt đậu xanh; không phải ảnh quy trình sản xuất của Rồng Vàng Hoàng Gia."
+  },
+  "rice": {
+    "originalFile": "Rice_Grains.jpg",
+    "author": "Ashok Menon",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "alt": "Bông lúa với những hạt đang chín",
+    "caption": "Lúa là một loại ngũ cốc. Ảnh minh họa sự khác biệt giữa nhóm hạt ngũ cốc và đậu."
+  },
+  "tea": {
+    "originalFile": "Cup_of_green_tea.jpg",
+    "author": "motograf",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "alt": "Chén trà xanh với lá trà trong nước",
+    "caption": "Ảnh minh họa trà xanh, không phải đồ uống hay sản phẩm của Rồng Vàng Hoàng Gia."
+  },
+  "viettea": {
+    "originalFile": "Fresh_green_tea_bowl_Vietnam.jpg",
+    "author": "DXLINH",
+    "license": "Phạm vi công cộng",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Fresh_green_tea_bowl_Vietnam.jpg",
+    "alt": "Bát nước chè xanh trong chiếc bát sứ",
+    "caption": "Nước chè xanh trong sinh hoạt Việt; ảnh minh họa cách thưởng trà."
+  },
+  "tealeaves": {
+    "originalFile": "Tea_Leaves.jpg",
+    "author": "Sathish (Knpbs)",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "alt": "Búp trà xanh dưới nắng",
+    "caption": "Búp trà được chụp tại Ooty, Ấn Độ; ảnh minh họa thực vật, không xác định nguồn nguyên liệu của sản phẩm."
+  },
+  "hanoi": {
+    "originalFile": "Hoan_Kiem_Lake_in_Hanoi,_Vietnam_(26312972785).jpg",
+    "author": "katiebordner",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "alt": "Cầu Thê Húc bên hồ Hoàn Kiếm ở Hà Nội",
+    "caption": "Hồ Hoàn Kiếm, Hà Nội, ảnh chụp năm 2015; minh họa địa danh, không phải điểm bán."
+  },
+  "saigon": {
+    "originalFile": "Ho_Chi_Minh_City_skyline.jpg",
+    "author": "Tri Nguyen",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "alt": "Đường chân trời Thành phố Hồ Chí Minh nhìn qua sông về đêm",
+    "caption": "Thành phố Hồ Chí Minh, ảnh chụp năm 2011; minh họa địa danh, không phải điểm bán."
+  },
+  "conson": {
+    "originalFile": "Con_Son_Kiep_Bac_Haiduong.jpg",
+    "author": "haiduongtours (Effhaiphong)",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "alt": "Lối bậc đá và kiến trúc giữa cây xanh tại khu Côn Sơn Kiếp Bạc",
+    "caption": "Phong cảnh được người đăng ảnh ghi là khu Côn Sơn – Kiếp Bạc, năm 2022; chưa xác minh độc lập danh tính công trình trong ảnh."
+  },
+  "che": {
+    "originalFile": "Chè_đỗ_xanh.jpg",
+    "author": "Hoangkid",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "alt": "Bát chè đậu xanh trên mặt bàn gỗ",
+    "caption": "Ảnh minh họa chè đậu xanh trong ẩm thực Việt; không phải sản phẩm đóng gói của thương hiệu."
+  },
+  "chuvanan": {
+    "originalFile": "Chu_Van_An_Temple.jpg",
+    "author": "Hoangkid",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "alt": "Đền thờ Chu Văn An trên núi Phượng Hoàng, Chí Linh",
+    "caption": "Đền thờ Chu Văn An tại Chí Linh, thuộc Hải Dương khi chụp năm 2012. Ảnh minh họa không gian văn hóa xứ Đông, không phải chứng cứ về nguồn gốc bánh hay giai thoại năm 1918."
+  },
+  "mungflower": {
+    "originalFile": "Vigna_radiata_(5001246044).jpg",
+    "author": "Dinesh Valke",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "alt": "Cận cảnh hoa màu vàng của cây đậu xanh (Vigna radiata)",
+    "caption": "Hoa cây đậu xanh (Vigna radiata), ảnh chụp năm 2010. Minh họa nhận diện thực vật; không phải phần thực phẩm được phân tích dinh dưỡng trong bài hay vùng nguyên liệu của doanh nghiệp."
+  },
+  "xoivo": {
+    "originalFile": "Xoi_vo_-dung.jpg",
+    "author": "Nguyen Thi Quynh Tram",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "alt": "Đĩa xôi vò với lớp đậu xanh vàng nhạt quanh hạt nếp",
+    "caption": "Xôi vò trong ẩm thực Việt, ảnh của Nguyen Thi Quynh Tram (Tram’s kochen); minh họa món ăn từ đậu xanh, không phải sản phẩm của Rồng Vàng Hoàng Gia."
+  },
+  "xoixeo": {
+    "originalFile": "Xôi_xéo.jpg",
+    "author": "Viethavvh",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "alt": "Xôi xéo với đậu xanh và hành phi trên lá chuối",
+    "caption": "Xôi xéo với đậu xanh và hành phi, ảnh chụp năm 2015; minh họa vai trò của đậu xanh trong ẩm thực Việt, không phải sản phẩm của thương hiệu."
+  },
+  "tetpeach": {
+    "originalFile": "Peach_Flower_Lunar_New_Year.jpg",
+    "author": "Louis Anderson",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "alt": "Hoa đào hồng trong dịp Tết",
+    "caption": "Hoa đào dịp Tết năm 2017; ảnh minh họa không khí mùa xuân, không phải ảnh sản phẩm hay bộ sưu tập quà Tết 2027."
+  }
+}

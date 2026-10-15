@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {createMarkdownProcessor,parseFrontmatter} from '../../node_modules/.pnpm/@astrojs+markdown-remark@6.3.11/node_modules/@astrojs/markdown-remark/dist/index.js';
+const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+const processor=await createMarkdownProcessor();
+const img=p=>{const f=path.join('public',p);if(!fs.existsSync(f))return '';const ext=path.extname(p).slice(1);return `data:image/${ext==='jpg'?'jpeg':ext};base64,${fs.readFileSync(f).toString('base64')}`};
+const rows=[];
+for(const file of fs.readdirSync('src/content/posts').sort()){
+ if(!file.endsWith('.md'))continue;
+ const {frontmatter:m,content}=parseFrontmatter(fs.readFileSync('src/content/posts/'+file,'utf8'));
+ const date=new Date(m.publishDate).toISOString().slice(0,10);let code=(await processor.render(content)).code;
+ code=code.replace(/src="(\/images\/[^"?]+)(?:\?[^\"]*)?"/g,(_,p)=>`src="${img(p)}"`).replace(/href="(\/[^"#]*)"/g,(_,p)=>`href="https://rongvanghoanggia.com${p}"`);
+ const c=m.coverCredit;const credit=c?`<p class="credit">Ảnh: <a href="${esc(c.source)}">${esc(c.author)}</a> · <a href="${esc(c.licenseUrl)}">${esc(c.license)}</a> · ${esc(c.changes)}</p>`:'';
+ rows.push(`<details><summary>${esc(date)} · ${esc(m.title)}${date>'2026-10-15'?' <b>[Theo lịch]</b>':''}</summary><article><p class="meta">${esc(file)} · Ngày bài ${date} · Chưa xuất bản bản sửa</p><h1>${esc(m.title)}</h1><p class="description">${esc(m.description)}</p><figure><img src="${img(m.cover)}" alt="${esc(m.coverAlt??m.title)}"><figcaption>${esc(m.coverCaption)}</figcaption></figure>${credit}${code}<h2>Câu hỏi thường gặp</h2>${(m.faq??[]).map(q=>`<h3>${esc(q.q)}</h3><p>${esc(q.a)}</p>`).join('')}</article></details>`);
+}
+const html=`<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RVHG · Bản duyệt 72 bài</title><style>body{font:18px/1.7 Georgia,serif;background:#faf8f2;color:#30291f;margin:0}main{max-width:1000px;margin:auto;padding:32px}h1,h2,h3{line-height:1.3;color:#694419}summary{cursor:pointer;font:17px/1.5 system-ui;padding:18px;border-bottom:1px solid #d8ccba}details[open]{background:white}article{max-width:760px;margin:auto;padding:32px}article img{max-width:100%;height:auto}figure{margin:24px 0;text-align:center}figure img{max-height:360px;object-fit:contain}figcaption,.credit,.meta{font:13px/1.6 system-ui;color:#62584f}.description{font-style:italic}a{color:#80540f}.notice{padding:20px;background:#f0e7d7;font:16px/1.6 system-ui}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #ddd;padding:8px}@media(max-width:600px){main{padding:12px}article{padding:16px}summary{padding:14px}}@media print{summary{break-after:avoid}article{padding:10px}}</style><main><h1>Rồng Vàng Hoàng Gia<br>Bản duyệt 72 bài viết</h1><div class="notice">Ngày duyệt: 15/10/2026. Nhấn từng tiêu đề để mở bài. Đây là bản đọc duyệt độc lập, không phải ảnh chụp giao diện website. 17 bài theo lịch giữ nguyên ngày xuất bản; chỉ bản xem trước hiển thị tất cả. Chưa đẩy mã, xuất bản hoặc triển khai. Ảnh được nhúng để đọc ngoại tuyến; liên kết văn bản dẫn đến website hoặc nguồn tham khảo và cần mạng.</div>${rows.join('\n')}</main></html>`;
+fs.writeFileSync('/workspace/shared/RVHG-72-article-review.html',html);console.log('Created offline reading proof:',rows.length,'articles');
