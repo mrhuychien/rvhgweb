@@ -7,7 +7,12 @@ import Footer from '../components/Footer.astro';
 import MobileCallBar from '../components/MobileCallBar.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { organizationSchema, websiteSchema } from '../data/jsonld';
+import { resolveSeason } from '../data/season';
 import '../styles/global.css';
+
+/** Lớp áo theo mùa. Toàn bộ CSS Tết nằm dưới [data-season='tet'] trong
+ *  global.css, nên hết mùa là attribute rụng và cả lớp áo rụng theo. */
+const season = resolveSeason();
 
 interface Props {
   title: string;
@@ -41,7 +46,7 @@ const FB_PIXEL = import.meta.env.PUBLIC_FB_PIXEL ?? '';
 ---
 
 <!doctype html>
-<html lang={SITE.lang} dir="ltr">
+<html lang={SITE.lang} dir="ltr" data-season={season}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
