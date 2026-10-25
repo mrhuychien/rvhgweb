@@ -35,7 +35,7 @@ const pretty = tel.replace(/^(\d{4})(\d{3})(\d{3})$/, '$1 $2 $3');
       bottom: 0;
       z-index: 60;
       padding: 0.6rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
-      background: color-mix(in srgb, #8b0000 96%, transparent);
+      background: color-mix(in srgb, var(--color-night, #8b0000) 96%, transparent);
       border-top: 1px solid color-mix(in srgb, var(--brass) 40%, transparent);
       box-shadow: 0 -8px 24px -14px rgba(0, 0, 0, 0.6);
     }

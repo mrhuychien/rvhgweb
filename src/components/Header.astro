@@ -112,8 +112,8 @@ const LANGS = [
     /* #8B0000 + vệt sáng rất nhẹ phía trên (ánh sáng rọi xuống mặt sơn mài).
        Lớp phủ tan hết trước mép dưới nên liền mạch tuyệt đối với hero. */
     background:
-      linear-gradient(180deg, rgb(170 22 16 / 0.38) 0%, rgb(170 22 16 / 0) 85%),
-      #8b0000;
+      linear-gradient(180deg, rgb(var(--header-sheen, 170 22 16) / 0.38) 0%, rgb(var(--header-sheen, 170 22 16) / 0) 85%),
+      var(--color-night, #8b0000);
     border-bottom: 1px solid color-mix(in srgb, var(--brass) 45%, transparent);
   }
   /* brass corner brackets — restrained nod to the lacquer frame */
@@ -159,8 +159,15 @@ const LANGS = [
     border-radius: 9999px;
     object-fit: cover;
     display: block;
-    /* hairline brass ring lifts the red seal off the maroon header */
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-brass-400, #c5a878) 55%, transparent);
+    /* Một khai báo duy nhất: vòng hairline brass quanh năm (nhấc con dấu đỏ
+       khỏi nền sơn mài) + lớp toả theo mùa. §9 global.css gán --seal-bloom khi
+       vào mùa Tết; ngoài mùa nó là bóng rỗng trong suốt nên không đổi pixel
+       nào. Phải là bóng rỗng chứ không `none` — `none` không hợp lệ trong danh
+       sách ngăn bằng dấu phẩy và sẽ làm rụng cả khai báo. Chỉ paint, không
+       reflow. */
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--color-brass-400, #c5a878) 55%, transparent),
+      var(--seal-bloom, 0 0 #0000);
     transition: width 0.3s var(--ease-refined, ease), height 0.3s var(--ease-refined, ease);
   }
   .rvhg-header[data-scrolled] .rvhg-header__emblem :global(img) { width: 60px; height: 60px; }
@@ -258,7 +265,7 @@ const LANGS = [
     top: 100%;
     inset-inline: 0;
     z-index: 45;
-    background: #8b0000;
+    background: var(--color-night, #8b0000);
     border-top: 1px solid color-mix(in srgb, var(--brass) 30%, transparent);
     max-height: calc(100dvh - 100%);
     overflow-y: auto;

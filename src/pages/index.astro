@@ -281,8 +281,8 @@ const powderSlides = [
     /* #8B0000 + vignette mềm ở rìa/đáy → chiều sâu sang trọng.
        Vùng trên trong suốt nên nối liền mạch với header. */
     background:
-      radial-gradient(125% 115% at 50% -10%, rgb(72 0 0 / 0) 38%, rgb(72 0 0 / 0.55) 100%),
-      #8b0000;
+      radial-gradient(125% 115% at 50% -10%, rgb(var(--night-vignette, 72 0 0) / 0) 38%, rgb(var(--night-vignette, 72 0 0) / var(--hero-vignette-alpha, 0.55)) 100%),
+      var(--color-night, #8b0000);
     padding-block: clamp(3.25rem, 7vw, 6.5rem) clamp(3rem, 6vw, 5.5rem);
   }
   .rvhg-hero3d__canvas,
@@ -296,7 +296,7 @@ const powderSlides = [
   }
   /* warm halo behind the headline — also the full fallback when JS/WebGL is off */
   .rvhg-hero3d__glow {
-    background: radial-gradient(58% 48% at 50% 24%, rgba(176, 141, 87, 0.32), transparent 70%);
+    background: radial-gradient(58% 48% at 50% 24%, rgb(var(--hero-glow, 176 141 87) / var(--hero-glow-alpha, 0.32)), rgb(var(--hero-glow, 176 141 87) / 0) 70%);
   }
   .rvhg-hero3d__inner { position: relative; }
 

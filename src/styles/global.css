@@ -361,11 +361,58 @@ img {
   height: 1px;
   margin-block: 1.25rem 0;
   background: var(--gold-line);
-  opacity: 0.55;
+  opacity: var(--gold-line-opacity, 0.55);
   border: 0;
 }
 .rvhg-rule--center { margin-inline: auto; }
 .rvhg-band-night { --gold-line: #d8c29a; } /* brass-300 on dark */
+
+/* ============================================================================
+   §9  LỚP ÁO MÙA VỤ — TẾT
+   ----------------------------------------------------------------------------
+   Bật/tắt từ MỘT chỗ: src/data/season.ts → <html data-season="tet"> trong
+   BaseLayout. Xoá khối này là xoá sạch lớp áo, không còn vết nào.
+
+   Hai luật giữ cho nó không bao giờ chọi với scoped style của component:
+
+   1. Khối CHỈ gán custom property, không có một khai báo hình thức nào. Mùa vụ
+      điều khiển bằng THỪA KẾ chứ không bằng độ ưu tiên selector — nhờ vậy mọi
+      scoped style vẫn thắng theo cấu trúc, không phải đua.
+   2. Mở bằng `html[data-season='tet']` chứ không phải `[data-season='tet']`
+      trơn: global.css nạp TRƯỚC CSS scoped của trang, nên bản thiếu `html` chỉ
+      hoà độ ưu tiên rồi THUA theo thứ tự nguồn.
+
+   Mọi điểm dùng biến đều có fallback literal ngay trong var(). Bắt buộc, vì
+   rgb(var(--x) / α) mà --x chưa khai thì CẢ khai báo bị "invalid at
+   computed-value time" và rụng — nền sẽ thành trong suốt chứ không phải sai màu.
+
+   Tương phản đã đo trên nền ấm #8f1008: kem 8,82 · brass-300 5,39 ·
+   night-mute 4,97 · brass-250 trong quầng hero 4,63 — đạt AA hết.
+
+   Lưu ý: --gold-line-opacity không ăn vào hairline TRONG hero, vì
+   @keyframes rvhg-rise kết ở opacity:1 với fill `both` nên khoá cứng nó ở 1.
+   Các hairline còn lại (0,55) thì nhận bình thường. Đó là chủ ý: hairline hero
+   vốn đã sáng nhất.
+   ========================================================================= */
+html[data-season='tet'] {
+  /* Nền sơn mài hâm ấm: #8b0000 → #8f1008, nhích về phía son-cam. Đây là thứ
+     giữ cho cả site không rời rạc nên không hạ liều ở đây. */
+  --color-night: #8f1008;
+  /* Vignette ấm hơn và sâu hơn một bậc */
+  --night-vignette: 58 6 3;
+  --hero-vignette-alpha: 0.58;
+  --band-vignette-alpha: 0.5;
+  /* Vệt sáng trên header rực hơn */
+  --header-sheen: 182 36 22;
+  /* Đường chỉ vàng đậm hơn (0,55 → 0,68) */
+  --gold-line-opacity: 0.68;
+  /* Vầng đồng quanh con dấu — vật thể DUY NHẤT được rọi sáng trong mùa, và nó
+     là triện thương hiệu. Chỉ là LỚP TOẢ thêm: vòng hairline quanh năm đã nằm
+     sẵn trong khai báo box-shadow của Header. Ngoài mùa biến này không khai nên
+     component rơi về bóng rỗng 0 0 #0000. */
+  --seal-bloom: 0 0 16px -2px color-mix(in srgb, var(--color-brass-300, #d8c29a) 55%, transparent);
+}
+
 
 /* Eyebrow — UPPERCASE tracked label above section titles */
 .rvhg-eyebrow {
@@ -424,7 +471,7 @@ img {
    trọng (mép trên trong suốt nên nối liền mạch với khối phía trước). */
 .rvhg-band-night {
   background:
-    radial-gradient(120% 135% at 50% 0%, rgb(72 0 0 / 0) 45%, rgb(72 0 0 / 0.45) 100%),
+    radial-gradient(120% 135% at 50% 0%, rgb(var(--night-vignette, 72 0 0) / 0) 45%, rgb(var(--night-vignette, 72 0 0) / var(--band-vignette-alpha, 0.45)) 100%),
     var(--color-night);
   color: var(--color-night-text);
 }
