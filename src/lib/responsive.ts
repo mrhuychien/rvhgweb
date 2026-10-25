@@ -9,7 +9,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-type Entry = { w: number; h: number; v: number[] };
+/** `b` — tiền tố URL của biến thể, do generator ghi sẵn (vd `/_img/hero/tet`).
+ *  Nhờ nó mà file này không cần biết ảnh gốc đuôi gì. */
+type Entry = { w: number; h: number; v: number[]; b?: string };
 
 let manifest: Record<string, Entry> | null = null;
 let loaded = false;
@@ -41,7 +43,8 @@ export function responsive(src: string): Responsive | null {
   const e = m[key];
   if (!e || !e.v?.length) return null;
 
-  const base = '/_img/' + key.replace(/^\/images\//, '').replace(/\.(jpe?g|png)$/i, '');
+  // Manifest cũ (sinh trước khi có `b`) thì lui về cách suy ra từ tên file.
+  const base = e.b ?? '/_img/' + key.replace(/^\/images\//, '').replace(/\.(jpe?g|png|webp)$/i, '');
   return {
     srcset: e.v.map((w) => `${base}-${w}.webp ${w}w`).join(', '),
     width: e.w,

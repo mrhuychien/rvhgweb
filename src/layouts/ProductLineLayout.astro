@@ -36,8 +36,8 @@ if (d.faq.length > 0) jsonLd.push(faqSchema(d.faq));
       <div class="gold-rule rvhg-rule--center"></div>
     </div>
     {d.heroImage && (
-      <div class="rvhg-line-hero__media">
-        <LegacyImg src={d.heroImage} alt={d.title} width={2400} height={1350} loading="eager" fetchpriority="high" />
+      <div class:list={['rvhg-line-hero__media', d.heroImageFull && 'rvhg-line-hero__media--full']}>
+        <LegacyImg src={d.heroImage} alt={d.heroImageAlt ?? d.title} width={2400} height={1350} sizes="100vw" loading="eager" fetchpriority="high" />
       </div>
     )}
   </section>
@@ -214,6 +214,14 @@ if (d.faq.length > 0) jsonLd.push(faqSchema(d.faq));
     height: clamp(20rem, 55vw, 36rem);
     object-fit: cover;
     display: block;
+  }
+  /* Dưới ~570px, khung cao tối thiểu 20rem hẹp hơn tỉ lệ ảnh ngang, nên
+     object-fit: cover cắt mất hai mép — với tranh có chữ in sẵn thì đó là mất
+     chữ. `height: auto` trả khung về đúng tỉ lệ lấy từ width/height của chính
+     thẻ <img>. Chỉ áp dụng cho trang bật heroImageFull, các dòng khác giữ
+     nguyên khung cao vốn là chủ ý bố cục. */
+  @media (max-width: 600px) {
+    .rvhg-line-hero__media--full :global(img) { height: auto; }
   }
 
   /* Intro */

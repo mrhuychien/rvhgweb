@@ -24,7 +24,15 @@ const MANIFEST = path.join(OUT_DIR, 'manifest.json');
 // 62–84px nhưng file gốc 512px / 182 KB).
 const WIDTHS = [128, 192, 320, 480, 640, 960, 1280, 1600];
 const QUALITY = 75;
-const EXT = /\.(jpe?g|png)$/i;
+// Nhận cả .webp: ảnh hero do thiết kế giao thẳng ở dạng WebP. Không có dòng
+// này thì file .webp bị bỏ qua lặng lẽ — không sinh biến thể, không vào
+// manifest, LegacyImg phát <img> trơn và mọi máy tải nguyên bản gốc.
+// Lưu ý: nguồn .webp giữ NGUYÊN BYTE, không nén lại. Biến thể sinh TỪ file
+// nguồn nên nén nguồn trước là lossy chồng lossy; bản gốc làm master, biến
+// thể q75 mới là thứ trình duyệt tải.
+// Hai file cùng tên khác đuôi trong một thư mục (a.jpg + a.webp) sẽ ghi đè
+// biến thể của nhau — kiểm tra bên dưới chặn việc đó ngay lúc build.
+const EXT = /\.(jpe?g|png|webp)$/i;
 const CONFIG_KEY = `${WIDTHS.join('-')}q${QUALITY}`;
 
 const files = [];
@@ -42,6 +50,21 @@ let prev = {};
 try {
   prev = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
 } catch {}
+
+// Biến thể được đặt tên theo đường dẫn đã bỏ đuôi, nên ảnh.jpg và ảnh.webp
+// nằm cùng thư mục sẽ cùng ghi ra `ảnh-640.webp`. Bắt ngay thay vì để một
+// trong hai âm thầm bị đè.
+const collisions = Object.entries(
+  files.reduce((acc, f) => {
+    const key = f.replace(EXT, '');
+    (acc[key] ??= []).push(f);
+    return acc;
+  }, {}),
+).filter(([, group]) => group.length > 1);
+if (collisions.length) {
+  for (const [key, group] of collisions) console.error(`  ${key}.* → ${group.map((f) => path.extname(f)).join(' + ')}`);
+  throw new Error('Trùng tên ảnh khác đuôi trong cùng thư mục: biến thể sẽ đè nhau. Đổi tên một trong hai.');
+}
 
 const manifest = {};
 let made = 0;
@@ -72,9 +95,14 @@ for (const file of files) {
 
   const cached = prev[rel];
   const outBase = path.join(OUT_DIR, path.relative('public/images', file)).replace(EXT, '');
+  // `b` = tiền tố URL của biến thể, ghi thẳng vào manifest thay vì để
+  // src/lib/responsive.ts tự cắt đuôi file. Trước đây hai nơi cùng giữ một
+  // danh sách đuôi và đã lệch nhau: thêm .webp ở đây mà quên bên kia thì
+  // srcset trỏ `ảnh.webp-640.webp` trong khi file thật là `ảnh-640.webp`.
+  const pubBase = '/' + path.relative('public', outBase).replace(/\\/g, '/');
   const allExist = cached?.stamp === stamp && cached.v?.every((w) => fs.existsSync(`${outBase}-${w}.webp`));
   if (allExist) {
-    manifest[rel] = cached;
+    manifest[rel] = { ...cached, b: pubBase };
     skipped++;
     continue;
   }
@@ -83,7 +111,7 @@ for (const file of files) {
   for (const w of widths) {
     await sharp(file).resize({ width: w, withoutEnlargement: true }).webp({ quality: QUALITY }).toFile(`${outBase}-${w}.webp`);
   }
-  manifest[rel] = { w: meta.width, h: meta.height, v: widths, stamp };
+  manifest[rel] = { w: meta.width, h: meta.height, v: widths, stamp, b: pubBase };
   made++;
 }
 

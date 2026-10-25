@@ -67,6 +67,12 @@ const productCategories = defineCollection({
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
     order: z.number().default(0),
     heroImage: z.string().optional(),
+    /** Text thay thế cho ảnh hero. Bắt buộc đặt khi ảnh có chữ in sẵn trong
+     *  tranh (WCAG 1.1.1); bỏ trống thì lấy `title`. */
+    heroImageAlt: z.string().optional(),
+    /** Hiện trọn khung ảnh hero trên màn hình hẹp thay vì cắt theo khung cao
+     *  cố định. Bật khi ảnh có chữ in sẵn trong tranh — cắt là mất chữ. */
+    heroImageFull: z.boolean().default(false),
     /** Image for the homepage "Danh mục sản phẩm" card grid (authentic old-site photo). */
     cardImage: z.string().optional(),
     /** object-position for the card image when its aspect differs from the tile (e.g. portrait Tết). */

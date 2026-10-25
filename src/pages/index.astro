@@ -8,6 +8,26 @@ import { POWDERS, POWDER_SINGLES, assetUrl } from '../data/powders';
 
 const lines = (await getCollection('productCategories')).sort((a, b) => a.data.order - b.data.order);
 
+/** Băng ảnh chủ đề ở hero. Slide đầu là ảnh LCP (eager + fetchpriority high),
+ *  các slide sau lazy.
+ *
+ *  `caption` chỉ đặt cho ảnh KHÔNG có sẵn chữ trong tranh. Ảnh Tết đã in sẵn
+ *  dòng "thấy Hoàng Gia là thấy Tết" nên để trống — gắn caption nữa là chữ
+ *  hiện hai lần chồng nhau. Dù vậy `alt` luôn mang nguyên văn dòng chữ đó,
+ *  vì WCAG 1.1.1 yêu cầu chữ nằm trong ảnh phải có trong text thay thế. */
+const HERO_SLIDES = [
+  {
+    image: '/images/hero/tet-thay-hoang-gia.webp',
+    alt: 'Thấy Hoàng Gia là thấy Tết — mâm quà Tết bánh đậu xanh Rồng Vàng Hoàng Gia bên cành đào và gia đình sum vầy',
+    caption: '',
+  },
+  {
+    image: '/images/legacy/hero-home.jpg',
+    alt: 'Bánh đậu xanh Rồng Vàng Hoàng Gia',
+    caption: 'Bánh đậu xanh OCOP 5 sao Quốc gia',
+  },
+];
+
 // New "bột đậu xanh" drinks for the home-page slider (4 flavours + the no-sugar pair).
 const powderSlides = [
   ...POWDER_SINGLES.map((s) => ({
@@ -43,27 +63,46 @@ const powderSlides = [
     <div class="rvhg-container rvhg-hero3d__inner">
       <p class="rvhg-eyebrow rvhg-hero3d__lead">Rồng Vàng Hoàng Gia · Hải Dương từ 1997</p>
       <h1 class="rvhg-hero3d__title">
-        Bánh đậu xanh đạt <span class="rvhg-hero3d__hl">OCOP 5 sao Quốc gia</span>
+        Thấy Hoàng Gia là <span class="rvhg-hero3d__hl">thấy Tết</span>
       </h1>
-      <p class="rvhg-hero3d__sub">Chất lượng đỉnh cao được khẳng định.</p>
+      <p class="rvhg-hero3d__sub">Bánh đậu xanh OCOP 5 sao Quốc gia — chất lượng đỉnh cao được khẳng định.</p>
       <div class="gold-rule rvhg-rule--center"></div>
       <div class="rvhg-hero3d__ctas">
         <a class="rvhg-btn" href="/san-pham/">Khám phá sản phẩm</a>
         <a class="rvhg-btn--link" href="/gioi-thieu/">Câu chuyện thương hiệu  ›</a>
       </div>
 
-      <figure class="rvhg-hero3d__showpiece rvhg-tilt" data-tilt>
-        <LegacyImg
-          src="/images/legacy/hero-home.jpg"
-          alt="Bánh đậu xanh Rồng Vàng Hoàng Gia"
-          width={2400}
-          height={1350}
-          sizes="(max-width: 1024px) 100vw, 60rem"
-          loading="eager"
-          fetchpriority="high"
-        />
-        <figcaption class="rvhg-hero3d__seal">OCOP 5★ Quốc gia</figcaption>
-      </figure>
+      <!-- Băng ảnh chủ đề: tự chạy, dùng lại cơ chế [data-slider] có sẵn trong
+           Motion.astro (tự tắt khi prefers-reduced-motion, dừng khi rê chuột /
+           focus / tab ẩn / cuộn khỏi màn hình). Bỏ data-tilt ở đây: Vanilla-Tilt
+           biến đổi transform của chính khung, chọi với cuộn ngang scroll-snap. -->
+      <div
+        class="rvhg-hero3d__showpiece rvhg-heroslider"
+        data-slider
+        role="region"
+        aria-roledescription="trình chiếu ảnh"
+        aria-label="Ảnh chủ đề Rồng Vàng Hoàng Gia"
+      >
+        <ul class="rvhg-heroslider__track" data-slider-track>
+          {HERO_SLIDES.map((s, i) => (
+            <li class="rvhg-heroslide">
+              <LegacyImg
+                src={s.image}
+                alt={s.alt}
+                width={1672}
+                height={941}
+                sizes="(max-width: 1024px) 100vw, 60rem"
+                loading={i === 0 ? 'eager' : 'lazy'}
+                fetchpriority={i === 0 ? 'high' : 'auto'}
+              />
+              {s.caption && <p class="rvhg-heroslide__caption">{s.caption}</p>}
+            </li>
+          ))}
+        </ul>
+        <button class="rvhg-slider__arrow rvhg-heroslider__arrow rvhg-heroslider__arrow--prev" type="button" aria-label="Ảnh trước" data-slider-prev>‹</button>
+        <button class="rvhg-slider__arrow rvhg-heroslider__arrow rvhg-heroslider__arrow--next" type="button" aria-label="Ảnh tiếp theo" data-slider-next>›</button>
+        <div class="rvhg-slider__dots rvhg-heroslider__dots" data-slider-dots aria-hidden="true"></div>
+      </div>
 
       <ul class="rvhg-hero3d__stats">
         <li><span class="rvhg-countup" data-countup={YEARS_EXPERIENCE} data-years-since="1997">{YEARS_EXPERIENCE}</span><small>Năm kinh nghiệm</small></li>
@@ -303,19 +342,86 @@ const powderSlides = [
     object-fit: cover;
     display: block;
   }
-  .rvhg-hero3d__seal {
+
+  /* ---------- hero: băng ảnh tự chạy ---------- */
+  .rvhg-heroslider__track {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .rvhg-heroslider__track::-webkit-scrollbar { display: none; }
+  .rvhg-heroslide {
+    position: relative;
+    /* min-width: 0 — mặc định `auto` cho phép nội dung kéo giãn flex item,
+       đúng lỗi từng làm vỡ dải sản phẩm trên iPhone. */
+    flex: 0 0 100%;
+    min-width: 0;
+    scroll-snap-align: start;
+  }
+  /* Dưới ~500px, khung cao tối thiểu 16rem lại hẹp hơn tỉ lệ 16:9 của ảnh, nên
+     object-fit: cover cắt mất hai mép — mà mép trái chính là chỗ đặt dòng chữ
+     trong tranh. `height: auto` trả khung về đúng tỉ lệ lấy từ width/height
+     của chính thẻ <img>, không cần khai báo aspect-ratio. */
+  @media (max-width: 600px) {
+    .rvhg-heroslider .rvhg-heroslide :global(img) { height: auto; }
+  }
+
+  .rvhg-heroslide__caption {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: var(--color-seal-600, #8f2b22);
-    color: var(--color-paper-50, #fbf8f1);
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 0.4rem 0.7rem;
-    border-radius: var(--radius-sm, 2px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    inset-inline: 0;
+    bottom: 0;
+    margin: 0;
+    /* chừa mép phải cho chấm chỉ mục */
+    padding: 3rem 6.5rem 1.15rem 1.35rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.66), transparent);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(1rem, 2.2vw, 1.5rem);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
+  }
+  /* Các rule .rvhg-slider__* dùng chung nằm SAU khối này trong file và có cùng
+     độ ưu tiên, nên override của hero phải thêm một lớp (.rvhg-heroslider) —
+     nếu không thì thứ tự nguồn quyết định và bản dùng chung thắng. */
+
+  /* Mũi tên nằm TRONG khung: khung có overflow hidden nên vị trí âm của
+     .rvhg-slider__arrow mặc định sẽ bị cắt mất. */
+  .rvhg-heroslider .rvhg-heroslider__arrow {
+    top: 50%;
+    background: color-mix(in srgb, var(--color-night, #171310) 62%, transparent);
+    border-color: color-mix(in srgb, var(--brass) 55%, transparent);
+    color: var(--color-brass-300, #d8c29a);
+    backdrop-filter: blur(3px);
+  }
+  .rvhg-heroslider .rvhg-heroslider__arrow:hover {
+    background: var(--color-night, #171310);
+    color: #fff;
+  }
+  .rvhg-heroslider .rvhg-heroslider__arrow--prev { left: 0.85rem; right: auto; }
+  .rvhg-heroslider .rvhg-heroslider__arrow--next { right: 0.85rem; left: auto; }
+  .rvhg-heroslider .rvhg-heroslider__dots {
+    position: absolute;
+    right: 1.1rem;
+    bottom: 1.1rem;
+    margin: 0;
+    gap: 0.45rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 9999px;
+    background: rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(3px);
+  }
+  .rvhg-heroslider .rvhg-heroslider__dots :global(button) {
+    background: rgba(255, 255, 255, 0.55);
+  }
+  .rvhg-heroslider .rvhg-heroslider__dots :global(button[aria-current='true']) {
+    background: var(--color-brass-300, #d8c29a);
   }
 
   /* trust stats strip */
@@ -598,7 +704,10 @@ const powderSlides = [
   [data-slider-ready] .rvhg-slider__arrow { display: grid; }
 
   .rvhg-slider__dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.75rem; }
-  .rvhg-slider__dots button {
+  /* :global vì nút chấm do Motion.astro tạo bằng JS — không mang hash scope
+     của file này, nên `.rvhg-slider__dots button` biên dịch ra
+     `button[data-astro-cid-…]` và không khớp gì cả. */
+  .rvhg-slider__dots :global(button) {
     width: 0.5rem;
     height: 0.5rem;
     padding: 0;
@@ -608,7 +717,7 @@ const powderSlides = [
     cursor: pointer;
     transition: background 0.2s var(--ease-refined, ease), width 0.2s var(--ease-refined, ease);
   }
-  .rvhg-slider__dots button[aria-current='true'] { background: var(--color-primary); width: 1.5rem; }
+  .rvhg-slider__dots :global(button[aria-current='true']) { background: var(--color-primary); width: 1.5rem; }
 
   @media (max-width: 900px) {
     .rvhg-slide { flex-basis: calc((100% - 1.5rem) / 2); }
