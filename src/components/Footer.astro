@@ -167,7 +167,11 @@ const year = new Date().getFullYear();
   .rvhg-footer__legal-block {
     font-size: 0.8rem;
     line-height: 1.65;
-    color: color-mix(in srgb, var(--color-night-mute) 80%, transparent);
+    /* Trước đây pha 80% với transparent → 3,75:1 trên nền sơn mài, trượt AA.
+       Nâng chính --color-night-mute không cứu được vì phần alpha ăn hết phần
+       nâng; dùng màu đủ 100% cho 5,32:1. Phân cấp vẫn còn vì tiêu đề cột là
+       brass-300 còn thân là night-mute. */
+    color: var(--color-night-mute);
     max-width: 70ch;
   }
   .rvhg-footer__legal-block p + p { margin-top: 0.45rem; }
@@ -194,7 +198,9 @@ const year = new Date().getFullYear();
     justify-content: space-between;
     align-items: center;
     font-size: 0.78rem;
-    color: color-mix(in srgb, var(--color-night-mute) 75%, transparent);
+    /* Trước đây pha 75% với transparent → 3,40:1, trượt AA. Xem ghi chú ở
+       .rvhg-footer__legal-block. */
+    color: var(--color-night-mute);
   }
   .rvhg-footer__bar ul {
     list-style: none;

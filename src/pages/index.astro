@@ -300,7 +300,12 @@ const powderSlides = [
   }
   .rvhg-hero3d__inner { position: relative; }
 
-  .rvhg-hero3d__lead { color: var(--color-brass-300, #d8c29a); }
+  /* brass-250 chứ không 300: hai dòng này nằm trong quầng sáng hero, nền hợp
+     thành ở đỉnh quầng kéo brass-300 xuống 4,47:1 (4,09 khi bật nền Tết) —
+     trượt AA cho chữ thường. brass-250 giữ 5,07 / 4,63.
+     __hl thì GIỮ brass-300: nó nằm trong h1 cỡ clamp 40px+ nên là chữ lớn,
+     ngưỡng chỉ 3:1 và nó đang ở 5,39. */
+  .rvhg-hero3d__lead { color: var(--color-brass-250, #e2cfa8); }
   .rvhg-hero3d__title {
     margin: 0.7rem auto 0;
     max-width: 17ch;
@@ -315,7 +320,7 @@ const powderSlides = [
     font-size: clamp(1.2rem, 1.5vw + 1rem, 1.95rem);
     font-weight: 500;
     letter-spacing: -0.01em;
-    color: var(--color-brass-300, #d8c29a);
+    color: var(--color-brass-250, #e2cfa8);
   }
   .rvhg-hero3d__ctas {
     margin-top: 1.5rem;
