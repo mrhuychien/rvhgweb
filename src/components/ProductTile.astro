@@ -19,8 +19,14 @@ const { name, image, weight, isOcop5Star = false, loading = 'lazy', accent, href
 const Wrapper = href ? 'a' : 'figure';
 const Caption = href ? 'span' : 'figcaption';
 
-/** Initials shown on the nameplate fallback when an image is missing. */
-const initials = name
+/** Initials shown on the nameplate fallback when an image is missing.
+ *  Bỏ phần tên chung ở đầu trước đã: gần như mọi sản phẩm đều mở bằng
+ *  "Bánh đậu xanh" / "Giỏ quà" / "Hộp quà", nên lấy thẳng hai chữ cái đầu thì
+ *  cả dãy ra "BĐ" hoặc "GQ" giống hệt nhau và nameplate mất sạch tác dụng
+ *  phân biệt. Lấy theo phần đặc trưng: "Giỏ quà Kim ngư phú quý" → "KN". */
+const GENERIC_PREFIX = /^(?:bánh\s+đậu\s+xanh|bánh\s+đậu|giỏ\s+quà|hộp\s+quà)\s+/iu;
+const distinctive = name.replace(GENERIC_PREFIX, '').trim() || name;
+const initials = distinctive
   .replace(/[^\p{L} ]/gu, '')
   .split(/\s+/)
   .filter(Boolean)

@@ -40,6 +40,20 @@ selfDeclarations:
   - label: 'Bản tự công bố 04 — Hương vị trái cây (PDF)'
     href: 'https://drive.google.com/file/d/1rk9xX7z0MSE4Fh-MGP8VC1_czNIOb8ma/view?usp=sharing'
 products:
+  # --- Mới cho Tết 2027 Đinh Mùi (theo catalogue) ---
+  # Chưa có `image`: catalogue in nhãn "MỚI" đè LÊN tranh sản phẩm ở cả 7 món
+  # nên không bóc được ảnh sạch — xoá nhãn là thủng lỗ. Tile tự rơi về
+  # nameplate dự phòng (ProductTile.astro) cho tới khi có ảnh chụp gốc.
+  - name: 'Giỏ quà Kim ngư phú quý'
+  - name: 'Giỏ quà Song mã khải hoàn'
+  - name: 'Giỏ quà Kim hoa tụ lộc'
+  - name: 'Hộp quà Ngũ vị – Lộc'
+    weight: '600 g'
+  - name: 'Hộp quà Ngũ vị – Phúc'
+    weight: '600 g'
+  - name: 'Hộp quà Sen vàng Tài lộc'
+    weight: '900 g'
+  # --- Đang lưu hành ---
   - name: 'Hộp quà OCOP 5 sao Quốc gia'
     image: '/images/legacy/hop-5-sao-web.jpg'
     isOcop5Star: true
@@ -82,7 +96,10 @@ products:
   - name: 'Bánh đậu xanh Tháp sen'
     image: '/images/legacy/thap-vang-trung-300x300.jpg'
   - name: 'Bánh đậu xanh Thỏi vàng tài lộc'
+    # Ảnh là mẫu bao bì CŨ. Catalogue 2027 gắn "MỚI" cho món này vì đổi mẫu
+    # (thêm dấu OCOP 5 sao), không phải SKU mới — cần ảnh chụp mẫu mới.
     image: '/images/legacy/tai-loc-trung-300x300.jpg'
+    weight: '200 g / 100 g'
   - name: 'Bánh đậu thượng hạng Tiến vua'
     image: '/images/legacy/HOP-TIEN-VUA-1-300x300.png'
 ---
