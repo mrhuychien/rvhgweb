@@ -63,7 +63,7 @@ const powderSlides = [
     <div class="rvhg-container rvhg-hero3d__inner">
       <p class="rvhg-eyebrow rvhg-hero3d__lead">Rồng Vàng Hoàng Gia · Hải Dương từ 1997</p>
       <h1 class="rvhg-hero3d__title">
-        Thấy Hoàng Gia là <span class="rvhg-hero3d__hl">thấy Tết</span>
+        Thấy Rồng Vàng Hoàng Gia<br />là <span class="rvhg-hero3d__hl">thấy Tết</span>
       </h1>
       <p class="rvhg-hero3d__sub">Bánh đậu xanh OCOP 5 sao Quốc gia — chất lượng đỉnh cao được khẳng định.</p>
       <div class="gold-rule rvhg-rule--center"></div>
@@ -308,8 +308,16 @@ const powderSlides = [
   .rvhg-hero3d__lead { color: var(--color-brass-250, #e2cfa8); }
   .rvhg-hero3d__title {
     margin: 0.7rem auto 0;
-    max-width: 17ch;
-    font-size: var(--text-headline);
+    /* Nới từ 17ch: dòng một "Thấy Rồng Vàng Hoàng Gia" dài 24 ký tự, giữ 17ch
+       là nó tự ngắt giữa chừng và phá mất chỗ xuống dòng đã đặt bằng <br>. */
+    max-width: 26ch;
+    /* min(...) chứ không phải thẳng --text-headline: token đó có sàn 2,25rem,
+       mà ở 390px thì "Thấy Rồng Vàng Hoàng Gia" cần tới ~430px ở cỡ 36px nên
+       nó tự ngắt sau "Rồng" — cắt đôi "Rồng Vàng" và biến tiêu đề thành ba
+       dòng, phá đúng chỗ xuống dòng đã đặt bằng <br>. 7,2vw là cỡ lớn nhất mà
+       dòng một còn vừa một hàng (bề ngang chữ ≈ 11,9 × cỡ chữ, trừ 2×24px lề),
+       và min() để màn rộng vẫn giữ nguyên cỡ thiết kế của token. */
+    font-size: min(var(--text-headline), 7.2vw);
     color: #fbf8f1;
   }
   .rvhg-hero3d__hl { color: var(--color-brass-300, #d8c29a); }

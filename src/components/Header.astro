@@ -413,13 +413,62 @@ const LANGS = [
       });
     });
 
-    const onScroll = () => {
-      if (window.scrollY > 8) header.setAttribute('data-scrolled', '');
-      else header.removeAttribute('data-scrolled');
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    applyScrolled();
   }
+
+  /**
+   * Thu nhỏ header khi cuộn — NGƯỠNG KÉP, bắt buộc.
+   *
+   * Header là position: sticky nên nó vẫn chiếm chỗ trong luồng tài liệu. Co
+   * lại là tài liệu ngắn đi đúng bấy nhiêu (đo thật: 20px ở desktop, 10px ở
+   * 390px), và scroll-anchoring của trình duyệt kéo scrollY xuống theo để giữ
+   * nguyên nội dung đang nhìn. Với MỘT ngưỡng duy nhất, cú kéo đó đưa scrollY
+   * về lại phía bên kia ngưỡng → lật trạng thái → lật lại → vòng vô tận ở tốc
+   * độ khung hình. Bản cũ (ngưỡng 8) đo được 77 lần đổi trong 1,5 giây tại
+   * scrollY=12, scrollY tự dao động 4–11: đúng hiện tượng logo và menu giật
+   * không ngừng.
+   *
+   * Khoảng cách hai ngưỡng (40px) phải lớn hơn độ co lớn nhất (20px), nếu
+   * không vòng lặp quay lại. Đổi chiều cao header thì phải đo lại khoảng này.
+   *
+   * Không dùng overflow-anchor: none để chữa: tắt anchoring toàn trang sẽ mất
+   * tính năng giữ chỗ khi ảnh tải xong — đổi một lỗi lấy một lỗi khác.
+   */
+  const SHRINK_ON = 64;
+  const SHRINK_OFF = 24;
+
+  function applyScrolled() {
+    // Tra DOM mỗi lần thay vì giữ tham chiếu: listener chỉ gắn MỘT lần cho cả
+    // phiên, còn ClientRouter thay <header> sau mỗi lần chuyển trang.
+    const h = document.querySelector('[data-rvhg-header]');
+    if (!h) return;
+    const y = window.scrollY;
+    // Đọc trạng thái từ chính DOM, không giữ biến closure — tránh lệch sau swap.
+    const shrunk = h.hasAttribute('data-scrolled');
+    if (!shrunk && y > SHRINK_ON) h.setAttribute('data-scrolled', '');
+    else if (shrunk && y < SHRINK_OFF) h.removeAttribute('data-scrolled');
+  }
+
   initHeader();
   document.addEventListener('astro:after-swap', initHeader);
+
+  // Gắn một lần cho cả phiên. Bản cũ gắn trong initHeader nên mỗi lần
+  // ClientRouter chuyển trang lại chồng thêm một listener nữa.
+  const scrollWin = window as unknown as { __rvhgScrollBound?: boolean };
+  if (!scrollWin.__rvhgScrollBound) {
+    scrollWin.__rvhgScrollBound = true;
+    let ticking = false;
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          ticking = false;
+          applyScrolled();
+        });
+      },
+      { passive: true },
+    );
+  }
 </script>
