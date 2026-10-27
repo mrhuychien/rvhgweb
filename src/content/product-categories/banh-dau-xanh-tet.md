@@ -16,8 +16,8 @@ faq:
   - q: 'Mua quà Tết Rồng Vàng Hoàng Gia ở đâu?'
     a: 'Mua tại hệ thống siêu thị lớn, trên Shopee và TikTok Shop, hoặc showroom 209C Tuệ Tĩnh và 9 Bạch Đằng (TP Hải Dương). Nên đặt sớm dịp cận Tết để chủ động số lượng — hotline/Zalo 0934362658.'
 order: 2
-heroImage: '/images/hero/tet-thay-hoang-gia.webp'
-heroImageAlt: 'Thấy Hoàng Gia là thấy Tết — mâm quà Tết bánh đậu xanh Rồng Vàng Hoàng Gia bên cành đào và gia đình sum vầy'
+heroImage: '/images/hero/tet-thay-rong-vang-hoang-gia.webp'
+heroImageAlt: 'Thấy Rồng Vàng Hoàng Gia là thấy Tết — mâm quà Tết bánh đậu xanh Rồng Vàng Hoàng Gia bên cành đào và gia đình sum vầy'
 heroImageFull: true
 cardImage: '/images/legacy/card-tet.jpg'
 storyImage: '/images/legacy/long-phung-lien-hoa-300x300.jpg'

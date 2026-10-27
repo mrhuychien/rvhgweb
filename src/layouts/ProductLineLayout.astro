@@ -215,11 +215,22 @@ if (d.faq.length > 0) jsonLd.push(faqSchema(d.faq));
     object-fit: cover;
     display: block;
   }
+  /* Tranh bật heroImageFull có chữ in sẵn ở MÉP TRÊN, nên trần 36rem của rule
+     chung cắt vào chữ: ở 1440px ảnh cao tự nhiên 810px, khung 576px, cover bỏ
+     28,8% chia đều hai đầu — đo được 14,4% từ trên, xén ngang thân dòng "thấy
+     Rồng Vàng". Nới trần riêng lên 40rem (640px, chỉ cao hơn 64px) và dồn
+     khung ngắm lên 20% để phần cắt rơi xuống đáy — đáy là dải vải đỏ và tiền
+     vàng, mất ít hơn hẳn so với mất chữ. Các dòng sản phẩm khác giữ nguyên. */
+  .rvhg-line-hero__media--full :global(img) {
+    height: clamp(20rem, 55vw, 40rem);
+    object-position: 50% 20%;
+  }
   /* Dưới ~570px, khung cao tối thiểu 20rem hẹp hơn tỉ lệ ảnh ngang, nên
      object-fit: cover cắt mất hai mép — với tranh có chữ in sẵn thì đó là mất
      chữ. `height: auto` trả khung về đúng tỉ lệ lấy từ width/height của chính
-     thẻ <img>. Chỉ áp dụng cho trang bật heroImageFull, các dòng khác giữ
-     nguyên khung cao vốn là chủ ý bố cục. */
+     thẻ <img>. Phải đứng SAU rule --full ở trên: cùng độ đặc hiệu nên thứ tự
+     nguồn quyết định. Chỉ áp dụng cho trang bật heroImageFull, các dòng khác
+     giữ nguyên khung cao vốn là chủ ý bố cục. */
   @media (max-width: 600px) {
     .rvhg-line-hero__media--full :global(img) { height: auto; }
   }

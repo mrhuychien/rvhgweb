@@ -12,13 +12,13 @@ const lines = (await getCollection('productCategories')).sort((a, b) => a.data.o
  *  các slide sau lazy.
  *
  *  `caption` chỉ đặt cho ảnh KHÔNG có sẵn chữ trong tranh. Ảnh Tết đã in sẵn
- *  dòng "thấy Hoàng Gia là thấy Tết" nên để trống — gắn caption nữa là chữ
- *  hiện hai lần chồng nhau. Dù vậy `alt` luôn mang nguyên văn dòng chữ đó,
- *  vì WCAG 1.1.1 yêu cầu chữ nằm trong ảnh phải có trong text thay thế. */
+ *  dòng "thấy Rồng Vàng Hoàng Gia là thấy Tết" nên để trống — gắn caption nữa
+ *  là chữ hiện hai lần chồng nhau. Dù vậy `alt` luôn mang nguyên văn dòng chữ
+ *  đó, vì WCAG 1.1.1 yêu cầu chữ nằm trong ảnh phải có trong text thay thế. */
 const HERO_SLIDES = [
   {
-    image: '/images/hero/tet-thay-hoang-gia.webp',
-    alt: 'Thấy Hoàng Gia là thấy Tết — mâm quà Tết bánh đậu xanh Rồng Vàng Hoàng Gia bên cành đào và gia đình sum vầy',
+    image: '/images/hero/tet-thay-rong-vang-hoang-gia.webp',
+    alt: 'Thấy Rồng Vàng Hoàng Gia là thấy Tết — mâm quà Tết bánh đậu xanh Rồng Vàng Hoàng Gia bên cành đào và gia đình sum vầy',
     caption: '',
   },
   {
