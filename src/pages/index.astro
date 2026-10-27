@@ -11,20 +11,27 @@ const lines = (await getCollection('productCategories')).sort((a, b) => a.data.o
 /** Băng ảnh chủ đề ở hero. Slide đầu là ảnh LCP (eager + fetchpriority high),
  *  các slide sau lazy.
  *
- *  `caption` chỉ đặt cho ảnh KHÔNG có sẵn chữ trong tranh. Ảnh Tết đã in sẵn
- *  dòng "thấy Rồng Vàng Hoàng Gia là thấy Tết" nên để trống — gắn caption nữa
- *  là chữ hiện hai lần chồng nhau. Dù vậy `alt` luôn mang nguyên văn dòng chữ
- *  đó, vì WCAG 1.1.1 yêu cầu chữ nằm trong ảnh phải có trong text thay thế. */
+ *  Mỗi slide mang luôn `title` + `sub` của nó: tiêu đề lớn phía trên băng ảnh
+ *  đổi theo slide đang chạy, nên chữ và ảnh phải nằm cùng một chỗ để không bao
+ *  giờ lệch nhau. `title` tách ba mảnh vì dòng hai có phần tô vàng:
+ *  render thành `{l1}<br />{l2}<span class="…__hl">{hl}</span>`.
+ *
+ *  Không còn `caption` chồng lên ảnh: trước đây slide 2 dùng caption để nói
+ *  "Bánh đậu xanh OCOP 5 sao Quốc gia", nay chính tiêu đề lớn nói câu đó nên
+ *  caption chỉ là lặp lại. `alt` thì vẫn mang nguyên văn dòng chữ in sẵn trong
+ *  tranh, vì WCAG 1.1.1 yêu cầu chữ nằm trong ảnh phải có trong text thay thế. */
 const HERO_SLIDES = [
   {
     image: '/images/hero/tet-thay-rong-vang-hoang-gia.webp',
     alt: 'Thấy Rồng Vàng Hoàng Gia là thấy Tết — mâm quà Tết bánh đậu xanh Rồng Vàng Hoàng Gia bên cành đào và gia đình sum vầy',
-    caption: '',
+    title: { l1: 'Thấy Rồng Vàng Hoàng Gia', l2: 'là ', hl: 'thấy Tết' },
+    sub: 'Bánh đậu xanh OCOP 5 sao Quốc gia — chất lượng đỉnh cao được khẳng định.',
   },
   {
     image: '/images/legacy/hero-home.jpg',
     alt: 'Bánh đậu xanh Rồng Vàng Hoàng Gia',
-    caption: 'Bánh đậu xanh OCOP 5 sao Quốc gia',
+    title: { l1: 'Bánh đậu xanh', l2: '', hl: 'OCOP 5 sao Quốc gia' },
+    sub: 'Chất lượng đỉnh cao được khẳng định.',
   },
 ];
 
@@ -62,10 +69,36 @@ const powderSlides = [
 
     <div class="rvhg-container rvhg-hero3d__inner">
       <p class="rvhg-eyebrow rvhg-hero3d__lead">Rồng Vàng Hoàng Gia · Hải Dương từ 1997</p>
-      <h1 class="rvhg-hero3d__title">
-        Thấy Rồng Vàng Hoàng Gia<br />là <span class="rvhg-hero3d__hl">thấy Tết</span>
-      </h1>
-      <p class="rvhg-hero3d__sub">Bánh đậu xanh OCOP 5 sao Quốc gia — chất lượng đỉnh cao được khẳng định.</p>
+      <!-- Hai biến thể tiêu đề nằm CHỒNG lên nhau trong một ô grid, không phải
+           thay chữ bằng JS. Hai lý do: khung luôn cao bằng biến thể cao nhất
+           nên đổi slide không làm trang co giãn — co giãn ở đầu trang là đúng
+           thứ kéo neo cuộn và sinh ra kiểu giật đã phải sửa ở Header.astro; và
+           chữ có sẵn trong HTML tĩnh nên không phụ thuộc JS mới đọc được.
+           Chỉ biến thể đầu là thẻ h1: trang phải có đúng một h1, và nó phải là
+           câu thương hiệu. Biến thể sau là thẻ p trông y hệt, mang aria-hidden
+           CỐ ĐỊNH — trình đọc màn hình luôn nghe một tiêu đề ổn định, vòng
+           quay chỉ dành cho mắt.
+           (Viết tên thẻ không kèm dấu ngoặc nhọn là cố ý: Astro giữ nguyên
+           comment HTML trong bản build, nên một thẻ h1 viết đủ ngoặc ở đây sẽ
+           làm mọi phép đếm bằng grep trên dist báo trang có hai h1.) -->
+      <div class="rvhg-hero3d__copy" data-hero-copy>
+        {HERO_SLIDES.map((s, i) => {
+          const Title = i === 0 ? 'h1' : 'p';
+          return (
+            <div
+              class="rvhg-hero3d__copyv"
+              data-hero-copyv
+              data-active={i === 0 ? '' : undefined}
+              aria-hidden={i === 0 ? undefined : 'true'}
+            >
+              <Title class="rvhg-hero3d__title">
+                {s.title.l1}<br />{s.title.l2}<span class="rvhg-hero3d__hl">{s.title.hl}</span>
+              </Title>
+              <p class="rvhg-hero3d__sub">{s.sub}</p>
+            </div>
+          );
+        })}
+      </div>
       <div class="gold-rule rvhg-rule--center"></div>
       <div class="rvhg-hero3d__ctas">
         <a class="rvhg-btn" href="/san-pham/">Khám phá sản phẩm</a>
@@ -95,7 +128,6 @@ const powderSlides = [
                 loading={i === 0 ? 'eager' : 'lazy'}
                 fetchpriority={i === 0 ? 'high' : 'auto'}
               />
-              {s.caption && <p class="rvhg-heroslide__caption">{s.caption}</p>}
             </li>
           ))}
         </ul>
@@ -306,6 +338,26 @@ const powderSlides = [
      __hl thì GIỮ brass-300: nó nằm trong h1 cỡ clamp 40px+ nên là chữ lớn,
      ngưỡng chỉ 3:1 và nó đang ở 5,39. */
   .rvhg-hero3d__lead { color: var(--color-brass-250, #e2cfa8); }
+
+  /* Khối tiêu đề: mọi biến thể dồn vào CÙNG MỘT ô grid nên chúng chồng lên
+     nhau và khung cao bằng biến thể cao nhất — đổi slide không đụng tới chiều
+     cao tài liệu. Không dùng position:absolute vì khi đó khung sụp về 0 và
+     phần dưới hero nhảy lên. */
+  .rvhg-hero3d__copy { display: grid; }
+  .rvhg-hero3d__copyv {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transition: opacity 0.55s ease;
+  }
+  .rvhg-hero3d__copyv[data-active] { opacity: 1; }
+  /* Chốt chặn khi JS không chạy: biến thể đầu đã mang sẵn data-active trong
+     HTML tĩnh nên vẫn hiện, nhưng thêm luật này để kể cả khi thuộc tính đó bị
+     gỡ mà bộ móc chưa gắn xong thì tiêu đề không bao giờ trắng. */
+  .rvhg-hero3d__copy:not([data-hero-copy-ready]) .rvhg-hero3d__copyv:first-child { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .rvhg-hero3d__copyv { transition: none; }
+  }
+
   .rvhg-hero3d__title {
     margin: 0.7rem auto 0;
     /* Nới từ 17ch: dòng một "Thấy Rồng Vàng Hoàng Gia" dài 24 ký tự, giữ 17ch
@@ -319,6 +371,17 @@ const powderSlides = [
        và min() để màn rộng vẫn giữ nguyên cỡ thiết kế của token. */
     font-size: min(var(--text-headline), 7.2vw);
     color: #fbf8f1;
+    /* Nhắc lại kiểu chữ của h1 ngay tại đây: biến thể thứ hai là <p> (trang chỉ
+       được có một h1) nên global.css §"h1, h2, h3, h4" không với tới nó — thiếu
+       khối này là biến thể hai sai font, sai độ đậm, sai giãn dòng. `balance`
+       cũng phải ghi rõ: mặc định `p` là `pretty`, mà hai thuật toán ngắt dòng
+       khác nhau thì hai biến thể lệch chiều cao, đúng thứ khối grid chồng lớp
+       đang cố tránh. */
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
   }
   .rvhg-hero3d__hl { color: var(--color-brass-300, #d8c29a); }
   .rvhg-hero3d__sub {
@@ -385,21 +448,6 @@ const powderSlides = [
     .rvhg-heroslider .rvhg-heroslide :global(img) { height: auto; }
   }
 
-  .rvhg-heroslide__caption {
-    position: absolute;
-    inset-inline: 0;
-    bottom: 0;
-    margin: 0;
-    /* chừa mép phải cho chấm chỉ mục */
-    padding: 3rem 6.5rem 1.15rem 1.35rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.66), transparent);
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: clamp(1rem, 2.2vw, 1.5rem);
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.55);
-  }
   /* Các rule .rvhg-slider__* dùng chung nằm SAU khối này trong file và có cùng
      độ ưu tiên, nên override của hero phải thêm một lớp (.rvhg-heroslider) —
      nếu không thì thứ tự nguồn quyết định và bản dùng chung thắng. */
@@ -807,3 +855,49 @@ const powderSlides = [
     .rvhg-logos--media li.is-wide { grid-column: 1 / -1; }
   }
 </style>
+
+<script>
+  /* Gắn data-active cho biến thể tiêu đề khớp slide đang hiện.
+   *
+   * Motion.astro KHÔNG phát sự kiện nào khi đổi slide — nó chỉ đặt aria-current
+   * lên chấm chỉ mục — và theo quy ước dự án thì không sửa file đó, nên ở đây
+   * tự tính chỉ số từ scrollLeft của track, đúng y công thức nó dùng
+   * (Math.round(scrollLeft / step)). Bám vào scroll chứ không bám vào bộ đếm
+   * giờ, nhờ vậy bấm mũi tên, bấm chấm, hay vuốt tay đều đổi tiêu đề; và khi
+   * prefers-reduced-motion tắt tự chạy thì tiêu đề đứng yên theo.
+   */
+  function bindHeroCopy() {
+    const copy = document.querySelector<HTMLElement>('[data-hero-copy]');
+    const track = document.querySelector<HTMLElement>('.rvhg-heroslider [data-slider-track]');
+    if (!copy || !track || copy.hasAttribute('data-hero-copy-ready')) return;
+    const variants = Array.from(copy.querySelectorAll<HTMLElement>('[data-hero-copyv]'));
+    const slides = Array.from(track.children) as HTMLElement[];
+    if (variants.length < 2 || slides.length < 2) return;
+    copy.setAttribute('data-hero-copy-ready', '');
+
+    const step = () => slides[1].offsetLeft - slides[0].offsetLeft || slides[0].offsetWidth;
+    let ticking = false;
+    const apply = () => {
+      ticking = false;
+      const s = step();
+      if (!s) return;
+      const i = Math.min(variants.length - 1, Math.max(0, Math.round(track.scrollLeft / s)));
+      variants.forEach((v, vi) => v.toggleAttribute('data-active', vi === i));
+    };
+    track.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(apply);
+      },
+      { passive: true },
+    );
+    apply();
+  }
+
+  bindHeroCopy();
+  /* Cờ gắn trên chính phần tử chứ không trên window: ClientRouter thay cả cây
+     DOM sau mỗi lần chuyển trang nên phần tử mới cần được móc lại. */
+  document.addEventListener('astro:page-load', bindHeroCopy);
+</script>
